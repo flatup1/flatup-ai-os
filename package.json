@@ -1,0 +1,22 @@
+{
+  "name": "flatup-ai-os",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "FLATUP GYM の AI スタッフ「AIKA」を Claude で動かすための運用 OS",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "list": "tsx src/index.ts --list",
+    "test:pii": "tsx src/utils/sanitizePii.test.ts",
+    "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",
+    "test": "npm run typecheck && npm run test:pii && npm run test:routes"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
