@@ -50,6 +50,7 @@ export async function buildAikaSystem(taskHint: string): Promise<SystemBlocks> {
     "gym_profile.md",
     "pricing.md",
     "rules.md",
+    "agent_operating_policy.md",
     "brand_voice.md",
     "trial_flow.md",
     "sparring_policy.md",
