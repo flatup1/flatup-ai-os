@@ -10,6 +10,8 @@ import { trainingManual } from "../modules/training_manual.js";
 import { videoScript } from "../modules/video_script.js";
 import { differentiation } from "../modules/differentiation.js";
 import { uizin } from "../modules/uizin.js";
+import { canonContext, receptionReplyAsync } from "../safety/receptionist.js";
+import type { SystemBlocks } from "./client.js";
 
 export type RouteName =
   | "line_reply"
@@ -27,6 +29,23 @@ interface Route {
   description: string;
   example: string;
   handler: typeof lineReply;
+}
+
+const CUSTOMER_FACING_ROUTES = new Set<RouteName>([
+  "line_reply",
+  "followup",
+  "review_request",
+  "daily_manager",
+]);
+
+function withCanonContext(system: SystemBlocks): SystemBlocks {
+  return [
+    {
+      type: "text",
+      text: canonContext(),
+    },
+    ...system,
+  ];
 }
 
 export const routes: Record<RouteName, Route> = {
@@ -90,7 +109,11 @@ export async function runRoute(routeName: string, input: string): Promise<string
 
   setCurrentRoute(routeName);
   try {
-    const system = await buildAikaSystem(`${routeName} — ${route.description}`);
+    const system = withCanonContext(await buildAikaSystem(`${routeName} — ${route.description}`));
+    if (CUSTOMER_FACING_ROUTES.has(routeName as RouteName) && process.env.OPENROUTER_API_KEY) {
+      const out = await receptionReplyAsync(input, () => route.handler(system, input));
+      return out.reply;
+    }
     return await route.handler(system, input);
   } finally {
     setCurrentRoute(undefined);

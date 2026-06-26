@@ -9,9 +9,10 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "list": "tsx src/index.ts --list",
+    "test:safety": "tsx src/safety/receptionist.test.ts",
     "test:pii": "tsx src/utils/sanitizePii.test.ts",
     "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",
-    "test": "npm run typecheck && npm run test:pii && npm run test:routes"
+    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes"
   },
   "dependencies": {},
   "devDependencies": {

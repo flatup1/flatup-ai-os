@@ -91,6 +91,13 @@ await record("system preview includes data knowledge", async () => {
   );
 });
 
+// 6) 顧客向けルートは openQLOW 正本コンテキストを system prompt に注入する
+await record("customer-facing route includes openQLOW canon context", async () => {
+  const out = await runRoute("line_reply", "料金を教えてください");
+  assert.ok(out.includes("FLATUP GYM 正本"), "openQLOW 正本コンテキストが入っていない");
+  assert.ok(out.includes("初回体験500円"), "正本の体験料金が入っていない");
+});
+
 // --- 集計 ---
 if (fail === 0) {
   console.log(`✓ all route tests passed (${pass} cases)`);

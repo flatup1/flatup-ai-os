@@ -1,5 +1,9 @@
 # FLATUP AI OS
 
+地図: この箱はAIKAのお客様対応・LLM下書き口です。
+地図: 事実の正本は `openqlow/src/shared/canon.ts` で、直書きしません。
+地図: 触る前に `openqlow/src/shared/canon.ts` と `src/safety/receptionist.ts` を読みます。
+
 FLATUP GYM を AI スタッフ「AIKA」と一緒に回すための運用 OS。
 本番 LINE Bot と同じく **OpenRouter 経由 / Claude Haiku 4.5** で動く TypeScript プロジェクトです（依存ゼロ・fetch 直叩き）。
 
@@ -187,8 +191,9 @@ Git管理されるファイルには書きません。
 
 ```bash
 npm run test         # typecheck + PII + routes すべて
-npm run test:pii     # PII パターン回帰 (18 ケース)
-npm run test:routes  # 全 10 ルート dry-run + OpenRouter/モデル検証 (14 ケース)
+npm run test:safety  # openQLOW正本 + 受付門番の回帰
+npm run test:pii     # PII パターン回帰 (25 ケース)
+npm run test:routes  # 全 10 ルート dry-run + OpenRouter/モデル検証 (15 ケース)
 ```
 
 `test:routes` は **実 API を絶対に叩かない**よう `OPENROUTER_API_KEY=` で起動します。
