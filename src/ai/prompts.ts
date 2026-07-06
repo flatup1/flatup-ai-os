@@ -80,6 +80,7 @@ export async function buildAikaSystem(taskHint: string): Promise<SystemBlocks> {
     "training_manual.md",
     "templates.md",
     "faq.md",
+    "cancellation_rules.md",
   ]);
 
   return [
