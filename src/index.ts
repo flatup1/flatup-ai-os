@@ -1,3 +1,4 @@
+import "./utils/loadEnv.js";
 import { runRoute, listRoutes, routes } from "./ai/router.js";
 import { saveLog } from "./utils/saveLog.js";
 import {

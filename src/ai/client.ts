@@ -1,3 +1,4 @@
+import "../utils/loadEnv.js";
 import { retryWithBackoff } from "../utils/retry.js";
 import { appendUsageLog } from "../utils/usageLog.js";
 import { getCurrentRoute } from "../utils/context.js";
