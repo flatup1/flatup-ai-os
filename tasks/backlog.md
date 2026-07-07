@@ -1,5 +1,11 @@
 # Backlog
 
+## セットアップ・動作確認（旧 today.md から移動 2026-07-07）
+- [ ] `.env` を作り `ANTHROPIC_API_KEY` を設定 → `npm install` → `npm run list`
+- [ ] 各ルート動作確認: `line_reply` / `sns_post` / `video_script` / `risk_check`
+- [ ] AIKA の口調を `data/brand_voice.md` で再確認
+- [ ] 体験予約 LINE 返信 3 件を `logs/replies/` に貯める
+
 ## 仕様書(これをベースに設計.rtf)で約束した成果物
 - [ ] 成果物 A: 動画マニュアル台本(全編)
   - 体験トレーニング編
