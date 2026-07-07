@@ -79,6 +79,7 @@ export async function buildAikaSystem(taskHint: string): Promise<SystemBlocks> {
     "visual_brand.md",
     "training_manual.md",
     "templates.md",
+    "line_flows_100.md",
     "faq.md",
     "cancellation_rules.md",
   ]);
