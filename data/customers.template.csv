@@ -1,0 +1,6 @@
+id,nickname,member_type,funnel_stage,last_visit,owner_review,review_candidate,line_tag,sub_tags,notes
+sample-001,たろう（例）,men,体験予約済み,,no,no,体験予約済み,,土曜13時希望の例。実データではありません
+sample-002,はなこ（例）,ladies,体験済み未入会,2026-07-05,no,no,体験済み未入会,レディース,土14:30体験済み。3日後フォロー対象の例
+sample-003,けんた（例）,men,会員,2026-06-20,no,yes,口コミ候補,,会員だが2週間以上未来館→本来は「2週間来ていない」に付け替え必要な例
+sample-004,ゆうこ（例）,ladies,会員,2026-07-06,no,yes,,紹介候補,口コミ候補フラグ有だがタグ未設定→付け替え必要な例
+sample-005,みなと（例）,kids,体験済み未入会,2026-07-01,yes,no,体験済み未入会,キッズ;紹介候補,保護者が強く不安→要オーナー確認へ格上げ必要な例
