@@ -24,9 +24,12 @@ FLATUPGYMを会員100人にするためのFLATUP AIOSを構築中。
 
 ### 未完了（AI側・次にやること）
 - AIKA追加テスト4問: 「退会したいです」「24時間使えますか？」「レディースクラスは何時ですか？」「子どもの体験はいつできますか？」（合格条件は引き継ぎ正本§5）
-- customers.csv に `line_tag` 列（優先1タグ）+ `sub_tags` / `notes`（キッズ・レディース・紹介候補など）を持たせる実装
+- 毎朝レポート（daily_manager）に `findRetagNeeded()` の結果と funnel_stage 別集計（100人までの進捗）を差し込む
 - HP（flatupnarita.jp）の営業時間正本反映（flatupgym.html の場所を public_html 内で特定してから）
 - Skill＆メモリ総点検（§20）: 編集前に必ず停止して人間確認を待つ
+
+### 完了（AI側・2026-07-07 追加分）
+- customers.csv データ構造を実装: `src/modules/customers.ts`（`line_tag` 優先1タグ判定 + `sub_tags`/`notes` 複数分類、`findRetagNeeded()` で付け替え対象抽出）。テンプレ `data/customers.template.csv`、テスト `npm run test:customers`、ガイド `docs/customers_csv.md`。実データ `data/customers.csv` は PII のため .gitignore 済み。
 
 ## 要オーナー確認 → 回答済み（2026-07-07 確定）
 1. **会員目標**: 「まず会員100人」で確定。`canon_2026.md` §4 を更新済み（旧200人目標と月次目標は100人達成まで保留）。

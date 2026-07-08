@@ -5,3 +5,6 @@ dist/
 logs/**/*.md
 logs/usage.jsonl
 !logs/**/.gitkeep
+
+# 実顧客データは PII のためコミットしない。列定義は data/customers.template.csv を参照
+data/customers.csv
