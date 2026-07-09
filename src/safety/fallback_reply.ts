@@ -8,11 +8,24 @@
 
 import { FLATUP_CANON as C } from "./canon.js";
 
-export type Intent = "price" | "access" | "classes" | "hours" | "trial" | "greeting" | "unknown";
+export type Intent =
+  | "price"
+  | "access"
+  | "classes"
+  | "hours"
+  | "trial"
+  | "greeting"
+  | "cancellation"
+  | "penalty"
+  | "unknown";
 
 /** 問い合わせ文からおおまかな意図を判定する（優先度順）。 */
 export function detectIntent(message: string): Intent {
   const t = message.normalize("NFKC");
+  // 退会・違約金は最優先で判定する。「入会して半年ですが違約金〜」が trial(入会) に、
+  // 「休会の会費〜」が price(会費) に吸われると、体験・料金の案内を返す事故になる。
+  if (/違約金|解約金|キャンセル料/.test(t)) return "penalty";
+  if (/退会|休会|解約|辞めたい|やめたい/.test(t)) return "cancellation";
   if (/料金|値段|月会費|会費|費用|いくら|金額|価格/.test(t)) return "price";
   if (/場所|住所|どこ|アクセス|駅|行き方|道順|駐車/.test(t)) return "access";
   if (/クラス|種目|メニュー|ボクシング|キック|柔術|ムエタイ|レスリング|何ができ/.test(t)) return "classes";
@@ -54,6 +67,23 @@ export function fallbackReply(message: string): string {
         "体験のお問い合わせありがとうございます😊 初心者の方も安心の、世界一優しい格闘技ジムです。" +
         `${C.trialFirst}でお試しいただけますよ。` +
         "ご希望の曜日だけ教えていただけますか？"
+      );
+    case "cancellation":
+      // 正本 cancellation_rules.md §1/§8 準拠。取次ぎだけで止めず、確定情報(当月申請・
+      // 翌月末退会・即日不可・退会届)は最初の返信で伝える。手続き確定はオーナーが行う。
+      return (
+        "これまで通っていただき、ありがとうございます😊 退会のお手続きをご案内します。" +
+        "退会は当月末までのお申し出で翌月末退会となり、翌月分までの会費が発生します。" +
+        "決済停止の反映時期の都合で即日退会はできかねます。退会届のご提出が必要ですので、" +
+        "在館スタッフより順にご連絡します。"
+      );
+    case "penalty":
+      // 正本 §4: 入会1年未満の退会は違約金10,000円。一次返信で規定は伝えてよいが、
+      // 該当判定(入会日確認)と請求確定はオーナーが行う。断定しすぎない。
+      return (
+        "お問い合わせありがとうございます😊 違約金についてご案内します。" +
+        "ご入会から1年未満での退会の場合、規定により違約金10,000円を頂戴しています。" +
+        "ご入会日によって該当するか変わりますので、担当のスタッフが確認のうえ改めてご連絡します。"
       );
     case "greeting":
       return (
