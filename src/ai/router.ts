@@ -103,7 +103,7 @@ export const routes: Record<RouteName, Route> = {
   },
   animal_reel: {
     description: "動物×格闘技のAI動画リール素材(Sora/Veo用英語プロンプト・IGキャプション・ハッシュタグ)",
-    example: "猫×ボクシング",
+    example: "にゃん術",
     handler: animalReel,
   },
 };
