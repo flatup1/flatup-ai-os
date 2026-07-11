@@ -9,11 +9,13 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "list": "tsx src/index.ts --list",
+    "reel": "tsx src/reel/generate.ts",
     "test:safety": "tsx src/safety/receptionist.test.ts",
     "test:pii": "tsx src/utils/sanitizePii.test.ts",
     "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",
     "test:customers": "tsx src/modules/customers.test.ts",
-    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers"
+    "test:reel": "tsx src/reel/promptBank.test.ts",
+    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel"
   },
   "dependencies": {},
   "devDependencies": {

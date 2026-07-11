@@ -10,6 +10,7 @@ import { trainingManual } from "../modules/training_manual.js";
 import { videoScript } from "../modules/video_script.js";
 import { differentiation } from "../modules/differentiation.js";
 import { uizin } from "../modules/uizin.js";
+import { animalReel } from "../modules/animal_reel.js";
 import { canonContext, receptionReplyAsync } from "../safety/receptionist.js";
 import type { SystemBlocks } from "./client.js";
 
@@ -23,7 +24,8 @@ export type RouteName =
   | "training_manual"
   | "video_script"
   | "differentiation"
-  | "uizin";
+  | "uizin"
+  | "animal_reel";
 
 interface Route {
   description: string;
@@ -98,6 +100,11 @@ export const routes: Record<RouteName, Route> = {
     description: "初心者向けのやさしい案内文(格闘技が怖い人の不安をほどく)",
     example: "格闘技未経験のお母さん向けのKidsクラス紹介",
     handler: uizin,
+  },
+  animal_reel: {
+    description: "動物×格闘技のAI動画リール素材(Sora/Veo用英語プロンプト・IGキャプション・ハッシュタグ)",
+    example: "にゃん術",
+    handler: animalReel,
   },
 };
 
