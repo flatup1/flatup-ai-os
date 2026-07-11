@@ -8,3 +8,6 @@ logs/usage.jsonl
 
 # 実顧客データは PII のためコミットしない。列定義は data/customers.template.csv を参照
 data/customers.csv
+
+# 生成した動画(容量が大きいのでコミットしない)
+output/

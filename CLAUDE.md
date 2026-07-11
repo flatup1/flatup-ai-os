@@ -51,6 +51,11 @@ npm run build                              # TypeScript コンパイル
 | `uizin` | 初心者向けやさしい案内文 |
 | `animal_reel` | 動物×格闘技のAI動画リール素材（Sora/Veo用プロンプト+IG投稿セット） |
 
+動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
+```bash
+npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
+```
+
 ---
 
 ## Directory Guide
