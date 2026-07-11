@@ -15,7 +15,7 @@ import "../utils/loadEnv.js";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { SERIES, resolveSeries, buildPrompt, buildCaption, buildHashtags } from "./promptBank.js";
-import { generateVideo, downloadVideo, seedanceEndpoint } from "./seedance.js";
+import { generateVideo, downloadVideo, seedanceEndpoint, assertValidFalKey } from "./seedance.js";
 
 const args = process.argv.slice(2);
 
@@ -89,6 +89,13 @@ if (!process.env.FAL_KEY) {
 }
 
 // --- 本番生成(直列。レート制限と失敗の切り分けのため) ---
+try {
+  assertValidFalKey();
+} catch (err) {
+  console.error(`[error] ${err instanceof Error ? err.message : String(err)}`);
+  process.exit(1);
+}
+
 const date = new Date().toISOString().slice(0, 10);
 const outDir = join(process.cwd(), "output", "reels", date);
 await mkdir(outDir, { recursive: true });

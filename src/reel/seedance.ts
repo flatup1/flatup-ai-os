@@ -35,10 +35,26 @@ export function seedanceEndpoint(): string {
   return process.env.SEEDANCE_ENDPOINT || "bytedance/seedance-2.0/fast/text-to-video";
 }
 
-function authHeaders(): Record<string, string> {
+/**
+ * FAL_KEY の形が正しいか検査する(プレースホルダのまま・全角文字混入を弾く)。
+ * HTTP ヘッダに乗せられない文字が入っていると fetch が
+ * 「Cannot convert argument to a ByteString」で6回失敗するため、実行前に1回で止める。
+ */
+export function assertValidFalKey(): void {
   const key = process.env.FAL_KEY;
   if (!key) throw new Error("FAL_KEY が未設定です(.env に FAL_KEY=... を追加)");
-  return { Authorization: `Key ${key}`, "Content-Type": "application/json" };
+  if (!/^[\x21-\x7e]+$/.test(key)) {
+    throw new Error(
+      "FAL_KEY に日本語などの全角文字が入っています。「ここにキーを貼る」のままになっていませんか?\n" +
+      "https://fal.ai/dashboard/keys で発行された英数字のキーを .env の FAL_KEY= に貼ってください。\n" +
+      `修正例: echo 'FAL_KEY=実際のキー' > .env`
+    );
+  }
+}
+
+function authHeaders(): Record<string, string> {
+  assertValidFalKey();
+  return { Authorization: `Key ${process.env.FAL_KEY}`, "Content-Type": "application/json" };
 }
 
 async function fetchJson(url: string, init?: RequestInit): Promise<Record<string, unknown>> {
