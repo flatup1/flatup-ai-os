@@ -53,12 +53,25 @@ and one warm amber security light. Quiet, secret, cozy atmosphere.
 Daytime lighting: bright natural window light, airy, clean and welcoming.
 ```
 
-### GYM（舞台。基準写真を添付して使う）
+### GYM（舞台）
 ```
-Setting: the interior of a bright, friendly, spotlessly clean small kickboxing
-gym in Japan — keep the layout, equipment and color scheme of the attached
-reference photo. Training mats, hanging heavy bags, focus mitts on the wall.
-Nothing intimidating: a space where children and beginners feel safe.
+the interior of a bright, friendly, spotlessly clean small kickboxing
+gym in Japan, with training mats, hanging heavy bags and focus mitts on the
+wall. Nothing intimidating: a space where children and beginners feel safe.
+```
+
+### 参照画像を添付したときだけ、末尾に足す一文
+**注意: 画像を添付していないのに書くとモデルが混乱する。添付した回だけ足すこと**
+（`npm run movie` は添付の有無で自動的に付け外しする）
+
+ジム基準写真を添付した回:
+```
+Match the layout, equipment and color scheme of the attached reference photo of the real gym.
+```
+キャラ正本画像を添付した回:
+```
+Keep every character exactly consistent with the attached character reference sheets:
+same colors, same proportions, same stitching, same eye placement.
 ```
 
 ### キャラDNA（一字も変えない）

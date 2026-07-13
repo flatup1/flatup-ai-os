@@ -21,10 +21,18 @@ const LIGHT_DAY =
   "Daytime lighting: bright natural window light, airy, clean and welcoming.";
 
 const GYM =
-  "Setting: the interior of a bright, friendly, spotlessly clean small kickboxing " +
-  "gym in Japan — keep the layout, equipment and color scheme of the attached " +
-  "reference photo. Training mats, hanging heavy bags, focus mitts on the wall. " +
-  "Nothing intimidating: a space where children and beginners feel safe.";
+  "the interior of a bright, friendly, spotlessly clean small kickboxing " +
+  "gym in Japan, with training mats, hanging heavy bags and focus mitts on the " +
+  "wall. Nothing intimidating: a space where children and beginners feel safe.";
+
+/** ジムの基準写真を実際に添付したときだけプロンプト末尾に足す(未添付で書くとモデルが混乱する) */
+export const REF_PHOTO_CLAUSE =
+  "Match the layout, equipment and color scheme of the attached reference photo of the real gym.";
+
+/** キャラ正本画像を実際に添付したときだけプロンプト末尾に足す */
+export const CHAR_REFS_CLAUSE =
+  "Keep every character exactly consistent with the attached character reference sheets: " +
+  "same colors, same proportions, same stitching, same eye placement.";
 
 const GLOVE =
   "GLOVE — a single cherry-red boxing glove (one glove only, not a pair), about " +

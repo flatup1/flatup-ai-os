@@ -90,6 +90,13 @@ test("手が離れるカット(C5c/V2)は顔・全身を排除している", () 
   }
 });
 
+test("基本プロンプトは添付前提の文言を含まない(参照指示は添付時のみ後付け)", () => {
+  for (const shot of SHOTS) {
+    const p = buildShotPrompt(shot).toLowerCase();
+    assert.ok(!p.includes("attached"), `${shot.id}: 添付前提の "attached" が基本プロンプトに残っている`);
+  }
+});
+
 test("findShot は大文字小文字を無視して解決できる", () => {
   assert.equal(findShot("c5c")?.id, "C5c");
   assert.equal(findShot("v1")?.id, "V1");

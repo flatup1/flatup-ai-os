@@ -20,7 +20,15 @@
 import "../utils/loadEnv.js";
 import { mkdir, readdir, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { SHOTS, shotsByPhase, buildShotPrompt, type Phase, type Shot } from "./promptBank.js";
+import {
+  SHOTS,
+  shotsByPhase,
+  buildShotPrompt,
+  REF_PHOTO_CLAUSE,
+  CHAR_REFS_CLAUSE,
+  type Phase,
+  type Shot,
+} from "./promptBank.js";
 import {
   submitAndWait,
   extractImageUrls,
@@ -150,7 +158,7 @@ const jobs: Job[] = [];
 const warnings: string[] = [];
 
 for (const shot of shots) {
-  const prompt = buildShotPrompt(shot);
+  let prompt = buildShotPrompt(shot);
   if (shot.phase === "cuts") {
     const src = shot.sourceStill ? await findFile(STILLS_DIR, shot.sourceStill) : undefined;
     if (!src) {
@@ -170,6 +178,9 @@ for (const shot of shots) {
     }
   } else {
     const attach = await refsForShot(shot);
+    // 実際に添付する画像がある場合だけ、参照指示をプロンプトへ追記する
+    if (basePhoto && attach.includes(basePhoto)) prompt += ` ${REF_PHOTO_CLAUSE}`;
+    if (attach.some(p => p !== basePhoto)) prompt += ` ${CHAR_REFS_CLAUSE}`;
     for (let t = 1; t <= takes; t++) {
       jobs.push({ label: takes > 1 ? `${shot.id}-t${t}` : shot.id, shot, prompt, attach });
     }
