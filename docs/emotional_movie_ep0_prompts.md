@@ -3,6 +3,25 @@
 正本 [emotional_movie_ep0.md](emotional_movie_ep0.md) の実行版。
 上から順にコピペすれば Day 1〜4 が回るように並べてある。
 
+**⚡ 全自動モード（推奨・fal.aiで一括生成）**
+
+このキットのプロンプトはすべて `npm run movie` に内蔵済み。手でコピペしなくても回せる:
+
+```bash
+npm run movie -- list                 # ショット一覧
+npm run movie -- refs                 # Day1: 正本8枚を生成（各2テイク）
+# → 採用画像を assets/movie/ep0/refs/ に保存（JIN承認ゲート①）
+npm run movie -- scenes               # Day2: シーン静止画12枚（正本を毎回自動添付）
+# → 採用画像を assets/movie/ep0/stills/C1.png 等の名前で保存
+npm run movie -- cuts                 # Day4: 優先4カットを image-to-video
+npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
+```
+
+- ジムの基準写真は `assets/movie/ep0/base.jpg` に置く（[GYM]を含むショットに自動添付）
+- `FAL_KEY` 未設定なら DRY-RUN（プロンプトのプレビューのみ・コストゼロ）
+- エンドポイントは `.env` の `MOVIE_IMAGE_ENDPOINT` / `MOVIE_I2V_ENDPOINT` で差し替え可
+- 以下の手動プロンプトは、別ツール（Midjourney等）で回す場合とリテイク調整用
+
 **使い方（共通ルール）**
 - 静止画生成: Nano Banana Pro（Gemini）または Midjourney（`--cref` でキャラ参照）
 - **毎回添付するもの**: ①ジムの基準写真（背景用） ②採用済みキャラ設定画（正本、Day 1で確定後）

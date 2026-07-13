@@ -53,7 +53,8 @@ npm run build                              # TypeScript コンパイル
 
 動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
 ```bash
-npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
+npm run reel -- "にゃん術" --count 3   # 動物×格闘技リール（FAL_KEY 未設定なら DRY-RUN）
+npm run movie -- refs                 # エモーショナル・ムービー第0話の素材生成（同上）
 ```
 
 ---
