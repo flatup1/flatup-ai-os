@@ -15,7 +15,15 @@ import "../utils/loadEnv.js";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { SERIES, resolveSeries, buildPrompt, buildCaption, buildHashtags } from "./promptBank.js";
-import { generateVideo, downloadVideo, seedanceEndpoint, assertValidFalKey } from "./seedance.js";
+import {
+  generateVideo,
+  downloadVideo,
+  seedanceEndpoint,
+  seedanceProvider,
+  requiredKeyName,
+  hasApiKey,
+  assertValidApiKey,
+} from "./seedance.js";
 
 const args = process.argv.slice(2);
 
@@ -74,8 +82,8 @@ for (let i = 0; i < count; i++) {
   }
 }
 
-if (!process.env.FAL_KEY) {
-  console.log(`[DRY-RUN] FAL_KEY が未設定のため、生成はスキップしました(コストゼロ)。\n`);
+if (!hasApiKey()) {
+  console.log(`[DRY-RUN] ${requiredKeyName()} が未設定のため、生成はスキップしました(コストゼロ)。\n`);
   console.log(`シリーズ: ${series.name}(${series.combo}) / ${jobs.length}本ぶんのプレビュー\n`);
   for (const job of jobs) {
     console.log(`--- ${job.label} ---`);
@@ -84,13 +92,16 @@ if (!process.env.FAL_KEY) {
     console.log("");
   }
   console.log(`Hashtags: ${hashtags}`);
-  console.log(`\n本番実行: .env に FAL_KEY=... を追加(取得: https://fal.ai/dashboard/keys)`);
+  const hint = seedanceProvider() === "byteplus"
+    ? "本番実行: .env に ARK_API_KEY=... を追加(BytePlus ModelArk → API Key Management)"
+    : "本番実行: .env に FAL_KEY=... を追加(取得: https://fal.ai/dashboard/keys)";
+  console.log(`\n${hint}`);
   process.exit(0);
 }
 
 // --- 本番生成(直列。レート制限と失敗の切り分けのため) ---
 try {
-  assertValidFalKey();
+  assertValidApiKey();
 } catch (err) {
   console.error(`[error] ${err instanceof Error ? err.message : String(err)}`);
   process.exit(1);
@@ -101,7 +112,7 @@ const outDir = join(process.cwd(), "output", "reels", date);
 await mkdir(outDir, { recursive: true });
 
 console.log(`シリーズ: ${series.name}(${series.combo})`);
-console.log(`エンドポイント: ${seedanceEndpoint()} / ${jobs.length}本を生成します`);
+console.log(`プロバイダ: ${seedanceProvider()} / エンドポイント: ${seedanceEndpoint()} / ${jobs.length}本を生成します`);
 console.log(`保存先: ${outDir}\n`);
 
 const manifest: string[] = [
