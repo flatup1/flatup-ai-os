@@ -12,6 +12,7 @@ import {
   hasApiKey,
   assertValidApiKey,
   arkCommandText,
+  buildFalPayload,
 } from "./seedance.js";
 
 let pass = 0;
@@ -51,6 +52,7 @@ const CLEAN = {
   SEEDANCE_PROVIDER: undefined,
   SEEDANCE_ENDPOINT: undefined,
   SEEDANCE_ARK_MODEL: undefined,
+  FAL_VIDEO_MODEL: undefined,
   FAL_KEY: undefined,
   ARK_API_KEY: undefined,
 };
@@ -134,6 +136,49 @@ test("arkCommandText がテキストコマンドを付ける", () => {
 test("arkCommandText は seed 指定も付けられる", () => {
   const text = arkCommandText("prompt", { aspectRatio: "9:16", resolution: "720p", duration: "6", seed: 42 });
   assert.ok(text.endsWith("--seed 42"));
+});
+
+test("FAL_VIDEO_MODEL が SEEDANCE_ENDPOINT より優先される", () => {
+  withEnv(
+    {
+      ...CLEAN,
+      FAL_VIDEO_MODEL: "fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video",
+      SEEDANCE_ENDPOINT: "bytedance/seedance-2.0/text-to-video",
+    },
+    () => {
+      assert.equal(seedanceEndpoint(), "fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video");
+    }
+  );
+});
+
+const OPTS = { aspectRatio: "9:16", resolution: "720p", duration: "6" };
+
+test("Hailuo 系ペイロードは prompt/duration/prompt_optimizer/image_url のみ", () => {
+  const body = buildFalPayload(
+    "fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video",
+    "punch",
+    { ...OPTS, seed: 1, imageUrl: "data:image/png;base64,AAAA" }
+  );
+  assert.deepEqual(Object.keys(body).sort(), ["duration", "image_url", "prompt", "prompt_optimizer"]);
+  assert.equal(body.prompt_optimizer, true);
+  assert.equal(body.image_url, "data:image/png;base64,AAAA");
+  assert.equal(body.duration, "6");
+});
+
+test("Seedance 系ペイロードは aspect_ratio/resolution を含む", () => {
+  const body = buildFalPayload("bytedance/seedance-2.0/fast/text-to-video", "punch", { ...OPTS, seed: 7 });
+  assert.equal(body.aspect_ratio, "9:16");
+  assert.equal(body.resolution, "720p");
+  assert.equal(body.seed, 7);
+  assert.ok(!("image_url" in body), "imageUrl 未指定なら image_url を送らない");
+});
+
+test("Seedance 系でも imageUrl 指定で image_url が付く(I2V)", () => {
+  const body = buildFalPayload("bytedance/seedance-2.0/fast/image-to-video", "punch", {
+    ...OPTS,
+    imageUrl: "https://example.com/cat.png",
+  });
+  assert.equal(body.image_url, "https://example.com/cat.png");
 });
 
 if (fail === 0) {
