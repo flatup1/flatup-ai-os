@@ -41,6 +41,32 @@ npm run reel -- --list                        # シリーズ一覧
 - 格闘モーション(パンチ・キックの重さ)は2026年比較で Seedance が最強評価。プロンプトは
   `src/reel/promptBank.ts` の静的銀行から機械生成するので、プロンプト側のAI費用もゼロ
 
+### モデル切替(text-to-video ⇄ image-to-video / Hailuo 2.3 Fast)
+
+`FAL_VIDEO_MODEL` で fal のモデルを差し替えられる。モデルパスに `image-to-video` を含めると、
+**起点画像1枚から生成する I2V モード**に自動で切り替わる(同じ主役キャラを毎回使い回せる)。
+
+```bash
+# .env
+FAL_VIDEO_MODEL=fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video
+
+# 起点画像を1枚渡して生成(I2V では --image が必須)
+npm run reel -- "ニャクシング" --count 1 --image ./NYANJUTSU_TSUMU_BASE_001.png
+```
+
+- **Hailuo 2.3 Fast [Standard] I2V**: 768p / 6秒 約 **$0.19**(10秒 約$0.32)・商用利用可。
+  実際の請求額は fal Dashboard → Usage で確認する(価格記事ではなく実請求が正解)。
+- 起点画像は 9:16 縦型・猫が全身・二足立ち・グローブ着用・背景シンプル・文字/ロゴなしが理想
+  (推奨 1080×1920)。出力は 768p でも入力は縦長で鮮明なものを使う。
+- `--image` はローカルファイル(png/jpg/jpeg/webp。base64 data URI にして送る)でも、
+  公開 URL(`https://...`)でも渡せる。
+- 解像度は standard=768p 固定・アスペクト比は入力画像に従うため送らない。秒数は `"6"` か `"10"`。
+- プロンプトは技(モーション)中心に。被写体・背景は起点画像が決めるので、
+  「1技だけ・カメラ固定・二足姿勢維持」を明示すると崩れにくい。
+- プロンプト最適化は既定 ON。切るなら `.env` に `FAL_PROMPT_OPTIMIZER=false`。
+- API キー未設定なら DRY-RUN(コストゼロ)。I2V で `--image` 未指定のときは、
+  DRY-RUN は警告付きでプレビュー、本番実行は生成前にエラーで止める。
+
 ### プロバイダ切替(fal ⇄ Seedance 公式)
 
 fal を挟まず ByteDance 公式(BytePlus ModelArk)と直接つなぐこともできる。`.env` に:

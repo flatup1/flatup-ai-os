@@ -51,10 +51,16 @@ npm run build                              # TypeScript コンパイル
 | `uizin` | 初心者向けやさしい案内文 |
 | `animal_reel` | 動物×格闘技のAI動画リール素材（Sora/Veo用プロンプト+IG投稿セット） |
 
-動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
+動画の**全自動生成**（fal.ai）はルートではなく専用コマンド:
 ```bash
 npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
+
+# image-to-video（Hailuo 2.3 Fast など）: FAL_VIDEO_MODEL を I2V モデルにして起点画像を渡す
+FAL_VIDEO_MODEL=fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video \
+  npm run reel -- "ニャクシング" --count 1 --image ./cat_base.png
 ```
+既定は Seedance 2.0 Fast（text-to-video）。`FAL_VIDEO_MODEL` にパスへ `image-to-video` を含む
+モデルを指定すると、起点画像1枚から生成する I2V モードに切り替わる（`--image` 必須）。
 
 ---
 

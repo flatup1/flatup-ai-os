@@ -8,6 +8,10 @@ import assert from "node:assert/strict";
 import {
   seedanceProvider,
   seedanceEndpoint,
+  videoModel,
+  isImageToVideo,
+  falPromptOptimizer,
+  imageMimeType,
   requiredKeyName,
   hasApiKey,
   assertValidApiKey,
@@ -51,9 +55,13 @@ const CLEAN = {
   SEEDANCE_PROVIDER: undefined,
   SEEDANCE_ENDPOINT: undefined,
   SEEDANCE_ARK_MODEL: undefined,
+  FAL_VIDEO_MODEL: undefined,
+  FAL_PROMPT_OPTIMIZER: undefined,
   FAL_KEY: undefined,
   ARK_API_KEY: undefined,
 };
+
+const HAILUO = "fal-ai/minimax/hailuo-2.3-fast/standard/image-to-video";
 
 test("既定プロバイダは fal", () => {
   withEnv(CLEAN, () => {
@@ -84,6 +92,51 @@ test("モデル/エンドポイントは env で上書きできる", () => {
   withEnv({ ...CLEAN, SEEDANCE_PROVIDER: "byteplus", SEEDANCE_ARK_MODEL: "dreamina-seedance-2-0-260128" }, () => {
     assert.equal(seedanceEndpoint(), "dreamina-seedance-2-0-260128");
   });
+});
+
+test("FAL_VIDEO_MODEL は fal モデルを上書きする(SEEDANCE_ENDPOINT より優先)", () => {
+  withEnv({ ...CLEAN, FAL_VIDEO_MODEL: HAILUO }, () => {
+    assert.equal(videoModel(), HAILUO);
+    assert.equal(seedanceEndpoint(), HAILUO, "seedanceEndpoint は videoModel の別名");
+  });
+  withEnv({ ...CLEAN, FAL_VIDEO_MODEL: HAILUO, SEEDANCE_ENDPOINT: "bytedance/seedance-2.0/text-to-video" }, () => {
+    assert.equal(videoModel(), HAILUO, "FAL_VIDEO_MODEL が SEEDANCE_ENDPOINT に勝つ");
+  });
+});
+
+test("FAL_VIDEO_MODEL は byteplus では無視される(ark モデルを使う)", () => {
+  withEnv({ ...CLEAN, SEEDANCE_PROVIDER: "byteplus", FAL_VIDEO_MODEL: HAILUO }, () => {
+    assert.equal(videoModel(), "dreamina-seedance-2-0-fast-260128");
+    assert.equal(isImageToVideo(), false, "byteplus は image-to-video 扱いにしない");
+  });
+});
+
+test("isImageToVideo はモデルパスで判定する", () => {
+  withEnv(CLEAN, () => {
+    assert.equal(isImageToVideo(), false, "既定の text-to-video は false");
+  });
+  withEnv({ ...CLEAN, FAL_VIDEO_MODEL: HAILUO }, () => {
+    assert.equal(isImageToVideo(), true, "image-to-video モデルは true");
+  });
+  withEnv({ ...CLEAN, FAL_VIDEO_MODEL: "bytedance/seedance-2.0/fast/text-to-video" }, () => {
+    assert.equal(isImageToVideo(), false, "text-to-video は false");
+  });
+});
+
+test("falPromptOptimizer は既定 ON、明示的な false で OFF", () => {
+  withEnv(CLEAN, () => assert.equal(falPromptOptimizer(), true));
+  withEnv({ ...CLEAN, FAL_PROMPT_OPTIMIZER: "false" }, () => assert.equal(falPromptOptimizer(), false));
+  withEnv({ ...CLEAN, FAL_PROMPT_OPTIMIZER: "0" }, () => assert.equal(falPromptOptimizer(), false));
+  withEnv({ ...CLEAN, FAL_PROMPT_OPTIMIZER: "true" }, () => assert.equal(falPromptOptimizer(), true));
+});
+
+test("imageMimeType は拡張子から MIME を返し、未対応は弾く", () => {
+  assert.equal(imageMimeType("cat.png"), "image/png");
+  assert.equal(imageMimeType("BASE_001.JPG"), "image/jpeg");
+  assert.equal(imageMimeType("a.jpeg"), "image/jpeg");
+  assert.equal(imageMimeType("b.webp"), "image/webp");
+  assert.throws(() => imageMimeType("clip.gif"), /対応していない画像形式/);
+  assert.throws(() => imageMimeType("noext"), /対応していない画像形式/);
 });
 
 test("hasApiKey はプロバイダに対応するキーだけを見る", () => {
