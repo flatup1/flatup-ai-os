@@ -12,8 +12,8 @@
  */
 
 import "../utils/loadEnv.js";
-import { mkdir, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
+import { join, extname } from "node:path";
 import { SERIES, resolveSeries, buildPrompt, buildCaption, buildHashtags } from "./promptBank.js";
 import {
   generateVideo,
@@ -32,7 +32,10 @@ if (args.length === 0 || args[0] === "--help" || args[0] === "-h" || args.includ
   console.log(`動物×格闘技リール 全自動生成 (Seedance 2.0 / fal.ai)
 
 Usage:
-  npm run reel -- "<シリーズ名 or 動物×競技>" [--count N] [--takes T]
+  npm run reel -- "<シリーズ名 or 動物×競技>" [--count N] [--takes T] [--image 基準画像]
+
+  --image: 猫の基準画像(URL または png/jpg/webp ファイル)を渡すと Image-to-Video になり、
+           同じキャラで連載できる。Hailuo(FAL_VIDEO_MODEL 設定時)は縦横比を画像から決める
 
 Series:
 ${SERIES.map(s => `  ${s.name.padEnd(max)}  ${s.combo}`).join("\n")}
@@ -47,11 +50,14 @@ FAL_KEY 未設定時は DRY-RUN(プロンプトのプレビューのみ・コス
 
 const flags = new Map<string, number>();
 const positional: string[] = [];
+let imageArg: string | undefined;
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a === "--count" || a === "--takes") {
     const v = Number(args[++i]);
     if (Number.isInteger(v) && v > 0) flags.set(a, v);
+  } else if (a === "--image") {
+    imageArg = args[++i];
   } else if (!a.startsWith("--")) {
     positional.push(a);
   }
@@ -60,6 +66,25 @@ for (let i = 0; i < args.length; i++) {
 const query = positional.join(" ");
 const count = Math.min(flags.get("--count") ?? 3, 10);
 const takes = Math.min(flags.get("--takes") ?? 1, 3);
+
+/** --image がローカルファイルなら data URI に変換(fal は Base64 data URI を受け付ける) */
+async function resolveImageUrl(arg: string | undefined): Promise<string | undefined> {
+  if (!arg) return undefined;
+  if (/^https?:\/\//.test(arg)) return arg;
+  const mime =
+    { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp" }[
+      extname(arg).toLowerCase()
+    ];
+  if (!mime) {
+    console.error(`[error] --image は URL か png/jpg/webp ファイルを指定してください: ${arg}`);
+    process.exit(1);
+  }
+  const buf = await readFile(arg).catch(() => {
+    console.error(`[error] 画像ファイルが読めません: ${arg}`);
+    process.exit(1);
+  });
+  return `data:${mime};base64,${(buf as Buffer).toString("base64")}`;
+}
 
 const series = resolveSeries(query);
 if (!series) {
@@ -82,9 +107,13 @@ for (let i = 0; i < count; i++) {
   }
 }
 
+const imageUrl = await resolveImageUrl(imageArg);
+
 if (!hasApiKey()) {
   console.log(`[DRY-RUN] ${requiredKeyName()} が未設定のため、生成はスキップしました(コストゼロ)。\n`);
-  console.log(`シリーズ: ${series.name}(${series.combo}) / ${jobs.length}本ぶんのプレビュー\n`);
+  console.log(`シリーズ: ${series.name}(${series.combo}) / ${jobs.length}本ぶんのプレビュー`);
+  console.log(`エンドポイント: ${seedanceEndpoint()}`);
+  console.log(imageUrl ? `基準画像: ${imageArg}(Image-to-Video)\n` : `基準画像: なし(Text-to-Video)\n`);
   for (const job of jobs) {
     console.log(`--- ${job.label} ---`);
     console.log(`Prompt: ${job.prompt}`);
@@ -119,6 +148,7 @@ const manifest: string[] = [
   `# ${series.name} — ${date} 生成バッチ`,
   ``,
   `- エンドポイント: ${seedanceEndpoint()}`,
+  `- 基準画像: ${imageArg ?? "なし(Text-to-Video)"}`,
   `- 投稿前チェック: 人間が全カット確認 / InstagramのAI生成ラベルON / 動物が傷つく画になっていないか`,
   ``,
 ];
@@ -129,7 +159,7 @@ for (const job of jobs) {
   const started = Date.now();
   process.stdout.write(`[${job.label}] 生成中...`);
   try {
-    const result = await generateVideo(job.prompt, { seed: job.seed });
+    const result = await generateVideo(job.prompt, { seed: job.seed, imageUrl });
     const file = join(outDir, `${job.label}.mp4`);
     await downloadVideo(result.videoUrl, file);
     const sec = Math.round((Date.now() - started) / 1000);

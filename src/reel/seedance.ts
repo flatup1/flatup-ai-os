@@ -25,6 +25,8 @@ export interface SeedanceOptions {
   resolution?: string;
   duration?: string;
   seed?: number;
+  /** Image-to-Video 用。公開 URL または data URI(Base64) */
+  imageUrl?: string;
 }
 
 export interface SeedanceResult {
@@ -49,7 +51,12 @@ export function seedanceEndpoint(): string {
   if (seedanceProvider() === "byteplus") {
     return process.env.SEEDANCE_ARK_MODEL || "dreamina-seedance-2-0-fast-260128";
   }
-  return process.env.SEEDANCE_ENDPOINT || "bytedance/seedance-2.0/fast/text-to-video";
+  // FAL_VIDEO_MODEL で fal 上の任意モデル(Hailuo/Kling/LTX等)に差し替えられる
+  return (
+    process.env.FAL_VIDEO_MODEL ||
+    process.env.SEEDANCE_ENDPOINT ||
+    "bytedance/seedance-2.0/fast/text-to-video"
+  );
 }
 
 /** 現在のプロバイダが必要とする API キーの環境変数名 */
@@ -93,13 +100,46 @@ async function fetchJson(url: string, init?: RequestInit): Promise<Record<string
   return JSON.parse(text) as Record<string, unknown>;
 }
 
-function resolvedOptions(opts: SeedanceOptions): Required<Pick<SeedanceOptions, "aspectRatio" | "resolution" | "duration">> & { seed?: number } {
+function resolvedOptions(opts: SeedanceOptions): Required<Pick<SeedanceOptions, "aspectRatio" | "resolution" | "duration">> & { seed?: number; imageUrl?: string } {
   return {
     aspectRatio: opts.aspectRatio ?? "9:16",
     resolution: opts.resolution ?? process.env.SEEDANCE_RESOLUTION ?? "720p",
     duration: opts.duration ?? process.env.SEEDANCE_DURATION ?? "6",
     seed: opts.seed,
+    imageUrl: opts.imageUrl,
   };
+}
+
+/**
+ * fal のモデルごとに受け付けるフィールドが違うため、エンドポイント名で
+ * リクエストボディを組み分ける。
+ * - Hailuo/MiniMax 系: prompt / image_url / duration / prompt_optimizer のみ
+ *   (縦横比は入力画像から決まり、解像度は768p固定。余計なフィールドはエラーの元)
+ * - Seedance その他: prompt / aspect_ratio / resolution / duration / seed / image_url
+ */
+export function buildFalPayload(
+  endpoint: string,
+  prompt: string,
+  o: { aspectRatio: string; resolution: string; duration: string; seed?: number; imageUrl?: string }
+): Record<string, unknown> {
+  if (/hailuo|minimax/i.test(endpoint)) {
+    const body: Record<string, unknown> = {
+      prompt,
+      duration: o.duration,
+      prompt_optimizer: true,
+    };
+    if (o.imageUrl) body.image_url = o.imageUrl;
+    return body;
+  }
+  const body: Record<string, unknown> = {
+    prompt,
+    aspect_ratio: o.aspectRatio,
+    resolution: o.resolution,
+    duration: o.duration,
+  };
+  if (o.seed !== undefined) body.seed = o.seed;
+  if (o.imageUrl) body.image_url = o.imageUrl;
+  return body;
 }
 
 /** 1本生成してホスト先の動画 URL を返す(完了までブロック) */
@@ -117,13 +157,7 @@ function falHeaders(): Record<string, string> {
 }
 
 async function generateViaFal(prompt: string, o: ReturnType<typeof resolvedOptions>): Promise<SeedanceResult> {
-  const body: Record<string, unknown> = {
-    prompt,
-    aspect_ratio: o.aspectRatio,
-    resolution: o.resolution,
-    duration: o.duration,
-  };
-  if (o.seed !== undefined) body.seed = o.seed;
+  const body = buildFalPayload(seedanceEndpoint(), prompt, o);
 
   const submitted = await fetchJson(`${FAL_QUEUE_BASE}/${seedanceEndpoint()}`, {
     method: "POST",
