@@ -25,6 +25,7 @@ import {
   hasApiKey,
   assertValidApiKey,
 } from "./seedance.js";
+import { hasFfmpeg, stitchClips } from "./stitch.js";
 
 const args = process.argv.slice(2);
 
@@ -42,15 +43,18 @@ ${SERIES.map(s => `  ${s.name.padEnd(max)}  ${s.combo}`).join("\n")}
   npm run reel -- "にゃん術"
   npm run reel -- "キックドクシング" --count 5 --takes 2
   npm run reel -- "ニャクシング" --image ./NYANJUTSU_TSUMU_BASE_001.png   # image-to-video
+  npm run reel -- "ニャクシング" --count 5 --stitch --image ./cat.png     # 5本を1本のリールに自動連結
 
 --image は image-to-video モデル(FAL_VIDEO_MODEL=...image-to-video、例: Hailuo 2.3 Fast)で必須。
 起点画像を1枚渡すと、全カットをその画像(=同じ主役)から生成します。
+--stitch を付けると、成功したクリップを生成順に1本へ自動連結(<シリーズ>_reel.mp4)。要 ffmpeg。
 FAL_KEY 未設定時は DRY-RUN(プロンプトのプレビューのみ・コストゼロ)。`);
   process.exit(args.includes("--list") || args[0] === "--help" || args[0] === "-h" ? 0 : 1);
 }
 
 const flags = new Map<string, number>();
 const strFlags = new Map<string, string>();
+const boolFlags = new Set<string>();
 const positional: string[] = [];
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
@@ -60,6 +64,8 @@ for (let i = 0; i < args.length; i++) {
   } else if (a === "--image") {
     const v = args[++i];
     if (v) strFlags.set(a, v);
+  } else if (a === "--stitch") {
+    boolFlags.add(a);
   } else if (!a.startsWith("--")) {
     positional.push(a);
   }
@@ -68,6 +74,7 @@ for (let i = 0; i < args.length; i++) {
 const query = positional.join(" ");
 const count = Math.min(flags.get("--count") ?? 3, 10);
 const takes = Math.min(flags.get("--takes") ?? 1, 3);
+const stitch = boolFlags.has("--stitch");
 
 // image-to-video(Hailuo 等)は起点画像が必須。http(s) は URL、それ以外はローカルパス扱い。
 const i2v = isImageToVideo();
@@ -106,6 +113,11 @@ if (!hasApiKey()) {
     console.log(imageArg
       ? `起点画像: ${imageArg}`
       : `⚠ image-to-video では起点画像が必須です。本番実行前に --image <ファイル or URL> を付けてください。`);
+  }
+  if (stitch) {
+    console.log(jobs.length >= 2
+      ? `連結: --stitch 指定。生成後に ${jobs.length}本を ${series.name}_reel.mp4 へ自動連結します(要 ffmpeg)。`
+      : `連結: --stitch 指定ですが、連結には2本以上が必要です(--count 2 以上に)。`);
   }
   console.log(`シリーズ: ${series.name}(${series.combo}) / ${jobs.length}本ぶんのプレビュー\n`);
   for (const job of jobs) {
@@ -155,6 +167,7 @@ const manifest: string[] = [
 ];
 let ok = 0;
 let failed = 0;
+const madeFiles: string[] = [];
 
 for (const job of jobs) {
   const started = Date.now();
@@ -163,6 +176,7 @@ for (const job of jobs) {
     const result = await generateVideo(job.prompt, { seed: job.seed, ...imageOpt });
     const file = join(outDir, `${job.label}.mp4`);
     await downloadVideo(result.videoUrl, file);
+    madeFiles.push(file);
     const sec = Math.round((Date.now() - started) / 1000);
     console.log(` 完了 (${sec}s) → ${file}`);
     manifest.push(
@@ -181,6 +195,28 @@ for (const job of jobs) {
     manifest.push(`## ${job.label}`, ``, `- 失敗: ${msg}`, `- プロンプト: ${job.prompt}`, ``);
     failed++;
   }
+}
+
+// --- 自動連結(--stitch。成功クリップを生成順に1本のリールへ) ---
+if (stitch && madeFiles.length >= 2) {
+  const reelPath = join(outDir, `${series.name}_reel.mp4`);
+  process.stdout.write(`\n[連結] ${madeFiles.length}本を1本に...`);
+  if (!(await hasFfmpeg())) {
+    console.log(" スキップ: ffmpeg が見つかりません(brew install ffmpeg / apt-get install ffmpeg)。クリップは保存済みです。");
+    manifest.push(`## リール連結`, ``, `- スキップ: ffmpeg 未導入`, ``);
+  } else {
+    try {
+      await stitchClips(madeFiles, reelPath, join(outDir, ".concat.txt"));
+      console.log(` 完了 → ${reelPath}`);
+      manifest.push(`## リール連結`, ``, `- 連結リール: ${series.name}_reel.mp4（${madeFiles.length}本）`, ``);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.log(` 失敗: ${msg}`);
+      manifest.push(`## リール連結`, ``, `- 失敗: ${msg}`, ``);
+    }
+  }
+} else if (stitch && madeFiles.length < 2) {
+  console.log(`\n[連結] 成功クリップが ${madeFiles.length} 本のため連結はスキップ(2本以上必要)。`);
 }
 
 const manifestPath = join(outDir, "manifest.md");

@@ -67,6 +67,24 @@ npm run reel -- "ニャクシング" --count 1 --image ./NYANJUTSU_TSUMU_BASE_00
 - API キー未設定なら DRY-RUN(コストゼロ)。I2V で `--image` 未指定のときは、
   DRY-RUN は警告付きでプレビュー、本番実行は生成前にエラーで止める。
 
+### クリップを1本のリールに自動連結(--stitch)
+
+`--stitch` を付けると、**生成した複数クリップを生成順に1本のリール動画へ自動連結**する
+(`<シリーズ>_reel.mp4`)。技違いを何本か作って、そのまま繋いだ長尺リールにできる。
+
+```bash
+# 5本生成 → 同じ猫(image-to-video)で作って、1本のリールに連結
+npm run reel -- "ニャクシング" --count 5 --stitch --image ./NYANJUTSU_TSUMU_BASE_001.png
+# → output/reels/YYYY-MM-DD/ニャクシング_reel.mp4（各クリップも個別に残る）
+```
+
+- 同じモデル・同じ起点画像から作ったクリップは解像度もコーデックも揃うので、
+  **再エンコードなし(無劣化・一瞬)** で連結する。
+- **要 `ffmpeg`**(`brew install ffmpeg` / `apt-get install ffmpeg`)。未導入なら連結だけスキップし、
+  個別クリップは保存済みのまま案内を出す(生成結果は失われない)。
+- 連結は「成功したクリップだけ」を対象にする。1本しか成功しなかった場合はスキップ。
+- 音楽・テロップ・トリミングは付けない素の連結。仕上げ(BGM/字幕/尺調整)はアプリ側(CapCut等)で。
+
 ### プロバイダ切替(fal ⇄ Seedance 公式)
 
 fal を挟まず ByteDance 公式(BytePlus ModelArk)と直接つなぐこともできる。`.env` に:
