@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "list": "tsx src/index.ts --list",
     "reel": "tsx src/reel/generate.ts",
+    "img": "tsx src/reel/image.ts",
     "test:safety": "tsx src/safety/receptionist.test.ts",
     "test:pii": "tsx src/utils/sanitizePii.test.ts",
     "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",

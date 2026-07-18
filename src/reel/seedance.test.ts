@@ -14,6 +14,7 @@ import {
   arkCommandText,
   buildFalPayload,
 } from "./seedance.js";
+import { parseImageSize } from "./image.js";
 
 let pass = 0;
 let fail = 0;
@@ -171,6 +172,12 @@ test("Seedance 系ペイロードは aspect_ratio/resolution を含む", () => {
   assert.equal(body.resolution, "720p");
   assert.equal(body.seed, 7);
   assert.ok(!("image_url" in body), "imageUrl 未指定なら image_url を送らない");
+});
+
+test("parseImageSize: WxH とプリセットを解釈できる", () => {
+  assert.deepEqual(parseImageSize("1080x1920"), { width: 1080, height: 1920 });
+  assert.equal(parseImageSize(undefined), "portrait_16_9");
+  assert.equal(parseImageSize("square_hd"), "square_hd");
 });
 
 test("Seedance 系でも imageUrl 指定で image_url が付く(I2V)", () => {
