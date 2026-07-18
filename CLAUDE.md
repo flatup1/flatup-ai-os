@@ -50,6 +50,7 @@ npm run build                              # TypeScript コンパイル
 | `differentiation` | HP/LP 差別化原稿 |
 | `uizin` | 初心者向けやさしい案内文 |
 | `animal_reel` | 動物×格闘技のAI動画リール素材（Sora/Veo用プロンプト+IG投稿セット） |
+| `anime_ad` | FLATUP GYM アニメ風ブランド広告（絵コンテ+カット別FLUX/Hailuoプロンプト） |
 
 動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
 ```bash

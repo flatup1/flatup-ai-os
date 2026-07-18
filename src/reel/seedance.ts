@@ -156,10 +156,12 @@ function falHeaders(): Record<string, string> {
   return { Authorization: `Key ${process.env.FAL_KEY}`, "Content-Type": "application/json" };
 }
 
-async function generateViaFal(prompt: string, o: ReturnType<typeof resolvedOptions>): Promise<SeedanceResult> {
-  const body = buildFalPayload(seedanceEndpoint(), prompt, o);
-
-  const submitted = await fetchJson(`${FAL_QUEUE_BASE}/${seedanceEndpoint()}`, {
+/**
+ * fal キュー API に投入して完了レスポンスを返す(動画・画像共通)。
+ * キュー形式でない(同期)レスポンスの場合はそのまま返す。
+ */
+export async function falQueueRequest(endpoint: string, body: Record<string, unknown>): Promise<Record<string, unknown>> {
+  const submitted = await fetchJson(`${FAL_QUEUE_BASE}/${endpoint}`, {
     method: "POST",
     headers: falHeaders(),
     body: JSON.stringify(body),
@@ -167,10 +169,7 @@ async function generateViaFal(prompt: string, o: ReturnType<typeof resolvedOptio
 
   const statusUrl = String(submitted.status_url ?? "");
   const responseUrl = String(submitted.response_url ?? "");
-  if (!statusUrl || !responseUrl) {
-    // キュー形式でない(同期)レスポンスの場合はそのまま解釈する
-    return extractFalResult(submitted);
-  }
+  if (!statusUrl || !responseUrl) return submitted;
 
   await pollUntil(async () => {
     const status = await fetchJson(statusUrl, { headers: falHeaders() });
@@ -182,7 +181,12 @@ async function generateViaFal(prompt: string, o: ReturnType<typeof resolvedOptio
     return false;
   }, statusUrl);
 
-  return extractFalResult(await fetchJson(responseUrl, { headers: falHeaders() }));
+  return fetchJson(responseUrl, { headers: falHeaders() });
+}
+
+async function generateViaFal(prompt: string, o: ReturnType<typeof resolvedOptions>): Promise<SeedanceResult> {
+  const body = buildFalPayload(seedanceEndpoint(), prompt, o);
+  return extractFalResult(await falQueueRequest(seedanceEndpoint(), body));
 }
 
 function extractFalResult(payload: Record<string, unknown>): SeedanceResult {

@@ -11,6 +11,7 @@ import { videoScript } from "../modules/video_script.js";
 import { differentiation } from "../modules/differentiation.js";
 import { uizin } from "../modules/uizin.js";
 import { animalReel } from "../modules/animal_reel.js";
+import { animeAd } from "../modules/anime_ad.js";
 import { canonContext, receptionReplyAsync } from "../safety/receptionist.js";
 import type { SystemBlocks } from "./client.js";
 
@@ -25,7 +26,8 @@ export type RouteName =
   | "video_script"
   | "differentiation"
   | "uizin"
-  | "animal_reel";
+  | "animal_reel"
+  | "anime_ad";
 
 interface Route {
   description: string;
@@ -105,6 +107,11 @@ export const routes: Record<RouteName, Route> = {
     description: "動物×格闘技のAI動画リール素材(Sora/Veo用英語プロンプト・IGキャプション・ハッシュタグ)",
     example: "にゃん術",
     handler: animalReel,
+  },
+  anime_ad: {
+    description: "FLATUP GYM アニメ風ブランド広告(絵コンテ+カット別FLUX/Hailuoプロンプト+編集メモ)",
+    example: "夜のジムでミットがサンドバッグに話しかける",
+    handler: animeAd,
   },
 };
 
