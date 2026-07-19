@@ -17,6 +17,11 @@ export interface ReelSeries {
   subject: string;
   /** 英語の技シーケンス(1本につき1個使う) */
   sequences: string[];
+  /**
+   * image-to-video 用の完結プロンプト(任意)。設定すると I2V モードではこちらを
+   * そのまま使う。被写体・背景は起点画像が決めるので、動き中心・崩れ防止を厚く書く。
+   */
+  i2vSequences?: string[];
   /** 英語の舞台(ローテーション) */
   settings: string[];
   /** IGキャプションの型(#話数 を置換) */
@@ -209,6 +214,32 @@ export const SERIES: ReelSeries[] = [
     captions: ["ニャクシング 第{n}R 🥊", "Jab! Jab! Hook! Round {n} 🥊"],
     tags: ["#cat #boxing #catsofinstagram #猫"],
   },
+  {
+    name: "ワンドクシング",
+    combo: "大型犬×ボクシング",
+    aliases: ["ワンドク", "大型犬", "グレートピレニーズ", "great pyrenees", "dog boxing"],
+    subject: "large fluffy white Great Pyrenees dog standing upright on its hind legs in a boxing stance",
+    sequences: [
+      "throwing quick sharp paw jabs at a small focus mitt, returning to guard between each",
+      "throwing a crisp one-two at a small focus mitt: a left paw jab then a right paw straight, back to guard",
+      "throwing a hind-leg kick at a hanging heavy bag, the bag swinging naturally from the impact",
+      "holding a calm boxing guard, bobbing and weaving with small head and shoulder movements",
+    ],
+    // image-to-video 専用(起点画像が犬と背景を決めるので、動き中心・崩れ防止を厚く)
+    i2vSequences: [
+      "A photorealistic large white fluffy dog training in a bright FLATUP GYM, throwing sharp, snappy, quick jabs with its front paw at a focus mitt, returning to guard between each jab. The focus mitt stays small and at a natural arm's-length distance, never covering the camera. Completely natural fluid motion, realistic weight shift and shoulder movement, believable timing, consistent face and fur, stable anatomy, no extra limbs, no morphing. Punching bags in the background, soft natural window light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic large white fluffy dog in a bright FLATUP GYM, throwing a crisp one-two at a small focus mitt: a quick left paw jab followed by a sharp right paw straight, then back to guard. The mitt stays small and at arm's-length, never covering the camera. Completely natural fluid motion, realistic weight transfer and balance, believable timing, consistent face and fur, stable anatomy, no extra limbs, no morphing. Punching bags in the background, soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic large white fluffy dog in a bright FLATUP GYM, kicking a hanging heavy punching bag with its hind leg, the bag swinging naturally from the impact, then resetting its stance. Completely natural fluid motion, realistic weight transfer and balance, believable physics on the swinging bag, natural muscle and fur movement, consistent face and fur, stable anatomy, no extra limbs, no morphing. Soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic large white fluffy dog standing in a bright FLATUP GYM, holding a calm boxing guard, bobbing and weaving with small subtle head and shoulder movements, staying alert and focused. Completely natural fluid motion, realistic subtle weight shifts, consistent face and fur, stable anatomy, no extra limbs, no morphing. Punching bags in the background, soft natural window light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic large white fluffy dog in a bright FLATUP GYM, doing light quick boxing footwork, bouncing and shifting weight side to side on its paws, staying loose and rhythmic. Completely natural fluid motion, realistic balance and momentum, consistent face and fur, stable anatomy, no extra limbs, no morphing. Punching bags in the background, soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+    ],
+    settings: [
+      "a bright FLATUP GYM with hanging punching bags and large windows",
+      "a clean bright boxing gym with heavy bags in the background",
+    ],
+    captions: ["ワンドクシング 第{n}R 🥊🐕", "White dog boxing, round {n} 🥊🐕"],
+    tags: ["#dog #boxing #greatpyrenees #dogsofinstagram #犬"],
+  },
 ];
 
 /** 入力(シリーズ名・別名・組み合わせ)からシリーズを解決する */
@@ -224,8 +255,15 @@ export function resolveSeries(input: string): ReelSeries | undefined {
   );
 }
 
-/** i 本目のプロンプトを組み立てる(技×舞台のローテーション) */
-export function buildPrompt(series: ReelSeries, i: number): string {
+/**
+ * i 本目のプロンプトを組み立てる(技×舞台のローテーション)。
+ * image-to-video モードで i2vSequences があれば、そちらを完結プロンプトとして使う
+ * (被写体・背景は起点画像が決めるため、動き中心の文面をそのまま返す)。
+ */
+export function buildPrompt(series: ReelSeries, i: number, opts: { i2v?: boolean } = {}): string {
+  if (opts.i2v && series.i2vSequences && series.i2vSequences.length > 0) {
+    return series.i2vSequences[i % series.i2vSequences.length];
+  }
   const seq = series.sequences[i % series.sequences.length];
   const setting = series.settings[Math.floor(i / series.sequences.length) % series.settings.length];
   return `A photorealistic ${series.subject}, ${seq}, in ${setting}. ${COMMON_SUFFIX}`;

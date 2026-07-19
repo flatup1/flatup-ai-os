@@ -99,7 +99,7 @@ for (let i = 0; i < count; i++) {
   for (let t = 0; t < takes; t++) {
     jobs.push({
       label: takes > 1 ? `${series.name}_${i + 1}-t${t + 1}` : `${series.name}_${i + 1}`,
-      prompt: buildPrompt(series, i),
+      prompt: buildPrompt(series, i, { i2v }),
       caption: buildCaption(series, i),
       seed: takes > 1 ? 1000 + i * 10 + t : undefined,
     });

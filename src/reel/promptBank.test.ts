@@ -75,6 +75,29 @@ test("組み合わせ入力で解決できる(猫×ボクシング → ニャク
   assert.equal(resolveSeries("猫×ボクシング")?.name, "ニャクシング");
 });
 
+test("ワンドクシングが名鑑にある(犬×ボクシング I2V シリーズ)", () => {
+  const s = resolveSeries("ワンドクシング");
+  assert.equal(s?.name, "ワンドクシング");
+  assert.ok((s?.i2vSequences?.length ?? 0) >= 2, "i2vSequences を持つ");
+});
+
+test("i2v 指定時は i2vSequences を完結プロンプトとして使う", () => {
+  const s = resolveSeries("ワンドクシング")!;
+  const i2v = buildPrompt(s, 0, { i2v: true });
+  assert.equal(i2v, s.i2vSequences![0], "i2vSequences[0] をそのまま返す");
+  assert.ok(i2v.includes("FLATUP GYM") && i2v.includes("never covering the camera"));
+});
+
+test("i2v 指定でも T2V プロンプトとは別物(切り替わっている)", () => {
+  const s = resolveSeries("ワンドクシング")!;
+  assert.notEqual(buildPrompt(s, 0, { i2v: true }), buildPrompt(s, 0));
+});
+
+test("i2vSequences を持たないシリーズは i2v 指定でも T2V にフォールバック", () => {
+  const s = resolveSeries("にゃん術")!;
+  assert.equal(buildPrompt(s, 0, { i2v: true }), buildPrompt(s, 0));
+});
+
 test("未知の入力は undefined", () => {
   assert.equal(resolveSeries("ゾウ×フェンシング"), undefined);
   assert.equal(resolveSeries(""), undefined);
