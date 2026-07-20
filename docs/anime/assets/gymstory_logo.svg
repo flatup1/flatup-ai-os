@@ -1,100 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 640" width="1180" height="640" font-family="'Arial Rounded MT Bold','Baloo 2',Nunito,'Hiragino Maru Gothic Pro','Rounded Mplus 1c',system-ui,sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" width="1200" height="1040" font-family="'Arial Rounded MT Bold','Baloo 2',Nunito,'Hiragino Maru Gothic Pro','Rounded Mplus 1c',system-ui,sans-serif">
   <defs>
-    <!-- soft background -->
-    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
-      <stop offset="0%" stop-color="#fff7f1"/>
-      <stop offset="100%" stop-color="#ffe6ef"/>
+    <radialGradient id="cream" cx="50%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#fffaf2"/>
+      <stop offset="100%" stop-color="#fdeede"/>
     </radialGradient>
-    <!-- candy body fill: light top -> saturated bottom -->
-    <linearGradient id="candy" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#ffe6f0"/>
-      <stop offset="45%" stop-color="#ffb2d1"/>
-      <stop offset="100%" stop-color="#ff8ebd"/>
+    <linearGradient id="glove" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffdbe8"/>
+      <stop offset="55%" stop-color="#ffabcb"/>
+      <stop offset="100%" stop-color="#ff8fbb"/>
     </linearGradient>
-    <!-- glossy top highlight -->
+    <linearGradient id="cuff" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe7f0"/>
+      <stop offset="100%" stop-color="#ffcfe0"/>
+    </linearGradient>
+    <linearGradient id="heartg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffc0d7"/>
+      <stop offset="100%" stop-color="#ff86b4"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#cdb9f2"/>
+      <stop offset="100%" stop-color="#b199e6"/>
+    </linearGradient>
+    <!-- multi-color wordmark: blue (GYM) -> purple -> pink (STORY) -->
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"  stop-color="#a9c6ff"/>
+      <stop offset="34%" stop-color="#b7a6ee"/>
+      <stop offset="60%" stop-color="#f5a0cf"/>
+      <stop offset="100%" stop-color="#ff8ab6"/>
+    </linearGradient>
     <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.95"/>
-      <stop offset="34%"  stop-color="#ffffff" stop-opacity="0.35"/>
-      <stop offset="48%"  stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="36%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <!-- drop candy gradients -->
-    <radialGradient id="dPink" cx="38%" cy="32%" r="75%">
-      <stop offset="0%" stop-color="#ffd9e8"/><stop offset="100%" stop-color="#ff8fbe"/>
-    </radialGradient>
-    <radialGradient id="dMint" cx="38%" cy="32%" r="75%">
-      <stop offset="0%" stop-color="#e2fbf1"/><stop offset="100%" stop-color="#8fe0c4"/>
-    </radialGradient>
-    <radialGradient id="dLemon" cx="38%" cy="32%" r="75%">
-      <stop offset="0%" stop-color="#fff5cf"/><stop offset="100%" stop-color="#ffd15e"/>
-    </radialGradient>
-    <radialGradient id="dLav" cx="38%" cy="32%" r="75%">
-      <stop offset="0%" stop-color="#efe8ff"/><stop offset="100%" stop-color="#c3aef0"/>
-    </radialGradient>
-    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#e97fae" flood-opacity="0.35"/>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#e888ad" flood-opacity="0.30"/>
     </filter>
-    <filter id="softsm" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#e97fae" flood-opacity="0.35"/>
+    <filter id="softsm" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#e888ad" flood-opacity="0.35"/>
     </filter>
   </defs>
 
-  <!-- background card -->
-  <rect x="16" y="16" width="1148" height="608" rx="52" fill="url(#bg)"/>
+  <!-- die-cut white oval + cream body + pink ring -->
+  <g filter="url(#soft)">
+    <ellipse cx="600" cy="560" rx="556" ry="386" fill="#ffffff"/>
+  </g>
+  <ellipse cx="600" cy="560" rx="516" ry="348" fill="url(#cream)" stroke="#ffc6da" stroke-width="16"/>
 
-  <!-- scattered bonbon candy drops (die-cut white outline + gloss) -->
+  <!-- sparkles -->
+  <g fill="#ffe08a" stroke="#ffffff" stroke-width="5" paint-order="stroke">
+    <polygon points="250,300 268,352 320,370 268,388 250,440 232,388 180,370 232,352"/>
+  </g>
+  <g fill="#d9c6f5" stroke="#ffffff" stroke-width="4" paint-order="stroke">
+    <polygon points="948,392 960,428 996,440 960,452 948,488 936,452 900,440 936,428"/>
+  </g>
+
+  <!-- motion lines -->
+  <g stroke="#f3a6c4" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9">
+    <path d="M300,548 q-46,10 -78,34"/>
+    <path d="M300,588 q-40,14 -66,40"/>
+    <path d="M312,624 q-36,16 -56,44"/>
+  </g>
+
+  <!-- purple swoosh arrow (up-right), behind glove -->
   <g filter="url(#softsm)">
-    <g>
-      <circle cx="132" cy="150" r="40" fill="url(#dMint)" stroke="#ffffff" stroke-width="9"/>
-      <ellipse cx="120" cy="136" rx="15" ry="10" fill="#ffffff" opacity="0.75"/>
-    </g>
-    <g>
-      <circle cx="1052" cy="126" r="34" fill="url(#dLemon)" stroke="#ffffff" stroke-width="9"/>
-      <ellipse cx="1042" cy="115" rx="12" ry="8" fill="#ffffff" opacity="0.8"/>
-    </g>
-    <g>
-      <circle cx="1064" cy="500" r="44" fill="url(#dPink)" stroke="#ffffff" stroke-width="9"/>
-      <ellipse cx="1050" cy="484" rx="16" ry="11" fill="#ffffff" opacity="0.75"/>
-    </g>
-    <g>
-      <circle cx="120" cy="486" r="30" fill="url(#dLav)" stroke="#ffffff" stroke-width="9"/>
-      <ellipse cx="111" cy="477" rx="11" ry="7" fill="#ffffff" opacity="0.8"/>
-    </g>
+    <path d="M470,660 Q690,690 830,470" fill="none" stroke="url(#arrow)" stroke-width="52"
+          stroke-linecap="round" paint-order="stroke"/>
+    <polygon points="838,436 892,470 838,516 812,478" fill="url(#arrow)" stroke="#ffffff" stroke-width="6" paint-order="stroke"/>
   </g>
 
-  <!-- WORDMARK: layered strokes = puffy candy sticker -->
-  <g>
-    <!-- white die-cut rim (with shadow) -->
-    <text x="590" y="352" text-anchor="middle" font-size="176" font-weight="900"
-          letter-spacing="2" fill="none" stroke="#ffffff" stroke-width="40"
-          stroke-linejoin="round" stroke-linecap="round" filter="url(#soft)">GYMSTORY</text>
-    <!-- pink candy edge -->
-    <text x="590" y="352" text-anchor="middle" font-size="176" font-weight="900"
-          letter-spacing="2" fill="none" stroke="#ef6ea0" stroke-width="16"
-          stroke-linejoin="round" stroke-linecap="round">GYMSTORY</text>
-    <!-- candy body -->
-    <text x="590" y="352" text-anchor="middle" font-size="176" font-weight="900"
-          letter-spacing="2" fill="url(#candy)">GYMSTORY</text>
-    <!-- glossy top -->
-    <text x="590" y="352" text-anchor="middle" font-size="176" font-weight="900"
-          letter-spacing="2" fill="url(#gloss)">GYMSTORY</text>
+  <!-- boxing glove with heart -->
+  <g filter="url(#softsm)">
+    <!-- cuff -->
+    <rect x="470" y="592" width="176" height="92" rx="30" fill="url(#cuff)" stroke="#ffffff" stroke-width="9" paint-order="stroke"/>
+    <path d="M540,628 c-8,-12 -30,-6 -30,8 c0,12 18,22 30,30 c12,-8 30,-18 30,-30 c0,-14 -22,-20 -30,-8 Z" fill="#ff9ec4"/>
+    <!-- mitt -->
+    <path d="M560,300
+             c92,0 150,64 150,150
+             c0,74 -40,132 -120,140
+             c-70,7 -140,-4 -168,-58
+             c-16,-30 -14,-70 6,-96
+             c-14,-2 -30,-16 -30,-40
+             c0,-30 26,-48 54,-44
+             c22,-58 68,-102 108,-102 Z"
+          fill="url(#glove)" stroke="#ffffff" stroke-width="10" paint-order="stroke"/>
+    <!-- thumb crease -->
+    <path d="M452,470 c22,-6 40,-4 56,6" fill="none" stroke="#f07fad" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+    <!-- gloss -->
+    <ellipse cx="560" cy="360" rx="70" ry="42" fill="#ffffff" opacity="0.55"/>
+    <!-- heart on mitt -->
+    <path d="M560,470 c-16,-24 -58,-14 -58,18 c0,26 34,46 58,64 c24,-18 58,-38 58,-64 c0,-32 -42,-42 -58,-18 Z"
+          fill="#fff2f7" stroke="#ffd3e4" stroke-width="5"/>
   </g>
 
-  <!-- little heart accent -->
-  <g transform="translate(590,430)" filter="url(#softsm)">
-    <path d="M0,14 C-12,-4 -34,-2 -34,16 C-34,32 -12,44 0,54 C12,44 34,32 34,16 C34,-2 12,-4 0,14 Z"
-          fill="url(#dPink)" stroke="#ffffff" stroke-width="7"/>
-    <ellipse cx="-12" cy="18" rx="7" ry="5" fill="#ffffff" opacity="0.8"/>
+  <!-- big pink heart (right) -->
+  <g filter="url(#softsm)" transform="translate(902,566)">
+    <path d="M0,26 C-30,-18 -104,-6 -104,44 C-104,92 -40,128 0,158 C40,128 104,92 104,44 C104,-6 30,-18 0,26 Z"
+          fill="url(#heartg)" stroke="#ffffff" stroke-width="10" paint-order="stroke"/>
+    <ellipse cx="-34" cy="46" rx="20" ry="13" fill="#ffffff" opacity="0.7"/>
   </g>
 
-  <!-- tagline ribbon -->
-  <g transform="translate(590,520)">
-    <rect x="-250" y="-34" width="500" height="66" rx="33" fill="#ffffff" opacity="0.92" filter="url(#softsm)"/>
-    <text x="0" y="12" text-anchor="middle" font-size="38" font-weight="800"
-          letter-spacing="6" fill="#ef6ea0"
-          font-family="'Hiragino Maru Gothic Pro','Rounded Mplus 1c','Baloo 2',sans-serif">やさしいつよさの ものがたり</text>
+  <!-- WORDMARK: GYMSTORY (puffy, white die-cut rim, multicolor, gloss) -->
+  <g filter="url(#softsm)">
+    <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
+          fill="url(#word)" stroke="#ffffff" stroke-width="34" stroke-linejoin="round"
+          paint-order="stroke">GYMSTORY</text>
+    <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
+          fill="url(#gloss)">GYMSTORY</text>
   </g>
 
-  <!-- presents line -->
-  <text x="590" y="120" text-anchor="middle" font-size="30" font-weight="800"
-        letter-spacing="8" fill="#f39abe" fill-opacity="0.95">FLAT UP GYM presents</text>
+  <!-- little hearts + dots under the word -->
+  <g transform="translate(600,930)">
+    <circle cx="-96" cy="0" r="9" fill="#c9b6f0"/>
+    <path d="M0,-6 c-9,-13 -32,-7 -32,10 c0,14 19,25 32,34 c13,-9 32,-20 32,-34 c0,-17 -23,-23 -32,-10 Z" fill="#ff8fbb" stroke="#ffffff" stroke-width="4" paint-order="stroke"/>
+    <circle cx="96" cy="0" r="9" fill="#c9b6f0"/>
+  </g>
+
+  <!-- presents / tagline -->
+  <text x="600" y="196" text-anchor="middle" font-size="30" font-weight="800" letter-spacing="8" fill="#f39abe">FLAT UP GYM presents</text>
 </svg>
