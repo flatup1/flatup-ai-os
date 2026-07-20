@@ -99,9 +99,9 @@
 
     <!-- WORDMARK -->
     <g class="word" filter="url(#softsm)">
-      <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
-            fill="url(#word)" stroke="#ffffff" stroke-width="34" stroke-linejoin="round" paint-order="stroke">GYMSTORY</text>
-      <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1" fill="url(#gloss)">GYMSTORY</text>
+      <text x="600" y="856" text-anchor="middle" font-size="166" font-weight="900" letter-spacing="0"
+            fill="url(#word)" stroke="#ffffff" stroke-width="32" stroke-linejoin="round" paint-order="stroke">GYMSTORYs</text>
+      <text x="600" y="856" text-anchor="middle" font-size="166" font-weight="900" letter-spacing="0" fill="url(#gloss)">GYMSTORYs</text>
     </g>
 
     <!-- little hearts + dots -->
