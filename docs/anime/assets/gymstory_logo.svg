@@ -1,35 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" width="1200" height="1040" font-family="'Arial Rounded MT Bold','Baloo 2',Nunito,'Hiragino Maru Gothic Pro','Rounded Mplus 1c',system-ui,sans-serif">
   <defs>
     <radialGradient id="cream" cx="50%" cy="42%" r="72%">
-      <stop offset="0%" stop-color="#fffaf2"/>
-      <stop offset="100%" stop-color="#fdeede"/>
+      <stop offset="0%" stop-color="#fffaf2"/><stop offset="100%" stop-color="#fdeede"/>
     </radialGradient>
     <linearGradient id="glove" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffdbe8"/>
-      <stop offset="55%" stop-color="#ffabcb"/>
-      <stop offset="100%" stop-color="#ff8fbb"/>
+      <stop offset="0%" stop-color="#ffdbe8"/><stop offset="55%" stop-color="#ffabcb"/><stop offset="100%" stop-color="#ff8fbb"/>
     </linearGradient>
     <linearGradient id="cuff" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffe7f0"/>
-      <stop offset="100%" stop-color="#ffcfe0"/>
+      <stop offset="0%" stop-color="#ffe7f0"/><stop offset="100%" stop-color="#ffcfe0"/>
     </linearGradient>
     <linearGradient id="heartg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffc0d7"/>
-      <stop offset="100%" stop-color="#ff86b4"/>
+      <stop offset="0%" stop-color="#ffc0d7"/><stop offset="100%" stop-color="#ff86b4"/>
     </linearGradient>
-    <linearGradient id="arrow" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#cdb9f2"/>
-      <stop offset="100%" stop-color="#b199e6"/>
+    <linearGradient id="arrowg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#cdb9f2"/><stop offset="100%" stop-color="#b199e6"/>
     </linearGradient>
-    <!-- multi-color wordmark: blue (GYM) -> purple -> pink (STORY) -->
     <linearGradient id="word" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"  stop-color="#a9c6ff"/>
-      <stop offset="34%" stop-color="#b7a6ee"/>
-      <stop offset="60%" stop-color="#f5a0cf"/>
-      <stop offset="100%" stop-color="#ff8ab6"/>
+      <stop offset="0%" stop-color="#a9c6ff"/><stop offset="34%" stop-color="#b7a6ee"/>
+      <stop offset="60%" stop-color="#f5a0cf"/><stop offset="100%" stop-color="#ff8ab6"/>
     </linearGradient>
     <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
       <stop offset="36%" stop-color="#ffffff" stop-opacity="0.3"/>
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
@@ -39,83 +30,87 @@
     <filter id="softsm" x="-60%" y="-60%" width="220%" height="220%">
       <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#e888ad" flood-opacity="0.35"/>
     </filter>
+    <!-- die-cut white sticker outline for arbitrary shapes -->
+    <filter id="sticker" x="-25%" y="-25%" width="150%" height="150%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="9" result="d"/>
+      <feFlood flood-color="#ffffff" result="w"/>
+      <feComposite in="w" in2="d" operator="in" result="o"/>
+      <feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .all{transform-box:fill-box;transform-origin:center;animation:pop .7s cubic-bezier(.2,.9,.25,1.15) both}
+      .glove{animation:floatY 3s ease-in-out infinite}
+      .heartb{transform-box:fill-box;transform-origin:center;animation:beat 2.2s ease-in-out infinite}
+      .tw{transform-box:fill-box;transform-origin:center;animation:tw 1.8s ease-in-out infinite}
+      .tw.b{animation-duration:2.3s;animation-delay:.5s}
+      .word{transform-box:fill-box;transform-origin:center;animation:wordPop .7s cubic-bezier(.2,.9,.25,1.25) .25s both}
+      .arrow{transform-box:fill-box;transform-origin:62% 78%;animation:wig 3.4s ease-in-out infinite}
+      .dots{animation:fade .5s ease-out .85s both}
+      @keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+      @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+      @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.16)}24%{transform:scale(1)}36%{transform:scale(1.1)}50%{transform:scale(1)}}
+      @keyframes tw{0%,100%{transform:scale(.6);opacity:.35}50%{transform:scale(1.15);opacity:1}}
+      @keyframes wordPop{0%{transform:translateY(48px) scale(.82);opacity:0}65%{transform:translateY(0) scale(1.06);opacity:1}100%{transform:scale(1)}}
+      @keyframes wig{0%,100%{transform:rotate(0)}50%{transform:rotate(-4deg)}}
+      @keyframes fade{0%{opacity:0}100%{opacity:1}}
+    </style>
   </defs>
 
-  <!-- die-cut white oval + cream body + pink ring -->
-  <g filter="url(#soft)">
-    <ellipse cx="600" cy="560" rx="556" ry="386" fill="#ffffff"/>
-  </g>
-  <ellipse cx="600" cy="560" rx="516" ry="348" fill="url(#cream)" stroke="#ffc6da" stroke-width="16"/>
+  <g class="all">
+    <!-- die-cut white oval + cream body + pink ring -->
+    <g filter="url(#soft)"><ellipse cx="600" cy="560" rx="556" ry="386" fill="#ffffff"/></g>
+    <ellipse cx="600" cy="560" rx="516" ry="348" fill="url(#cream)" stroke="#ffc6da" stroke-width="16"/>
 
-  <!-- sparkles -->
-  <g fill="#ffe08a" stroke="#ffffff" stroke-width="5" paint-order="stroke">
-    <polygon points="250,300 268,352 320,370 268,388 250,440 232,388 180,370 232,352"/>
-  </g>
-  <g fill="#d9c6f5" stroke="#ffffff" stroke-width="4" paint-order="stroke">
-    <polygon points="948,392 960,428 996,440 960,452 948,488 936,452 900,440 936,428"/>
-  </g>
+    <!-- sparkles -->
+    <g transform="translate(250,372)"><g class="tw"><polygon points="0,-78 19,-19 78,0 19,19 0,78 -19,19 -78,0 -19,-19" fill="#ffe08a" stroke="#ffffff" stroke-width="5" paint-order="stroke"/></g></g>
+    <g transform="translate(948,440)"><g class="tw b"><polygon points="0,-58 14,-14 58,0 14,14 0,58 -14,14 -58,0 -14,-14" fill="#d9c6f5" stroke="#ffffff" stroke-width="4" paint-order="stroke"/></g></g>
 
-  <!-- motion lines -->
-  <g stroke="#f3a6c4" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9">
-    <path d="M300,548 q-46,10 -78,34"/>
-    <path d="M300,588 q-40,14 -66,40"/>
-    <path d="M312,624 q-36,16 -56,44"/>
-  </g>
+    <!-- motion lines -->
+    <g stroke="#f3a6c4" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.9">
+      <path d="M300,548 q-46,10 -78,34"/><path d="M300,588 q-40,14 -66,40"/><path d="M312,624 q-36,16 -56,44"/>
+    </g>
 
-  <!-- purple swoosh arrow (up-right), behind glove -->
-  <g filter="url(#softsm)">
-    <path d="M470,660 Q690,690 830,470" fill="none" stroke="url(#arrow)" stroke-width="52"
-          stroke-linecap="round" paint-order="stroke"/>
-    <polygon points="838,436 892,470 838,516 812,478" fill="url(#arrow)" stroke="#ffffff" stroke-width="6" paint-order="stroke"/>
-  </g>
+    <!-- purple swoosh arrow (up-right) with clean triangle head -->
+    <g class="arrow" filter="url(#sticker)">
+      <path d="M470,662 Q690,690 824,486" fill="none" stroke="url(#arrowg)" stroke-width="50" stroke-linecap="round"/>
+      <polygon points="853,449 851,512 793,470" fill="url(#arrowg)"/>
+    </g>
 
-  <!-- boxing glove with heart -->
-  <g filter="url(#softsm)">
-    <!-- cuff -->
-    <rect x="470" y="592" width="176" height="92" rx="30" fill="url(#cuff)" stroke="#ffffff" stroke-width="9" paint-order="stroke"/>
-    <path d="M540,628 c-8,-12 -30,-6 -30,8 c0,12 18,22 30,30 c12,-8 30,-18 30,-30 c0,-14 -22,-20 -30,-8 Z" fill="#ff9ec4"/>
-    <!-- mitt -->
-    <path d="M560,300
-             c92,0 150,64 150,150
-             c0,74 -40,132 -120,140
-             c-70,7 -140,-4 -168,-58
-             c-16,-30 -14,-70 6,-96
-             c-14,-2 -30,-16 -30,-40
-             c0,-30 26,-48 54,-44
-             c22,-58 68,-102 108,-102 Z"
-          fill="url(#glove)" stroke="#ffffff" stroke-width="10" paint-order="stroke"/>
-    <!-- thumb crease -->
-    <path d="M452,470 c22,-6 40,-4 56,6" fill="none" stroke="#f07fad" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
-    <!-- gloss -->
-    <ellipse cx="560" cy="360" rx="70" ry="42" fill="#ffffff" opacity="0.55"/>
-    <!-- heart on mitt -->
-    <path d="M560,470 c-16,-24 -58,-14 -58,18 c0,26 34,46 58,64 c24,-18 58,-38 58,-64 c0,-32 -42,-42 -58,-18 Z"
-          fill="#fff2f7" stroke="#ffd3e4" stroke-width="5"/>
-  </g>
+    <!-- boxing glove with heart -->
+    <g class="glove" filter="url(#soft)">
+      <g filter="url(#sticker)">
+        <rect x="500" y="540" width="156" height="98" rx="30" fill="url(#cuff)"/>
+        <circle cx="578" cy="430" r="118" fill="url(#glove)"/>
+        <circle cx="470" cy="492" r="52" fill="url(#glove)"/>
+        <ellipse cx="548" cy="372" rx="66" ry="40" fill="#ffffff" opacity="0.5"/>
+        <path d="M470,470 c22,-6 40,-4 56,6" fill="none" stroke="#f07fad" stroke-width="7" stroke-linecap="round" opacity="0.65"/>
+        <!-- heart on mitt -->
+        <path d="M578,432 c-15,-22 -55,-13 -55,17 c0,25 32,44 55,61 c23,-17 55,-36 55,-61 c0,-30 -40,-39 -55,-17 Z" fill="#fff2f7" stroke="#ffd3e4" stroke-width="5"/>
+        <!-- band heart on cuff -->
+        <path d="M578,578 c-8,-12 -28,-6 -28,8 c0,12 17,22 28,30 c11,-8 28,-18 28,-30 c0,-14 -20,-20 -28,-8 Z" fill="#ff9ec4"/>
+      </g>
+    </g>
 
-  <!-- big pink heart (right) -->
-  <g filter="url(#softsm)" transform="translate(902,566)">
-    <path d="M0,26 C-30,-18 -104,-6 -104,44 C-104,92 -40,128 0,158 C40,128 104,92 104,44 C104,-6 30,-18 0,26 Z"
-          fill="url(#heartg)" stroke="#ffffff" stroke-width="10" paint-order="stroke"/>
-    <ellipse cx="-34" cy="46" rx="20" ry="13" fill="#ffffff" opacity="0.7"/>
-  </g>
+    <!-- big pink heart (right) -->
+    <g transform="translate(902,566)"><g class="heartb" filter="url(#softsm)">
+      <path d="M0,26 C-30,-18 -104,-6 -104,44 C-104,92 -40,128 0,158 C40,128 104,92 104,44 C104,-6 30,-18 0,26 Z" fill="url(#heartg)" stroke="#ffffff" stroke-width="10" paint-order="stroke"/>
+      <ellipse cx="-34" cy="46" rx="20" ry="13" fill="#ffffff" opacity="0.7"/>
+    </g></g>
 
-  <!-- WORDMARK: GYMSTORY (puffy, white die-cut rim, multicolor, gloss) -->
-  <g filter="url(#softsm)">
-    <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
-          fill="url(#word)" stroke="#ffffff" stroke-width="34" stroke-linejoin="round"
-          paint-order="stroke">GYMSTORY</text>
-    <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
-          fill="url(#gloss)">GYMSTORY</text>
-  </g>
+    <!-- WORDMARK -->
+    <g class="word" filter="url(#softsm)">
+      <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1"
+            fill="url(#word)" stroke="#ffffff" stroke-width="34" stroke-linejoin="round" paint-order="stroke">GYMSTORY</text>
+      <text x="600" y="856" text-anchor="middle" font-size="182" font-weight="900" letter-spacing="1" fill="url(#gloss)">GYMSTORY</text>
+    </g>
 
-  <!-- little hearts + dots under the word -->
-  <g transform="translate(600,930)">
-    <circle cx="-96" cy="0" r="9" fill="#c9b6f0"/>
-    <path d="M0,-6 c-9,-13 -32,-7 -32,10 c0,14 19,25 32,34 c13,-9 32,-20 32,-34 c0,-17 -23,-23 -32,-10 Z" fill="#ff8fbb" stroke="#ffffff" stroke-width="4" paint-order="stroke"/>
-    <circle cx="96" cy="0" r="9" fill="#c9b6f0"/>
-  </g>
+    <!-- little hearts + dots -->
+    <g class="dots" transform="translate(600,930)">
+      <circle cx="-96" cy="0" r="9" fill="#c9b6f0"/>
+      <path d="M0,-6 c-9,-13 -32,-7 -32,10 c0,14 19,25 32,34 c13,-9 32,-20 32,-34 c0,-17 -23,-23 -32,-10 Z" fill="#ff8fbb" stroke="#ffffff" stroke-width="4" paint-order="stroke"/>
+      <circle cx="96" cy="0" r="9" fill="#c9b6f0"/>
+    </g>
 
-  <!-- presents / tagline -->
-  <text x="600" y="196" text-anchor="middle" font-size="30" font-weight="800" letter-spacing="8" fill="#f39abe">FLAT UP GYM presents</text>
+    <text x="600" y="196" text-anchor="middle" font-size="30" font-weight="800" letter-spacing="8" fill="#f39abe">FLAT UP GYM presents</text>
+  </g>
 </svg>
