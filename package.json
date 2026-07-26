@@ -12,6 +12,7 @@
     "reel": "tsx src/reel/generate.ts",
     "img": "tsx src/reel/image.ts",
     "anime:ep1": "bash scripts/anime_ep1.sh",
+    "anime:ep1:stitch": "bash scripts/anime_ep1_stitch.sh",
     "test:safety": "tsx src/safety/receptionist.test.ts",
     "test:pii": "tsx src/utils/sanitizePii.test.ts",
     "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",

@@ -106,7 +106,11 @@ Warm 3D animation movie still, exterior night view of FLATUP GYM, warm light fro
 
 ## 編集メモ（CapCut）
 
-- **つなぎ順**: Cut1→8をそのまま連結。カット間は0.2秒の柔らかいクロスディゾルブ。
+> **③つなぐは自動化できる**: 6秒クリップ8本を `output/clips/` に順番の名前（cut1.mp4…cut8.mp4）で入れ、
+> `npm run anime:ep1:stitch` を実行すると `output/ep1/flatup_ep1_YYYYMMDD.mp4` に1本化される（要 ffmpeg）。
+> そのあとCapCutで開き、④の「文字・音楽・ロゴ」だけ足せば公開用EP1になる。
+
+- **つなぎ順**: Cut1→8をそのまま連結。カット間は0.2秒の柔らかいクロスディゾルブ（自動連結は今はハードカット。ディゾルブが欲しければCapCutで足す）。
 - **BGM**: ピアノ＋ストリングスの優しい曲。Cut6〜7で少し盛り上げ、Cut8で余韻を残して収束。
 - **効果音**: 子どもの笑い声（全体うっすら）、パンチ音・ミット音（Cut4-5）、環境音（Cut1・8の夜の街）。
 - **字幕**: 上表の「セリフ/字幕」をコピペ。画面下1/4に大きめ・白フチ。1カット1行。
