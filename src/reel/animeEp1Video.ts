@@ -18,6 +18,7 @@
 import "../utils/loadEnv.js";
 import { mkdir, readFile, readdir } from "node:fs/promises";
 import { join, extname } from "node:path";
+import { EP1_CUT_DEFS, videoPrompt } from "./animeEp1Cuts.js";
 import {
   generateVideo,
   downloadVideo,
@@ -27,17 +28,11 @@ import {
   assertValidApiKey,
 } from "./seedance.js";
 
-/** EP1 8カットの Hailuo I2V プロンプト（docs/flatup_anime_episode1.md と一致） */
-export const EP1_CUTS: Array<{ n: number; prompt: string }> = [
-  { n: 1, prompt: "Slow subtle dolly-in toward the gym, warm window light flickers gently, faint steam rises from the wet street, cozy calm night, one gentle motion only, fixed camera, background unchanged, 6 seconds" },
-  { n: 2, prompt: "The coach raises one hand in a friendly greeting and the kids wave back with bright smiles, gentle breathing and blinking, warm and lively, one gentle motion only, fixed camera, background unchanged, 6 seconds" },
-  { n: 3, prompt: "The coach speaks warmly with a soft gesture, the seated kids nod and their eyes light up, gentle breathing, tender mood, one gentle motion only, fixed camera, background unchanged, 6 seconds" },
-  { n: 4, prompt: "The row of kids throws one clean jab punch forward in unison, the coach nods with a proud smile, light hair and clothing motion, one gentle motion only, fixed camera, background unchanged, 6 seconds" },
-  { n: 5, prompt: "The kid throws one straight punch into the focus mitt with a soft impact, the coach reacts with a cheerful expression, gentle motion, one action only, fixed camera, background unchanged, 6 seconds" },
-  { n: 6, prompt: "The two kids touch gloves and bow to each other with big warm smiles, no impact, only a friendly respectful gesture, soft motion, fixed camera, background unchanged, 6 seconds" },
-  { n: 7, prompt: "The kneeling kids bow forward together in a respectful gesture, the coach bows with them, slow calm synchronized motion, fixed camera, background unchanged, 6 seconds" },
-  { n: 8, prompt: "Very slow pull-back from the gym exterior, the window silhouettes stay smiling, warm light glows steadily, magical calm ending, one gentle motion only, fixed camera, background unchanged, 6 seconds" },
-];
+/** EP1 8カットの Hailuo I2V プロンプト（正本は animeEp1Cuts.ts） */
+export const EP1_CUTS: Array<{ n: number; prompt: string }> = EP1_CUT_DEFS.map(cut => ({
+  n: cut.n,
+  prompt: videoPrompt(cut),
+}));
 
 const SRC_DIR = join(process.cwd(), "output", "clips_src");
 const OUT_DIR = join(process.cwd(), "output", "clips");

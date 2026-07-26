@@ -1,0 +1,137 @@
+name: 🎬 アニメEP1を作る（スマホからOK）
+
+# スマホのGitHubアプリ / ブラウザから手動で実行する。
+# Actions →「🎬 アニメEP1を作る」→ Run workflow → 完成した動画は Artifacts からダウンロード。
+#
+# 事前に1回だけ必要な設定（Settings → Secrets and variables → Actions）:
+#   Secrets: FAL_KEY          … fal.ai のAPIキー
+#   Variables: FAL_VIDEO_MODEL … 画像→動画のモデル slug（Hailuo等のimage-to-video）
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "どこまで作る？"
+        type: choice
+        default: "full"
+        options:
+          - full          # 画像 → 動画 → 連結（45秒の動画が1本できる）
+          - images_only   # 画像だけ（絵柄を確認したいとき）
+          - dry_run       # 生成せず中身の確認だけ（無料）
+      images_per_cut:
+        description: "各カットの画像枚数（1=全自動 / 2〜4=差し替え候補も欲しいとき）"
+        type: choice
+        default: "1"
+        options: ["1", "2", "3", "4"]
+
+concurrency:
+  group: anime-ep1
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: EP1を生成
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: 依存をインストール
+        run: npm ci || npm install
+
+      - name: 設定を確認
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          if [ "${{ inputs.mode }}" != "dry_run" ] && [ -z "$FAL_KEY" ]; then
+            echo "::error::FAL_KEY が未設定です。Settings → Secrets and variables → Actions → New repository secret で FAL_KEY を追加してください。"
+            exit 1
+          fi
+          echo "mode=${{ inputs.mode }} / images_per_cut=${{ inputs.images_per_cut }}"
+
+      - name: ① 8カットの画像を作る
+        env:
+          FAL_KEY: ${{ inputs.mode == 'dry_run' && '' || secrets.FAL_KEY }}
+          FAL_IMAGE_MODEL: ${{ vars.FAL_IMAGE_MODEL }}
+        run: npm run anime:ep1:images -- --count ${{ inputs.images_per_cut }}
+
+      - name: ② 画像を6秒動画にする
+        if: inputs.mode == 'full'
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          FAL_VIDEO_MODEL: ${{ vars.FAL_VIDEO_MODEL }}
+        run: npm run anime:ep1:video
+
+      - name: ③ 8本を1本につなぐ
+        if: inputs.mode == 'full'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          npm run anime:ep1:stitch
+
+      - name: 完成した動画をアップロード
+        if: inputs.mode == 'full'
+        uses: actions/upload-artifact@v4
+        with:
+          name: FLATUP-EP1-動画
+          path: output/ep1/*.mp4
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: 画像をアップロード
+        if: inputs.mode != 'dry_run'
+        uses: actions/upload-artifact@v4
+        with:
+          name: FLATUP-EP1-画像
+          path: output/clips_src/*.png
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: 6秒クリップをアップロード
+        if: inputs.mode == 'full'
+        uses: actions/upload-artifact@v4
+        with:
+          name: FLATUP-EP1-クリップ8本
+          path: output/clips/*.mp4
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: 次にやること
+        if: always()
+        run: |
+          {
+            echo "## 🎬 FLATUP アニメ EP1"
+            echo ""
+            if [ "${{ inputs.mode }}" = "full" ]; then
+              echo "**完成！** 下の Artifacts から \`FLATUP-EP1-動画\` をダウンロードしてください（45秒の縦動画）。"
+              echo ""
+              echo "### 次の仕上げ（スマホのCapCutでOK）"
+              echo "1. ダウンロードした動画を CapCut で開く"
+              echo "2. 字幕を入れる（下の表のセリフ）"
+              echo "3. やさしいBGM（ピアノ＋ストリングス）を足す"
+              echo "4. 最後の1秒にロゴ「FLATUP GYM／世界一やさしい格闘技ジム」"
+              echo ""
+              echo "| カット | 字幕 |"
+              echo "|---|---|"
+              echo "| 1 | FLATUP GYM |"
+              echo "| 2 | こんばんは！ |"
+              echo "| 3 | 今日は「優しくなること」 |"
+              echo "| 4 | まっすぐ、いいね！ |"
+              echo "| 5 | ナイス！ |"
+              echo "| 6 | 勝ち負けじゃない |"
+              echo "| 7 | ありがとうございました！ |"
+              echo "| 8 | 世界一やさしい格闘技ジム |"
+              echo ""
+              echo "### 投稿するとき"
+              echo "- AI生成ラベルを**ON**にする"
+              echo "- ハッシュタグは \`docs/flatup_anime_episode1.md\` の投稿セットから"
+            elif [ "${{ inputs.mode }}" = "images_only" ]; then
+              echo "画像だけ作りました。Artifacts の \`FLATUP-EP1-画像\` を確認して、良ければ mode=full で再実行してください。"
+            else
+              echo "DRY-RUN（無料の確認のみ）。実際に作るときは mode を full にして再実行してください。"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
