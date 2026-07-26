@@ -51,6 +51,12 @@ export const SERIES: ReelSeries[] = [
       "playfully practicing guard position with a soft plush grappling dummy, hugging it and rolling sideways",
       "doing technical stand-up drills, rising from the mat with one paw raised in a guard",
     ],
+    i2vSequences: [
+      "A photorealistic tabby cat wearing a small white jiu-jitsu gi, doing solo Brazilian jiu-jitsu hip-escape shrimping movements across the tatami mat, quick and precise. Completely natural fluid motion, realistic weight transfer and balance, consistent face and fur, stable anatomy, no extra limbs, no morphing, no humans visible. Soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in a small white gi performing a slow careful forward-roll breakfall on the mat, then kneeling in seiza and giving a small polite bow. Completely natural fluid motion, realistic momentum and balance, consistent face and fur, stable anatomy, no extra limbs, no morphing, no humans visible. Warm natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in a small white gi practicing guard position with a soft plush grappling dummy, hugging it and rolling smoothly to its side. Completely natural fluid motion, realistic weight and balance, consistent face and fur, stable anatomy, no extra limbs, no morphing, no humans visible. Soft window light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in a small white gi doing a technical stand-up drill, rising smoothly from the mat with one paw raised in guard. Completely natural fluid motion, realistic balance, consistent face and fur, stable anatomy, no extra limbs, no morphing, no humans visible. Soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+    ],
     settings: [
       "a traditional Japanese dojo with green tatami mats and wooden walls",
       "a bright Japanese living room with tatami mats laid on the floor",
@@ -206,6 +212,12 @@ export const SERIES: ReelSeries[] = [
       "throwing a quick left jab, another jab, then a right hook, keeping its guard up between punches",
       "doing boxing head movement, slipping left and right, then throwing a fast one-two combination",
       "shadowboxing with quick jabs and ending with a slow-motion victory pose, arms raised",
+    ],
+    i2vSequences: [
+      "A photorealistic tabby cat wearing small boxing gloves, standing upright on its hind legs in a boxing stance, throwing a quick left jab, another jab, then a right hook, keeping its guard up between punches. Completely natural fluid motion, realistic weight transfer and timing, consistent face and fur, stable anatomy, no extra limbs, no morphing. Soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in small boxing gloves, doing boxing head movement, slipping left and right, then throwing a fast one-two combination and returning to guard. Completely natural fluid motion, realistic balance and timing, consistent face and fur, stable anatomy, no extra limbs, no morphing. Soft light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in small boxing gloves, shadowboxing with quick sharp jabs, then finishing with a calm slow-motion victory pose with one glove raised. Completely natural fluid motion, realistic weight shift, consistent face and fur, stable anatomy, no extra limbs, no morphing. Soft natural light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
+      "A photorealistic tabby cat in small boxing gloves, throwing sharp snappy paw jabs at a small focus mitt, returning to guard between each. The mitt stays small and at arm's-length, never covering the camera. Completely natural fluid motion, realistic timing and shoulder movement, consistent face and fur, stable anatomy, no extra limbs, no morphing. Soft light, cinema camera, shallow depth of field. Fixed camera at eye level, 6 seconds. Hyper-realistic, live-action, not cartoon.",
     ],
     settings: [
       "a bright Japanese apartment living room with a cat tower in the background",

@@ -93,8 +93,18 @@ test("i2v 指定でも T2V プロンプトとは別物(切り替わっている)
   assert.notEqual(buildPrompt(s, 0, { i2v: true }), buildPrompt(s, 0));
 });
 
+test("猫シリーズ(にゃん術/ニャクシング)も I2V 最適化済み", () => {
+  for (const name of ["にゃん術", "ニャクシング"]) {
+    const s = resolveSeries(name)!;
+    assert.ok((s.i2vSequences?.length ?? 0) >= 2, `${name} が i2vSequences を持つ`);
+    assert.equal(buildPrompt(s, 0, { i2v: true }), s.i2vSequences![0]);
+    assert.notEqual(buildPrompt(s, 0, { i2v: true }), buildPrompt(s, 0));
+  }
+});
+
 test("i2vSequences を持たないシリーズは i2v 指定でも T2V にフォールバック", () => {
-  const s = resolveSeries("にゃん術")!;
+  const s = resolveSeries("ニャンフー")!;
+  assert.equal(s.i2vSequences, undefined, "ニャンフーは未対応(フォールバック対象)");
   assert.equal(buildPrompt(s, 0, { i2v: true }), buildPrompt(s, 0));
 });
 
