@@ -2,6 +2,12 @@
 
 **結論**: 45秒のEP1を、このリポジトリの実パイプライン（fal.ai 画像=FLUX、動画=Hailuo I2V、6秒/カット、CapCutでつなぐ）で作れるように、**8カット×約6秒**に落とした完成仕様。上から順に画像→動画→編集で作れば、環境構築ゼロでEP1が完成する。
 
+> 📱 **スマホだけで作りたい / PCが無いとき** → [anime_ep1_smartphone.md](anime_ep1_smartphone.md)
+> GitHub Actions の「🎬 アニメEP1を作る」をタップするだけで、①画像→②動画→③連結まで
+> クラウドで走り、完成した45秒動画をスマホにダウンロードできる。
+>
+> 💻 PCなら3コマンド: `npm run anime:ep1:images` → `anime:ep1:video` → `anime:ep1:stitch`
+
 > もとの絵コンテ（オープニング＋Scene1〜7＋ナレーション＋ロゴ）を、
 > 1カット=1アクション=6秒の作りやすい単位に割り直したもの。
 > キャラの一貫性は `flatup_anime_studio.md` のキャラバイブル（先生・子ども・あぷちゃん）に従う。
@@ -91,6 +97,11 @@ Warm 3D animation movie still, exterior night view of FLATUP GYM, warm light fro
 
 ## カット別 Hailuo 動画プロンプト（英語）
 
+> **②動画化も自動化できる**: 各カットで採用した1枚を `output/clips_src/` に `cut1.png … cut8.png` の名前で置き、
+> `.env` に `FAL_VIDEO_MODEL=<Hailuo等のI2Vモデル>` を設定して `npm run anime:ep1:video` を実行すると、
+> 下の8プロンプトで一気に6秒動画化され `output/clips/cut1.mp4 … cut8.mp4` に保存される（そのまま `anime:ep1:stitch` へ）。
+> 下記プロンプトはそのバッチに内蔵済み。fal Playground で手動I2Vする場合の参照用でもある。
+
 各カット、採用したFLUX画像を入れて I2V。共通ルール: `one gentle motion only, fixed camera, background unchanged, soft warm lighting, 6 seconds`。
 
 - **Cut 1**: `Slow subtle dolly-in toward the gym, warm window light flickers gently, faint steam rises from the wet street, cozy calm night.`
@@ -106,7 +117,11 @@ Warm 3D animation movie still, exterior night view of FLATUP GYM, warm light fro
 
 ## 編集メモ（CapCut）
 
-- **つなぎ順**: Cut1→8をそのまま連結。カット間は0.2秒の柔らかいクロスディゾルブ。
+> **③つなぐは自動化できる**: 6秒クリップ8本を `output/clips/` に順番の名前（cut1.mp4…cut8.mp4）で入れ、
+> `npm run anime:ep1:stitch` を実行すると `output/ep1/flatup_ep1_YYYYMMDD.mp4` に1本化される（要 ffmpeg）。
+> そのあとCapCutで開き、④の「文字・音楽・ロゴ」だけ足せば公開用EP1になる。
+
+- **つなぎ順**: Cut1→8をそのまま連結。カット間は0.2秒の柔らかいクロスディゾルブ（自動連結は今はハードカット。ディゾルブが欲しければCapCutで足す）。
 - **BGM**: ピアノ＋ストリングスの優しい曲。Cut6〜7で少し盛り上げ、Cut8で余韻を残して収束。
 - **効果音**: 子どもの笑い声（全体うっすら）、パンチ音・ミット音（Cut4-5）、環境音（Cut1・8の夜の街）。
 - **字幕**: 上表の「セリフ/字幕」をコピペ。画面下1/4に大きめ・白フチ。1カット1行。
