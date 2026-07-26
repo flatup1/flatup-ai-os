@@ -91,6 +91,11 @@ Warm 3D animation movie still, exterior night view of FLATUP GYM, warm light fro
 
 ## カット別 Hailuo 動画プロンプト（英語）
 
+> **②動画化も自動化できる**: 各カットで採用した1枚を `output/clips_src/` に `cut1.png … cut8.png` の名前で置き、
+> `.env` に `FAL_VIDEO_MODEL=<Hailuo等のI2Vモデル>` を設定して `npm run anime:ep1:video` を実行すると、
+> 下の8プロンプトで一気に6秒動画化され `output/clips/cut1.mp4 … cut8.mp4` に保存される（そのまま `anime:ep1:stitch` へ）。
+> 下記プロンプトはそのバッチに内蔵済み。fal Playground で手動I2Vする場合の参照用でもある。
+
 各カット、採用したFLUX画像を入れて I2V。共通ルール: `one gentle motion only, fixed camera, background unchanged, soft warm lighting, 6 seconds`。
 
 - **Cut 1**: `Slow subtle dolly-in toward the gym, warm window light flickers gently, faint steam rises from the wet street, cozy calm night.`
