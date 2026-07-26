@@ -12,7 +12,7 @@ Colab/ComfyUI なしで作るための手順書。実行基盤は fal.ai（画�
 | 01 SETUP | 環境構築 | `.env` に `FAL_KEY` を書くだけ（済んでいれば何もしない） |
 | 02 BRAND_SETUP | 世界観・色・理念 | `src/data/`（既存のジム知識）+ このファイルのキャラバイブル |
 | 03 CHARACTER_STUDIO | キャラの基準画像 | `npm run img -- "<英語プロンプト>" --count 4` で候補4枚→1枚採用 |
-| 04 STORYBOARD | 物語・絵コンテ・カット別プロンプト | `npm run dev -- anime_ad "テーマ"` |
+| 04 STORYBOARD | 物語・絵コンテ・カット別プロンプト | `npm run dev -- anime_ad "テーマ"`（完成例: EP1仕様 → `flatup_anime_episode1.md`） |
 | 05 IMAGE_STUDIO | カット別の基準画像 | 04で出たFLUXプロンプトを `npm run img` へ |
 | 06 VIDEO_STUDIO | 6秒動画化 | 04で出たHailuoプロンプトを `npm run reel` の `--image` へ、またはfal Playground |
 | 07 FINAL_EDIT | BGM・字幕・書き出し | CapCut（字幕は04の絵コンテのセリフをコピペ） |
@@ -49,6 +49,26 @@ soft natural light, vertical 9:16, no text, no logo, no humans other than the ch
 - 設計シートをそのまま入れない（グリッドとラベルが動画に写る）。1ポーズだけの
   クリーンな縦画像を `npm run img` で上のブロックから作るか、シートから丁寧に切り出す
 - 1カット1技。技名は動詞で（throws one right straight punch 等）
+
+### 先生（コーチ・EP1〜シリーズ主人公）
+- 姿: 20代後半の爽やかな青年。黒髪短髪、少年漫画主人公風、少し筋肉質
+- 服: 黒の「FLAT UP GYM」パーカー／タンク、腕時計。優しい笑顔がデフォルト
+- 性格: 守りの人。強さより優しさを教える。怒鳴らない・褒めて伸ばす
+- 一貫性: EP1で確定した基準画像を全カット・全話で参照する
+
+**画像生成用の英語ブロック**:
+```
+A cheerful young male martial-arts coach in his late twenties, warm 3D animation movie style,
+short black hair with a shonen-hero look, slightly athletic build, gentle kind smile,
+wearing a black FLAT UP GYM hoodie and a wristwatch, standing in a bright clean gym with
+white floor and green mats, soft warm light, vertical 9:16, no text
+```
+
+### 子どもたち（生徒）
+- 姿: 2.5〜3頭身のちびキャラ。全員違う顔・違う髪型、男女混在、4〜12歳
+- 構成: 日本人中心＋数名の外国人の子。全員かわいく、全員笑顔がデフォルト
+- 服: 「FLAT UP GYM」Tシャツ＋ムエタイショーツ。練習時はヘッドギア・グローブ・すね当て
+- 注意: **実在会員の顔には寄せない**。すべてオリジナルキャラとして描く
 
 ### ミットくん
 - 姿: 白×緑のフォーカスミットに大きな優しい目

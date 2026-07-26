@@ -180,6 +180,8 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **Typefully/X 連携**: [docs/typefully_x_ops.md](docs/typefully_x_ops.md)
 - **Obsidian Vault 統合**: [docs/obsidian_vault_integration.md](docs/obsidian_vault_integration.md)
 - **動物×格闘技リール量産**: [docs/animal_reels_factory.md](docs/animal_reels_factory.md)
+- **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
+- **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
 
 ---
 
