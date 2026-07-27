@@ -34,6 +34,9 @@ export const EP1_CUTS: Array<{ n: number; prompt: string }> = EP1_CUT_DEFS.map(c
   prompt: videoPrompt(cut),
 }));
 
+/** 一時的な失敗（fal混雑によるタイムアウト等）に備えた1カットあたりの試行回数 */
+const MAX_ATTEMPTS = 2;
+
 const SRC_DIR = join(process.cwd(), "output", "clips_src");
 const OUT_DIR = join(process.cwd(), "output", "clips");
 const IMG_EXT: Record<string, string> = {
@@ -108,31 +111,57 @@ if (isMain) {
   }
 
   await mkdir(OUT_DIR, { recursive: true });
-  let ok = 0;
-  let failed = 0;
-  for (const c of ready) {
-    const started = Date.now();
-    process.stdout.write(`[cut${c.n}] 生成中...`);
-    try {
-      const imageUrl = await toDataUri(c.img!);
-      const result = await generateVideo(c.prompt, { imageUrl, duration: "6", aspectRatio: "9:16" });
-      const file = join(OUT_DIR, `cut${c.n}.mp4`);
-      await downloadVideo(result.videoUrl, file);
-      const sec = Math.round((Date.now() - started) / 1000);
-      console.log(` 完了 (${sec}s) → ${file}`);
-      ok++;
-    } catch (err) {
-      console.log(` 失敗: ${err instanceof Error ? err.message : String(err)}`);
-      failed++;
+
+  // 既に出来ているカットは作り直さない（再実行時に費用と時間を無駄にしないため）
+  const existing = new Set(
+    (await readdir(OUT_DIR).catch(() => [] as string[])).filter(f => /^cut\d+\.mp4$/.test(f))
+  );
+
+  /** 1カットを生成する。タイムアウト等の一時的な失敗は1回だけ作り直す */
+  async function renderCut(c: { n: number; prompt: string; img?: string }): Promise<boolean> {
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      const started = Date.now();
+      process.stdout.write(`[cut${c.n}]${attempt > 1 ? ` 再試行${attempt - 1}` : ""} 生成中...`);
+      try {
+        const imageUrl = await toDataUri(c.img!);
+        const result = await generateVideo(c.prompt, { imageUrl, duration: "6", aspectRatio: "9:16" });
+        const file = join(OUT_DIR, `cut${c.n}.mp4`);
+        await downloadVideo(result.videoUrl, file);
+        console.log(` 完了 (${Math.round((Date.now() - started) / 1000)}s) → ${file}`);
+        return true;
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.log(` 失敗: ${msg}`);
+        if (attempt === MAX_ATTEMPTS) return false;
+        console.log(`  → cut${c.n} をもう一度試します`);
+      }
     }
+    return false;
   }
 
-  console.log(`\n完了: 成功 ${ok} / 失敗 ${failed}`);
-  if (ok > 0) {
+  const done: number[] = [];
+  const failedCuts: number[] = [];
+  for (const c of ready) {
+    if (existing.has(`cut${c.n}.mp4`)) {
+      console.log(`[cut${c.n}] 既に生成済みのためスキップ`);
+      done.push(c.n);
+      continue;
+    }
+    (await renderCut(c) ? done : failedCuts).push(c.n);
+  }
+
+  console.log(`\n完了: 成功 ${done.length} / 失敗 ${failedCuts.length}`);
+  if (done.length > 0) {
     console.log(`次: npm run anime:ep1:stitch で ${OUT_DIR} の動画を1本につなぐ。`);
   }
   if (missing.length) {
     console.log(`※ 未配置(${missing.join(", ")})は cut<n> の画像を置いて再実行すれば追加生成できます。`);
   }
-  if (failed > 0) process.exit(1);
+  if (failedCuts.length > 0) {
+    console.log(`※ 失敗したカット: ${failedCuts.map(n => `cut${n}`).join(", ")}`);
+    console.log(`   もう一度実行すると、出来ているカットはスキップして失敗ぶんだけ作り直します。`);
+  }
+  // 1本も作れなかったときだけ失敗扱いにする。
+  // 一部失敗でも、出来たぶんを連結して受け取れるようにするため成功終了する。
+  if (done.length === 0) process.exit(1);
 }

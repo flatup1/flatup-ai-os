@@ -65,16 +65,18 @@ jobs:
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
           FAL_VIDEO_MODEL: ${{ vars.FAL_VIDEO_MODEL }}
+          SEEDANCE_POLL_TIMEOUT_MIN: ${{ vars.SEEDANCE_POLL_TIMEOUT_MIN || '20' }}
         run: npm run anime:ep1:video
 
+      # 一部のカットが失敗しても、出来たぶんは必ず連結して受け取れるようにする
       - name: ③ 8本を1本につなぐ
-        if: inputs.mode == 'full'
+        if: inputs.mode == 'full' && !cancelled()
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           npm run anime:ep1:stitch
 
       - name: 完成した動画をアップロード
-        if: inputs.mode == 'full'
+        if: inputs.mode == 'full' && !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: FLATUP-EP1-動画
@@ -83,7 +85,7 @@ jobs:
           retention-days: 30
 
       - name: 画像をアップロード
-        if: inputs.mode != 'dry_run'
+        if: inputs.mode != 'dry_run' && !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: FLATUP-EP1-画像
@@ -92,7 +94,7 @@ jobs:
           retention-days: 30
 
       - name: 6秒クリップをアップロード
-        if: inputs.mode == 'full'
+        if: inputs.mode == 'full' && !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: FLATUP-EP1-クリップ8本
