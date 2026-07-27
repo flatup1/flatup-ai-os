@@ -54,18 +54,25 @@ jobs:
           fi
           echo "mode=${{ inputs.mode }} / images_per_cut=${{ inputs.images_per_cut }}"
 
+      # ステップ単位でも上限を設ける。1ステップが詰まってジョブ全体(90分)を
+      # 食い潰し、後続の連結・アップロードごと失われるのを防ぐ。
       - name: ① 8カットの画像を作る
+        timeout-minutes: 25
         env:
           FAL_KEY: ${{ inputs.mode == 'dry_run' && '' || secrets.FAL_KEY }}
           FAL_IMAGE_MODEL: ${{ vars.FAL_IMAGE_MODEL }}
+          FAL_REQUEST_TIMEOUT_SEC: ${{ vars.FAL_REQUEST_TIMEOUT_SEC || '120' }}
+          SEEDANCE_POLL_TIMEOUT_MIN: ${{ vars.SEEDANCE_POLL_TIMEOUT_MIN || '10' }}
         run: npm run anime:ep1:images -- --count ${{ inputs.images_per_cut }}
 
       - name: ② 画像を6秒動画にする
-        if: inputs.mode == 'full'
+        if: inputs.mode == 'full' && !cancelled()
+        timeout-minutes: 50
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
           FAL_VIDEO_MODEL: ${{ vars.FAL_VIDEO_MODEL }}
           SEEDANCE_POLL_TIMEOUT_MIN: ${{ vars.SEEDANCE_POLL_TIMEOUT_MIN || '20' }}
+          FAL_REQUEST_TIMEOUT_SEC: ${{ vars.FAL_REQUEST_TIMEOUT_SEC || '120' }}
         run: npm run anime:ep1:video
 
       # 一部のカットが失敗しても、出来たぶんは必ず連結して受け取れるようにする

@@ -19,6 +19,9 @@ export function imageEndpoint(): string {
   return process.env.FAL_IMAGE_MODEL || "fal-ai/flux/dev";
 }
 
+/** 一時的な失敗（fal混雑・応答遅延）に備えた1カットあたりの試行回数 */
+const MAX_ATTEMPTS = 2;
+
 const OUT_DIR = join(process.cwd(), "output", "clips_src");
 
 const isMain =
@@ -59,27 +62,34 @@ if (isMain) {
   let failed = 0;
 
   for (const cut of EP1_CUT_DEFS) {
-    process.stdout.write(`[cut${cut.n}] ${cut.title} 生成中...`);
-    try {
-      const result = await falQueueRequest(imageEndpoint(), {
-        prompt: imagePrompt(cut),
-        image_size: "portrait_16_9",
-        num_images: count,
-      });
-      const images = (result.images ?? []) as Array<{ url?: string }>;
-      const urls = images.map(i => i.url).filter((u): u is string => Boolean(u));
-      if (urls.length === 0) throw new Error("レスポンスに images がありません");
+    let done = false;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS && !done; attempt++) {
+      process.stdout.write(
+        `[cut${cut.n}] ${cut.title}${attempt > 1 ? ` 再試行${attempt - 1}` : ""} 生成中...`
+      );
+      try {
+        const result = await falQueueRequest(imageEndpoint(), {
+          prompt: imagePrompt(cut),
+          image_size: "portrait_16_9",
+          num_images: count,
+        });
+        const images = (result.images ?? []) as Array<{ url?: string }>;
+        const urls = images.map(i => i.url).filter((u): u is string => Boolean(u));
+        if (urls.length === 0) throw new Error("レスポンスに images がありません");
 
-      // 1枚目を本番採用（cut<n>.png）。2枚目以降は差し替え候補として別名で残す。
-      await downloadFile(urls[0], join(OUT_DIR, `cut${cut.n}.png`));
-      for (let k = 1; k < urls.length; k++) {
-        await downloadFile(urls[k], join(OUT_DIR, `alt_cut${cut.n}_${k + 1}.png`));
+        // 1枚目を本番採用（cut<n>.png）。2枚目以降は差し替え候補として別名で残す。
+        await downloadFile(urls[0], join(OUT_DIR, `cut${cut.n}.png`));
+        for (let k = 1; k < urls.length; k++) {
+          await downloadFile(urls[k], join(OUT_DIR, `alt_cut${cut.n}_${k + 1}.png`));
+        }
+        console.log(` 完了 → cut${cut.n}.png${urls.length > 1 ? `（候補${urls.length - 1}枚も保存）` : ""}`);
+        ok++;
+        done = true;
+      } catch (err) {
+        console.log(` 失敗: ${err instanceof Error ? err.message : String(err)}`);
+        if (attempt === MAX_ATTEMPTS) failed++;
+        else console.log(`  → cut${cut.n} をもう一度試します`);
       }
-      console.log(` 完了 → cut${cut.n}.png${urls.length > 1 ? `（候補${urls.length - 1}枚も保存）` : ""}`);
-      ok++;
-    } catch (err) {
-      console.log(` 失敗: ${err instanceof Error ? err.message : String(err)}`);
-      failed++;
     }
   }
 
