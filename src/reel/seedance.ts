@@ -39,7 +39,12 @@ export type SeedanceProvider = "fal" | "byteplus";
 const FAL_QUEUE_BASE = "https://queue.fal.run";
 const ARK_BASE = "https://ark.ap-southeast.bytepluses.com/api/v3";
 const POLL_INTERVAL_MS = 5_000;
-const POLL_TIMEOUT_MS = 10 * 60_000;
+/**
+ * 1本あたりの生成待ち上限。既定20分。
+ * fal 側が混んでいると6秒動画でも10分を超えることがあるため長めに取り、
+ * SEEDANCE_POLL_TIMEOUT_MIN で調整できるようにしている。
+ */
+const POLL_TIMEOUT_MS = Number(process.env.SEEDANCE_POLL_TIMEOUT_MIN || 20) * 60_000;
 
 export function seedanceProvider(): SeedanceProvider {
   const p = (process.env.SEEDANCE_PROVIDER || "fal").toLowerCase();
