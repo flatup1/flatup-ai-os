@@ -13,10 +13,11 @@ on:
       mode:
         description: "どこまで作る？"
         type: choice
-        default: "full"
+        default: "cheap"
         options:
-          - full          # 画像 → 動画 → 連結（45秒の動画が1本できる）
-          - images_only   # 画像だけ（絵柄を確認したいとき）
+          - cheap         # 【推奨・約$0.3】画像8枚 → ffmpegで動かす → 連結。動画AIを使わない
+          - full          # 【約$13】画像 → 動画AI → 連結。動きは良いが約40倍高い
+          - images_only   # 画像だけ（絵柄を確認したいとき・約$0.3）
           - dry_run       # 生成せず中身の確認だけ（無料）
       images_per_cut:
         description: "各カットの画像枚数（1=全自動 / 2〜4=差し替え候補も欲しいとき）"
@@ -65,7 +66,17 @@ jobs:
           SEEDANCE_POLL_TIMEOUT_MIN: ${{ vars.SEEDANCE_POLL_TIMEOUT_MIN || '10' }}
         run: npm run anime:ep1:images -- --count ${{ inputs.images_per_cut }}
 
-      - name: ② 画像を6秒動画にする
+      - name: ffmpeg を用意
+        if: (inputs.mode == 'full' || inputs.mode == 'cheap') && !cancelled()
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      # 【低コスト経路】動画AIを使わず、静止画にゆっくりした動きを付ける（生成費ゼロ）
+      - name: ②-安 画像に動きを付ける（動画AIを使わない）
+        if: inputs.mode == 'cheap' && !cancelled()
+        timeout-minutes: 15
+        run: npm run anime:ep1:motion
+
+      - name: ② 画像を6秒動画にする（動画AI）
         if: inputs.mode == 'full' && !cancelled()
         timeout-minutes: 50
         env:
@@ -77,13 +88,11 @@ jobs:
 
       # 一部のカットが失敗しても、出来たぶんは必ず連結して受け取れるようにする
       - name: ③ 8本を1本につなぐ
-        if: inputs.mode == 'full' && !cancelled()
-        run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-          npm run anime:ep1:stitch
+        if: (inputs.mode == 'full' || inputs.mode == 'cheap') && !cancelled()
+        run: npm run anime:ep1:stitch
 
       - name: 完成した動画をアップロード
-        if: inputs.mode == 'full' && !cancelled()
+        if: (inputs.mode == 'full' || inputs.mode == 'cheap') && !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: FLATUP-EP1-動画
@@ -101,7 +110,7 @@ jobs:
           retention-days: 30
 
       - name: 6秒クリップをアップロード
-        if: inputs.mode == 'full' && !cancelled()
+        if: (inputs.mode == 'full' || inputs.mode == 'cheap') && !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: FLATUP-EP1-クリップ8本
@@ -115,7 +124,7 @@ jobs:
           {
             echo "## 🎬 FLATUP アニメ EP1"
             echo ""
-            if [ "${{ inputs.mode }}" = "full" ]; then
+            if [ "${{ inputs.mode }}" = "full" ] || [ "${{ inputs.mode }}" = "cheap" ]; then
               echo "**完成！** 下の Artifacts から \`FLATUP-EP1-動画\` をダウンロードしてください（45秒の縦動画）。"
               echo ""
               echo "### 次の仕上げ（スマホのCapCutでOK）"

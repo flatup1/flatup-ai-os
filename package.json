@@ -14,6 +14,8 @@
     "anime:ep1": "bash scripts/anime_ep1.sh",
     "anime:ep1:images": "tsx src/reel/animeEp1Images.ts",
     "anime:ep1:video": "tsx src/reel/animeEp1Video.ts",
+    "anime:ep1:motion": "bash scripts/anime_ep1_kenburns.sh",
+    "anime:ep1:motion:selftest": "bash scripts/anime_ep1_kenburns.sh --selftest",
     "anime:ep1:stitch": "bash scripts/anime_ep1_stitch.sh",
     "test:safety": "tsx src/safety/receptionist.test.ts",
     "test:pii": "tsx src/utils/sanitizePii.test.ts",
