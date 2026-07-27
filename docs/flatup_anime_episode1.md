@@ -2,6 +2,8 @@
 
 **結論**: 45秒のEP1を、このリポジトリの実パイプライン（fal.ai 画像=FLUX、動画=Hailuo I2V、6秒/カット、CapCutでつなぐ）で作れるように、**8カット×約6秒**に落とした完成仕様。上から順に画像→動画→編集で作れば、環境構築ゼロでEP1が完成する。
 
+> 📖 **キャラ・世界観・シリーズ構成の正本** → [flatup_animation_bible.md](flatup_animation_bible.md)（v3.0）
+>
 > 📱 **スマホだけで作りたい / PCが無いとき** → [anime_ep1_smartphone.md](anime_ep1_smartphone.md)
 > GitHub Actions の「🎬 アニメEP1を作る」をタップするだけで、①画像→②動画→③連結まで
 > クラウドで走り、完成した45秒動画をスマホにダウンロードできる。
@@ -152,7 +154,10 @@ Warm 3D animation movie still, exterior night view of FLATUP GYM, warm light fro
 
 ---
 
-## シリーズ・ロードマップ（EP1〜EP8）
+## シリーズ・ロードマップ（旧8話版・**v3.0で置き換え済み**）
+
+> ⚠️ **この表は旧版**。現行の正本は [flatup_animation_bible.md](flatup_animation_bible.md) の**全10話構成**。
+> 新規制作はバイブル側の話数・タイトルに従うこと。以下は経緯の記録として残す。
 
 NetflixやDisney+のような統一感で、FLATUP GYMのブランドストーリーを継続配信する。全話EP1と同じ舞台・同じキャラバイブル・同じ画風で作る。
 
