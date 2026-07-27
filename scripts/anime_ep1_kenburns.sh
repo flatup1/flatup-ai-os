@@ -106,6 +106,17 @@ echo ""
 echo "完了: ${ok}/8 本（生成費ゼロ）"
 [ ${#missing[@]} -gt 0 ] && echo "※ 画像が無いカット: ${missing[*]}"
 
+# 素材が1枚も無いまま成功扱いにすると、後続の連結が「クリップが無い」という
+# 分かりにくいエラーで落ちる。原因のある場所で止めて、何をすべきか示す。
+if [ "$ok" = "0" ]; then
+  echo ""
+  echo "❌ 元になる画像が1枚もありません（$SRC_DIR が空）。"
+  echo "   先に画像生成（npm run anime:ep1:images）が成功している必要があります。"
+  echo "   直前の画像生成が 403 Exhausted balance で失敗している場合は、"
+  echo "   fal.ai/dashboard/billing で残高をチャージしてから再実行してください。"
+  exit 1
+fi
+
 if [ "$SELFTEST" = "1" ]; then
   echo ""
   echo "--- セルフテスト検証 ---"
