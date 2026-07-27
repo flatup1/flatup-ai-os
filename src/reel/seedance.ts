@@ -45,6 +45,11 @@ const POLL_INTERVAL_MS = 5_000;
  * SEEDANCE_POLL_TIMEOUT_MIN で調整できるようにしている。
  */
 const POLL_TIMEOUT_MS = Number(process.env.SEEDANCE_POLL_TIMEOUT_MIN || 20) * 60_000;
+/**
+ * HTTPリクエスト1本あたりの上限。既定120秒。
+ * 送信・ステータス確認・ダウンロードのいずれがハングしても、ここで必ず打ち切る。
+ */
+const REQUEST_TIMEOUT_MS = Number(process.env.FAL_REQUEST_TIMEOUT_SEC || 120) * 1_000;
 
 export function seedanceProvider(): SeedanceProvider {
   const p = (process.env.SEEDANCE_PROVIDER || "fal").toLowerCase();
@@ -96,8 +101,29 @@ export function assertValidApiKey(): void {
   }
 }
 
+/**
+ * タイムアウト付き fetch。
+ *
+ * 素の fetch は応答が来ないと永久に待つ。実際に run #3 で画像生成の送信リクエストが
+ * ハングし、ポーリングのループに入る前に90分間止まってジョブ全体が失われた。
+ * 1リクエストごとに上限を設けて、必ず例外として上位のリトライに渡す。
+ */
+async function fetchWithTimeout(url: string, init?: RequestInit): Promise<Response> {
+  try {
+    return await fetch(url, { ...init, signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
+  } catch (err) {
+    const name = err instanceof Error ? err.name : "";
+    if (name === "TimeoutError" || name === "AbortError") {
+      throw new Error(
+        `応答が ${Math.round(REQUEST_TIMEOUT_MS / 1000)} 秒以内に返りませんでした（FAL_REQUEST_TIMEOUT_SEC で調整可）: ${url}`
+      );
+    }
+    throw err;
+  }
+}
+
 async function fetchJson(url: string, init?: RequestInit): Promise<Record<string, unknown>> {
-  const res = await fetch(url, init);
+  const res = await fetchWithTimeout(url, init);
   const text = await res.text();
   if (!res.ok) {
     throw new Error(`Seedance API ${res.status}: ${text.slice(0, 300)}`);
@@ -267,7 +293,7 @@ async function pollUntil(check: () => Promise<boolean>, label: string): Promise<
 
 /** 動画 URL をローカルに保存する */
 export async function downloadVideo(url: string, filePath: string): Promise<void> {
-  const res = await fetch(url);
+  const res = await fetchWithTimeout(url);
   if (!res.ok) throw new Error(`動画のダウンロードに失敗: ${res.status} ${url}`);
   const buf = Buffer.from(await res.arrayBuffer());
   await writeFile(filePath, buf);
