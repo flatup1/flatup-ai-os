@@ -38,7 +38,7 @@ import {
   imageEndpoint,
   i2vEndpoint,
 } from "./falClient.js";
-import { assertValidFalKey } from "../reel/seedance.js";
+import { assertValidApiKey, hasApiKey, requiredKeyName } from "../reel/seedance.js";
 
 const ASSET_DIR = join(process.cwd(), "assets", "movie", "ep0");
 const REFS_DIR = join(ASSET_DIR, "refs");
@@ -201,8 +201,8 @@ for (const w of warnings) console.warn(`[warn] ${w}`);
 if (warnings.length > 0) console.warn("");
 
 // ---- DRY-RUN ----
-if (!process.env.FAL_KEY) {
-  console.log(`[DRY-RUN] FAL_KEY が未設定のため、生成はスキップしました(コストゼロ)。\n`);
+if (!hasApiKey()) {
+  console.log(`[DRY-RUN] ${requiredKeyName()} が未設定のため、生成はスキップしました(コストゼロ)。\n`);
   console.log(`ステップ: ${step} / ${jobs.length}件のプレビュー\n`);
   for (const job of jobs) {
     console.log(`--- ${job.label}: ${job.shot.title} ---`);
@@ -215,13 +215,13 @@ if (!process.env.FAL_KEY) {
     }
     console.log(`Prompt: ${job.prompt}\n`);
   }
-  console.log(`本番実行: .env に FAL_KEY=... を追加(取得: https://fal.ai/dashboard/keys)`);
+  console.log(`本番実行: .env に ${requiredKeyName()}=... を追加(取得: https://fal.ai/dashboard/keys)`);
   process.exit(0);
 }
 
 // ---- 本番生成(直列) ----
 try {
-  assertValidFalKey();
+  assertValidApiKey();
 } catch (err) {
   console.error(`[error] ${err instanceof Error ? err.message : String(err)}`);
   process.exit(1);

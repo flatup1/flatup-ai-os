@@ -1,20 +1,18 @@
 /**
- * fal.ai キュー API の汎用クライアント(画像/動画共用)。
- * reel/seedance.ts と同じキュー方式: submit → status ポーリング → response 取得。
+ * 第0話の素材生成で使う fal.ai 入出力ヘルパー。
+ *
+ * キュー送信・ポーリングは `reel/seedance.ts` の falQueueRequest を再利用する
+ * (タイムアウト・リトライの実装をひとつに保つため、ここでは複製しない)。
  *
  * 環境変数:
- * - FAL_KEY              未設定なら呼び出し側で DRY-RUN にする
  * - MOVIE_IMAGE_ENDPOINT 静止画生成。既定 fal-ai/nano-banana(参照画像ありは /edit)
  * - MOVIE_I2V_ENDPOINT   image-to-video。既定 bytedance/seedance-2.0/fast/image-to-video
  */
 
 import { readFile, writeFile } from "node:fs/promises";
 import { extname } from "node:path";
-import { assertValidFalKey } from "../reel/seedance.js";
 
-const QUEUE_BASE = "https://queue.fal.run";
-const POLL_INTERVAL_MS = 5_000;
-const POLL_TIMEOUT_MS = 10 * 60_000;
+export { falQueueRequest as submitAndWait } from "../reel/seedance.js";
 
 export function imageEndpoint(withRefs: boolean): string {
   const base = process.env.MOVIE_IMAGE_ENDPOINT || "fal-ai/nano-banana";
@@ -24,49 +22,6 @@ export function imageEndpoint(withRefs: boolean): string {
 
 export function i2vEndpoint(): string {
   return process.env.MOVIE_I2V_ENDPOINT || "bytedance/seedance-2.0/fast/image-to-video";
-}
-
-function authHeaders(): Record<string, string> {
-  assertValidFalKey();
-  return { Authorization: `Key ${process.env.FAL_KEY}`, "Content-Type": "application/json" };
-}
-
-async function fetchJson(url: string, init?: RequestInit): Promise<Record<string, unknown>> {
-  const res = await fetch(url, init);
-  const text = await res.text();
-  if (!res.ok) throw new Error(`fal API ${res.status}: ${text.slice(0, 300)}`);
-  return JSON.parse(text) as Record<string, unknown>;
-}
-
-/** キューに投げて完了レスポンスを返す(完了までブロック) */
-export async function submitAndWait(
-  endpoint: string,
-  body: Record<string, unknown>
-): Promise<Record<string, unknown>> {
-  const submitted = await fetchJson(`${QUEUE_BASE}/${endpoint}`, {
-    method: "POST",
-    headers: authHeaders(),
-    body: JSON.stringify(body),
-  });
-
-  const statusUrl = String(submitted.status_url ?? "");
-  const responseUrl = String(submitted.response_url ?? "");
-  if (!statusUrl || !responseUrl) return submitted; // 同期レスポンス
-
-  const deadline = Date.now() + POLL_TIMEOUT_MS;
-  for (;;) {
-    if (Date.now() > deadline) {
-      throw new Error(`生成がタイムアウトしました(${POLL_TIMEOUT_MS / 60000}分)。status: ${statusUrl}`);
-    }
-    await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
-    const status = await fetchJson(statusUrl, { headers: authHeaders() });
-    const s = String(status.status ?? "");
-    if (s === "COMPLETED") break;
-    if (s === "FAILED" || s === "CANCELLED" || s === "ERROR") {
-      throw new Error(`生成が失敗しました: ${JSON.stringify(status).slice(0, 300)}`);
-    }
-  }
-  return fetchJson(responseUrl, { headers: authHeaders() });
 }
 
 /** レスポンスから画像URL群を取り出す(images[].url / image.url の両対応) */

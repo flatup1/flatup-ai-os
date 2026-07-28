@@ -52,17 +52,21 @@ const TIMER =
   "on little black rubber feet. Its rectangular LED display is its face: the " +
   "glowing segments form its eyes and expressions. Earnest, tidy, secretly kind.";
 
+// 人間キャラは ANIMATION BIBLE v3.0(docs/flatup_animation_bible.md)の正本に従う。
+// TSUMU = シリーズ主人公ツム(5歳・最初は怖がり)、MASAKI = マサキ(19歳・EP1指導役)。
 const GIRL =
-  "GIRL — an original 3D animated character: a small Japanese girl about 5 years " +
-  "old, shy, wearing a plain pastel t-shirt and shorts, hair in two small buns. " +
+  "TSUMU — a small shy Japanese girl about 5 years old, an original 2.5-head-tall " +
+  "chibi character, big round eyes, soft short hair with a small clip, wearing a " +
+  "plain pastel t-shirt and shorts. Timid at first, gentle. " +
   "Not resembling any real person or any existing animated character.";
 
 const MOTHER =
-  "MOTHER — her mother, early 30s, gentle face, casual clothes. Original character.";
+  "MOTHER — Tsumu's mother, early 30s, gentle face, casual clothes. Original character.";
 
 const COACH =
-  "COACH — a kind male coach in his 30s in a plain dark staff polo shirt, warm " +
-  "smile, friendly posture. Original character.";
+  "MASAKI — a cheerful young male kickboxing instructor, 19 years old, short black " +
+  "hair, bright encouraging smile, wearing a black FLAT UP GYM staff hoodie or tank " +
+  "top. Never stern or intimidating. Original character.";
 
 const BLOCKS: Record<string, string> = {
   STYLE,
