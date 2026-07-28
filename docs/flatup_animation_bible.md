@@ -209,11 +209,12 @@ https://lin.ee/Y3MbbAe
 
 顔・服装をブレさせないための正解画像。置き場所と選び方は
 [docs/assets/characters/README.md](assets/characters/README.md) を参照。
+姿を決めた元画像は [assets/characters/reference/](assets/characters/reference/)（**参考用。公開素材には使わない**）。
 
 | キャラ | ファイル | 状態 |
 |---|---|---|
-| マサキ | `assets/characters/masaki.png` | ⏳ 候補生成済み・**1枚選んで確定待ち** |
-| メルティ | `assets/characters/melty.png` | ⏳ 候補生成済み・**1枚選んで確定待ち** |
+| マサキ | `assets/characters/masaki.png` | ⏳ 候補生成済み・**1枚選んで確定待ち**（設計元: `reference/masaki_ref01.png`） |
+| メルティ | `assets/characters/melty.png` | ⏳ 候補生成済み・**1枚選んで確定待ち**（設計元: `reference/melty_ref01〜03.png`） |
 | ツム | `assets/characters/tsumu.png` | ⏳ 未生成 |
 | リク | `assets/characters/riku.png` | ⏳ 未生成 |
 | ユイ / ソウタ / ココ | — | ⏳ 未生成 |
