@@ -34,9 +34,49 @@
 - 得意: ジャブ、ミット打ち、初心者指導
 - シリーズの現場役。EP1の指導役はマサキ
 
+**姿（2026-07-27 基準画像で確定）**
+- 髪: 黒髪、上に立ち上げたスパイキーショート（サイドは短め）
+- 目: 大きな茶色の瞳、太めの眉。明るい自信のある笑顔
+- 服: 黒のノースリーブ「FLAT UP GYM」タンク（ロゴは水色文字）
+- 下: 青×白のムエタイショーツ（炎柄＋FLAT UPワッペン）
+- 装備: 左手首に黒い腕時計。**裸足**
+- 体型: 子どもたちより頭ひとつ大きい。細身で引き締まっている
+- 定番ポーズ: 左ジャブを伸ばし、右は顎前でガード
+
+**画像生成用の英語ブロック（技・シーンだけ差し替える）**:
+```
+A cheerful young male kickboxing instructor character in warm 3D animation movie style,
+spiky black hair swept upward, big brown eyes, bold eyebrows, bright confident smile,
+wearing a black sleeveless FLAT UP GYM tank top with light-blue lettering,
+blue and white muay thai shorts with a flame pattern, a black wristwatch on the left wrist,
+barefoot, slim athletic build, standing in a bright clean gym with white floor,
+green wall mats and tropical green wall art, soft warm lighting, vertical 9:16, no text
+```
+
+### メルティ（28歳・女性インストラクター）— 姿の確定
+**姿（2026-07-27 基準画像で確定）**
+- 髪: 明るいブロンド〜ライトブラウンの**ふんわりショート**（毛先が跳ねる）
+- 目: 大きな茶色の瞳、まつげ長め。やわらかい笑顔
+- 頭: **ヘッドバンド**（赤 or くすみピンク）が定番
+- 服: 黒のノースリーブ（胸に小さなハート＋FLAT UPロゴ）
+- 下: カラフルなステッカー柄のムエタイショーツ（赤・白・黒が基調）
+- 装備: **ピンクのハンドラップ／ピンクのグローブ**。裸足
+- 特徴: 腕と足首に小さなタトゥー。明るく前向きな空気
+
+**画像生成用の英語ブロック**:
+```
+A friendly female kickboxing instructor character in warm 3D animation movie style,
+short wavy light-blonde hair with flicked ends, big brown eyes with long lashes,
+a soft red headband, gentle cheerful smile, wearing a black sleeveless top with a small
+pink heart FLAT UP GYM logo, colorful sticker-patterned muay thai shorts in red white and black,
+pink hand wraps, barefoot, standing in a bright clean gym with white floor and green wall mats,
+soft warm lighting, vertical 9:16, no text
+```
+
 ### メルティ（28歳・女性インストラクター）
 - 性格: 優しい / 笑顔が多い / 子どもの不安に寄り添う
 - 得意: キッズ、女性クラス、ストレッチ
+- 姿は下の「メルティ — 姿の確定」を参照
 
 ### アイカ（35歳・オーナー）
 - 性格: 包容力 / 落ち着き / 保護者から信頼される
@@ -95,6 +135,13 @@
 - 怖い顔・痛がる表情・流血・暴力の勝ち負け
 - 相手を倒して喜ぶ描写
 - スパーリングは**当てないマススパー＋礼**として描く（`src/data/sparring_policy.md` 準拠）
+- **他社ブランドのロゴ・商標**（スポーツメーカーのマーク、飲料ブランドの柄など）
+
+> ⚠️ **他社ロゴに注意**: 基準画像のいくつかに、実在ブランドのマークやそれに酷似した
+> ステッカー柄が写り込んでいた。**練習用の素材なら問題ないが、ジムの公式広告として
+> 公開する動画・画像には載せない**（商標の問題になりうるため）。
+> 生成プロンプトには他社ブランド名を入れず、ウェア類は「FLAT UP GYM」の表記か
+> 無地・オリジナル柄にする。公開前チェックで必ず目視確認する。
 
 ---
 
@@ -163,7 +210,8 @@ https://lin.ee/Y3MbbAe
 1. **キャラの基準画像を固定する** — 各キャラ1枚を確定し、以後全カット・全話でその画像を参照する（顔ブレ防止）
 2. **舞台と照明を揃える** — 白い床、緑のマット、観葉植物、黄色と蛍光ピンクのサンドバッグ、FLATUP GYMサイン
 3. **1カット1アクション・6秒** — 動きは動詞で具体的に、固定カメラ、背景は変えない
-4. **投稿前の確認** — AI生成ラベルON、全カットを人間が確認、実在会員の顔に寄っていないか
+4. **投稿前の確認** — AI生成ラベルON、全カットを人間が確認、実在会員の顔に寄っていないか、
+   **他社ブランドのロゴが写り込んでいないか**
 
 技術的な手順は [flatup_anime_studio.md](flatup_anime_studio.md) の7段階に従う。
 
