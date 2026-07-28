@@ -6,24 +6,34 @@
  * ブロックを変更するときは必ず docs 側も同時に更新すること（キャラ固定の生命線）。
  */
 
+// 絵柄の正本は assets/canon/ の確定素材(2026-07-28 JIN承認)。文章はその写し。
 const STYLE =
-  "Warm, expressive, theatrical 3D animated film quality. Rounded friendly shapes, " +
-  "realistic material textures (worn leather, soft fabric, rubber, metal), cinematic " +
-  "lighting, shallow depth of field, subtle and restrained emotional expressions. " +
+  "Stylized 3D anime style, like a high-end 3D figure: soft rounded chibi " +
+  "proportions, large glossy dark eyes with bright catchlights, small soft blush on " +
+  "the cheeks, smooth glossy skin shading, thick clean linework on the hair. " +
+  "Bright, warm, evenly lit interior — no harsh shadows and no moody darkness. " +
+  "Cheerful and gentle, never scary. Materials still read as real: worn leather, " +
+  "soft fabric, rubber, brushed metal. " +
   "Completely original character design, not based on any existing animated film or " +
   "franchise. No text, no letters, no logos anywhere in the image. Vertical 9:16.";
 
 const LIGHT_NIGHT =
-  "Night interior lighting: soft contrast of cool moonlight blue from the windows " +
-  "and one warm amber security light. Quiet, secret, cozy atmosphere.";
+  "Night interior lighting: the ceiling strip lights are off, soft cool moonlight " +
+  "blue comes through the windows and one warm amber light glows low. Still bright " +
+  "enough to read every expression clearly. Quiet, secret, cozy atmosphere.";
 
 const LIGHT_DAY =
-  "Daytime lighting: bright natural window light, airy, clean and welcoming.";
+  "Daytime lighting: the long ceiling strip lights are on, bright even warm light, " +
+  "airy, clean and welcoming.";
 
+// ジムの内装は assets/canon/ の確定素材どおり。想像で描かせない。
 const GYM =
-  "the interior of a bright, friendly, spotlessly clean small kickboxing " +
-  "gym in Japan, with training mats, hanging heavy bags and focus mitts on the " +
-  "wall. Nothing intimidating: a space where children and beginners feel safe.";
+  "the interior of FLATUP GYM: a small bright spotlessly clean Japanese kickboxing " +
+  "studio with a seamless off-white floor, pale green padded wall panels, a large " +
+  "tropical foliage mural with a white tiger illustration, trailing ivy and small " +
+  "potted plants along the shelves, a full mirror wall, long linear ceiling lights, " +
+  "a dusty-pink curtain by the window, and a red LED wall timer. " +
+  "Nothing intimidating: a space where children and beginners feel safe.";
 
 /** ジムの基準写真を実際に添付したときだけプロンプト末尾に足す(未添付で書くとモデルが混乱する) */
 export const REF_PHOTO_CLAUSE =
@@ -48,25 +58,32 @@ const MITT =
   "formed by a seam. Gentle, warm, reassuring.";
 
 const TIMER =
-  "TIMER — a small yellow digital gym interval timer, about 15 cm tall, standing " +
-  "on little black rubber feet. Its rectangular LED display is its face: the " +
+  "TIMER — a small black-cased digital gym interval timer with a red LED display " +
+  "(the same kind of round-timer that hangs on the gym wall), about 15 cm tall, " +
+  "standing on little rubber feet. Its rectangular red LED display is its face: the " +
   "glowing segments form its eyes and expressions. Earnest, tidy, secretly kind.";
 
 // 人間キャラは ANIMATION BIBLE v3.0(docs/flatup_animation_bible.md)の正本に従う。
 // TSUMU = シリーズ主人公ツム(5歳・最初は怖がり)、MASAKI = マサキ(19歳・EP1指導役)。
 const GIRL =
-  "TSUMU — a small shy Japanese girl about 5 years old, an original 2.5-head-tall " +
-  "chibi character, big round eyes, soft short hair with a small clip, wearing a " +
-  "plain pastel t-shirt and shorts. Timid at first, gentle. " +
+  "TSUMU — a small shy Japanese girl about 5 years old, an original 3-head-tall " +
+  "chibi character with large glossy dark eyes and soft blushed cheeks, light brown " +
+  "hair tied in a small high ponytail, wearing a plain white t-shirt and FLAT UP GYM " +
+  "muay thai shorts, barefoot. Timid at first, gentle. " +
   "Not resembling any real person or any existing animated character.";
 
 const MOTHER =
   "MOTHER — Tsumu's mother, early 30s, gentle face, casual clothes. Original character.";
 
+// マサキの姿は assets/canon/masaki_*.jpg が正本(2026-07-28 JIN承認)。
 const COACH =
-  "MASAKI — a cheerful young male kickboxing instructor, 19 years old, short black " +
-  "hair, bright encouraging smile, wearing a black FLAT UP GYM staff hoodie or tank " +
-  "top. Never stern or intimidating. Original character.";
+  "MASAKI — a cheerful young male kickboxing instructor, 19 years old, in the same " +
+  "stylized 3D anime look as the children but taller (about 5 heads tall). " +
+  "Voluminous spiky black hair with neatly faded short sides, thick dark eyebrows, " +
+  "large glossy dark brown eyes, open friendly smile. Wearing a black FLAT UP GYM " +
+  "sleeveless tank top (or a black FLAT UP GYM hoodie), muay thai shorts, and a " +
+  "black digital watch on his left wrist. Barefoot. " +
+  "Always warm and encouraging, never stern or intimidating. Original character.";
 
 const BLOCKS: Record<string, string> = {
   STYLE,

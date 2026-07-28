@@ -22,6 +22,10 @@ npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 - エンドポイントは `.env` の `MOVIE_IMAGE_ENDPOINT` / `MOVIE_I2V_ENDPOINT` で差し替え可
 - 以下の手動プロンプトは、別ツール（Midjourney等）で回す場合とリテイク調整用
 
+**⚠️ 絵柄の正本は `assets/canon/`（2026-07-28 JIN承認の確定素材）。**
+下の文章はその写しであり、文章と画像が食い違ったら**画像が勝つ**。
+実制作の前に `cp assets/canon/*.jpg assets/movie/ep0/refs/` を実行し、毎回添付すること。
+
 **使い方（共通ルール）**
 - 静止画生成: Nano Banana Pro（Gemini）または Midjourney（`--cref` でキャラ参照）
 - **毎回添付するもの**: ①ジムの基準写真（背景用） ②採用済みキャラ設定画（正本、Day 1で確定後）
@@ -35,29 +39,37 @@ npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 
 ### STYLE（毎回末尾に付ける）
 ```
-Warm, expressive, theatrical 3D animated film quality. Rounded friendly shapes,
-realistic material textures (worn leather, soft fabric, rubber, metal), cinematic
-lighting, shallow depth of field, subtle and restrained emotional expressions.
+Stylized 3D anime style, like a high-end 3D figure: soft rounded chibi
+proportions, large glossy dark eyes with bright catchlights, small soft blush on
+the cheeks, smooth glossy skin shading, thick clean linework on the hair.
+Bright, warm, evenly lit interior — no harsh shadows and no moody darkness.
+Cheerful and gentle, never scary. Materials still read as real: worn leather,
+soft fabric, rubber, brushed metal.
 Completely original character design, not based on any existing animated film or
 franchise. No text, no letters, no logos anywhere in the image. Vertical 9:16.
 ```
 
 ### LIGHT-NIGHT（夜シーン用）
 ```
-Night interior lighting: soft contrast of cool moonlight blue from the windows
-and one warm amber security light. Quiet, secret, cozy atmosphere.
+Night interior lighting: the ceiling strip lights are off, soft cool moonlight
+blue comes through the windows and one warm amber light glows low. Still bright
+enough to read every expression clearly. Quiet, secret, cozy atmosphere.
 ```
 
 ### LIGHT-DAY（昼の回想用）
 ```
-Daytime lighting: bright natural window light, airy, clean and welcoming.
+Daytime lighting: the long ceiling strip lights are on, bright even warm light,
+airy, clean and welcoming.
 ```
 
 ### GYM（舞台）
 ```
-the interior of a bright, friendly, spotlessly clean small kickboxing
-gym in Japan, with training mats, hanging heavy bags and focus mitts on the
-wall. Nothing intimidating: a space where children and beginners feel safe.
+the interior of FLATUP GYM: a small bright spotlessly clean Japanese kickboxing
+studio with a seamless off-white floor, pale green padded wall panels, a large
+tropical foliage mural with a white tiger illustration, trailing ivy and small
+potted plants along the shelves, a full mirror wall, long linear ceiling lights,
+a dusty-pink curtain by the window, and a red LED wall timer.
+Nothing intimidating: a space where children and beginners feel safe.
 ```
 
 ### 参照画像を添付したときだけ、末尾に足す一文
@@ -95,21 +107,27 @@ formed by a seam. Gentle, warm, reassuring.
 
 TIMER:
 ```
-TIMER — a small yellow digital gym interval timer, about 15 cm tall, standing
-on little black rubber feet. Its rectangular LED display is its face: the
+TIMER — a small black-cased digital gym interval timer with a red LED display
+(the same kind of round-timer that hangs on the gym wall), about 15 cm tall,
+standing on little rubber feet. Its rectangular red LED display is its face: the
 glowing segments form its eyes and expressions. Earnest, tidy, secretly kind.
 ```
 
 人間キャラ（Scene 4〜7 のみ。実在人物に似せない）:
 ```
-TSUMU — a small shy Japanese girl about 5 years old, an original 2.5-head-tall
-chibi character, big round eyes, soft short hair with a small clip, wearing a
-plain pastel t-shirt and shorts. Timid at first, gentle.
+TSUMU — a small shy Japanese girl about 5 years old, an original 3-head-tall
+chibi character with large glossy dark eyes and soft blushed cheeks, light brown
+hair tied in a small high ponytail, wearing a plain white t-shirt and FLAT UP GYM
+muay thai shorts, barefoot. Timid at first, gentle.
 Not resembling any real person or any existing animated character.
 MOTHER — Tsumu's mother, early 30s, gentle face, casual clothes. Original character.
-MASAKI — a cheerful young male kickboxing instructor, 19 years old, short black
-hair, bright encouraging smile, wearing a black FLAT UP GYM staff hoodie or tank
-top. Never stern or intimidating. Original character.
+MASAKI — a cheerful young male kickboxing instructor, 19 years old, in the same
+stylized 3D anime look as the children but taller (about 5 heads tall).
+Voluminous spiky black hair with neatly faded short sides, thick dark eyebrows,
+large glossy dark brown eyes, open friendly smile. Wearing a black FLAT UP GYM
+sleeveless tank top (or a black FLAT UP GYM hoodie), muay thai shorts, and a
+black digital watch on his left wrist. Barefoot.
+Always warm and encouraging, never stern or intimidating. Original character.
 ```
 
 ---
