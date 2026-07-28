@@ -12,7 +12,7 @@
 import "../utils/loadEnv.js";
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
-import { EP1_CUT_DEFS, imagePrompt } from "./animeEp1Cuts.js";
+import { getEpisode, parseEpisodeArg, imagePromptOf } from "./animeEpisodes.js";
 import { falQueueRequest, downloadVideo as downloadFile, hasApiKey, assertValidApiKey, requiredKeyName } from "./seedance.js";
 
 export function imageEndpoint(): string {
@@ -29,6 +29,7 @@ const isMain =
 
 if (isMain) {
   const args = process.argv.slice(2);
+  const episode = getEpisode(parseEpisodeArg(args));
   let count = 1;
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "--count") {
@@ -37,15 +38,15 @@ if (isMain) {
     }
   }
 
-  console.log(`FLATUP アニメ EP1 — 8カットの元画像を生成`);
+  console.log(`FLATUP アニメ EP${episode.n}「${episode.title}」— 8カットの元画像を生成`);
   console.log(`モデル: ${imageEndpoint()} / 各カット${count}枚`);
   console.log(`保存先: ${OUT_DIR}（cut1.png 〜 cut8.png）\n`);
 
   if (!hasApiKey()) {
     console.log(`[DRY-RUN] ${requiredKeyName()} が未設定のため、生成はスキップしました(コストゼロ)。\n`);
-    for (const cut of EP1_CUT_DEFS) {
+    for (const cut of episode.cuts) {
       console.log(`--- cut${cut.n}（${cut.title}）→ cut${cut.n}.png ---`);
-      console.log(`${imagePrompt(cut)}\n`);
+      console.log(`${imagePromptOf(cut)}\n`);
     }
     process.exit(0);
   }
@@ -61,7 +62,7 @@ if (isMain) {
   let ok = 0;
   let failed = 0;
 
-  for (const cut of EP1_CUT_DEFS) {
+  for (const cut of episode.cuts) {
     let done = false;
     for (let attempt = 1; attempt <= MAX_ATTEMPTS && !done; attempt++) {
       process.stdout.write(
@@ -69,7 +70,7 @@ if (isMain) {
       );
       try {
         const result = await falQueueRequest(imageEndpoint(), {
-          prompt: imagePrompt(cut),
+          prompt: imagePromptOf(cut),
           image_size: "portrait_16_9",
           num_images: count,
         });

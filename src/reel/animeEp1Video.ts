@@ -19,6 +19,7 @@ import "../utils/loadEnv.js";
 import { mkdir, readFile, readdir } from "node:fs/promises";
 import { join, extname } from "node:path";
 import { EP1_CUT_DEFS, videoPrompt } from "./animeEp1Cuts.js";
+import { getEpisode, parseEpisodeArg, videoPromptOf } from "./animeEpisodes.js";
 import {
   generateVideo,
   downloadVideo,
@@ -64,6 +65,8 @@ async function toDataUri(path: string): Promise<string> {
 const isMain = process.argv[1]?.endsWith("animeEp1Video.ts") || process.argv[1]?.endsWith("animeEp1Video.js");
 
 if (isMain) {
+  const episode = getEpisode(parseEpisodeArg(process.argv.slice(2)));
+  const CUTS = episode.cuts.map(c => ({ n: c.n, prompt: videoPromptOf(c) }));
   let files: string[] = [];
   try {
     files = await readdir(SRC_DIR);
@@ -73,7 +76,7 @@ if (isMain) {
     process.exit(1);
   }
 
-  const plan = EP1_CUTS.map(c => ({ ...c, img: undefined as string | undefined }));
+  const plan = CUTS.map(c => ({ ...c, img: undefined as string | undefined }));
   for (const c of plan) {
     const found = await findSourceImage(files, c.n);
     c.img = found ? join(SRC_DIR, found) : undefined;
