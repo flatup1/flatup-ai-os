@@ -1,0 +1,118 @@
+# FLATUP アニメスタジオ（7段階・Colab不要版）
+
+「夜のジムでミットが話し始める」ような **温かい3D映画風のブランド広告** を、
+Colab/ComfyUI なしで作るための手順書。実行基盤は fal.ai（画像=FLUX、動画=Hailuo I2V）と
+このリポジトリのコマンドだけ。
+
+> 提案されていた7段階構成（01_SETUP〜07_FINAL_EDIT）をそのまま、
+> 環境構築ゼロのコマンドにマッピングしてある。
+
+| 段階 | 内容 | 使うもの |
+|---|---|---|
+| 01 SETUP | 環境構築 | `.env` に `FAL_KEY` を書くだけ（済んでいれば何もしない） |
+| 02 BRAND_SETUP | 世界観・色・理念 | `src/data/`（既存のジム知識）+ このファイルのキャラバイブル |
+| 03 CHARACTER_STUDIO | キャラの基準画像 | `npm run img -- "<英語プロンプト>" --count 4` で候補4枚→1枚採用 |
+| 04 STORYBOARD | 物語・絵コンテ・カット別プロンプト | `npm run dev -- anime_ad "テーマ"`（完成例: EP1仕様 → `flatup_anime_episode1.md`） |
+| 05 IMAGE_STUDIO | カット別の基準画像 | 04で出たFLUXプロンプトを `npm run img` へ |
+| 06 VIDEO_STUDIO | 6秒動画化 | 04で出たHailuoプロンプトを `npm run reel` の `--image` へ、またはfal Playground |
+| 07 FINAL_EDIT | BGM・字幕・書き出し | CapCut（字幕は04の絵コンテのセリフをコピペ） |
+
+---
+
+## キャラクターバイブル（JINが確定させる欄）
+
+キャラの一貫性は「毎回同じ基準画像を使う」ことで作る。まず下を埋め、
+03で基準画像を確定し、以後**全カットでその画像を参照**する。
+
+### 公式キャラクター「あぷちゃん」（2026-07-16 設計確定）
+設計資料あり（JIN保管の設計シート画像が正本。技7種・アングル5種・シーン3種）。
+
+- 姿: 2.5頭身のちびキャラ。明るく元気な女の子
+- 髪: 高くて強いポニーテール（ダークブラウン）、大きな茶色い瞳
+- 服: ピンクのハート柄Tシャツ + ピンク×黒のムエタイショーツ（「世界一優しい格闘技ジム」文字入り）
+- 装備: 赤いボクシンググローブ（指は出ない）、裸足、ピアスなし
+- 舞台: 白い床にピンクの星サークル、観葉植物、黄色とピンクのサンドバッグ
+- 技: 左ジャブ / 右ストレート / 左フック / 右フック / 左右ミドルキック / 膝蹴り
+- シーン: おいでおいで（ウェルカム）/ お知らせ（ボード案内）/ 休憩中（サンドバッグにもたれてzzz）
+
+**画像生成用の英語ブロック（毎回このままコピペして技・シーンだけ差し替える）**:
+```
+A cute 2.5-head-tall chibi girl character in warm 3D animation movie style,
+big brown eyes, tall strong dark brown ponytail, wearing a pink heart-pattern T-shirt
+and pink-and-black muay thai shorts, oversized red boxing gloves, barefoot,
+bright cheerful expression, in a bright clean gym with white floor,
+a big pink star circle on the floor, potted plants, a yellow and a neon pink punching bag,
+soft natural light, vertical 9:16, no text, no logo, no humans other than the character
+```
+
+**動画化(Hailuo I2V)の注意**:
+- 設計シートをそのまま入れない（グリッドとラベルが動画に写る）。1ポーズだけの
+  クリーンな縦画像を `npm run img` で上のブロックから作るか、シートから丁寧に切り出す
+- 1カット1技。技名は動詞で（throws one right straight punch 等）
+
+### 先生（コーチ・EP1〜シリーズ主人公）
+- 姿: 20代後半の爽やかな青年。黒髪短髪、少年漫画主人公風、少し筋肉質
+- 服: 黒の「FLAT UP GYM」パーカー／タンク、腕時計。優しい笑顔がデフォルト
+- 性格: 守りの人。強さより優しさを教える。怒鳴らない・褒めて伸ばす
+- 一貫性: EP1で確定した基準画像を全カット・全話で参照する
+
+**画像生成用の英語ブロック**:
+```
+A cheerful young male martial-arts coach in his late twenties, warm 3D animation movie style,
+short black hair with a shonen-hero look, slightly athletic build, gentle kind smile,
+wearing a black FLAT UP GYM hoodie and a wristwatch, standing in a bright clean gym with
+white floor and green mats, soft warm light, vertical 9:16, no text
+```
+
+### 子どもたち（生徒）
+- 姿: 2.5〜3頭身のちびキャラ。全員違う顔・違う髪型、男女混在、4〜12歳
+- 構成: 日本人中心＋数名の外国人の子。全員かわいく、全員笑顔がデフォルト
+- 服: 「FLAT UP GYM」Tシャツ＋ムエタイショーツ。練習時はヘッドギア・グローブ・すね当て
+- 注意: **実在会員の顔には寄せない**。すべてオリジナルキャラとして描く
+
+### ミットくん
+- 姿: 白×緑のフォーカスミットに大きな優しい目
+- 性格: 夜になると今日の頑張り屋さんを思い出す世話焼き
+
+### サンドバッグ姉妹
+- 姿: 黄色（姉・しっかり者）と蛍光ピンク（妹・おっとり）のサンドバッグ。眠そうなまぶた
+
+---
+
+## 最初の完成目標（6秒×1カット）
+
+**「夜、誰もいないFLATUP GYM。ミットくんが目を開き、サンドバッグ姉妹に話しかける」**
+
+### 手順（総費用 約¥40・約10分）
+
+1. **基準画像**（03）:
+```bash
+npm run img -- "Warm 3D animation movie still, a cozy martial arts gym at night with lights dimmed, a cute white and green focus mitt character with big friendly closed eyes resting on a shelf, a yellow punching bag and a neon pink punching bag hanging with sleepy gentle faces, white floor, green training mats, potted plants, a softly lit FLATUP GYM sign on the white wall, moonlight through the window, heartwarming toy-story mood, no humans, vertical 9:16" --count 4
+```
+2. 4枚から「ミットの目・サンドバッグの顔が可愛い1枚」を選ぶ
+3. **動画化**（06）: fal Playground（Hailuo 2.3 Fast I2V）にその画像を入れて:
+```
+The focus mitt character slowly opens its big friendly eyes and looks toward the punching bags.
+The pink punching bag sways gently as if just waking up, the yellow one tilts slightly as if
+listening. Soft warm night lighting, cozy magical mood, fixed camera, background unchanged,
+one gentle motion only, 6 seconds.
+```
+4. **字幕**（07・CapCut）: 「今日いちばん頑張ったのは…」→ 最後の1秒にロゴ
+5. 合格基準は動物リールと同じ5項目採点（75点以上で投稿）
+
+### 続きのカットを作るとき
+```bash
+npm run dev -- anime_ad "夜のジムでミットがサンドバッグに話しかける"
+```
+→ 3〜5カットの絵コンテ+カット別FLUX/Hailuoプロンプトが一式出る。
+カットごとに「同じ照明・同じ舞台」で画像→動画の順に作り、CapCutでつなぐ。
+
+---
+
+## 運用ルール（アニメ広告版）
+
+- 怖い顔・傷つく描写・暴力は作らない（優しい世界のまま）
+- ジム公式アカウント用。動物ミーム量産アカウントとは分ける
+- 人間を出すときは後ろ姿・手元のみ（実在会員の顔をAIで作らない）
+- AI生成ラベルON・投稿前の人間確認は必須
+- SDXL/Colabノートブックは使わない（品質・工数の両面で不利。詳細は animal_reels_factory.md の方針と同じ）

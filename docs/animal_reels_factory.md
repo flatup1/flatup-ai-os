@@ -41,6 +41,19 @@ npm run reel -- --list                        # シリーズ一覧
 - 格闘モーション(パンチ・キックの重さ)は2026年比較で Seedance が最強評価。プロンプトは
   `src/reel/promptBank.ts` の静的銀行から機械生成するので、プロンプト側のAI費用もゼロ
 
+### プロバイダ切替(fal ⇄ Seedance 公式)
+
+fal を挟まず ByteDance 公式(BytePlus ModelArk)と直接つなぐこともできる。`.env` に:
+
+```bash
+SEEDANCE_PROVIDER=byteplus
+ARK_API_KEY=BytePlusで発行したキー
+```
+
+コマンドは同じ `npm run reel`。ただし料金は fal Fast 層(6秒 約20円)のほうが
+公式レート(約$0.14/秒 → 6秒 約125円)より大幅に安い。公式は法人請求書・SLA が
+必要な場合や無料トークン枠(新規200万)を使い切りたい場合向け。
+
 ## 手動ワークフロー(アプリでコピペ・1本 約5分)
 
 1. **ツールを1つ選ぶ**(迷ったら上から)

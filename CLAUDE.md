@@ -50,6 +50,7 @@ npm run build                              # TypeScript コンパイル
 | `differentiation` | HP/LP 差別化原稿 |
 | `uizin` | 初心者向けやさしい案内文 |
 | `animal_reel` | 動物×格闘技のAI動画リール素材（Sora/Veo用プロンプト+IG投稿セット） |
+| `anime_ad` | FLATUP GYM アニメ風ブランド広告（絵コンテ+カット別FLUX/Hailuoプロンプト） |
 
 動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
 ```bash
@@ -180,7 +181,11 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **Typefully/X 連携**: [docs/typefully_x_ops.md](docs/typefully_x_ops.md)
 - **Obsidian Vault 統合**: [docs/obsidian_vault_integration.md](docs/obsidian_vault_integration.md)
 - **動物×格闘技リール量産**: [docs/animal_reels_factory.md](docs/animal_reels_factory.md)
-- **エモーショナル・ムービー正本（閉館後のFLATUP）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
+- **公式アニメ設定資料（正本 v3.0）**: [docs/flatup_animation_bible.md](docs/flatup_animation_bible.md)
+- **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
+- **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
+- **エモーショナル・ムービー正本（閉館後のFLATUP・道具視点シリーズ）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
+- **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
 
 ---
 

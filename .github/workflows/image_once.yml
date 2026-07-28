@@ -1,0 +1,92 @@
+name: 🖼️ 画像を1枚つくる（スマホからOK）
+
+# 好きなプロンプトで画像を作る汎用ワークフロー。キャラの基準画像づくりや
+# 1枚絵・ポスター用に使う。EP1一式を作る場合は「🎬 アニメEP1を作る」を使う。
+#
+# Actions →「🖼️ 画像を1枚つくる」→ Run workflow → プロンプトを貼って実行。
+# できた画像は下の Artifacts からダウンロードする。
+#
+# 費用の目安: 1枚あたり約 $0.04（¥6）。4枚でも約$0.15。
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "つくりたい絵の説明（日本語でOK。英語のほうが精度は高い）"
+        required: true
+        type: string
+      count:
+        description: "枚数（候補から選びたいなら4枚）"
+        type: choice
+        default: "4"
+        options: ["1", "2", "3", "4"]
+      size:
+        description: "画面の向き"
+        type: choice
+        default: "portrait_16_9"
+        options:
+          - portrait_16_9   # 縦長 9:16（リール・ショート向け）
+          - landscape_16_9  # 横長 16:9（YouTube・サムネ向け）
+          - square_hd       # 正方形（Instagram投稿向け）
+
+jobs:
+  image:
+    name: 画像を生成
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: 依存をインストール
+        run: npm ci || npm install
+
+      - name: 設定を確認
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: |
+          if [ -z "$FAL_KEY" ]; then
+            echo "::error::FAL_KEY が未設定です。Settings → Secrets and variables → Actions で追加してください。"
+            exit 1
+          fi
+
+      - name: 画像を生成
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+          FAL_IMAGE_MODEL: ${{ vars.FAL_IMAGE_MODEL }}
+          FAL_REQUEST_TIMEOUT_SEC: ${{ vars.FAL_REQUEST_TIMEOUT_SEC || '120' }}
+          SEEDANCE_POLL_TIMEOUT_MIN: ${{ vars.SEEDANCE_POLL_TIMEOUT_MIN || '10' }}
+          PROMPT: ${{ inputs.prompt }}
+        run: npm run img -- "$PROMPT" --count ${{ inputs.count }} --size ${{ inputs.size }}
+
+      - name: 画像をアップロード
+        if: '!cancelled()'
+        uses: actions/upload-artifact@v4
+        with:
+          name: FLATUP-画像
+          path: output/images/**/*.png
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: 次にやること
+        if: always()
+        run: |
+          {
+            echo "## 🖼️ 画像ができました"
+            echo ""
+            echo "下の Artifacts の \`FLATUP-画像\` からダウンロードしてください。"
+            echo ""
+            echo "### 使ったプロンプト"
+            echo '```'
+            echo "${{ inputs.prompt }}"
+            echo '```'
+            echo ""
+            echo "### 次にできること"
+            echo "- 気に入った1枚をキャラの**基準画像**として保存し、以後の全カットで参照する"
+            echo "- 動かしたい場合は「🎬 アニメEP1を作る」の cheap モード（ffmpegでゆっくり動かす・生成費ゼロ）"
+            echo "- 投稿時は **AI生成ラベルON**、実在会員の顔に寄せない（[ANIMATION BIBLE](../blob/main/docs/flatup_animation_bible.md)）"
+          } >> "$GITHUB_STEP_SUMMARY"
