@@ -45,24 +45,35 @@ export const CHAR_REFS_CLAUSE =
   "Keep every character exactly consistent with the attached character reference sheets: " +
   "same colors, same proportions, same stitching, same eye placement.";
 
+// 道具たちの構成は assets/canon/tools_night_concept.jpg が正本。
+// ただし目の描き方はコンセプト画（白目の大きい西洋カートゥーン調）ではなく、
+// マサキ・メルティと同じアニメ調（大きな濃い瞳＋ハイライト）に統一する（JIN確定 2026-07-29）。
 const GLOVE =
-  "GLOVE — a single cherry-red boxing glove (one glove only, not a pair), about " +
-  "25 cm tall, standing upright. Worn soft leather with visible white stitching. " +
-  "Its eyes are two small gentle folds in the leather that open like sleepy " +
-  "eyelids (no cartoon googly eyes). A curved seam forms its subtle mouth. Two " +
-  "tiny stubby red leather arms. Toy-like simplicity, cute but restrained.";
+  "GLOVE — a matching pair of coral-red boxing gloves, about 25 cm tall each, " +
+  "standing upright side by side. They always appear together, move in sync and " +
+  "act as one character. Soft worn leather with a velcro strap. Large glossy dark " +
+  "eyes with bright catchlights and expressive dark eyebrows, small open smile. " +
+  "Two tiny stubby leather arms each. Toy-like simplicity, cute and warm.";
 
 const MITT =
-  "MITT — a rounded cream-and-red focus punch mitt, slightly larger than the " +
-  "glove (about 30 cm), standing upright. A soft motherly face suggested by its " +
-  "padded contours: calm kind half-closed stitched eyes and a warm smile line " +
-  "formed by a seam. Gentle, warm, reassuring.";
+  "MITT — a round golden-yellow focus punch mitt with a dark rim and a red leather " +
+  "strap, slightly larger than a glove (about 30 cm), standing upright. Large glossy " +
+  "dark eyes with bright catchlights, gently arched eyebrows and a warm smile. " +
+  "One small yellow hand it uses to gesture. Calm, motherly, reassuring.";
+
+const SANDBAG =
+  "SANDBAGS — two large hanging punching bags with faces, one coral-pink and one " +
+  "golden-yellow, about 120 cm tall each, hanging from chains. Large glossy dark " +
+  "eyes with bright catchlights, friendly eyebrows, warm smiles, and two short " +
+  "stubby arms. The big easy-going seniors of the group: they stay hanging and " +
+  "watch over the others, rarely speaking.";
 
 const TIMER =
   "TIMER — a small black-cased digital gym interval timer with a red LED display " +
   "(the same kind of round-timer that hangs on the gym wall), about 15 cm tall, " +
-  "standing on little rubber feet. Its rectangular red LED display is its face: the " +
-  "glowing segments form its eyes and expressions. Earnest, tidy, secretly kind.";
+  "standing on little rubber feet, with two short stubby arms. Its rectangular red " +
+  "LED display is its face: the glowing red segments form its eyes, eyebrows and " +
+  "expressions. Earnest, tidy, secretly kind.";
 
 // 人間キャラは ANIMATION BIBLE v3.0(docs/flatup_animation_bible.md)の正本に従う。
 // TSUMU = シリーズ主人公ツム(5歳・最初は怖がり)、MASAKI = マサキ(19歳・EP1指導役)。
@@ -94,6 +105,7 @@ const BLOCKS: Record<string, string> = {
   GLOVE,
   MITT,
   TIMER,
+  SANDBAG,
   GIRL,
   MOTHER,
   COACH,
@@ -194,12 +206,22 @@ export const SHOTS: Shot[] = [
   },
   {
     id: "M5",
-    title: "3体の身長比較",
+    title: "サンドバッグ設定画",
     phase: "refs",
     template:
-      "Lineup on a plain light-gray studio background, all three characters standing " +
-      "side by side on the same floor line, correct relative sizes (MITT 30cm > " +
-      "GLOVE 25cm > TIMER 15cm): [GLOVE] [MITT] [TIMER] Front view, neutral poses. [STYLE]",
+      "Character design sheet, plain light-gray studio background: [SANDBAG] " +
+      "Both bags shown hanging side by side, front view, friendly neutral " +
+      "expressions. Consistent proportions. [STYLE]",
+  },
+  {
+    id: "M6",
+    title: "全員の身長比較",
+    phase: "refs",
+    template:
+      "Lineup on a plain light-gray studio background, all characters on the same " +
+      "floor line with correct relative sizes (SANDBAGS 120cm hanging above > " +
+      "MITT 30cm > GLOVE 25cm each > TIMER 15cm): [SANDBAG] [MITT] [GLOVE] [TIMER] " +
+      "Front view, neutral poses. [STYLE]",
   },
 
   // ---- Day 2: シーン静止画 ----
@@ -226,8 +248,8 @@ export const SHOTS: Shot[] = [
     phase: "scenes",
     template:
       "Medium shot: [GLOVE] [MITT] [TIMER] gathered in a small circle on the mat of " +
-      "[GYM] at night, as if holding a secret meeting. In the soft background, a " +
-      "heavy bag and a jump rope hang still, as if asleep. [LIGHT-NIGHT] Warm, " +
+      "[GYM] at night, as if holding a secret meeting. Hanging just behind them and " +
+      "watching over the little meeting: [SANDBAG] [LIGHT-NIGHT] Warm, " +
       "slightly humorous, conspiratorial mood. [STYLE]",
   },
   {

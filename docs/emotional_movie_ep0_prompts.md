@@ -91,27 +91,37 @@ same colors, same proportions, same stitching, same eye placement.
 
 GLOVE:
 ```
-GLOVE — a single cherry-red boxing glove (one glove only, not a pair), about
-25 cm tall, standing upright. Worn soft leather with visible white stitching.
-Its eyes are two small gentle folds in the leather that open like sleepy
-eyelids (no cartoon googly eyes). A curved seam forms its subtle mouth. Two
-tiny stubby red leather arms. Toy-like simplicity, cute but restrained.
+GLOVE — a matching pair of coral-red boxing gloves, about 25 cm tall each,
+standing upright side by side. They always appear together, move in sync and
+act as one character. Soft worn leather with a velcro strap. Large glossy dark
+eyes with bright catchlights and expressive dark eyebrows, small open smile.
+Two tiny stubby leather arms each. Toy-like simplicity, cute and warm.
 ```
 
 MITT:
 ```
-MITT — a rounded cream-and-red focus punch mitt, slightly larger than the
-glove (about 30 cm), standing upright. A soft motherly face suggested by its
-padded contours: calm kind half-closed stitched eyes and a warm smile line
-formed by a seam. Gentle, warm, reassuring.
+MITT — a round golden-yellow focus punch mitt with a dark rim and a red leather
+strap, slightly larger than a glove (about 30 cm), standing upright. Large glossy
+dark eyes with bright catchlights, gently arched eyebrows and a warm smile.
+One small yellow hand it uses to gesture. Calm, motherly, reassuring.
 ```
 
 TIMER:
 ```
 TIMER — a small black-cased digital gym interval timer with a red LED display
 (the same kind of round-timer that hangs on the gym wall), about 15 cm tall,
-standing on little rubber feet. Its rectangular red LED display is its face: the
-glowing segments form its eyes and expressions. Earnest, tidy, secretly kind.
+standing on little rubber feet, with two short stubby arms. Its rectangular red
+LED display is its face: the glowing red segments form its eyes, eyebrows and
+expressions. Earnest, tidy, secretly kind.
+```
+
+SANDBAG（背景の仲間）:
+```
+SANDBAGS — two large hanging punching bags with faces, one coral-pink and one
+golden-yellow, about 120 cm tall each, hanging from chains. Large glossy dark
+eyes with bright catchlights, friendly eyebrows, warm smiles, and two short
+stubby arms. The big easy-going seniors of the group: they stay hanging and
+watch over the others, rarely speaking.
 ```
 
 人間キャラ（Scene 4〜7 のみ。実在人物に似せない）:
@@ -133,7 +143,7 @@ Always warm and encouraging, never stern or intimidating. Original character.
 
 ---
 
-## 1. Day 1 — 正本4点＋α（ここの採用画像がシリーズ全体の資産）
+## 1. Day 1 — 正本（ここの採用画像がシリーズ全体の資産）
 
 ### M1 夜のFLATUP GYM全景（基準写真を添付）
 ```
@@ -185,15 +195,22 @@ segment pattern changes to suggest: (1) neutral attention (2) surprise
 [STYLE]
 ```
 
-### M5 身長比較
+### M5 サンドバッグ設定画
 ```
-Lineup on a plain light-gray studio background, all three characters standing
-side by side on the same floor line, correct relative sizes (MITT 30cm >
-GLOVE 25cm > TIMER 15cm): [GLOVE] [MITT] [TIMER] Front view, neutral poses.
-[STYLE]
+Character design sheet, plain light-gray studio background: [SANDBAG]
+Both bags shown hanging side by side, front view, friendly neutral
+expressions. Consistent proportions. [STYLE]
 ```
 
-**Day 1 承認基準（JINチェック）**: ①怖くない・幼稚すぎない ②「目がフォールド（折り目）」が守られている（ギョロ目NG） ③既存キャラの誰にも似ていない ④3体並べたとき家族感がある。
+### M6 全員の身長比較
+```
+Lineup on a plain light-gray studio background, all characters on the same
+floor line with correct relative sizes (SANDBAGS 120cm hanging above >
+MITT 30cm > GLOVE 25cm each > TIMER 15cm): [SANDBAG] [MITT] [GLOVE] [TIMER]
+Front view, neutral poses. [STYLE]
+```
+
+**Day 1 承認基準（JINチェック）**: ①怖くない・幼稚すぎない ②瞳がマサキ・メルティと同じアニメ調（大きく濃い瞳＋ハイライト。白目が大きい西洋カートゥーン調はNG） ③既存キャラの誰にも似ていない ④全員並べたとき家族感がある。
 → 採用した画像を `正本/` フォルダに保存し、**以後の全生成に添付**。
 
 ---
@@ -216,8 +233,8 @@ Wide shot of [GYM] at night, empty and still. Tiny in the frame, on the mats:
 ### C3（Scene 3 / 7-13s）秘密の会議
 ```
 Medium shot: [GLOVE] [MITT] [TIMER] gathered in a small circle on the mat of
-[GYM] at night, as if holding a secret meeting. In the soft background, a
-heavy bag and a jump rope hang still, as if asleep. [LIGHT-NIGHT] Warm,
+[GYM] at night, as if holding a secret meeting. Hanging just behind them and
+watching over the little meeting: [SANDBAG] [LIGHT-NIGHT] Warm,
 slightly humorous, conspiratorial mood. [STYLE]
 ```
 

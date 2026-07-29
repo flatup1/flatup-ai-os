@@ -27,8 +27,8 @@ test("ショットIDに重複がない", () => {
   assert.equal(new Set(ids).size, ids.length);
 });
 
-test("フェーズごとの本数が正本どおり(refs=8, scenes=12, cuts=4)", () => {
-  assert.equal(shotsByPhase("refs").length, 8);
+test("フェーズごとの本数が正本どおり(refs=9, scenes=12, cuts=4)", () => {
+  assert.equal(shotsByPhase("refs").length, 9);
   assert.equal(shotsByPhase("scenes").length, 12);
   assert.equal(shotsByPhase("cuts").length, 4);
 });
