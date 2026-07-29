@@ -15,7 +15,8 @@ const STYLE =
   "Cheerful and gentle, never scary. Materials still read as real: worn leather, " +
   "soft fabric, rubber, brushed metal. " +
   "Completely original character design, not based on any existing animated film or " +
-  "franchise. No text, no letters, no logos anywhere in the image. Vertical 9:16.";
+  "franchise. No tattoos on any character. " +
+  "No text, no letters, no logos anywhere in the image. Vertical 9:16.";
 
 const LIGHT_NIGHT =
   "Night interior lighting: the ceiling strip lights are off, soft cool moonlight " +

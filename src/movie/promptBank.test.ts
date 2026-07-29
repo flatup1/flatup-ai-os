@@ -41,10 +41,10 @@ test("全ショットのトークンが展開できる(未定義ブロックが�
   }
 });
 
-test("静止画ショットは STYLE 込み(文字禁止・縦9:16・オリジナル明記)", () => {
+test("静止画ショットは STYLE 込み(文字禁止・タトゥー禁止・縦9:16・オリジナル明記)", () => {
   for (const shot of SHOTS.filter(s => s.phase !== "cuts")) {
     const p = buildShotPrompt(shot);
-    for (const required of ["No text", "Vertical 9:16", "original character design"]) {
+    for (const required of ["No text", "No tattoos", "Vertical 9:16", "original character design"]) {
       assert.ok(
         p.toLowerCase().includes(required.toLowerCase()),
         `${shot.id}: "${required}" が見つからない`

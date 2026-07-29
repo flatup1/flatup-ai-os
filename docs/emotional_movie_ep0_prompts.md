@@ -46,7 +46,8 @@ Bright, warm, evenly lit interior — no harsh shadows and no moody darkness.
 Cheerful and gentle, never scary. Materials still read as real: worn leather,
 soft fabric, rubber, brushed metal.
 Completely original character design, not based on any existing animated film or
-franchise. No text, no letters, no logos anywhere in the image. Vertical 9:16.
+franchise. No tattoos on any character.
+No text, no letters, no logos anywhere in the image. Vertical 9:16.
 ```
 
 ### LIGHT-NIGHT（夜シーン用）
