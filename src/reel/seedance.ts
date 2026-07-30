@@ -122,10 +122,37 @@ async function fetchWithTimeout(url: string, init?: RequestInit): Promise<Respon
   }
 }
 
+/**
+ * 残高切れ・アカウントロックを表すエラー。
+ *
+ * これはリトライしても絶対に回復しない(入金しない限り全リクエストが弾かれる)。
+ * run #3 では残高切れに気づかず、後続カットが毎回20分待ちになり90分を空費した。
+ * 呼び側はこのエラーを見たら即座にバッチ全体を中断する。
+ */
+export class FalBalanceError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "FalBalanceError";
+  }
+}
+
+/** 残高切れ/ロックのレスポンスか(fal は 403 + "Exhausted balance" / "User is locked") */
+export function isBalanceExhausted(status: number, body: string): boolean {
+  if (status !== 403 && status !== 402) return false;
+  return /exhausted balance|user is locked|insufficient|top up/i.test(body);
+}
+
 async function fetchJson(url: string, init?: RequestInit): Promise<Record<string, unknown>> {
   const res = await fetchWithTimeout(url, init);
   const text = await res.text();
   if (!res.ok) {
+    if (isBalanceExhausted(res.status, text)) {
+      throw new FalBalanceError(
+        "fal.ai の残高が不足しています（アカウントがロックされています）。\n" +
+        "  → https://fal.ai/dashboard/billing で入金すると自動で解除されます。\n" +
+        "  残高ゼロのままでは何度試しても失敗するため、ここで中断します。"
+      );
+    }
     throw new Error(`Seedance API ${res.status}: ${text.slice(0, 300)}`);
   }
   return JSON.parse(text) as Record<string, unknown>;

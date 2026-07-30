@@ -13,6 +13,8 @@ import {
   assertValidApiKey,
   arkCommandText,
   buildFalPayload,
+  isBalanceExhausted,
+  FalBalanceError,
 } from "./seedance.js";
 import { parseImageSize } from "./image.js";
 
@@ -186,6 +188,29 @@ test("Seedance 系でも imageUrl 指定で image_url が付く(I2V)", () => {
     imageUrl: "https://example.com/cat.png",
   });
   assert.equal(body.image_url, "https://example.com/cat.png");
+});
+
+test("isBalanceExhausted: 残高切れ/ロックの403を検知する", () => {
+  assert.equal(
+    isBalanceExhausted(403, '{"detail":"User is locked. Reason: Exhausted balance. Top up your balance at fal.ai/dashboard/billing."}'),
+    true,
+    "run #3 で実際に返ってきた本文"
+  );
+  assert.equal(isBalanceExhausted(402, "insufficient credits"), true);
+});
+
+test("isBalanceExhausted: 他のエラーは残高切れ扱いにしない", () => {
+  assert.equal(isBalanceExhausted(403, "Forbidden: invalid API key"), false, "認証エラーは別物");
+  assert.equal(isBalanceExhausted(500, "Exhausted balance"), false, "5xx はリトライすべき");
+  assert.equal(isBalanceExhausted(422, "validation error"), false);
+  assert.equal(isBalanceExhausted(200, "ok"), false);
+});
+
+test("FalBalanceError は名前で判別できる(instanceof / name)", () => {
+  const err = new FalBalanceError("残高不足");
+  assert.ok(err instanceof FalBalanceError);
+  assert.ok(err instanceof Error);
+  assert.equal(err.name, "FalBalanceError");
 });
 
 if (fail === 0) {
