@@ -26,6 +26,7 @@ import {
   requiredKeyName,
   hasApiKey,
   assertValidApiKey,
+  FalBalanceError,
 } from "./seedance.js";
 
 /** EP1 8カットの Hailuo I2V プロンプト（正本は animeEp1Cuts.ts） */
@@ -132,6 +133,8 @@ if (isMain) {
       } catch (err) {
         const msg = err instanceof Error ? err.message : String(err);
         console.log(` 失敗: ${msg}`);
+        // 残高切れは入金しない限り回復しない。残りのカットを試さず呼び側へ伝播させる
+        if (err instanceof FalBalanceError) throw err;
         if (attempt === MAX_ATTEMPTS) return false;
         console.log(`  → cut${c.n} をもう一度試します`);
       }
@@ -141,13 +144,28 @@ if (isMain) {
 
   const done: number[] = [];
   const failedCuts: number[] = [];
+  let aborted = false;
   for (const c of ready) {
     if (existing.has(`cut${c.n}.mp4`)) {
       console.log(`[cut${c.n}] 既に生成済みのためスキップ`);
       done.push(c.n);
       continue;
     }
-    (await renderCut(c) ? done : failedCuts).push(c.n);
+    try {
+      (await renderCut(c) ? done : failedCuts).push(c.n);
+    } catch (err) {
+      // 残高切れ: 残りのカットは試さず打ち切る。出来ているカットは連結に使えるので保持する
+      if (err instanceof FalBalanceError) {
+        console.error(`\n[中断] 残高不足のため、残りのカットの生成を打ち切りました。`);
+        failedCuts.push(c.n);
+        aborted = true;
+        break;
+      }
+      throw err;
+    }
+  }
+  if (aborted) {
+    console.log(`※ 入金後にもう一度実行すると、出来ているカットはスキップして続きから作れます。`);
   }
 
   console.log(`\n完了: 成功 ${done.length} / 失敗 ${failedCuts.length}`);

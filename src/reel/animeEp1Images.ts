@@ -13,7 +13,7 @@ import "../utils/loadEnv.js";
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { EP1_CUT_DEFS, imagePrompt } from "./animeEp1Cuts.js";
-import { falQueueRequest, downloadVideo as downloadFile, hasApiKey, assertValidApiKey, requiredKeyName } from "./seedance.js";
+import { falQueueRequest, downloadVideo as downloadFile, hasApiKey, assertValidApiKey, requiredKeyName, FalBalanceError } from "./seedance.js";
 
 export function imageEndpoint(): string {
   return process.env.FAL_IMAGE_MODEL || "fal-ai/flux/dev";
@@ -87,6 +87,11 @@ if (isMain) {
         done = true;
       } catch (err) {
         console.log(` 失敗: ${err instanceof Error ? err.message : String(err)}`);
+        // 残高切れはリトライしても回復しないので、残りのカットを試さず即中断する
+        if (err instanceof FalBalanceError) {
+          console.error(`\n[中断] 残高不足のため、残りのカットはスキップしました（成功 ${ok} / 未処理あり）。`);
+          process.exit(1);
+        }
         if (attempt === MAX_ATTEMPTS) failed++;
         else console.log(`  → cut${cut.n} をもう一度試します`);
       }
