@@ -9,10 +9,10 @@
 
 ```bash
 npm run movie -- list                 # ショット一覧
-npm run movie -- refs                 # Day1: 正本8枚を生成（各2テイク）
-# → 採用画像を assets/movie/ep0/refs/ に保存（JIN承認ゲート①）
+npm run movie -- refs                 # Day1: 設定画12種を生成（各2テイク=24枚）
+npm run movie:adopt -- refs           # 採用する1枚を選ぶ（JIN承認ゲート①）
 npm run movie -- scenes               # Day2: シーン静止画12枚（正本を毎回自動添付）
-# → 採用画像を assets/movie/ep0/stills/C1.png 等の名前で保存
+npm run movie:adopt -- scenes         # 採用（動画の起点になる名前で保存される）
 npm run movie -- cuts                 # Day4: 優先4カットを image-to-video
 npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 ```
@@ -24,7 +24,7 @@ npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 
 **⚠️ 絵柄の正本は `assets/canon/`（2026-07-28 JIN承認の確定素材）。**
 下の文章はその写しであり、文章と画像が食い違ったら**画像が勝つ**。
-実制作の前に `cp assets/canon/*.jpg assets/movie/ep0/refs/` を実行し、毎回添付すること。
+canon の添付は `npm run movie` が自動で行う（手でコピーする必要はない）。
 
 **使い方（共通ルール）**
 - 静止画生成: Nano Banana Pro（Gemini）または Midjourney（`--cref` でキャラ参照）
@@ -172,6 +172,40 @@ sleeveless tank top (or a black FLAT UP GYM hoodie), muay thai shorts, and a
 black digital watch on his left wrist. Barefoot.
 Always warm and encouraging, never stern or intimidating. Original character.
 ```
+
+### M7〜M9 人間の設定画（2026-08-02 追加）
+
+12シーン中7シーンにマサキ・ツム・母が出るのに、Day 1 に人間の設定画が
+1枚も無く、カットごとに顔が変わる状態だった。道具と同じく正本を作る。
+
+M7 マサキ:
+```
+Character design sheet, plain light-gray studio background: [COACH]
+Three views of the exact same character side by side: front view, side view,
+back view, full body, neutral standing pose. Consistent proportions. [STYLE]
+```
+
+M8 ツム（設定画＋表情）:
+```
+Character design sheet, plain light-gray studio background: [GIRL]
+Top row: three full-body views of the exact same character — front, side, back,
+neutral standing pose. Bottom row: the same face four times, only the expression
+changes: (1) frightened, hiding (2) hesitating, looking up (3) small brave
+determination (4) a shy proud smile. [STYLE]
+```
+
+M9 母:
+```
+Character design sheet, plain light-gray studio background: [MOTHER]
+Two full-body views of the exact same character, front and side, calm standing
+pose, plus one head-and-shoulders close-up of her face with a soft gentle smile.
+Consistent proportions. [STYLE]
+```
+
+> **添付は「そのシーンに出るキャラの設定画だけ」**（`npm run movie -- scenes` が自動）。
+> 全部添付すると、母の顔アップにグローブの設定画が付いて絵が濁る。
+> 上限6枚を超えるときは**キャラごとに1枚ずつ**確保する順で切る
+> （素直に並べると C7 で人間の参照が全部落ちる）。
 
 ---
 
@@ -455,7 +489,7 @@ FLATUP GYMの道具たちは、子どもたちの小さな一歩を全部覚え�
 
 ## 7. 進行チェックリスト
 
-- [ ] Day 1: 正本4点＋身長比較を生成 → **JIN承認**（ここだけは人間の目が必須）
+- [ ] Day 1: 設定画12種（道具4体＋ジム＋身長比較＋人間3人）→ **JIN承認**（ここだけは人間の目が必須）
 - [ ] Day 2: シーン静止画12枚（C1〜C7）→ キャラ一致チェック
 - [ ] Day 3: 静止画アニマティック35秒 → **無音テスト合格**
 - [ ] Day 4: V1〜V4動画化 → 差し替え → BGM/SE → 字幕T1〜T12

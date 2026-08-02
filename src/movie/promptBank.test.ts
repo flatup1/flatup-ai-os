@@ -5,7 +5,10 @@
  */
 
 import assert from "node:assert/strict";
-import { SHOTS, shotsByPhase, buildShotPrompt, findShot } from "./promptBank.js";
+import {
+  SHOTS, shotsByPhase, buildShotPrompt, findShot,
+  CHAR_TOKENS, REF_SHEETS, MAX_ATTACH, charactersIn, hasHuman, refSheetsFor,
+} from "./promptBank.js";
 
 let pass = 0;
 let fail = 0;
@@ -27,8 +30,9 @@ test("ショットIDに重複がない", () => {
   assert.equal(new Set(ids).size, ids.length);
 });
 
-test("フェーズごとの本数が正本どおり(refs=9, scenes=12, cuts=4)", () => {
-  assert.equal(shotsByPhase("refs").length, 9);
+test("フェーズごとの本数が正本どおり(refs=12, scenes=12, cuts=4)", () => {
+  // refs=12: 舞台1 + 道具7 + 全員1 + 人間3(2026-08-02 追加)
+  assert.equal(shotsByPhase("refs").length, 12);
   assert.equal(shotsByPhase("scenes").length, 12);
   assert.equal(shotsByPhase("cuts").length, 4);
 });
@@ -136,6 +140,73 @@ test("ブロック合成で句読点が壊れていない(feel safe.: のよう�
     const p = buildShotPrompt(shot);
     const broken = p.match(/.{0,25}\.[,:;]/);
     assert.ok(!broken, `${shot.id}: 句読点の繋ぎ目が壊れている → "${broken?.[0]}"`);
+  }
+});
+
+
+test("シーンに出る全キャラに設定画が用意されている（Day1の抜け検出）", () => {
+  // 2026-08-02: 12シーン中7シーンに人間が出るのに、人間の設定画が1枚も無かった。
+  const refIds = new Set(shotsByPhase("refs").map(s => s.id));
+  for (const shot of shotsByPhase("scenes")) {
+    for (const sheet of refSheetsFor(shot)) {
+      assert.ok(refIds.has(sheet), `${shot.id}: 参照すべき設定画 ${sheet} が refs に無い`);
+    }
+  }
+});
+
+test("全キャラトークンに設定画の割り当てがある", () => {
+  const refIds = new Set(shotsByPhase("refs").map(s => s.id));
+  for (const token of CHAR_TOKENS) {
+    const sheets = REF_SHEETS[token];
+    assert.ok(sheets && sheets.length > 0, `${token}: 設定画の割り当てが無い`);
+    for (const id of sheets) {
+      assert.ok(refIds.has(id), `${token} → ${id} が refs に存在しない`);
+    }
+  }
+});
+
+test("設定画は、そのキャラ本人だけを描く（他キャラが混ざらない）", () => {
+  const owner = new Map<string, string>();
+  for (const [token, sheets] of Object.entries(REF_SHEETS)) {
+    for (const id of sheets) owner.set(id, token);
+  }
+  for (const shot of shotsByPhase("refs")) {
+    const own = owner.get(shot.id);
+    if (!own) continue; // M1(舞台) と M6(全員集合) は対象外
+    assert.deepEqual(
+      charactersIn(shot), [own],
+      `${shot.id} は ${own} の設定画なのに、他のキャラも描かれている`
+    );
+  }
+});
+
+test("人間が出るショットの判定が正しい", () => {
+  assert.equal(hasHuman(findShot("C5f")!), true);   // 母
+  assert.equal(hasHuman(findShot("C3")!), false);   // 道具だけ
+  assert.equal(hasHuman(findShot("C5c")!), false);  // 手だけ(キャラブロックなし)
+  assert.equal(hasHuman(findShot("M7")!), true);    // マサキ設定画
+});
+
+
+test("添付上限で切っても、出演する全キャラが最低1枚は参照を持つ", () => {
+  // 2026-08-02: C7(道具3体+ツム+母=8枚)を素直に並べると上限6枚で
+  // 人間2人の参照が丸ごと落ちていた。キャラごとに1枚ずつ取る順にして解決。
+  const owner = new Map<string, string>();
+  for (const [token, sheets] of Object.entries(REF_SHEETS)) {
+    for (const id of sheets) owner.set(id, token);
+  }
+  for (const shot of shotsByPhase("scenes")) {
+    const chars = charactersIn(shot);
+    if (chars.length === 0) continue;
+    const attached = refSheetsFor(shot).slice(0, MAX_ATTACH);
+    const covered = new Set(attached.map(id => owner.get(id)));
+    for (const c of chars) {
+      assert.ok(
+        covered.has(c),
+        `${shot.id}: ${c} の参照が上限${MAX_ATTACH}枚で全部落ちている` +
+        `（並び: ${refSheetsFor(shot).join(", ")}）`
+      );
+    }
   }
 });
 

@@ -134,6 +134,31 @@ const BLOCKS: Record<string, string> = {
   COACH,
 };
 
+/** テンプレートに現れるキャラのトークン（照明・スタイル・舞台は含まない） */
+export const CHAR_TOKENS = [
+  "GLOVE", "MITT", "TIMER", "SANDBAG", "GIRL", "MOTHER", "COACH",
+] as const;
+export type CharToken = (typeof CHAR_TOKENS)[number];
+
+/** 人間のキャラ（実在人物に似せない配慮と、参照の扱いが道具と違う） */
+export const HUMAN_TOKENS: readonly CharToken[] = ["GIRL", "MOTHER", "COACH"];
+
+/**
+ * そのキャラの見た目を決める設定画（Day 1 で作るショットID）。
+ * シーン生成では、そのシーンに出るキャラの設定画**だけ**を添付する。
+ * 全部まとめて添付すると、母の顔アップにグローブの設定画が付くような
+ * 無関係な参照が混ざって絵が濁る。
+ */
+export const REF_SHEETS: Record<CharToken, string[]> = {
+  GLOVE: ["M2a", "M2b"],
+  MITT: ["M3a", "M3b"],
+  TIMER: ["M4a", "M4b"],
+  SANDBAG: ["M5"],
+  COACH: ["M7"],
+  GIRL: ["M8"],
+  MOTHER: ["M9"],
+};
+
 export type Phase = "refs" | "scenes" | "cuts";
 
 export interface Shot {
@@ -250,6 +275,38 @@ export const SHOTS: Shot[] = [
       "floor line with correct relative sizes (SANDBAGS 120cm hanging above > " +
       "MITT 30cm > GLOVE 25cm each > TIMER 15cm): [SANDBAG] [MITT] [GLOVE] [TIMER] " +
       "Front view, neutral poses. [STYLE]",
+  },
+  // 人間3人の設定画。12シーン中7シーンに人間が出るので、道具と同じく正本が要る
+  // (2026-08-02 の見直しで欠けていたのが判明)。
+  {
+    id: "M7",
+    title: "マサキ 設定画",
+    phase: "refs",
+    template:
+      "Character design sheet, plain light-gray studio background: [COACH] " +
+      "Three views of the exact same character side by side: front view, side view, " +
+      "back view, full body, neutral standing pose. Consistent proportions. [STYLE]",
+  },
+  {
+    id: "M8",
+    title: "ツム 設定画＋表情",
+    phase: "refs",
+    template:
+      "Character design sheet, plain light-gray studio background: [GIRL] " +
+      "Top row: three full-body views of the exact same character — front, side, back, " +
+      "neutral standing pose. Bottom row: the same face four times, only the expression " +
+      "changes: (1) frightened, hiding (2) hesitating, looking up (3) small brave " +
+      "determination (4) a shy proud smile. [STYLE]",
+  },
+  {
+    id: "M9",
+    title: "母 設定画",
+    phase: "refs",
+    template:
+      "Character design sheet, plain light-gray studio background: [MOTHER] " +
+      "Two full-body views of the exact same character, front and side, calm standing " +
+      "pose, plus one head-and-shoulders close-up of her face with a soft gentle smile. " +
+      "Consistent proportions. [STYLE]",
   },
 
   // ---- Day 2: シーン静止画 ----
@@ -422,3 +479,39 @@ export function shotsByPhase(phase: Phase): Shot[] {
 export function findShot(id: string): Shot | undefined {
   return SHOTS.find(s => s.id.toLowerCase() === id.toLowerCase());
 }
+
+/** そのショットに登場するキャラのトークン */
+export function charactersIn(shot: Shot): CharToken[] {
+  return CHAR_TOKENS.filter(t => shot.template.includes(`[${t}]`));
+}
+
+/** そのショットに人間が登場するか（参照の扱いと注意書きが変わる） */
+export function hasHuman(shot: Shot): boolean {
+  return charactersIn(shot).some(t => HUMAN_TOKENS.includes(t));
+}
+
+/**
+ * そのショットの生成時に添付すべき設定画のショットID。
+ * 出てこないキャラの設定画は付けない。
+ *
+ * 並び順が重要: 添付枚数には上限(MAX_ATTACH)があり、前から切り捨てられる。
+ * キャラごとに1枚ずつ取る順(ラウンドロビン)で返すことで、
+ * 切り捨てが起きても**全キャラが最低1枚は参照を持つ**ようにしている。
+ * （素直に並べると、C7 のように道具の設定画6枚で埋まり、人間が全部落ちる）
+ */
+export function refSheetsFor(shot: Shot): string[] {
+  const perChar = charactersIn(shot).map(t => [...REF_SHEETS[t]]);
+  const out: string[] = [];
+  for (let round = 0; perChar.some(list => list.length > round); round++) {
+    for (const list of perChar) {
+      if (list[round]) out.push(list[round]);
+    }
+  }
+  return [...new Set(out)];
+}
+
+/**
+ * 1回の生成に添付できる参照画像の上限。
+ * これを超えると前から採用され、残りは落ちる(落ちたら警告が出る)。
+ */
+export const MAX_ATTACH = 6;

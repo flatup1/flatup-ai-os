@@ -19,13 +19,17 @@
 
 import "../utils/loadEnv.js";
 import { mkdir, readdir, stat, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { basename, join } from "node:path";
 import {
   SHOTS,
   shotsByPhase,
   buildShotPrompt,
   REF_PHOTO_CLAUSE,
   CHAR_REFS_CLAUSE,
+  charactersIn,
+  hasHuman,
+  refSheetsFor,
+  MAX_ATTACH,
   type Phase,
   type Shot,
 } from "./promptBank.js";
@@ -48,7 +52,7 @@ const REFS_DIR = join(ASSET_DIR, "refs");
 const STILLS_DIR = join(ASSET_DIR, "stills");
 const CANON_DIR = join(process.cwd(), "assets", "canon");
 const IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".webp"];
-const MAX_REFS = 6;
+
 
 /**
  * refs(設定画)づくりで「絵柄だけ」を借りる canon 画像。
@@ -64,12 +68,31 @@ const STYLE_REF_NAMES = [
   "masaki_mitt_kneeling",
 ];
 
-/** 絵柄参照を添付した回だけ足す。人物を描かせないことを必ず明示する */
+/** 絵柄参照の共通部分 */
+const STYLE_REF_BASE =
+  "The attached images define the art style: match their rendering quality, " +
+  "eye style, cheek blush, softness and lighting exactly.";
+
+/** 道具だけのショット用。人物を描かせないことを必ず明示する */
 const STYLE_REF_CLAUSE =
-  "The attached images define the art style only: match their rendering quality, " +
-  "eye style, cheek blush, softness and lighting exactly. " +
-  "Do not copy their subjects, poses or backgrounds, and do not draw any people, " +
-  "faces or human characters in this image.";
+  `${STYLE_REF_BASE} Do not copy their subjects, poses or backgrounds, and do not ` +
+  "draw any people, faces or human characters in this image.";
+
+/**
+ * オリジナルの人間（ツム・母）を描くショット用。
+ * 参照に写っているのは実在のスタッフなので、顔を写し取らせない。
+ */
+const STYLE_REF_HUMAN_CLAUSE =
+  `${STYLE_REF_BASE} Do not copy the faces or identities of the people in them — ` +
+  "the character in this image is a different, original character.";
+
+/**
+ * マサキを描くショット用。canon はマサキ本人の確定素材なので、
+ * 絵柄だけでなく人物そのものを合わせる。
+ */
+const STYLE_REF_COACH_CLAUSE =
+  `${STYLE_REF_BASE} The young male instructor in the attached references is MASAKI ` +
+  "himself: keep his hair, face and build consistent with them.";
 
 const args = process.argv.slice(2);
 const positional = args.filter(a => !a.startsWith("--"));
@@ -184,6 +207,11 @@ async function listImages(dir: string): Promise<string[]> {
   }
 }
 
+/** 採用画像のファイル名から、元の設定画IDを取り出す（"M2a-t1.png" → "M2a"） */
+function refSheetId(filePath: string): string {
+  return basename(filePath).replace(/\.[^.]+$/, "").replace(/-t\d+$/, "");
+}
+
 /** assets/canon/ から絵柄参照だけを拾う(存在するものだけ・並び順は STYLE_REF_NAMES どおり) */
 async function listStyleRefs(): Promise<string[]> {
   const found: string[] = [];
@@ -208,19 +236,33 @@ async function refsForShot(shot: Shot): Promise<{ attach: string[]; clauses: str
   }
   if (shot.phase === "refs") {
     // 正本づくりの段階ではまだ採用済みキャラ画像が無いので、絵柄だけを canon から借りる。
-    // refs のショットは全て「人が写らない」もの(設定画・無人の夜のジム)なので、
-    // 人物を描かせない指示を必ず添える。
+    // 人が出るかどうかで注意書きを変える(人物設定画に「人を描くな」と言うと壊れる)。
     if (styleRefs.length) {
       attach.push(...styleRefs);
-      clauses.push(STYLE_REF_CLAUSE);
+      const chars = charactersIn(shot);
+      if (chars.includes("COACH")) clauses.push(STYLE_REF_COACH_CLAUSE);
+      else if (hasHuman(shot)) clauses.push(STYLE_REF_HUMAN_CLAUSE);
+      else clauses.push(STYLE_REF_CLAUSE);
     }
   } else if (shot.phase === "scenes") {
-    if (refImages.length) {
-      attach.push(...refImages);
+    // そのシーンに出るキャラの設定画だけを添付する。
+    // 全部添付すると、母の顔アップにグローブの設定画が付くような濁りが出る。
+    // 並びは refSheetsFor の順（キャラごとに1枚ずつ）を守る。
+    // ファイル名の五十音順で拾うと、上限で切ったときに人間の参照が全部落ちる。
+    const picked = refSheetsFor(shot).flatMap(id => refImages.filter(p => refSheetId(p) === id));
+    if (picked.length) {
+      attach.push(...picked);
       clauses.push(CHAR_REFS_CLAUSE);
     }
   }
-  return { attach: attach.slice(0, MAX_REFS), clauses };
+  const capped = attach.slice(0, MAX_ATTACH);
+  if (capped.length < attach.length) {
+    warnings.push(
+      `${shot.id}: 参照画像が ${attach.length} 枚あり、上限 ${MAX_ATTACH} 枚に切り詰めました。` +
+      `\n        落ちた分: ${attach.slice(MAX_ATTACH).map(p => basename(p)).join(", ")}`
+    );
+  }
+  return { attach: capped, clauses };
 }
 
 interface Job {
