@@ -43,8 +43,30 @@ import { assertValidApiKey, hasApiKey, requiredKeyName } from "../reel/seedance.
 const ASSET_DIR = join(process.cwd(), "assets", "movie", "ep0");
 const REFS_DIR = join(ASSET_DIR, "refs");
 const STILLS_DIR = join(ASSET_DIR, "stills");
+const CANON_DIR = join(process.cwd(), "assets", "canon");
 const IMAGE_EXTS = [".png", ".jpg", ".jpeg", ".webp"];
 const MAX_REFS = 6;
+
+/**
+ * refs(設定画)づくりで「絵柄だけ」を借りる canon 画像。
+ * canon 全部ではなく、この4枚だけを使う理由:
+ * - melty_stance / melty_sparring_bagroom … 腕脚にタトゥーが写る(再現禁止・assets/canon/README.md)
+ * - tools_night_concept … 瞳が西洋カートゥーン調で不採用(JIN確定 2026-07-29)
+ * - gym_bag_area … ジムB。第0話の舞台はジムA
+ */
+const STYLE_REF_NAMES = [
+  "masaki_face_closeup",
+  "melty_face_closeup",
+  "masaki_class_lineup",
+  "masaki_mitt_kneeling",
+];
+
+/** 絵柄参照を添付した回だけ足す。人物を描かせないことを必ず明示する */
+const STYLE_REF_CLAUSE =
+  "The attached images define the art style only: match their rendering quality, " +
+  "eye style, cheek blush, softness and lighting exactly. " +
+  "Do not copy their subjects, poses or backgrounds, and do not draw any people, " +
+  "faces or human characters in this image.";
 
 const args = process.argv.slice(2);
 const positional = args.filter(a => !a.startsWith("--"));
@@ -130,20 +152,43 @@ async function listImages(dir: string): Promise<string[]> {
   }
 }
 
+/** assets/canon/ から絵柄参照だけを拾う(存在するものだけ・並び順は STYLE_REF_NAMES どおり) */
+async function listStyleRefs(): Promise<string[]> {
+  const found: string[] = [];
+  for (const name of STYLE_REF_NAMES) {
+    const p = await findFile(CANON_DIR, name);
+    if (p) found.push(p);
+  }
+  return found;
+}
+
 const basePhoto = await findFile(ASSET_DIR, "base");
 const refImages = await listImages(REFS_DIR);
+const styleRefs = await listStyleRefs();
 
-/** このショットに添付する参照画像パス群を決める */
-async function refsForShot(shot: Shot): Promise<string[]> {
+/** このショットに添付する参照画像と、それに対応する追記文を決める */
+async function refsForShot(shot: Shot): Promise<{ attach: string[]; clauses: string[] }> {
   const attach: string[] = [];
-  if (shot.phase === "refs") {
-    // 正本づくり: [GYM] を含むショット(夜の全景)にだけ基準写真を添付
-    if (basePhoto && shot.template.includes("[GYM]")) attach.push(basePhoto);
-  } else if (shot.phase === "scenes") {
-    if (basePhoto && shot.template.includes("[GYM]")) attach.push(basePhoto);
-    attach.push(...refImages);
+  const clauses: string[] = [];
+  if (basePhoto && shot.phase !== "cuts" && shot.template.includes("[GYM]")) {
+    attach.push(basePhoto);
+    clauses.push(REF_PHOTO_CLAUSE);
   }
-  return attach.slice(0, MAX_REFS);
+  if (shot.phase === "refs") {
+    // 正本づくりの段階ではまだ採用済みキャラ画像が無いので、絵柄だけを canon から借りる。
+    // refs のショットは全て「人が写らない」もの(設定画・無人の夜のジム)なので、
+    // 人物を描かせない指示を必ず添える。
+    if (styleRefs.length) {
+      attach.push(...styleRefs);
+      clauses.push(STYLE_REF_CLAUSE);
+    }
+  } else if (shot.phase === "scenes") {
+    if (refImages.length) {
+      attach.push(...refImages);
+      clauses.push(CHAR_REFS_CLAUSE);
+    }
+  }
+  return { attach: attach.slice(0, MAX_REFS), clauses };
 }
 
 interface Job {
@@ -177,10 +222,9 @@ for (const shot of shots) {
       });
     }
   } else {
-    const attach = await refsForShot(shot);
     // 実際に添付する画像がある場合だけ、参照指示をプロンプトへ追記する
-    if (basePhoto && attach.includes(basePhoto)) prompt += ` ${REF_PHOTO_CLAUSE}`;
-    if (attach.some(p => p !== basePhoto)) prompt += ` ${CHAR_REFS_CLAUSE}`;
+    const { attach, clauses } = await refsForShot(shot);
+    for (const clause of clauses) prompt += ` ${clause}`;
     for (let t = 1; t <= takes; t++) {
       jobs.push({ label: takes > 1 ? `${shot.id}-t${t}` : shot.id, shot, prompt, attach });
     }

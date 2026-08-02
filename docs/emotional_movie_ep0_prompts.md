@@ -29,6 +29,11 @@ npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 **使い方（共通ルール）**
 - 静止画生成: Nano Banana Pro（Gemini）または Midjourney（`--cref` でキャラ参照）
 - **毎回添付するもの**: ①ジムの基準写真（背景用） ②採用済みキャラ設定画（正本、Day 1で確定後）
+- **Day 1（設定画）だけは例外**: 採用済み正本がまだ無いので、`assets/canon/` の4枚
+  （`masaki_face_closeup` / `melty_face_closeup` / `masaki_class_lineup` / `masaki_mitt_kneeling`）を
+  **絵柄参照として自動添付**する（`npm run movie -- refs`）。
+  タトゥーが写る2枚とコンセプト画は意図的に外してある。
+  添付時は「**絵柄だけ真似る。人物は描かない**」を必ず添える（自動）
 - 1プロンプトにつき**2テイク生成して良い方を採用**
 - 生成画像・動画内に**文字を絶対に入れない**（字幕・ロゴはCapCutで後入れ）
 - キャラの説明文（下の DNA ブロック）は**一字も変えずに毎回同じものを使う**。これがキャラ固定の生命線

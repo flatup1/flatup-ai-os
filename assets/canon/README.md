@@ -91,8 +91,16 @@
 
 ## 使い方
 
-生成時はこのフォルダの画像を**毎回添付**する。`npm run movie` は
-`assets/movie/ep0/refs/` を自動添付するので、実制作前にコピーしておく:
+生成時はこのフォルダの画像を**毎回添付**する。
+
+**Day 1（`npm run movie -- refs`）は自動**。このフォルダから絵柄参照として次の4枚を添付する:
+`masaki_face_closeup` / `melty_face_closeup` / `masaki_class_lineup` / `masaki_mitt_kneeling`。
+タトゥーが写る `melty_stance`・`melty_sparring_bagroom` と、瞳が不採用の
+`tools_night_concept`、ジムBの `gym_bag_area` は**意図的に外してある**（絵柄が汚れるため）。
+添付時は「絵柄だけ真似る／人物は描かない」という一文が自動で付く。
+
+**Day 2 以降（`scenes`）**は `assets/movie/ep0/refs/` を自動添付するので、
+Day 1 で採用した設定画をそこへ置く。ジムの背景を実物に寄せたいときは基準写真もコピーする:
 
 ```bash
 # 第0話（ジムA・道具視点）に必要なぶんだけコピーする
