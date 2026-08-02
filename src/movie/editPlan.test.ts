@@ -13,6 +13,9 @@ import {
   PLAN_35,
   PLAN_15,
   EDIT_RULES,
+  COMPOSE_CLAUSES,
+  COMPOSE_RULES,
+  composeClauses,
   charCount,
   cps,
   endOf,
@@ -218,6 +221,60 @@ test("15秒版は切り出しではなく再設計されている（正本の指
   assert.ok(short.length < long.length, "15秒版の素材数が35秒版と同じか多い");
   // 4本の動画カットだけで無音でも成立させる、という設計意図を固定する。
   assert.deepEqual(short, ["V1", "V2", "V3", "V4"]);
+});
+
+test("構図指示: 字幕が長く乗るカットは下1/3を空ける", () => {
+  // 最重要の C5c(手元)は字幕が100%重なる。ここを空けないと、
+  // 作品でいちばん見せたい絵の上に文字が乗る。
+  for (const id of ["C5c", "C2", "C3", "C6"]) {
+    assert.ok(
+      composeClauses(id).includes(COMPOSE_CLAUSES.safeLower),
+      `${id}: 下1/3を空ける指示が付いていない`
+    );
+  }
+});
+
+test("構図指示: 動画カットの要件が起点の静止画に伝わっている", () => {
+  // V2 の構図要件は、生成するのが C5c である以上 C5c に付かないと意味がない。
+  const pairs: Array<[string, string]> = [["V1", "C1"], ["V2", "C5c"], ["V3", "C5d"], ["V4", "C7"]];
+  for (const [cut, still] of pairs) {
+    assert.equal(findShot(cut)?.sourceStill, still, `${cut} の起点が ${still} でない`);
+    assert.ok(composeClauses(still).length > 0, `${still}: 起点なのに構図指示がゼロ`);
+  }
+});
+
+test("構図指示: カメラが動くカットには余白を要求する", () => {
+  const moving = new Set(
+    PLAN_35.clips.filter(c => c.move !== "still" && c.shot).map(c => c.shot as string)
+  );
+  for (const id of moving) {
+    assert.ok(
+      composeClauses(id).includes(COMPOSE_CLAUSES.headroom),
+      `${id}: ${PLAN_35.clips.find(c => c.shot === id)!.move} するのに余白の指示がない`
+    );
+  }
+});
+
+test("構図指示: 一瞬しか映らないカットは一目で読める構図を要求する", () => {
+  const brief = new Set(
+    PLAN_35.clips
+      .filter(c => c.dur <= COMPOSE_RULES.readFastSec)
+      .map(c => c.shot)
+      .filter((s): s is string => s !== null && s.startsWith("C"))
+  );
+  for (const id of brief) {
+    assert.ok(
+      composeClauses(id).includes(COMPOSE_CLAUSES.readFast),
+      `${id}: 一瞬しか映らないのに「一目で読む」指示がない`
+    );
+  }
+});
+
+test("構図指示: タイムラインに出てこない素材には何も足さない", () => {
+  // 設定画(M*)は編集で使わないので、編集都合の構図指示が混ざってはいけない。
+  for (const id of ["M1", "M2a", "M6"]) {
+    assert.deepEqual(composeClauses(id), [], `${id}: 設定画に構図指示が付いている`);
+  }
 });
 
 test("SRT が正しい形式で書き出せる", () => {

@@ -29,7 +29,9 @@ import {
   type Phase,
   type Shot,
 } from "./promptBank.js";
-import { PLANS, findPlan, toEditSheet, toSrt, type EditPlan } from "./editPlan.js";
+import {
+  PLANS, findPlan, toEditSheet, toSrt, composeClauses, type EditPlan,
+} from "./editPlan.js";
 import {
   submitAndWait,
   extractImageUrls,
@@ -247,6 +249,10 @@ for (const shot of shots) {
       });
     }
   } else {
+    // シーン静止画は「編集でどう使われるか」で必要な構図が変わる（editPlan が正本）
+    if (shot.phase === "scenes") {
+      for (const clause of composeClauses(shot.id)) prompt += ` ${clause}`;
+    }
     // 実際に添付する画像がある場合だけ、参照指示をプロンプトへ追記する
     const { attach, clauses } = await refsForShot(shot);
     for (const clause of clauses) prompt += ` ${clause}`;

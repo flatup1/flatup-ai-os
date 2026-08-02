@@ -15,9 +15,8 @@ const STYLE =
   "very large glossy eyes with big dark irises, several bright catchlights and soft " +
   "reflections, thick soft eyelashes and expressive rounded eyebrows; a small rounded " +
   "face with full chubby cheeks and warm pink blush; a small friendly open smile. " +
-  "Soft rounded chibi proportions with a big head and a small plump body, short " +
-  "stubby limbs, no sharp edges anywhere — everything gently squashy and huggable, " +
-  "like a plush toy you want to pick up. " +
+  "Soft rounded chibi proportions with a big head and a small body, " +
+  "no sharp edges anywhere — everything gently rounded and huggable. " +
   "Polished cinematic CG rendering: soft subsurface scattering, gentle rim light, " +
   "creamy soft shadows. " +
   "Bright, warm, evenly lit interior — no harsh shadows and no moody darkness. " +
@@ -56,6 +55,11 @@ export const CHAR_REFS_CLAUSE =
   "Keep every character exactly consistent with the attached character reference sheets: " +
   "same colors, same proportions, same stitching, same eye placement.";
 
+// 道具に共通の質感。人間キャラ(マサキ・母・子ども)には掛けない。
+// STYLE に入れると母親の顔アップまで「ぬいぐるみ・ずんぐりした手足」になるため、
+// 道具ブロック側で持つ(JIN指示「もっと可愛く」の実装 2026-08-02)。
+const TOY = "Soft and squashy like a plush toy you want to pick up, with short stubby limbs.";
+
 // 道具たちの構成は assets/canon/tools_night_concept.jpg が正本。
 // ただし目の描き方はコンセプト画（白目の大きい西洋カートゥーン調）ではなく、
 // マサキ・メルティと同じアニメ調（大きな濃い瞳＋ハイライト）に統一する（JIN確定 2026-07-29）。
@@ -67,7 +71,7 @@ const GLOVE =
   "dark eyes with big irises and bright catchlights taking up most of the face, soft " +
   "expressive dark eyebrows, round blushed cheeks and a small happy open smile. " +
   "Two tiny stubby leather arms each. The wide-eyed curious little kid of the group: " +
-  "innocent, eager and instantly lovable.";
+  "innocent, eager and instantly lovable. " + TOY;
 
 const MITT =
   "MITT — a round golden-yellow focus punch mitt with a dark rim and a red leather " +
@@ -75,7 +79,7 @@ const MITT =
   "rounded and cushiony like a warm pillow. Large glossy dark eyes with big irises " +
   "and bright catchlights, gently arched eyebrows, rosy blushed cheeks and a tender " +
   "smile with the eyes slightly crinkled with kindness. One small yellow hand it " +
-  "uses to gesture. Calm, motherly, reassuring — the one everybody wants a hug from.";
+  "uses to gesture. Calm, motherly, reassuring — the one everybody wants a hug from. " + TOY;
 
 const SANDBAG =
   "SANDBAGS — two large hanging punching bags with faces, one coral-pink and one " +
@@ -83,7 +87,7 @@ const SANDBAG =
   "bodies with a gentle squashy bulge at the bottom. Large glossy dark eyes with " +
   "bright catchlights, soft friendly eyebrows, warm blushed cheeks, sleepy easy " +
   "smiles, and two short stubby arms. The big cuddly easy-going seniors of the " +
-  "group: they stay hanging and watch over the others, rarely speaking.";
+  "group: they stay hanging and watch over the others, rarely speaking. " + TOY;
 
 const TIMER =
   "TIMER — a small black-cased digital gym interval timer with a red LED display " +
@@ -92,7 +96,7 @@ const TIMER =
   "with two short stubby arms. Its rectangular red LED display is its face: the " +
   "glowing red segments form big round friendly eyes, eyebrows and expressions. " +
   "The smallest one, earnest and tidy and secretly kind — a tiny mascot that tries " +
-  "very hard to be taken seriously.";
+  "very hard to be taken seriously. " + TOY;
 
 // 人間キャラは ANIMATION BIBLE v3.0(docs/flatup_animation_bible.md)の正本に従う。
 // TSUMU = シリーズ主人公ツム(5歳・最初は怖がり)、MASAKI = マサキ(19歳・EP1指導役)。
@@ -152,7 +156,12 @@ export function buildShotPrompt(shot: Shot): string {
   }
   const leftover = out.match(/\[[A-Z-]+\]/);
   if (leftover) throw new Error(`未定義のブロック: ${leftover[0]} (shot ${shot.id})`);
-  return out.replace(/\s+/g, " ").trim();
+  return out
+    // ブロックは文末のピリオドで終わるので、テンプレート側の句読点とぶつかって
+    // "...feel safe.: TSUMU hiding" のようになる。ピリオドを落として繋ぐ。
+    .replace(/\.([,:;])/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export const SHOTS: Shot[] = [
@@ -329,10 +338,13 @@ export const SHOTS: Shot[] = [
     id: "C5f",
     title: "Scene5 母の表情",
     phase: "scenes",
+    // 編集上ここは「1.0秒・字幕なし」。表情だけで感情を運ぶので寄りで撮る。
+    // (以前は "watching from a distance" だったが、1秒では読めないため寄りへ変更)
     template:
-      "Daytime in [GYM], portrait shot: [MOTHER] watching from a distance, a subtle " +
-      "complex expression — slight surprise, quiet joy and a touch of loneliness at " +
-      "the same time, a soft smile, absolutely no tears. [LIGHT-DAY] [STYLE]",
+      "Tight portrait close-up in [GYM], the frame filled with the face of [MOTHER] " +
+      "She is watching her daughter with a subtle complex expression — slight surprise, " +
+      "quiet joy and a touch of loneliness at the same time, a soft smile, absolutely " +
+      "no tears. The gym is far out of focus behind her. [LIGHT-DAY] [STYLE]",
   },
   {
     id: "C6",

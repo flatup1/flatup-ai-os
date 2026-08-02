@@ -48,11 +48,10 @@ Character-driven 3D animated feature film look, rendered to be instantly lovable
 very large glossy eyes with big dark irises, several bright catchlights and soft
 reflections, thick soft eyelashes and expressive rounded eyebrows; a small rounded
 face with full chubby cheeks and warm pink blush; a small friendly open smile.
-Soft rounded chibi proportions with a big head and a small plump body, short
-stubby limbs, no sharp edges anywhere — everything gently squashy and huggable,
-like a plush toy you want to pick up.
+Soft rounded chibi proportions with a big head and a small body,
+no sharp edges anywhere — everything gently rounded and huggable.
 Polished cinematic CG rendering: soft subsurface scattering, gentle rim light,
-creamy soft shadows, shallow warm bokeh in the background.
+creamy soft shadows.
 Bright, warm, evenly lit interior — no harsh shadows and no moody darkness.
 Cheerful, tender and charming, never scary and never creepy.
 Materials still read as real: worn leather, soft fabric, rubber, brushed metal.
@@ -107,6 +106,9 @@ same colors, same proportions, same stitching, same eye placement.
 
 ### キャラDNA（一字も変えない）
 
+> 末尾の「plush toy / stubby limbs」は**道具4体だけ**に付ける。
+> STYLE に入れると母親の顔アップまでぬいぐるみになるため（`npm run test:movie` が検査）。
+
 GLOVE:
 ```
 GLOVE — a matching pair of coral-red boxing gloves, about 25 cm tall each,
@@ -117,6 +119,7 @@ dark eyes with big irises and bright catchlights taking up most of the face, sof
 expressive dark eyebrows, round blushed cheeks and a small happy open smile.
 Two tiny stubby leather arms each. The wide-eyed curious little kid of the group:
 innocent, eager and instantly lovable.
+Soft and squashy like a plush toy you want to pick up, with short stubby limbs.
 ```
 
 MITT:
@@ -127,6 +130,7 @@ rounded and cushiony like a warm pillow. Large glossy dark eyes with big irises
 and bright catchlights, gently arched eyebrows, rosy blushed cheeks and a tender
 smile with the eyes slightly crinkled with kindness. One small yellow hand it
 uses to gesture. Calm, motherly, reassuring — the one everybody wants a hug from.
+Soft and squashy like a plush toy you want to pick up, with short stubby limbs.
 ```
 
 TIMER:
@@ -138,6 +142,7 @@ with two short stubby arms. Its rectangular red LED display is its face: the
 glowing red segments form big round friendly eyes, eyebrows and expressions.
 The smallest one, earnest and tidy and secretly kind — a tiny mascot that tries
 very hard to be taken seriously.
+Soft and squashy like a plush toy you want to pick up, with short stubby limbs.
 ```
 
 SANDBAG（背景の仲間）:
@@ -148,6 +153,7 @@ bodies with a gentle squashy bulge at the bottom. Large glossy dark eyes with
 bright catchlights, soft friendly eyebrows, warm blushed cheeks, sleepy easy
 smiles, and two short stubby arms. The big cuddly easy-going seniors of the
 group: they stay hanging and watch over the others, rarely speaking.
+Soft and squashy like a plush toy you want to pick up, with short stubby limbs.
 ```
 
 人間キャラ（Scene 4〜7 のみ。実在人物に似せない）:

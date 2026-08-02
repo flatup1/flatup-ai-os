@@ -63,6 +63,30 @@ test("静止画ショットは「愛されるキャラ」の指定を含む(JIN�
   }
 });
 
+test("道具の質感(ぬいぐるみ・ずんぐりした手足)が人間だけのカットに漏れていない", () => {
+  // STYLE に入れると母親の顔アップまでぬいぐるみになる。道具ブロック側で持つこと。
+  const toolNames = ["GLOVE —", "MITT —", "TIMER —", "SANDBAGS —"];
+  for (const shot of SHOTS) {
+    const p = buildShotPrompt(shot);
+    if (!p.includes("plush toy")) continue;
+    assert.ok(
+      toolNames.some(n => p.includes(n)),
+      `${shot.id}: 道具が出てこないのに "plush toy" が入っている`
+    );
+  }
+});
+
+test("人間キャラのカットは実在人物に似せない指定を含む", () => {
+  for (const shot of SHOTS) {
+    const p = buildShotPrompt(shot);
+    if (!/TSUMU —|MOTHER —|MASAKI —/.test(p)) continue;
+    assert.ok(
+      /not resembling any real person|original character/i.test(p),
+      `${shot.id}: 人物が出るのに「実在人物に似せない」指定がない`
+    );
+  }
+});
+
 test("既存IP名がプロンプトに一切入っていない(法務境界線)", () => {
   const banned = ["pixar", "disney", "toy story", "woody", "buzz", "jessie"];
   for (const shot of SHOTS) {
@@ -104,6 +128,14 @@ test("基本プロンプトは添付前提の文言を含まない(参照指示�
   for (const shot of SHOTS) {
     const p = buildShotPrompt(shot).toLowerCase();
     assert.ok(!p.includes("attached"), `${shot.id}: 添付前提の "attached" が基本プロンプトに残っている`);
+  }
+});
+
+test("ブロック合成で句読点が壊れていない(feel safe.: のような繋ぎ目)", () => {
+  for (const shot of SHOTS) {
+    const p = buildShotPrompt(shot);
+    const broken = p.match(/.{0,25}\.[,:;]/);
+    assert.ok(!broken, `${shot.id}: 句読点の繋ぎ目が壊れている → "${broken?.[0]}"`);
   }
 });
 

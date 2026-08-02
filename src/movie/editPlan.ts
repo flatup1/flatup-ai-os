@@ -262,6 +262,75 @@ export function shotExists(id: string): boolean {
 }
 
 // ---------------------------------------------------------------------------
+// 構図の要件（編集設計から導く）
+// ---------------------------------------------------------------------------
+// 「何秒映るか」「字幕が乗るか」「カメラが動くか」で、必要な絵は変わる。
+// それは編集の都合なので promptBank(何が写っているか)ではなく、こちら側で持つ。
+
+/** この静止画を使うクリップ（動画カットの起点になっている場合も拾う） */
+function clipsUsing(shotId: string): Clip[] {
+  const used: Clip[] = [];
+  for (const plan of PLANS) {
+    for (const c of plan.clips) {
+      if (!c.shot) continue;
+      if (c.shot === shotId) used.push(c);
+      // V2 の構図要件は、その起点である C5c に効かせる必要がある
+      else if (findShot(c.shot)?.sourceStill === shotId) used.push(c);
+    }
+  }
+  return used;
+}
+
+/** そのクリップに字幕が重なっている秒数 */
+function subtitleCoverSec(clip: Clip, plan: EditPlan): number {
+  return plan.subtitles
+    .filter(s => s.at < endOf(clip) - 1e-9 && endOf(s) > clip.at + 1e-9)
+    .reduce((acc, s) => acc + (Math.min(endOf(s), endOf(clip)) - Math.max(s.at, clip.at)), 0);
+}
+
+export const COMPOSE_RULES = {
+  /** 字幕がこの割合以上重なるカットは、下1/3を空ける */
+  subtitleCoverRatio: 0.6,
+  /** これ以下の秒数しか映らないカットは、一目で読める構図にする */
+  readFastSec: 1.5,
+} as const;
+
+export const COMPOSE_CLAUSES = {
+  safeLower:
+    "Place the subject and its key action in the upper two thirds of the vertical frame, " +
+    "and keep the lower third simple and uncluttered — subtitles are placed there.",
+  headroom:
+    "Compose with a little extra space around the subject so the shot can be slowly " +
+    "pushed in during editing without cropping anything important.",
+  readFast:
+    "This shot is on screen for only about a second: keep the composition simple and " +
+    "the subject large and centered so the emotion reads instantly.",
+} as const;
+
+/**
+ * その静止画に足すべき構図の指示。
+ * 使われていない静止画（タイムラインに出てこないもの）には何も足さない。
+ */
+export function composeClauses(shotId: string): string[] {
+  const clauses: string[] = [];
+  const used = clipsUsing(shotId);
+  if (used.length === 0) return clauses;
+
+  const needsSafeLower = PLANS.some(plan =>
+    plan.clips.some(c => {
+      if (!used.includes(c)) return false;
+      return subtitleCoverSec(c, plan) / c.dur >= COMPOSE_RULES.subtitleCoverRatio;
+    })
+  );
+  if (needsSafeLower) clauses.push(COMPOSE_CLAUSES.safeLower);
+
+  if (used.some(c => c.move !== "still")) clauses.push(COMPOSE_CLAUSES.headroom);
+  if (used.some(c => c.dur <= COMPOSE_RULES.readFastSec)) clauses.push(COMPOSE_CLAUSES.readFast);
+
+  return clauses;
+}
+
+// ---------------------------------------------------------------------------
 // 書き出し
 // ---------------------------------------------------------------------------
 
