@@ -29,6 +29,7 @@ import {
   type Phase,
   type Shot,
 } from "./promptBank.js";
+import { PLANS, findPlan, toEditSheet, toSrt, type EditPlan } from "./editPlan.js";
 import {
   submitAndWait,
   extractImageUrls,
@@ -77,12 +78,14 @@ function usage(): void {
 
 Usage:
   npm run movie -- list
+  npm run movie -- edl [--plan ep0-15s]
   npm run movie -- <refs|scenes|cuts> [--takes N] [--only ID1,ID2]
 
 Steps:
   refs    Day1: 正本(夜のジム全景+キャラ設定画+身長比較) ${shotsByPhase("refs").length}枚
   scenes  Day2: シーン静止画 ${shotsByPhase("scenes").length}枚(assets/movie/ep0/refs/ の正本を毎回添付)
   cuts    Day4: 優先動画カット ${shotsByPhase("cuts").length}本(assets/movie/ep0/stills/ の採用画像を起点)
+  edl     Day3: 編集台本と字幕(.srt)を書き出す(API不要・いつでも実行できる)
 
 FAL_KEY 未設定時は DRY-RUN(コストゼロ)。詳細: docs/emotional_movie_ep0_prompts.md`);
 }
@@ -103,14 +106,36 @@ if (step === "list") {
   process.exit(0);
 }
 
-if (!["refs", "scenes", "cuts"].includes(step)) {
-  console.error(`不明なステップ: "${step}"(refs / scenes / cuts / list)`);
-  process.exit(1);
-}
-
 function flagValue(name: string): string | undefined {
   const i = args.indexOf(name);
   return i >= 0 ? args[i + 1] : undefined;
+}
+
+// 編集台本の書き出し。生成APIを使わないので、FAL_KEY もネットワークも要らない。
+if (step === "edl") {
+  const wanted = flagValue("--plan");
+  const plans = wanted ? [findPlan(wanted)] : PLANS;
+  if (plans.some(p => !p)) {
+    console.error(`不明なプラン: "${wanted}"(${PLANS.map(p => p.id).join(" / ")})`);
+    process.exit(1);
+  }
+  const outDir = join(process.cwd(), "output", "movie", "ep0", "edit");
+  await mkdir(outDir, { recursive: true });
+  for (const plan of plans as EditPlan[]) {
+    const sheet = join(outDir, `${plan.id}.md`);
+    const srt = join(outDir, `${plan.id}.srt`);
+    await writeFile(sheet, toEditSheet(plan) + "\n", "utf8");
+    await writeFile(srt, toSrt(plan), "utf8");
+    console.log(toEditSheet(plan));
+    console.log(`\n→ 編集台本: ${sheet}`);
+    console.log(`→ 字幕(CapCutに読み込む): ${srt}\n`);
+  }
+  process.exit(0);
+}
+
+if (!["refs", "scenes", "cuts"].includes(step)) {
+  console.error(`不明なステップ: "${step}"(refs / scenes / cuts / list / edl)`);
+  process.exit(1);
 }
 const takes = Math.min(Math.max(Number(flagValue("--takes") ?? 2) || 2, 1), 3);
 const only = flagValue("--only")?.split(",").map(s => s.trim().toLowerCase()).filter(Boolean);

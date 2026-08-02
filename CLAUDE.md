@@ -56,6 +56,7 @@ npm run build                              # TypeScript コンパイル
 ```bash
 npm run reel -- "にゃん術" --count 3   # 動物×格闘技リール（FAL_KEY 未設定なら DRY-RUN）
 npm run movie -- refs                 # エモーショナル・ムービー第0話の素材生成（同上）
+npm run movie -- edl                  # 第0話の編集台本＋字幕(.srt)を書き出す（API不要）
 ```
 
 ---
@@ -185,6 +186,7 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
 - **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
 - **エモーショナル・ムービー正本（閉館後のFLATUP・道具視点シリーズ）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
+- **第0話 編集設計（35秒/15秒のタイムライン・字幕）**: [docs/emotional_movie_ep0_edit.md](docs/emotional_movie_ep0_edit.md)
 - **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
 
 ---
