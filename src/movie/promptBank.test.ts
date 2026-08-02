@@ -53,6 +53,16 @@ test("静止画ショットは STYLE 込み(文字禁止・タトゥー禁止・
   }
 });
 
+test("静止画ショットは「愛されるキャラ」の指定を含む(JIN指示 2026-08-02)", () => {
+  // 既存作品名は使えないので、可愛さを作る要素そのものを必ず書かせる。
+  for (const shot of SHOTS.filter(s => s.phase !== "cuts")) {
+    const p = buildShotPrompt(shot).toLowerCase();
+    for (const required of ["lovable", "catchlight", "blush", "rounded"]) {
+      assert.ok(p.includes(required), `${shot.id}: "${required}" が見つからない`);
+    }
+  }
+});
+
 test("既存IP名がプロンプトに一切入っていない(法務境界線)", () => {
   const banned = ["pixar", "disney", "toy story", "woody", "buzz", "jessie"];
   for (const shot of SHOTS) {

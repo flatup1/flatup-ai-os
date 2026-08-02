@@ -39,28 +39,41 @@ npm run movie -- scenes --only C5c --takes 3   # リテイクは個別に
 
 ### STYLE（毎回末尾に付ける）
 ```
-Stylized 3D anime style, like a high-end 3D figure: soft rounded chibi
-proportions, large glossy dark eyes with bright catchlights, small soft blush on
-the cheeks, smooth glossy skin shading, thick clean linework on the hair.
+Character-driven 3D animated feature film look, rendered to be instantly lovable:
+very large glossy eyes with big dark irises, several bright catchlights and soft
+reflections, thick soft eyelashes and expressive rounded eyebrows; a small rounded
+face with full chubby cheeks and warm pink blush; a small friendly open smile.
+Soft rounded chibi proportions with a big head and a small plump body, short
+stubby limbs, no sharp edges anywhere — everything gently squashy and huggable,
+like a plush toy you want to pick up.
+Polished cinematic CG rendering: soft subsurface scattering, gentle rim light,
+creamy soft shadows, shallow warm bokeh in the background.
 Bright, warm, evenly lit interior — no harsh shadows and no moody darkness.
-Cheerful and gentle, never scary. Materials still read as real: worn leather,
-soft fabric, rubber, brushed metal.
+Cheerful, tender and charming, never scary and never creepy.
+Materials still read as real: worn leather, soft fabric, rubber, brushed metal.
 Completely original character design, not based on any existing animated film or
 franchise. No tattoos on any character.
 No text, no letters, no logos anywhere in the image. Vertical 9:16.
 ```
+
+> **なぜ作品名を書かないか**: 狙いの絵柄は有名CGアニメ映画の主役級の「かわいさ」だが、
+> 作品名・スタジオ名をプロンプトに入れるのは法務上の地雷（`npm run test:movie` が機械的に弾く）。
+> 代わりに**その可愛さを作っている要素**（瞳の大きさ・ハイライト・ほお染め・丸み・
+> サブサーフェス・リムライト）を分解して指定している。効果は同じで、権利的に安全。
 
 ### LIGHT-NIGHT（夜シーン用）
 ```
 Night interior lighting: the ceiling strip lights are off, soft cool moonlight
 blue comes through the windows and one warm amber light glows low. Still bright
 enough to read every expression clearly. Quiet, secret, cozy atmosphere.
+Cinematic shallow depth of field, the background softly out of focus.
 ```
 
 ### LIGHT-DAY（昼の回想用）
 ```
 Daytime lighting: the long ceiling strip lights are on, bright even warm light,
 airy, clean and welcoming.
+Cinematic shallow depth of field, the background softly out of focus.
 ```
 
 ### GYM（舞台）
@@ -93,35 +106,43 @@ GLOVE:
 ```
 GLOVE — a matching pair of coral-red boxing gloves, about 25 cm tall each,
 standing upright side by side. They always appear together, move in sync and
-act as one character. Soft worn leather with a velcro strap. Large glossy dark
-eyes with bright catchlights and expressive dark eyebrows, small open smile.
-Two tiny stubby leather arms each. Toy-like simplicity, cute and warm.
+act as one character. Plump pillowy rounded mitts of soft worn leather with a
+little velcro strap, no sharp corners. Its whole front is its face: huge glossy
+dark eyes with big irises and bright catchlights taking up most of the face, soft
+expressive dark eyebrows, round blushed cheeks and a small happy open smile.
+Two tiny stubby leather arms each. The wide-eyed curious little kid of the group:
+innocent, eager and instantly lovable.
 ```
 
 MITT:
 ```
 MITT — a round golden-yellow focus punch mitt with a dark rim and a red leather
-strap, slightly larger than a glove (about 30 cm), standing upright. Large glossy
-dark eyes with bright catchlights, gently arched eyebrows and a warm smile.
-One small yellow hand it uses to gesture. Calm, motherly, reassuring.
+strap, slightly larger than a glove (about 30 cm), standing upright. Softly
+rounded and cushiony like a warm pillow. Large glossy dark eyes with big irises
+and bright catchlights, gently arched eyebrows, rosy blushed cheeks and a tender
+smile with the eyes slightly crinkled with kindness. One small yellow hand it
+uses to gesture. Calm, motherly, reassuring — the one everybody wants a hug from.
 ```
 
 TIMER:
 ```
 TIMER — a small black-cased digital gym interval timer with a red LED display
 (the same kind of round-timer that hangs on the gym wall), about 15 cm tall,
-standing on little rubber feet, with two short stubby arms. Its rectangular red
-LED display is its face: the glowing red segments form its eyes, eyebrows and
-expressions. Earnest, tidy, secretly kind.
+with softly rounded corners like a smooth pebble, standing on little rubber feet,
+with two short stubby arms. Its rectangular red LED display is its face: the
+glowing red segments form big round friendly eyes, eyebrows and expressions.
+The smallest one, earnest and tidy and secretly kind — a tiny mascot that tries
+very hard to be taken seriously.
 ```
 
 SANDBAG（背景の仲間）:
 ```
 SANDBAGS — two large hanging punching bags with faces, one coral-pink and one
-golden-yellow, about 120 cm tall each, hanging from chains. Large glossy dark
-eyes with bright catchlights, friendly eyebrows, warm smiles, and two short
-stubby arms. The big easy-going seniors of the group: they stay hanging and
-watch over the others, rarely speaking.
+golden-yellow, about 120 cm tall each, hanging from chains. Big soft rounded
+bodies with a gentle squashy bulge at the bottom. Large glossy dark eyes with
+bright catchlights, soft friendly eyebrows, warm blushed cheeks, sleepy easy
+smiles, and two short stubby arms. The big cuddly easy-going seniors of the
+group: they stay hanging and watch over the others, rarely speaking.
 ```
 
 人間キャラ（Scene 4〜7 のみ。実在人物に似せない）:
@@ -210,7 +231,7 @@ MITT 30cm > GLOVE 25cm each > TIMER 15cm): [SANDBAG] [MITT] [GLOVE] [TIMER]
 Front view, neutral poses. [STYLE]
 ```
 
-**Day 1 承認基準（JINチェック）**: ①怖くない・幼稚すぎない ②瞳がマサキ・メルティと同じアニメ調（大きく濃い瞳＋ハイライト。白目が大きい西洋カートゥーン調はNG） ③既存キャラの誰にも似ていない ④全員並べたとき家族感がある。
+**Day 1 承認基準（JINチェック）**: ①**ひと目で「かわいい」と思えるか**（最重要。愛されるキャラかどうかはここで決まる） ②瞳がマサキ・メルティと同じアニメ調で大きく濃く、ハイライトが入っている（白目が大きい西洋カートゥーン調はNG） ③丸くてやわらかい。角ばった「製品」に見えたらやり直し ④怖くない・不気味でない ⑤既存キャラの誰にも似ていない ⑥全員並べたとき家族感がある。
 → 採用した画像を `正本/` フォルダに保存し、**以後の全生成に添付**。
 
 ---
