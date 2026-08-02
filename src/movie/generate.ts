@@ -78,16 +78,21 @@ const step = (positional[0] ?? "").toLowerCase();
 function usage(): void {
   console.log(`閉館後のFLATUP 第0話 素材生成 (fal.ai)
 
+Mac ならダブルクリックで全部できます → scripts/movie.command
+
 Usage:
   npm run movie -- list
   npm run movie -- edl [--plan ep0-15s]
   npm run movie -- <refs|scenes|cuts> [--takes N] [--only ID1,ID2]
+  npm run movie:adopt -- <refs|scenes>        採用した画像を登録する
 
-Steps:
-  refs    Day1: 正本(夜のジム全景+キャラ設定画+身長比較) ${shotsByPhase("refs").length}枚
-  scenes  Day2: シーン静止画 ${shotsByPhase("scenes").length}枚(assets/movie/ep0/refs/ の正本を毎回添付)
-  cuts    Day4: 優先動画カット ${shotsByPhase("cuts").length}本(assets/movie/ep0/stills/ の採用画像を起点)
+Steps(既定は各2テイク):
+  refs    Day1: 設定画 ${shotsByPhase("refs").length}種 → ${shotsByPhase("refs").length * 2}枚
+  scenes  Day2: シーン静止画 ${shotsByPhase("scenes").length}種 → ${shotsByPhase("scenes").length * 2}枚(refs/ の採用画像を毎回添付)
+  cuts    Day4: 動画カット ${shotsByPhase("cuts").length}種 → ${shotsByPhase("cuts").length * 2}本(stills/ の採用画像が起点)
   edl     Day3: 編集台本と字幕(.srt)を書き出す(API不要・いつでも実行できる)
+
+流れ: refs → adopt refs → scenes → adopt scenes → edl → cuts
 
 FAL_KEY 未設定時は DRY-RUN(コストゼロ)。詳細: docs/emotional_movie_ep0_prompts.md`);
 }
@@ -236,7 +241,7 @@ for (const shot of shots) {
     if (!src) {
       warnings.push(
         `${shot.id}: 起点の静止画 assets/movie/ep0/stills/${shot.sourceStill}.png がありません。` +
-        `scenes で生成した採用画像をこの名前で保存してください。`
+        `\n        \`npm run movie:adopt -- scenes\` で採用すると、この名前で保存されます。`
       );
     }
     for (let t = 1; t <= takes; t++) {
@@ -264,11 +269,13 @@ for (const shot of shots) {
 
 if (step === "scenes" && refImages.length === 0) {
   warnings.push(
-    "assets/movie/ep0/refs/ に正本画像がありません。キャラの一貫性が大きく落ちます。" +
-    "先に `npm run movie -- refs` で正本を作り、採用画像を refs/ に保存してください。"
+    "assets/movie/ep0/refs/ に正本画像がありません。キャラの一貫性が大きく落ちます。\n" +
+    "        先に `npm run movie -- refs` で設定画を作り、" +
+    "`npm run movie:adopt -- refs` で採用してください。"
   );
 }
-if (!basePhoto) {
+// ジムの基準写真は [GYM] を含む静止画にしか使わない。cuts の実行時に出しても意味がない。
+if (!basePhoto && jobs.some(j => j.shot.phase !== "cuts" && j.shot.template.includes("[GYM]"))) {
   warnings.push("assets/movie/ep0/base.jpg(ジムの基準写真)がありません。ジム内装は想像で生成されます。");
 }
 

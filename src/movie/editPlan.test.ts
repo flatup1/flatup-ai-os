@@ -16,6 +16,8 @@ import {
   COMPOSE_CLAUSES,
   COMPOSE_RULES,
   composeClauses,
+  subtitleBox,
+  IG_UI_BANDS,
   charCount,
   cps,
   endOf,
@@ -23,6 +25,7 @@ import {
   limitsFor,
   requiredShots,
   shotExists,
+  toEditSheet,
   toSrt,
 } from "./editPlan.js";
 import { findShot } from "./promptBank.js";
@@ -275,6 +278,49 @@ test("構図指示: タイムラインに出てこない素材には何も足さ
   for (const id of ["M1", "M2a", "M6"]) {
     assert.deepEqual(composeClauses(id), [], `${id}: 設定画に構図指示が付いている`);
   }
+});
+
+test("字幕の下端が Instagram のアカウント名より確実に上にある", () => {
+  // JIN報告(2026-08-02): 既存リールで字幕とアカウント名が重なって読めなかった。
+  const box = subtitleBox();
+  const bottomPct = (box.bottom / 1920) * 100;
+  const account = IG_UI_BANDS.find(b => b.label.includes("アカウント名"))!;
+  assert.ok(
+    bottomPct <= account.at - 5,
+    `字幕の下端が ${bottomPct.toFixed(0)}%。アカウント名(${account.at}%)まで5ポイント以上の余裕が要る`
+  );
+});
+
+test("字幕が右側のボタン列と衝突しない（上に逃げるか、幅を詰めるか）", () => {
+  // 右のいいね/コメント列は 画面の64%〜82%・右端12% を占める(実測)。
+  // 逃げ方は2つ: ①下端をボタン列より上にする ②右端を88%より内側にする。
+  const box = subtitleBox();
+  const buttons = IG_UI_BANDS.find(b => b.label.includes("いいね"))!;
+  const bottomPct = (box.bottom / 1920) * 100;
+  const rightPct = (box.right / 1080) * 100;
+  assert.ok(
+    bottomPct <= buttons.at || rightPct <= 88,
+    `字幕の下端 ${bottomPct.toFixed(0)}% がボタン列(${buttons.at}%〜)に入り、` +
+    `右端も ${rightPct.toFixed(0)}% でボタンに掛かる`
+  );
+});
+
+test("字幕の1行が幅に収まる（1文字50px以上を確保）", () => {
+  const box = subtitleBox();
+  const perChar = box.width / EDIT_RULES.maxCharsPerLine;
+  assert.ok(
+    perChar >= 50,
+    `1文字あたり ${perChar.toFixed(0)}px。スマホで読むには50px以上ほしい` +
+    `（幅${box.width}px ÷ ${EDIT_RULES.maxCharsPerLine}字）`
+  );
+});
+
+test("編集台本に字幕の座標が出力される（CapCutで守れる形になっている）", () => {
+  const sheet = toEditSheet(PLAN_35);
+  assert.match(sheet, /字幕の置き場所/);
+  assert.match(sheet, /1080×1920/);
+  assert.ok(sheet.includes(String(subtitleBox().bottom)), "下端のpx値が出ていない");
+  assert.match(sheet, /アカウント名/);
 });
 
 test("SRT が正しい形式で書き出せる", () => {

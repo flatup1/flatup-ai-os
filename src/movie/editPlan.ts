@@ -182,7 +182,7 @@ export const PLAN_15: EditPlan = {
     { at: 3.4, dur: 2.8, text: "今日、はじめて\n「ひとりで前に出た」子。", speaker: "ミット" },
     { at: 6.8, dur: 2, text: "本日のチャンピオン。", speaker: "タイマー" },
     { at: 9.4, dur: 2.4, text: "強さは、勝つことだけじゃない。", speaker: null },
-    { at: 12.2, dur: 2.8, text: "キッズ体験 500円\n火・木 18:00〜／土 13:00〜",
+    { at: 12.2, dur: 2.8, text: "キッズ体験 500円\n火木18:00〜／土13:00〜",
       speaker: null, kind: "card" },
   ],
   sound: [
@@ -217,14 +217,49 @@ export const EDIT_RULES = {
   minClipSec: 1,
   /** 字幕の最大行数 */
   maxSubtitleLines: 2,
-  /** 1行あたりの最大文字数（縦型9:16で読める上限） */
-  maxCharsPerLine: 20,
+  /** 1行あたりの最大文字数（幅900pxに1文字50pxで収まる上限） */
+  maxCharsPerLine: 18,
   /**
    * セーフゾーン（1080x1920 基準）。
-   * Reels/Shorts は下部にUIが重なるので、字幕はここより上に置く。
+   * 実機のリール画面から実測して決めた（2026-08-02 JIN提供のスクショ）。
+   *
+   * 下を 730px と厚く取るのは、リールの下半分がUIで埋まっているため:
+   *   64%〜82% … 右のいいね／コメント／シェア列
+   *   88%〜95% … アカウント名・曲名・キャプション  ← JIN報告の重なりはここ
+   * この2つの帯の間（82〜88%）は6%しかなく、2行の字幕は入らない。
+   * よって字幕は「ボタン列より上」に置くのが唯一の解。下端を 62% にしてある。
    */
-  safeZone: { top: 120, bottom: 420, side: 60 },
+  safeZone: { top: 220, bottom: 730, side: 90 },
 } as const;
+
+/**
+ * Instagram リールのUIが画面のどこに乗るか（実測・フレーム高に対する%）。
+ * 2026-08-02 に実機スクショ(1170x2532)から計測。
+ * 字幕をここへ置くと、アカウント名や曲名と重なって読めなくなる。
+ */
+export const IG_UI_BANDS = [
+  { at: 5, label: "ステータスバー（時刻・電波）" },
+  { at: 11, label: "「リール」ヘッダ・戻るボタン" },
+  { at: 64, label: "右側のいいね／コメント／シェア列（ここから下は右端を空ける）" },
+  { at: 88, label: "★アカウント名（ここに字幕を置くと重なる）" },
+  { at: 91, label: "曲名" },
+  { at: 95, label: "キャプション本文" },
+] as const;
+
+/** 1080x1920 での字幕の置き場所（CapCutにそのまま入れる数値） */
+export function subtitleBox(): {
+  left: number; right: number; width: number; bottom: number; centerX: number;
+} {
+  const W = 1080, H = 1920;
+  const { side, bottom } = EDIT_RULES.safeZone;
+  return {
+    left: side,
+    right: W - side,
+    width: W - side * 2,
+    bottom: H - bottom, // 字幕ブロックの下端のY座標
+    centerX: W / 2,
+  };
+}
 
 /** 表示文字数（改行は数えない） */
 export function charCount(text: string): number {
@@ -296,9 +331,10 @@ export const COMPOSE_RULES = {
 } as const;
 
 export const COMPOSE_CLAUSES = {
+  // 字幕は画面の 53〜62%（ボタン列より上）に置くので、そこを空けさせる。
   safeLower:
-    "Place the subject and its key action in the upper two thirds of the vertical frame, " +
-    "and keep the lower third simple and uncluttered — subtitles are placed there.",
+    "Compose so the face and the key action sit in the upper half of the vertical frame, " +
+    "and keep the band just below the middle calm and uncluttered — subtitles sit there.",
   headroom:
     "Compose with a little extra space around the subject so the shot can be slowly " +
     "pushed in during editing without cropping anything important.",
@@ -390,6 +426,30 @@ export function toEditSheet(plan: EditPlan): string {
   for (const q of plan.sound) {
     lines.push(`| ${q.at.toFixed(1)}s | ${q.kind} | ${q.what} |`);
   }
+  lines.push("");
+  lines.push("## 字幕の置き場所（CapCutにこの数値を入れる）");
+  lines.push("");
+  const box = subtitleBox();
+  const z = EDIT_RULES.safeZone;
+  lines.push("書き出しは 1080×1920（縦9:16）。");
+  lines.push("");
+  lines.push("| 項目 | 値 |");
+  lines.push("|---|---|");
+  lines.push(`| 字幕ブロックの**下端** | 上から ${box.bottom}px（＝下から ${z.bottom}px / 画面の ${(box.bottom / 1920 * 100).toFixed(0)}%）|`);
+  lines.push(`| 左右の余白 | 各 ${z.side}px（文字は幅 ${box.width}px に収める）|`);
+  lines.push(`| 上の余白 | ${z.top}px |`);
+  lines.push(`| 揃え | 中央（X=${box.centerX}）|`);
+  lines.push("");
+  lines.push("**下端を守る理由** — Instagram リールはUIが下に重なる（実機実測）:");
+  lines.push("");
+  lines.push("| 画面の位置 | 何が乗るか |");
+  lines.push("|---|---|");
+  for (const b of IG_UI_BANDS) lines.push(`| 上から ${b.at}% | ${b.label} |`);
+  lines.push("");
+  lines.push(
+    `字幕の下端 ${(box.bottom / 1920 * 100).toFixed(0)}% は、アカウント名の 88% より ` +
+    `${(88 - box.bottom / 1920 * 100).toFixed(0)}ポイント上。右側のボタン列（右端12%）にも掛からない。`
+  );
   lines.push("");
   lines.push("## 必要な素材");
   lines.push("");

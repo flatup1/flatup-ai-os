@@ -11,6 +11,8 @@
     "list": "tsx src/index.ts --list",
     "reel": "tsx src/reel/generate.ts",
     "movie": "tsx src/movie/generate.ts",
+    "movie:adopt": "tsx src/movie/adopt.ts",
+    "movie:mac": "bash scripts/movie.command",
     "img": "tsx src/reel/image.ts",
     "anime:ep1": "bash scripts/anime_ep1.sh",
     "anime:ep1:images": "tsx src/reel/animeEp1Images.ts",
