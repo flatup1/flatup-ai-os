@@ -192,6 +192,7 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **第0話 編集設計（35秒/15秒のタイムライン・字幕・IGセーフゾーン）**: [docs/emotional_movie_ep0_edit.md](docs/emotional_movie_ep0_edit.md)
 - **第0話 Macワンタップ手順**: [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)
 - **他AIへの引き継ぎ書（正本の地図。これ1枚を渡す）**: [docs/flatup_handoff.md](docs/flatup_handoff.md)
+- **Animation Bible 索引（18巻・正本ではなく目次）**: [docs/bible/README.md](docs/bible/README.md)
 - **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
 
 ---
