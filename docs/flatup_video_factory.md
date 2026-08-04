@@ -15,6 +15,26 @@ npm run reel:batch -- --scene first_punch --count 12 \
 エンジンは **fal.ai（既定）** と **MiniMax H3（ComfyUI）** を切り替えられます。
 **プロンプトの正本は1か所**なので、engineを変えても中身は同じです。
 
+## 実行する場所（ここでつまずきやすい）
+
+コマンドは **リポジトリのフォルダの中**で叩きます。ホーム（`~`）で叩くと
+`Could not read package.json` になります。
+
+```bash
+cd ~/flatup-ai-os          # 場所が違うなら: find ~ -maxdepth 4 -type d -name "flatup-ai-os"
+npm install                # 初回のみ
+```
+
+まだ main に入っていない機能を試すときは、先にブランチへ移動します。
+
+```bash
+git fetch origin <ブランチ名>
+git checkout <ブランチ名>
+npm install
+```
+
+---
+
 ## コマンドは2つ
 
 | コマンド | 使うとき |
