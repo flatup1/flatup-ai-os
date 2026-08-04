@@ -15,7 +15,9 @@ AIKA は LINE 返信 / 体験予約案内 / SNS 投稿 / 追客 / 口コミ依�
 X 投稿は Typefully と連携して下書き・予約管理します。運用ルールは
 [docs/typefully_x_ops.md](docs/typefully_x_ops.md) を参照してください。
 
-縦動画をまとめて作る（量産）ときは [docs/flatup_video_factory.md](docs/flatup_video_factory.md) を参照してください。
+縦動画をまとめて作る（量産）ときは `npm run reel:batch -- --scene first_punch --count 12`。
+フォルダ分け・manifest.csv・合否チェック表まで出ます。手順は
+[docs/flatup_video_factory.md](docs/flatup_video_factory.md) を参照してください。
 
 静止画1枚から音つきの縦動画を作りたいときは、Colab + ComfyUI で MiniMax H3 を動かす
 [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md)（ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)）を参照してください。

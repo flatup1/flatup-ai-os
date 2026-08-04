@@ -11,6 +11,7 @@
     "list": "tsx src/index.ts --list",
     "reel": "tsx src/reel/generate.ts",
     "factory": "tsx src/factory/run.ts",
+    "reel:batch": "tsx src/factory/batch.ts",
     "img": "tsx src/reel/image.ts",
     "anime:ep1": "bash scripts/anime_ep1.sh",
     "anime:ep1:images": "tsx src/reel/animeEp1Images.ts",

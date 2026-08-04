@@ -17,6 +17,10 @@ import { SCENES, RULES, resolveScene, buildScenePrompt } from "./scenes.js";
 import { planJobs, remainingJobs, checkBudget, estimateCostUsd } from "./plan.js";
 import { summarize, type LedgerEntry } from "./ledger.js";
 import { adaptCanvas, framesForSeconds, buildH3Workflow, findVideoOutputs } from "./comfyH3.js";
+import { renderPromptMd, extractPrompt, exportPrompts, loadScenePrompt, promptPath } from "./prompts.js";
+import { toCsv, parseCsv, MANIFEST_COLUMNS, type ManifestRow } from "./manifestCsv.js";
+import { mkdtemp } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { findCharacter } from "../reel/characters.js";
 
 let pass = 0;
@@ -232,6 +236,106 @@ await test("Colabノート⑦の場面キーと一致する", async () => {
   for (const s of SCENES) {
     assert.ok(block.includes(`'${s.key}': {`), `ノート⑦に場面 ${s.key} が無い`);
   }
+});
+
+// --- プロンプト置き場（prompts/reels/*.md） ---
+
+await test("書き出したmdから、同じプロンプトを読み戻せる", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "flatup-prompts-"));
+  const scene = SCENES.find(s => s.key === "first_punch")!;
+  const { written } = await exportPrompts([scene], { cwd: dir });
+  assert.equal(written.length, 1);
+  assert.ok(written[0].endsWith("first_punch.md"));
+
+  const loaded = await loadScenePrompt(scene, 6, dir);
+  assert.equal(loaded.sourceFile, "first_punch.md");
+  assert.equal(loaded.prompt, buildScenePrompt(scene, 6), "中身が場面バンクと一致");
+});
+
+await test("mdが無ければ場面バンクにフォールバックする", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "flatup-prompts-"));
+  const scene = SCENES[0];
+  const loaded = await loadScenePrompt(scene, 6, dir);
+  assert.equal(loaded.sourceFile, "(場面バンク)");
+  assert.ok(loaded.prompt.includes("No text"));
+});
+
+await test("mdを手で直すと、その内容が使われる", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "flatup-prompts-"));
+  const scene = SCENES.find(s => s.key === "jab")!;
+  await exportPrompts([scene], { cwd: dir });
+  const { writeFile } = await import("node:fs/promises");
+  await writeFile(promptPath(scene.key, dir), "# 手直し\n\n```prompt\nHAND EDITED PROMPT\n```\n");
+  const loaded = await loadScenePrompt(scene, 6, dir);
+  assert.equal(loaded.prompt, "HAND EDITED PROMPT");
+});
+
+await test("既存のmdは上書きしない（--force のときだけ上書き）", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "flatup-prompts-"));
+  const scene = SCENES[0];
+  await exportPrompts([scene], { cwd: dir });
+  const second = await exportPrompts([scene], { cwd: dir });
+  assert.equal(second.written.length, 0);
+  assert.equal(second.skipped.length, 1);
+  const forced = await exportPrompts([scene], { cwd: dir, force: true });
+  assert.equal(forced.written.length, 1);
+});
+
+await test("フェンスが無いmdは、直し方つきで落ちる", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "flatup-prompts-"));
+  const scene = SCENES[0];
+  const { writeFile, mkdir } = await import("node:fs/promises");
+  await mkdir(join(dir, "prompts", "reels"), { recursive: true });
+  await writeFile(promptPath(scene.key, dir), "フェンスを消してしまった");
+  await assert.rejects(() => loadScenePrompt(scene, 6, dir), /export-prompts/);
+});
+
+await test("mdの見出しに場面の日本語名と出典が入る", () => {
+  const scene = SCENES.find(s => s.key === "tsumu_first_step")!;
+  const md = renderPromptMd(scene);
+  assert.ok(md.includes(scene.jp));
+  assert.ok(md.includes("ANIMATION BIBLE"), "バイブル出典だと分かる");
+  assert.equal(extractPrompt(md), buildScenePrompt(scene, 6));
+});
+
+// --- manifest.csv ---
+
+function row(over: Partial<ManifestRow> = {}): ManifestRow {
+  return {
+    id: "001", scene: "first_punch", image: "apu_front.png", prompt: "first_punch.md",
+    model: "hailuo", seed: "1000", status: "ok", file: "all/001.mp4", judge: "", memo: "",
+    ...over,
+  };
+}
+
+await test("CSVは往復しても壊れない", () => {
+  const rows = [row(), row({ id: "002", status: "failed", memo: "手が崩れた" })];
+  const parsed = parseCsv(toCsv(rows));
+  assert.deepEqual(parsed, rows);
+});
+
+await test("memoにカンマ・改行・引用符を書いても壊れない", () => {
+  const rows = [row({ memo: '表情よい, ただし手が"変", 次は\nseed変更' })];
+  const parsed = parseCsv(toCsv(rows));
+  assert.equal(parsed[0].memo, rows[0].memo);
+  assert.equal(parsed.length, 1, "改行入りでも1行のまま");
+});
+
+await test("CSVの見出しは決めた順で出る（表計算で開ける形）", () => {
+  const csv = toCsv([row()]);
+  assert.equal(csv.split("\n")[0], MANIFEST_COLUMNS.join(","));
+  assert.ok(csv.includes("judge"), "人がA/B/Cを書く欄がある");
+});
+
+await test("空CSV・見出しだけのCSVでも落ちない", () => {
+  assert.deepEqual(parseCsv(""), []);
+  assert.deepEqual(parseCsv(MANIFEST_COLUMNS.join(",") + "\n"), []);
+});
+
+await test("失敗した行だけ拾える（--retry-failed の判定）", () => {
+  const rows = [row(), row({ id: "002", status: "failed" }), row({ id: "003", status: "" })];
+  const failed = parseCsv(toCsv(rows)).filter(r => r.status !== "ok");
+  assert.deepEqual(failed.map(r => r.id), ["002", "003"]);
 });
 
 console.log(failures.join("\n"));

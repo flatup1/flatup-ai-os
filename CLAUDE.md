@@ -59,8 +59,10 @@ npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
 
 FLATUPキャラの縦動画を**量産**するときは動画ファクトリー:
 ```bash
-npm run factory -- --scenes jab,wave --takes 3 --image assets/characters/apu.png --budget 3
-npm run factory -- --summary          # 本数と使った金額
+npm run reel:batch -- --export-prompts                      # プロンプト置き場を作る(初回のみ)
+npm run reel:batch -- --scene first_punch --count 12 --budget 4   # 1場面を12本
+npm run factory   -- --scenes jab,wave --takes 3 --budget 3       # 複数場面を横断
+npm run factory   -- --summary                              # 本数と使った金額
 ```
 
 ---
