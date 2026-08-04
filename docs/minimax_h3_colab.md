@@ -6,6 +6,7 @@
 今日すぐ1本ほしいなら、既存の `npm run reel`（fal.ai / Hailuo I2V）のほうが速くて安いです。
 
 ノートブック: [`notebooks/colab_minimax_h3_i2v.ipynb`](../notebooks/colab_minimax_h3_i2v.ipynb)
+設計の全体像・採用/非採用ソース・Codex向け指示: [`docs/minimax_h3_handoff.md`](minimax_h3_handoff.md)
 
 ---
 
