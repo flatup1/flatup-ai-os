@@ -110,6 +110,32 @@ soft warm lighting, vertical 9:16, no text
 - 姿は 2.5〜3頭身のちびキャラ。全員違う顔・違う髪型
 - **実在会員の顔には寄せない**。すべてオリジナルキャラとして描く
 
+### ツム（5歳・主人公）— 姿の確定
+**姿（2026-08-04 三面図で確定）** — 正本は `assets/characters/tsumu.png`
+
+- 髪: やわらかいライトブラウン。**小さな高めのポニーテール**（濃い赤のヘアゴム）。前髪は自然に流す
+- 目: 大きな茶色の瞳。ほお染めがはっきり
+- 服: **無地の白い半袖Tシャツ**
+- 下: **水色の FLAT UP GYM ショーツ**（白ライン入り）
+- 装備: **裸足**
+- 表情（シートに収録・物語で使い分ける）:
+  - 😰 **不安**（口元に両手）… 幕①「入るのが、こわかった」
+  - 🙏 **祈り・受け止め**… 幕②「大丈夫」を聞く場面
+  - 😤 **決意**（頬に手・眉に力）… 幕③「一歩ずつ」
+
+**画像生成用の英語ブロック**:
+```
+A shy 5-year-old chibi girl character in warm 3D animation movie style,
+soft light-brown hair in a small high ponytail tied with a dark red hair tie,
+big brown eyes with rosy cheeks, wearing a plain white short-sleeve t-shirt
+and light blue FLAT UP GYM shorts with a white side stripe, barefoot,
+gentle timid expression, in a bright clean gym with white floor and green wall mats,
+soft warm lighting, vertical 9:16, no text
+```
+
+> 📌 三面図と食い違っていた旧記述（ピンクのヘアゴム / FLAT UP GYM Tシャツ / ムエタイショーツ）は
+> **実物に合わせて修正済み**。EP2のカット定義（`src/reel/animeEpisodes.ts`）も同時に直した。
+
 ---
 
 ## 共通ルール（毎話必ず入れる）
@@ -213,9 +239,9 @@ https://lin.ee/Y3MbbAe
 
 | キャラ | ファイル | 状態 |
 |---|---|---|
-| マサキ | `assets/characters/masaki.png` | ⏳ 候補生成済み・**1枚選んで確定待ち**（設計元: `reference/masaki_ref01.png`） |
+| マサキ | `assets/characters/masaki.png` | ✅ **確定**（三面図。設計元: `reference/masaki_ref01.png`） |
 | メルティ | `assets/characters/melty.png` | ⏳ 候補生成済み・**1枚選んで確定待ち**（設計元: `reference/melty_ref01〜03.png`） |
-| ツム | `assets/characters/tsumu.png` | ⏳ 未生成 |
+| ツム | `assets/characters/tsumu.png` | ✅ **確定**（三面図＋表情3種） |
 | リク | `assets/characters/riku.png` | ⏳ 未生成 |
 | ユイ / ソウタ / ココ | — | ⏳ 未生成 |
 | アイカ / ヒトシ / ミイチ / アンディ | — | ⏳ 未生成 |

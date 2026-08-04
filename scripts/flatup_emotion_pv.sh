@@ -75,12 +75,13 @@ for a in "${ACTS[@]}"; do
   for ext in mp4 MP4 mov; do [ -f "$SRC/$name.$ext" ] && src="$SRC/$name.$ext" && break; done
   if [ -z "$src" ]; then echo "⚠️  素材が無いので飛ばします: $name"; continue; fi
 
-  frames=$(python3 -c "print(int($dur*$FPS))")
   out="$TMP/act${i}.mp4"
   printf "[%s] %s（%s秒）ゆっくり寄り..." "$emo" "$name" "$dur"
-  # 静止感を消すため、全幕にゆっくりした寄りを掛ける（1.0 → 1.08倍）
+  # 静止感を消すため、全幕にゆっくりした寄りを掛ける（1.0 → 1.08倍）。
+  # ※ zoompan は「静止画を動かす」ためのフィルタ。d= は1入力フレームを何フレーム
+  #    保持するかの指定なので、動画に使うと尺が d 倍に膨れる。動画では crop で寄る。
   ffmpeg -y -loglevel error -ss "$ss" -t "$dur" -i "$src" \
-    -vf "scale=$((W*5/4)):$((H*5/4)),zoompan=z='min(zoom+0.0004,1.08)':d=${frames}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=${W}x${H}:fps=${FPS},format=yuv420p" \
+    -vf "crop=w='trunc(iw/(1+0.08*min(t/${dur}\,1))/2)*2':h='trunc(ih/(1+0.08*min(t/${dur}\,1))/2)*2':x='(iw-ow)/2':y='(ih-oh)/2',scale=${W}:${H},fps=${FPS},format=yuv420p" \
     -c:v libx264 -preset veryfast -crf 22 -an "$out"
   echo " 完了"
   echo "file '$out'" >> "$list"

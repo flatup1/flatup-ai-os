@@ -35,7 +35,7 @@ const EP2_CUTS: EpisodeCut[] = [
     n: 1,
     title: "朝のジム・ツム登場",
     image:
-      "A shy 5-year-old chibi girl with a light brown ponytail and pink hair tie, wearing a FLAT UP GYM t-shirt and small muay thai shorts, barefoot, standing alone near the entrance holding oversized boxing gloves, looking down a little nervously, morning light through the window",
+      "A shy 5-year-old chibi girl with soft light-brown hair in a small high ponytail tied with a dark red hair tie, big brown eyes, wearing a plain white short-sleeve t-shirt and light blue FLAT UP GYM shorts, barefoot, standing alone near the entrance holding oversized boxing gloves, looking down a little nervously, morning light through the window",
     video:
       "The shy little girl hugs her gloves a bit tighter and glances up hesitantly, gentle breathing and blinking, tender quiet mood",
   },
@@ -43,7 +43,7 @@ const EP2_CUTS: EpisodeCut[] = [
     n: 2,
     title: "グローブを落とす",
     image:
-      "The same shy chibi girl fumbles and drops one oversized boxing glove on the white gym floor, a small surprised expression on her face, other chibi kids warming up in the soft background, bright clean gym",
+      "The same shy chibi girl (light-brown ponytail, white t-shirt, light blue shorts) fumbles and drops one oversized boxing glove on the white gym floor, a small surprised expression on her face, other chibi kids warming up in the soft background, bright clean gym",
     video:
       "One glove slips from her arms and lands softly on the floor, she freezes with a small surprised expression, gentle motion only",
   },
@@ -59,7 +59,7 @@ const EP2_CUTS: EpisodeCut[] = [
     n: 4,
     title: "言えないツム",
     image:
-      "Close view of the shy chibi girl receiving the glove with both hands, her mouth slightly open as if a word is stuck, cheeks faintly pink, eyes lowered, soft warm light, tender and a little bittersweet mood",
+      "Close view of the shy chibi girl (light-brown ponytail, white t-shirt, light blue shorts) receiving the glove with both hands, her mouth slightly open as if a word is stuck, cheeks faintly pink, eyes lowered, soft warm light, tender and a little bittersweet mood",
     video:
       "She takes the glove with both hands and her lips part as if trying to speak, then she looks down shyly, very gentle motion",
   },
