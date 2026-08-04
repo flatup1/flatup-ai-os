@@ -19,6 +19,7 @@
 
 import "../utils/loadEnv.js";
 import { mkdir, readdir, stat, writeFile } from "node:fs/promises";
+import { writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import {
   SHOTS,
@@ -368,7 +369,29 @@ const manifest: string[] = [
 let ok = 0;
 let failed = 0;
 
+const manifestPath = join(outDir, "manifest.md");
+const writeManifest = () => writeFile(manifestPath, manifest.join("\n"));
+
+// 24枚の生成は数分かかる。途中で Ctrl+C を押しても、
+// そこまでの「どのプロンプトがどの画像を作ったか」を必ず残す。
+// 画像はダウンロード済みでも、対応表を失うと採用の判断ができなくなる。
+// シグナルハンドラの中では同期処理だけを行う。
+// 非同期にすると process.exit と競合して、書き込みも出力も落ちる。
+let interrupted = false;
+process.on("SIGINT", () => {
+  if (interrupted) process.exit(130); // 2回目は即座に抜ける
+  interrupted = true;
+  writeFileSync(manifestPath, manifest.join("\n"));
+  process.stderr.write(
+    `\n\n中断しました。ここまで 成功 ${ok} / 失敗 ${failed}\n` +
+    `途中までのマニフェスト: ${manifestPath}\n` +
+    `生成済みの画像はそのまま残っています。\n`
+  );
+  process.exit(130);
+});
+
 for (const job of jobs) {
+  if (interrupted) break;
   const started = Date.now();
   process.stdout.write(`[${job.label}] 生成中...`);
   try {
@@ -409,8 +432,7 @@ for (const job of jobs) {
   }
 }
 
-const manifestPath = join(outDir, "manifest.md");
-await writeFile(manifestPath, manifest.join("\n"));
+await writeManifest();
 console.log(`\n完了: 成功 ${ok} / 失敗 ${failed}`);
 console.log(`マニフェスト: ${manifestPath}`);
 if (failed > 0) process.exit(1);

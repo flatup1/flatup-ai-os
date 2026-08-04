@@ -59,6 +59,18 @@ require_key() {
 
 open_dir() { [ -d "$1" ] && open "$1" || warn "まだありません: $1"; }
 
+# 課金する前に一度だけ止める。押し間違いがそのまま料金になるのを防ぐ。
+# キー未設定のときは料金が発生しないので聞かない。
+confirm_spend() {
+  has_key || return 0
+  printf "\n%s%s を生成します（%s）。進めますか？ [y/N] %s" "$YELLOW" "$1" "$2" "$OFF"
+  read -r yn
+  case "$yn" in
+    [yY]) return 0 ;;
+    *) warn "やめました"; return 1 ;;
+  esac
+}
+
 # ---- 各メニュー -------------------------------------------------------------
 scene_list() {
   head2 "どのシーンを作り直しますか？"
@@ -81,7 +93,7 @@ LIST
   read -r n
   local ids=(C1 C2 C3 C4 C5a C5b C5c C5d C5e C5f C6 C7)
   if [ "$n" = "a" ]; then
-    require_key; npm run movie -- scenes; return
+    require_key; confirm_spend "シーン画 12種 × 2枚 = 24枚" "数十円" && npm run movie -- scenes; return
   fi
   if ! [[ "$n" =~ ^[0-9]+$ ]] || [ "$n" -lt 1 ] || [ "$n" -gt 12 ]; then
     warn "1〜12 か a を入れてください"; return
@@ -91,7 +103,7 @@ LIST
   read -r takes
   [[ "$takes" =~ ^[1-3]$ ]] || takes=2
   require_key
-  npm run movie -- scenes --only "$id" --takes "$takes"
+  confirm_spend "$id を ${takes}枚" "数円" && npm run movie -- scenes --only "$id" --takes "$takes"
 }
 
 # ---- メインループ -----------------------------------------------------------
@@ -131,13 +143,13 @@ MENU
   read -r choice
 
   case "$choice" in
-    1) require_key; npm run movie -- refs; pause ;;
+    1) require_key; confirm_spend "設定画 12種 × 2枚 = 24枚" "数十円" && npm run movie -- refs; pause ;;
     2) npm run movie:adopt -- refs; pause ;;
-    3) require_key; npm run movie -- scenes; pause ;;
+    3) require_key; confirm_spend "シーン画 12種 × 2枚 = 24枚" "数十円" && npm run movie -- scenes; pause ;;
     4) scene_list; pause ;;
     5) npm run movie:adopt -- scenes; pause ;;
     6) npm run movie -- edl; pause ;;
-    7) require_key; npm run movie -- cuts; pause ;;
+    7) require_key; confirm_spend "動画 4カット × 2本 = 8本" "数百円" && npm run movie -- cuts; pause ;;
     8) open_dir "$ROOT/output/movie/ep0"; pause ;;
     9) npm test; pause ;;
     0|q) say "おつかれさまでした"; exit 0 ;;
