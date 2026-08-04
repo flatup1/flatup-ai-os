@@ -95,7 +95,8 @@ Audio:（音を1行で指定する）
 - **文字は出さない**（`No text, no logo, no subtitles`）。日本語テロップは編集で足す
 - 禁止事項は `docs/flatup_animation_bible.md` の「描いてはいけないもの」をそのまま実装
   （流血・痛がる表情・怖い顔・当てるスパー・勝ち誇る描写は出さない）
-- 場面を増やすときは、ノート⑦の `SCENES` に1つ追加するだけ（プロンプトの**正本はノート⑦**）
+- 場面の**正本は `src/factory/scenes.ts`**（量産ラインと共通）。ノート⑦はその写しです。
+  場面を増やすときは**両方に同じキー**で足してください（`npm run test:factory` が一致を見ています）
 
 ### 用意してある場面（キャラの出典を混ぜないこと）
 
@@ -135,7 +136,8 @@ Audio:（音を1行で指定する）
 
 1. **T2V**（画像なし） — ⑨の workflow から `first_frame` を外すだけ
 2. **R2V**（参照でキャラ・声・動きを固定） — 公式テンプレート「MiniMax H3: Reference to Video」
-3. **9:16で量産** — `SCENE` を変えて⑦→⑨を繰り返す。当たった `SEED` は控えておく
+3. **9:16で量産** — 1本ずつ回すのをやめて動画ファクトリーへ（[docs/flatup_video_factory.md](flatup_video_factory.md)）
+   `npm run factory -- --backend h3 --comfy-url <⑥で出たURL> --scenes jab --takes 3`
 4. **投稿文まで自動化** — `npm run dev -- sns_post "<内容>"` でキャプションを下書き
 
 ---
