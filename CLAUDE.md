@@ -183,6 +183,7 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **公式アニメ設定資料（正本 v3.0）**: [docs/flatup_animation_bible.md](docs/flatup_animation_bible.md)
 - **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
 - **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
+- **MiniMax H3 で画像→動画（Colab+ComfyUI）**: [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md) / ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)
 
 ---
 
