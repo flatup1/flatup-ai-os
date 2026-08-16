@@ -11,3 +11,11 @@ data/customers.csv
 
 # 生成した動画(容量が大きいのでコミットしない)
 output/
+
+# 基準画像そのものはコミットしない（フォルダの形とREADMEだけ共有）
+assets/reel_inputs/**
+!assets/reel_inputs/README.md
+!assets/reel_inputs/**/.gitkeep
+
+# 量産の台帳（実行ごとに増えるのでコミットしない）
+logs/factory.jsonl

@@ -57,6 +57,14 @@ npm run build                              # TypeScript コンパイル
 npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
 ```
 
+FLATUPキャラの縦動画を**量産**するときは動画ファクトリー:
+```bash
+npm run reel:batch -- --export-prompts                      # プロンプト置き場を作る(初回のみ)
+npm run reel:batch -- --scene first_punch --count 12 --budget 4   # 1場面を12本
+npm run factory   -- --scenes jab,wave --takes 3 --budget 3       # 複数場面を横断
+npm run factory   -- --summary                              # 本数と使った金額
+```
+
 ---
 
 ## Directory Guide
@@ -183,6 +191,8 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **公式アニメ設定資料（正本 v3.0）**: [docs/flatup_animation_bible.md](docs/flatup_animation_bible.md)
 - **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
 - **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
+- **動画の量産ライン（縦動画バッチ）**: [docs/flatup_video_factory.md](docs/flatup_video_factory.md)
+- **MiniMax H3 で画像→動画（Colab+ComfyUI）**: [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md) / ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)
 
 ---
 
