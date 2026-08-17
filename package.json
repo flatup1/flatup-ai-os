@@ -14,6 +14,7 @@
     "reel:batch": "tsx src/factory/batch.ts",
     "img": "tsx src/reel/image.ts",
     "anime:ep1": "bash scripts/anime_ep1.sh",
+    "anime:subtitles": "tsx src/reel/animeSubtitles.ts",
     "anime:ep1:images": "tsx src/reel/animeEp1Images.ts",
     "anime:ep1:video": "tsx src/reel/animeEp1Video.ts",
     "anime:ep1:motion": "bash scripts/anime_ep1_kenburns.sh",
@@ -24,7 +25,7 @@
     "test:routes": "OPENROUTER_API_KEY= tsx src/test/routes.test.ts",
     "test:customers": "tsx src/modules/customers.test.ts",
     "test:factory": "tsx src/factory/factory.test.ts",
-    "test:reel": "tsx src/reel/promptBank.test.ts && tsx src/reel/seedance.test.ts && tsx src/reel/animeEp1Video.test.ts && tsx src/reel/characters.test.ts",
+    "test:reel": "tsx src/reel/promptBank.test.ts && tsx src/reel/seedance.test.ts && tsx src/reel/animeEp1Video.test.ts && tsx src/reel/characters.test.ts && tsx src/reel/animeEpisodes.test.ts",
     "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel && npm run test:factory"
   },
   "dependencies": {},

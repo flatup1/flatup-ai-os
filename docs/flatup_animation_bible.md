@@ -34,9 +34,49 @@
 - 得意: ジャブ、ミット打ち、初心者指導
 - シリーズの現場役。EP1の指導役はマサキ
 
+**姿（2026-07-27 基準画像で確定）**
+- 髪: 黒髪、上に立ち上げたスパイキーショート（サイドは短め）
+- 目: 大きな茶色の瞳、太めの眉。明るい自信のある笑顔
+- 服: 黒のノースリーブ「FLAT UP GYM」タンク（ロゴは水色文字）
+- 下: 青×白のムエタイショーツ（炎柄＋FLAT UPワッペン）
+- 装備: 左手首に黒い腕時計。**裸足**
+- 体型: 子どもたちより頭ひとつ大きい。細身で引き締まっている
+- 定番ポーズ: 左ジャブを伸ばし、右は顎前でガード
+
+**画像生成用の英語ブロック（技・シーンだけ差し替える）**:
+```
+A cheerful young male kickboxing instructor character in warm 3D animation movie style,
+spiky black hair swept upward, big brown eyes, bold eyebrows, bright confident smile,
+wearing a black sleeveless FLAT UP GYM tank top with light-blue lettering,
+blue and white muay thai shorts with a flame pattern, a black wristwatch on the left wrist,
+barefoot, slim athletic build, standing in a bright clean gym with white floor,
+green wall mats and tropical green wall art, soft warm lighting, vertical 9:16, no text
+```
+
+### メルティ（28歳・女性インストラクター）— 姿の確定
+**姿（2026-07-27 基準画像で確定）**
+- 髪: 明るいブロンド〜ライトブラウンの**ふんわりショート**（毛先が跳ねる）
+- 目: 大きな茶色の瞳、まつげ長め。やわらかい笑顔
+- 頭: **ヘッドバンド**（赤 or くすみピンク）が定番
+- 服: 黒のノースリーブ（胸に小さなハート＋FLAT UPロゴ）
+- 下: カラフルなステッカー柄のムエタイショーツ（赤・白・黒が基調）
+- 装備: **ピンクのハンドラップ／ピンクのグローブ**。裸足
+- 特徴: 腕と足首に小さなタトゥー。明るく前向きな空気
+
+**画像生成用の英語ブロック**:
+```
+A friendly female kickboxing instructor character in warm 3D animation movie style,
+short wavy light-blonde hair with flicked ends, big brown eyes with long lashes,
+a soft red headband, gentle cheerful smile, wearing a black sleeveless top with a small
+pink heart FLAT UP GYM logo, colorful sticker-patterned muay thai shorts in red white and black,
+pink hand wraps, barefoot, standing in a bright clean gym with white floor and green wall mats,
+soft warm lighting, vertical 9:16, no text
+```
+
 ### メルティ（28歳・女性インストラクター）
 - 性格: 優しい / 笑顔が多い / 子どもの不安に寄り添う
 - 得意: キッズ、女性クラス、ストレッチ
+- 姿は下の「メルティ — 姿の確定」を参照
 
 ### アイカ（35歳・オーナー）
 - 性格: 包容力 / 落ち着き / 保護者から信頼される
@@ -70,6 +110,32 @@
 - 姿は 2.5〜3頭身のちびキャラ。全員違う顔・違う髪型
 - **実在会員の顔には寄せない**。すべてオリジナルキャラとして描く
 
+### ツム（5歳・主人公）— 姿の確定
+**姿（2026-08-04 三面図で確定）** — 正本は `assets/characters/tsumu.png`
+
+- 髪: やわらかいライトブラウン。**小さな高めのポニーテール**（濃い赤のヘアゴム）。前髪は自然に流す
+- 目: 大きな茶色の瞳。ほお染めがはっきり
+- 服: **無地の白い半袖Tシャツ**
+- 下: **水色の FLAT UP GYM ショーツ**（白ライン入り）
+- 装備: **裸足**
+- 表情（シートに収録・物語で使い分ける）:
+  - 😰 **不安**（口元に両手）… 幕①「入るのが、こわかった」
+  - 🙏 **祈り・受け止め**… 幕②「大丈夫」を聞く場面
+  - 😤 **決意**（頬に手・眉に力）… 幕③「一歩ずつ」
+
+**画像生成用の英語ブロック**:
+```
+A shy 5-year-old chibi girl character in warm 3D animation movie style,
+soft light-brown hair in a small high ponytail tied with a dark red hair tie,
+big brown eyes with rosy cheeks, wearing a plain white short-sleeve t-shirt
+and light blue FLAT UP GYM shorts with a white side stripe, barefoot,
+gentle timid expression, in a bright clean gym with white floor and green wall mats,
+soft warm lighting, vertical 9:16, no text
+```
+
+> 📌 三面図と食い違っていた旧記述（ピンクのヘアゴム / FLAT UP GYM Tシャツ / ムエタイショーツ）は
+> **実物に合わせて修正済み**。EP2のカット定義（`src/reel/animeEpisodes.ts`）も同時に直した。
+
 ---
 
 ## 共通ルール（毎話必ず入れる）
@@ -95,6 +161,13 @@
 - 怖い顔・痛がる表情・流血・暴力の勝ち負け
 - 相手を倒して喜ぶ描写
 - スパーリングは**当てないマススパー＋礼**として描く（`src/data/sparring_policy.md` 準拠）
+- **他社ブランドのロゴ・商標**（スポーツメーカーのマーク、飲料ブランドの柄など）
+
+> ⚠️ **他社ロゴに注意**: 基準画像のいくつかに、実在ブランドのマークやそれに酷似した
+> ステッカー柄が写り込んでいた。**練習用の素材なら問題ないが、ジムの公式広告として
+> 公開する動画・画像には載せない**（商標の問題になりうるため）。
+> 生成プロンプトには他社ブランド名を入れず、ウェア類は「FLAT UP GYM」の表記か
+> 無地・オリジナル柄にする。公開前チェックで必ず目視確認する。
 
 ---
 
@@ -158,12 +231,33 @@ https://lin.ee/Y3MbbAe
 
 ---
 
+## 基準画像（確定済みの姿）
+
+顔・服装をブレさせないための正解画像。置き場所と選び方は
+[docs/assets/characters/README.md](assets/characters/README.md) を参照。
+姿を決めた元画像は [assets/characters/reference/](assets/characters/reference/)（**参考用。公開素材には使わない**）。
+
+| キャラ | ファイル | 状態 |
+|---|---|---|
+| マサキ | `assets/characters/masaki.png` | ✅ **確定**（三面図。設計元: `reference/masaki_ref01.png`） |
+| メルティ | `assets/characters/melty.png` | ⏳ 候補生成済み・**1枚選んで確定待ち**（設計元: `reference/melty_ref01〜03.png`） |
+| ツム | `assets/characters/tsumu.png` | ✅ **確定**（三面図＋表情3種） |
+| リク | `assets/characters/riku.png` | ⏳ 未生成 |
+| ユイ / ソウタ / ココ | — | ⏳ 未生成 |
+| アイカ / ヒトシ / ミイチ / アンディ | — | ⏳ 未生成 |
+
+> 確定したら、上の表の状態を ✅ に更新し、同じファイル名で画像を置く。
+> バイブルの「姿」の記述と実物が食い違ったら、**実物に合わせて記述を直す**（正解は画像）。
+
+---
+
 ## 制作時の使い方
 
 1. **キャラの基準画像を固定する** — 各キャラ1枚を確定し、以後全カット・全話でその画像を参照する（顔ブレ防止）
 2. **舞台と照明を揃える** — 白い床、緑のマット、観葉植物、黄色と蛍光ピンクのサンドバッグ、FLATUP GYMサイン
 3. **1カット1アクション・6秒** — 動きは動詞で具体的に、固定カメラ、背景は変えない
-4. **投稿前の確認** — AI生成ラベルON、全カットを人間が確認、実在会員の顔に寄っていないか
+4. **投稿前の確認** — AI生成ラベルON、全カットを人間が確認、実在会員の顔に寄っていないか、
+   **他社ブランドのロゴが写り込んでいないか**
 
 技術的な手順は [flatup_anime_studio.md](flatup_anime_studio.md) の7段階に従う。
 
