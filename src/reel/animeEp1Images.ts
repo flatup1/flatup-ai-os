@@ -12,8 +12,11 @@
 import "../utils/loadEnv.js";
 import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
-import { getEpisode, parseEpisodeArg, imagePromptOf } from "./animeEpisodes.js";
-import { falQueueRequest, downloadVideo as downloadFile, hasApiKey, assertValidApiKey, requiredKeyName } from "./seedance.js";
+import { getEpisode, parseEpisodeArg } from "./animeEpisodes.js";
+import { imagePrompt } from "./animeEp1Cuts.js";
+import { falQueueRequest, downloadVideo as downloadFile, hasApiKey, assertValidApiKey, requiredKeyName, FalBalanceError } from "./seedance.js";
+import { buildImagePayload, imageEndpoint as textImageEndpoint, imageEditEndpoint } from "./image.js";
+import { characterReferences, describeCharacters } from "./characters.js";
 
 export function imageEndpoint(): string {
   return process.env.FAL_IMAGE_MODEL || "fal-ai/flux/dev";
@@ -45,8 +48,17 @@ if (isMain) {
   if (!hasApiKey()) {
     console.log(`[DRY-RUN] ${requiredKeyName()} が未設定のため、生成はスキップしました(コストゼロ)。\n`);
     for (const cut of episode.cuts) {
+      const refs = await characterReferences(cut.cast ?? []);
+      const prompt = imagePrompt(cut, {
+        describeCast: refs.length === 0 ? describeCharacters(cut.cast ?? []) : undefined,
+      });
+      const how = refs.length > 0
+        ? `キャラ基準画像 ${refs.length}枚を参照 / ${imageEditEndpoint()}`
+        : `参照画像なし（文章でキャラ指定）/ ${textImageEndpoint()}`;
       console.log(`--- cut${cut.n}（${cut.title}）→ cut${cut.n}.png ---`);
-      console.log(`${imagePromptOf(cut)}\n`);
+      console.log(`出演: ${(cut.cast ?? []).join(", ") || "（人物なし）"}`);
+      console.log(`方式: ${how}`);
+      console.log(`${prompt}\n`);
     }
     process.exit(0);
   }
@@ -69,11 +81,18 @@ if (isMain) {
         `[cut${cut.n}] ${cut.title}${attempt > 1 ? ` 再試行${attempt - 1}` : ""} 生成中...`
       );
       try {
-        const result = await falQueueRequest(imageEndpoint(), {
-          prompt: imagePromptOf(cut),
-          image_size: "portrait_16_9",
-          num_images: count,
+        // このカットに写るキャラの基準画像を添える（顔ブレ防止／ANIMATION BIBLE 1.）。
+        // 画像が1枚も無ければ、姿かたちの文章で代用して従来どおり text-to-image で作る。
+        const refs = await characterReferences(cut.cast ?? []);
+        const prompt = imagePrompt(cut, {
+          describeCast: refs.length === 0 ? describeCharacters(cut.cast ?? []) : undefined,
         });
+        const { endpoint, body } = buildImagePayload(prompt, {
+          size: "portrait_16_9",
+          count,
+          refs,
+        });
+        const result = await falQueueRequest(endpoint, body);
         const images = (result.images ?? []) as Array<{ url?: string }>;
         const urls = images.map(i => i.url).filter((u): u is string => Boolean(u));
         if (urls.length === 0) throw new Error("レスポンスに images がありません");
@@ -88,6 +107,11 @@ if (isMain) {
         done = true;
       } catch (err) {
         console.log(` 失敗: ${err instanceof Error ? err.message : String(err)}`);
+        // 残高切れはリトライしても回復しないので、残りのカットを試さず即中断する
+        if (err instanceof FalBalanceError) {
+          console.error(`\n[中断] 残高不足のため、残りのカットはスキップしました（成功 ${ok} / 未処理あり）。`);
+          process.exit(1);
+        }
         if (attempt === MAX_ATTEMPTS) failed++;
         else console.log(`  → cut${cut.n} をもう一度試します`);
       }

@@ -22,6 +22,42 @@ export function imageEndpoint(): string {
   return process.env.FAL_IMAGE_MODEL || "fal-ai/flux/dev";
 }
 
+/**
+ * キャラ基準画像を参照して生成するときのモデル。
+ *
+ * 素の text-to-video ならぬ text-to-image モデル(FLUX dev)は参照画像を受け取れないため、
+ * 参照ありのときだけ image-to-image / edit 系に切り替える。
+ * 既定は複数枚の参照でキャラを保つのが得意な nano-banana 系。
+ */
+export function imageEditEndpoint(): string {
+  return process.env.FAL_IMAGE_EDIT_MODEL || "fal-ai/nano-banana/edit";
+}
+
+/**
+ * 画像生成のリクエストボディを組み立てる。
+ *
+ * 参照画像(refs)があれば edit 系モデル向けに image_urls を載せる。
+ * モデルごとに受け付けるフィールドが違うので、ここで一箇所に集約する。
+ */
+export function buildImagePayload(
+  prompt: string,
+  opts: { size?: string; count?: number; refs?: string[] } = {}
+): { endpoint: string; body: Record<string, unknown> } {
+  const count = opts.count ?? 1;
+  const refs = opts.refs ?? [];
+  if (refs.length > 0) {
+    // 参照ありは edit 系（image_urls でキャラを固定する）。image_size は受け付けないモデルが多い。
+    return {
+      endpoint: imageEditEndpoint(),
+      body: { prompt, image_urls: refs, num_images: count },
+    };
+  }
+  return {
+    endpoint: imageEndpoint(),
+    body: { prompt, image_size: parseImageSize(opts.size), num_images: count },
+  };
+}
+
 /** --size の値をペイロード用に解釈する("1080x1920" → {width,height} / プリセット名はそのまま) */
 export function parseImageSize(size: string | undefined): string | { width: number; height: number } {
   if (!size) return "portrait_16_9";

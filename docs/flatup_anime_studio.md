@@ -14,7 +14,7 @@ Colab/ComfyUI なしで作るための手順書。実行基盤は fal.ai（画�
 | 03 CHARACTER_STUDIO | キャラの基準画像 | `npm run img -- "<英語プロンプト>" --count 4` で候補4枚→1枚採用 |
 | 04 STORYBOARD | 物語・絵コンテ・カット別プロンプト | `npm run dev -- anime_ad "テーマ"`（完成例: EP1仕様 → `flatup_anime_episode1.md`） |
 | 05 IMAGE_STUDIO | カット別の基準画像 | 04で出たFLUXプロンプトを `npm run img` へ |
-| 06 VIDEO_STUDIO | 6秒動画化 | 04で出たHailuoプロンプトを `npm run reel` の `--image` へ、またはfal Playground |
+| 06 VIDEO_STUDIO | 6秒動画化 | 04で出たHailuoプロンプトを `npm run reel` の `--image` へ、またはfal Playground（自前GPUで回すなら [MiniMax H3 + Colab/ComfyUI](minimax_h3_colab.md)） |
 | 07 FINAL_EDIT | BGM・字幕・書き出し | CapCut（字幕は04の絵コンテのセリフをコピペ） |
 
 ---

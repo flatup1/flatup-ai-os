@@ -25,6 +25,12 @@ export interface Ep1Cut {
   image: string;
   /** Hailuo I2V 動画プロンプト（EP1_MOTION_SUFFIX が自動で付く） */
   video: string;
+  /**
+   * このカットに写るキャラのID（characters.ts）。
+   * 基準画像があれば参照画像として添え、無ければ姿かたちの文章で補う（顔ブレ防止）。
+   * 人物が写らないカット（外観など）は空。
+   */
+  cast?: string[];
 }
 
 export const EP1_CUT_DEFS: Ep1Cut[] = [
@@ -35,6 +41,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "Establishing shot, a cozy two-story martial-arts gym named FLAT UP GYM on a quiet Japanese town street at night, warm light glowing from the windows, a lit wooden FLAT UP GYM sign, wet asphalt reflecting streetlights, punching bags visible through the window, no people, cinematic wide shot",
     video:
       "Slow subtle dolly-in toward the gym, warm window light flickers gently, faint steam rises from the wet street, cozy calm night",
+    cast: []
   },
   {
     n: 2,
@@ -43,6 +50,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "A cheerful young male coach in his late twenties with short black hair and a shonen-hero look, black FLAT UP GYM hoodie, smiling and greeting a small group of 2.5-head-tall chibi kids in FLAT UP GYM t-shirts, everyone smiling",
     video:
       "The coach raises one hand in a friendly greeting and the kids wave back with bright smiles, gentle breathing and blinking, warm and lively",
+    cast: ["masaki", "tsumu", "riku", "yui"]
   },
   {
     n: 3,
@@ -51,6 +59,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "The young male coach kneeling and speaking gently to chibi kids sitting in seiza on the white gym floor, kids listening with big sparkling eyes, tender heartwarming mood",
     video:
       "The coach speaks warmly with a soft gesture, the seated kids nod and their eyes light up, gentle breathing, tender mood",
+    cast: ["masaki", "tsumu", "riku", "yui"]
   },
   {
     n: 4,
@@ -59,6 +68,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "A row of 2.5-head-tall chibi kids in FLAT UP GYM t-shirts and muay thai shorts throwing gentle jab punches in unison, barefoot, the coach watching with a proud smile, playful energetic mood",
     video:
       "The row of kids throws one clean jab punch forward in unison, the coach nods with a proud smile, light hair and clothing motion",
+    cast: ["tsumu", "riku", "sota", "koko", "masaki"]
   },
   {
     n: 5,
@@ -67,6 +77,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "The young coach holding a yellow-and-black focus mitt while a happy chibi kid punches it with a clean light hit, coach smiling and cheering, joyful mood",
     video:
       "The kid throws one straight punch into the focus mitt with a soft impact, the coach reacts with a cheerful expression",
+    cast: ["masaki", "tsumu"]
   },
   {
     n: 6,
@@ -75,6 +86,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "Two friendly chibi kids wearing soft headgear and oversized boxing gloves facing each other in a gentle no-contact light spar, then bowing and touching gloves with big smiles, safe playful atmosphere, absolutely no aggression or pain",
     video:
       "The two kids touch gloves and bow to each other with big warm smiles, no impact, only a friendly respectful gesture",
+    cast: ["riku", "sota"]
   },
   {
     n: 7,
@@ -83,6 +95,7 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "A group of chibi kids in FLAT UP GYM t-shirts kneeling in a neat row in seiza and bowing respectfully, the coach bowing with them, calm grateful heartwarming mood",
     video:
       "The kneeling kids bow forward together in a respectful gesture, the coach bows with them, slow calm synchronized motion",
+    cast: ["masaki", "tsumu", "riku", "yui", "sota", "koko"]
   },
   {
     n: 8,
@@ -91,12 +104,21 @@ export const EP1_CUT_DEFS: Ep1Cut[] = [
       "Exterior night view of FLAT UP GYM, warm light from the windows with silhouettes of smiling kids inside, empty quiet street, gentle magical evening mood, space at center for a logo, cinematic",
     video:
       "Very slow pull-back from the gym exterior, the window silhouettes stay smiling, warm light glows steadily, magical calm ending",
+    cast: []
   },
 ];
 
-/** カットの完成した画像プロンプト（共通の画風付き） */
-export function imagePrompt(cut: Ep1Cut): string {
-  return `${cut.image}, ${EP1_STYLE_SUFFIX}`;
+/**
+ * カットの完成した画像プロンプト（共通の画風付き）。
+ *
+ * opts.describeCast に「登場キャラの姿かたち」を渡すと本文の前に差し込む。
+ * 基準画像を参照できないとき（画像未配置 / 参照非対応モデル）に、
+ * せめて文章でキャラを固定するための逃げ道。
+ */
+export function imagePrompt(cut: Ep1Cut, opts: { describeCast?: string } = {}): string {
+  const cast = opts.describeCast?.trim();
+  const head = cast ? `${cast}. ` : "";
+  return `${head}${cut.image}, ${EP1_STYLE_SUFFIX}`;
 }
 
 /** カットの完成した動画プロンプト（共通の動かし方付き） */

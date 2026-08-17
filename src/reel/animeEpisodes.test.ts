@@ -18,8 +18,10 @@ for (const ep of EPISODES) {
   }
 }
 
-// EP1・EP2が登録されている
-assert.deepEqual(EPISODES.map(e => e.n), [1, 2], "EP1とEP2が登録済み");
+// 登録済みの話数は EP1〜EP6（本編2話＋季節限定4話）。話を足したらここも足す。
+assert.deepEqual(EPISODES.map(e => e.n), [1, 2, 3, 4, 5, 6], "EP1〜EP6が登録済み");
+// 話数は重複せず、1から連番で並ぶ（getEpisode の取り違えを防ぐ）
+assert.equal(new Set(EPISODES.map(e => e.n)).size, EPISODES.length, "話数に重複がない");
 assert.equal(getEpisode(2).title, "ありがとうが言えるかな？", "EP2のタイトルがバイブルと一致");
 
 // EP2は「ありがとう」を言えるようになる話。最後の実質カットで感謝が出る
