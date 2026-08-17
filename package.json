@@ -10,6 +10,9 @@
     "typecheck": "tsc --noEmit",
     "list": "tsx src/index.ts --list",
     "reel": "tsx src/reel/generate.ts",
+    "movie": "tsx src/movie/generate.ts",
+    "movie:adopt": "tsx src/movie/adopt.ts",
+    "movie:mac": "bash scripts/movie.command",
     "factory": "tsx src/factory/run.ts",
     "reel:batch": "tsx src/factory/batch.ts",
     "img": "tsx src/reel/image.ts",
@@ -26,7 +29,8 @@
     "test:customers": "tsx src/modules/customers.test.ts",
     "test:factory": "tsx src/factory/factory.test.ts",
     "test:reel": "tsx src/reel/promptBank.test.ts && tsx src/reel/seedance.test.ts && tsx src/reel/animeEp1Video.test.ts && tsx src/reel/characters.test.ts && tsx src/reel/animeEpisodes.test.ts",
-    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel && npm run test:factory"
+    "test:movie": "tsx src/movie/promptBank.test.ts && tsx src/movie/editPlan.test.ts && tsx src/movie/bible.test.ts",
+    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel && npm run test:factory && npm run test:movie"
   },
   "dependencies": {},
   "devDependencies": {

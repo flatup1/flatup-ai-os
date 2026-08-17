@@ -54,8 +54,13 @@ npm run build                              # TypeScript コンパイル
 
 動画の**全自動生成**（Seedance 2.0 / fal.ai）はルートではなく専用コマンド:
 ```bash
-npm run reel -- "にゃん術" --count 3   # FAL_KEY 未設定なら DRY-RUN
+npm run reel -- "にゃん術" --count 3   # 動物×格闘技リール（FAL_KEY 未設定なら DRY-RUN）
+npm run movie -- refs                 # エモーショナル・ムービー第0話の素材生成（同上）
+npm run movie -- edl                  # 第0話の編集台本＋字幕(.srt)を書き出す（API不要）
+npm run movie:adopt -- refs           # 生成物から採用画像を選んで登録（対話）
 ```
+
+**Mac はダブルクリックで全工程**: `scripts/movie.command`（→ [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)）
 
 FLATUPキャラの縦動画を**量産**するときは動画ファクトリー:
 ```bash
@@ -191,6 +196,12 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **公式アニメ設定資料（正本 v3.0）**: [docs/flatup_animation_bible.md](docs/flatup_animation_bible.md)
 - **アニメスタジオ（7段階）**: [docs/flatup_anime_studio.md](docs/flatup_anime_studio.md)
 - **公式アニメ EP1 制作仕様＋シリーズ**: [docs/flatup_anime_episode1.md](docs/flatup_anime_episode1.md)
+- **エモーショナル・ムービー正本（閉館後のFLATUP・道具視点シリーズ）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
+- **第0話 編集設計（35秒/15秒のタイムライン・字幕・IGセーフゾーン）**: [docs/emotional_movie_ep0_edit.md](docs/emotional_movie_ep0_edit.md)
+- **第0話 Macワンタップ手順**: [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)
+- **他AIへの引き継ぎ書（正本の地図。これ1枚を渡す）**: [docs/flatup_handoff.md](docs/flatup_handoff.md)
+- **Animation Bible 索引（18巻・正本ではなく目次）**: [docs/bible/README.md](docs/bible/README.md)
+- **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
 - **動画の量産ライン（縦動画バッチ）**: [docs/flatup_video_factory.md](docs/flatup_video_factory.md)
 - **MiniMax H3 で画像→動画（Colab+ComfyUI）**: [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md) / ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)
 
