@@ -62,6 +62,14 @@ npm run movie:adopt -- refs           # 生成物から採用画像を選んで�
 
 **Mac はダブルクリックで全工程**: `scripts/movie.command`（→ [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)）
 
+FLATUPキャラの縦動画を**量産**するときは動画ファクトリー:
+```bash
+npm run reel:batch -- --export-prompts                      # プロンプト置き場を作る(初回のみ)
+npm run reel:batch -- --scene first_punch --count 12 --budget 4   # 1場面を12本
+npm run factory   -- --scenes jab,wave --takes 3 --budget 3       # 複数場面を横断
+npm run factory   -- --summary                              # 本数と使った金額
+```
+
 ---
 
 ## Directory Guide
@@ -194,6 +202,8 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **他AIへの引き継ぎ書（正本の地図。これ1枚を渡す）**: [docs/flatup_handoff.md](docs/flatup_handoff.md)
 - **Animation Bible 索引（18巻・正本ではなく目次）**: [docs/bible/README.md](docs/bible/README.md)
 - **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
+- **動画の量産ライン（縦動画バッチ）**: [docs/flatup_video_factory.md](docs/flatup_video_factory.md)
+- **MiniMax H3 で画像→動画（Colab+ComfyUI）**: [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md) / ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)
 
 ---
 
