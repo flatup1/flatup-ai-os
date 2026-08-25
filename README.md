@@ -22,6 +22,11 @@ X 投稿は Typefully と連携して下書き・予約管理します。運用�
 静止画1枚から音つきの縦動画を作りたいときは、Colab + ComfyUI で MiniMax H3 を動かす
 [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md)（ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)）を参照してください。
 
+AIスマートグラス（Mingtown / 純正アプリ HeyCyan）のコンパニオンアプリは
+`src/smartglass/`（判断・依存ゼロ・テスト54件）と `smartglass-app/`（React Nativeの画面）にあります。
+実機がなくても `npm run glasses` で「つなぐ→取り込む→見る」を通しで確認できます。
+入口は [docs/smartglass_app.md](docs/smartglass_app.md) です。
+
 Obsidian Vaultとの統合ルールは [docs/obsidian_vault_integration.md](docs/obsidian_vault_integration.md) を参照してください。
 FLATUPGYM AI全体の正本は `/Users/jin/Documents/Obsidian Vault/00_CORE/FLATUPGYM_AI_HOME.md` です。
 

@@ -60,6 +60,13 @@ npm run movie -- edl                  # 第0話の編集台本＋字幕(.srt)を
 npm run movie:adopt -- refs           # 生成物から採用画像を選んで登録（対話）
 ```
 
+スマートグラスのコンパニオンアプリは実機なしで通し確認できる:
+```bash
+npm run glasses              # つなぐ→取り込む→ギャラリー→AI を一気に見る
+npm run glasses -- --flaky   # 途中で切れる状況（続きから取り込む確認）
+npm run test:glasses         # 回帰テスト（54件）
+```
+
 **Mac はダブルクリックで全工程**: `scripts/movie.command`（→ [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)）
 
 FLATUPキャラの縦動画を**量産**するときは動画ファクトリー:
@@ -199,6 +206,10 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **エモーショナル・ムービー正本（閉館後のFLATUP・道具視点シリーズ）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
 - **第0話 編集設計（35秒/15秒のタイムライン・字幕・IGセーフゾーン）**: [docs/emotional_movie_ep0_edit.md](docs/emotional_movie_ep0_edit.md)
 - **第0話 Macワンタップ手順**: [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)
+- **AIスマートグラス コンパニオン（開発の入口）**: [docs/smartglass_app.md](docs/smartglass_app.md)
+- **スマートグラス 既存OSS調査（車輪の再発明を避けるため）**: [docs/smartglass_research.md](docs/smartglass_research.md)
+- **スマートグラス 通信仕様（BLE/Wi-Fi転送の正本）**: [docs/smartglass_protocol.md](docs/smartglass_protocol.md)
+- **スマートグラス UXの決まり（老若男女向け）**: [docs/smartglass_ux.md](docs/smartglass_ux.md)
 - **他AIへの引き継ぎ書（正本の地図。これ1枚を渡す）**: [docs/flatup_handoff.md](docs/flatup_handoff.md)
 - **Animation Bible 索引（18巻・正本ではなく目次）**: [docs/bible/README.md](docs/bible/README.md)
 - **AIKA事故防止プレイブック（守りの正本）**: [docs/aika_safety_playbook.md](docs/aika_safety_playbook.md)
