@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "スマートグラス",
+    "slug": "flatup-smartglass",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "flatupglasses",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "gym.flatup.smartglass",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "メガネにつなぐために使います。",
+        "NSBluetoothPeripheralUsageDescription": "メガネにつなぐために使います。",
+        "NSLocalNetworkUsageDescription": "メガネから写真を受け取るために使います。",
+        "NSMicrophoneUsageDescription": "翻訳と音声で質問するときだけ使います。",
+        "NSPhotoLibraryAddUsageDescription": "取り込んだ写真をスマホに保存するために使います。",
+        "NSSpeechRecognitionUsageDescription": "話した言葉を文字にして翻訳するために使います。"
+      },
+      "entitlements": {
+        "com.apple.developer.networking.HotspotConfiguration": true
+      }
+    },
+    "android": {
+      "package": "gym.flatup.smartglass",
+      "permissions": [
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.CHANGE_WIFI_STATE",
+        "android.permission.NEARBY_WIFI_DEVICES",
+        "android.permission.INTERNET",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "usesCleartextTraffic": true
+    },
+    "plugins": [
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": false,
+          "modes": ["central"],
+          "bluetoothAlwaysPermission": "メガネにつなぐために使います。"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "savePhotosPermission": "取り込んだ写真をスマホに保存するために使います。",
+          "isAccessMediaLocationEnabled": false
+        }
+      ]
+    ]
+  }
+}

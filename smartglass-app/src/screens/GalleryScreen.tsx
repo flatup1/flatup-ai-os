@@ -4,7 +4,7 @@
  */
 
 import React, { useMemo, useState } from "react";
-import { Modal, Pressable, ScrollView, Share, StyleSheet, Text, View } from "react-native";
+import { Image, Modal, Pressable, ScrollView, Share, StyleSheet, Text, View } from "react-native";
 
 import type { SmartGlassApp } from "../../../src/smartglass/app";
 import { T, friendlySize } from "../../../src/smartglass/i18n";
@@ -58,10 +58,16 @@ export function GalleryScreen({ app, fontSizes, buttonHeight, revision }: Props)
                   onPress={() => setSelected(item)}
                   style={styles.cell}
                 >
-                  <Text style={[styles.cellKind, { fontSize: fontSizes.caption }]}>{kindLabel(item)}</Text>
-                  <Text style={[styles.cellName, { fontSize: fontSizes.caption }]} numberOfLines={2}>
-                    {item.fileName}
-                  </Text>
+                  {item.kind === "photo" && item.localPath ? (
+                    // 写真そのものを出す。ファイル名だけだと、どれがどれか分からない。
+                    <Image source={{ uri: item.localPath }} style={styles.cellImage} resizeMode="cover" />
+                  ) : null}
+                  <View style={styles.cellCaption}>
+                    <Text style={[styles.cellKind, { fontSize: fontSizes.caption }]}>{kindLabel(item)}</Text>
+                    <Text style={[styles.cellName, { fontSize: fontSizes.caption }]} numberOfLines={1}>
+                      {item.fileName}
+                    </Text>
+                  </View>
                 </Pressable>
               ))}
             </View>
@@ -71,6 +77,14 @@ export function GalleryScreen({ app, fontSizes, buttonHeight, revision }: Props)
 
       <Modal visible={selected !== null} animationType="slide" onRequestClose={() => setSelected(null)}>
         <View style={styles.modal}>
+          {selected?.kind === "photo" && selected.localPath ? (
+            <Image
+              accessibilityLabel={`${T.gallery.photo} ${selected.fileName}`}
+              source={{ uri: selected.localPath }}
+              style={styles.fullImage}
+              resizeMode="contain"
+            />
+          ) : null}
           <Text style={[styles.title, { fontSize: fontSizes.title }]}>{selected?.fileName}</Text>
           <Text style={[styles.meta, { fontSize: fontSizes.body }]}>
             {selected ? `${kindLabel(selected)}・${friendlySize(selected.sizeBytes)}` : ""}
@@ -112,9 +126,12 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     backgroundColor: COLORS.surface,
     borderRadius: 12,
-    padding: 10,
-    justifyContent: "space-between",
+    overflow: "hidden",
+    justifyContent: "flex-end",
   },
+  cellImage: { ...StyleSheet.absoluteFillObject, width: "100%", height: "100%" },
+  cellCaption: { backgroundColor: "rgba(255,255,255,0.88)", padding: 8 },
+  fullImage: { width: "100%", height: "55%", marginBottom: 16, borderRadius: 12 },
   cellKind: { color: COLORS.primary, fontWeight: "700" },
   cellName: { color: COLORS.textMuted },
   empty: { color: COLORS.textMuted, lineHeight: 28 },

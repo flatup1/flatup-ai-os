@@ -5,7 +5,7 @@
  */
 
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import type { HomeView, SmartGlassApp } from "../../../src/smartglass/app";
 import { T } from "../../../src/smartglass/i18n";
@@ -83,7 +83,13 @@ export function HomeScreen({ app, view, onOpenGallery }: Props) {
           <View style={styles.thumbs}>
             {view.recent.map((item) => (
               <View key={item.id} style={styles.thumb}>
-                <Text style={{ fontSize: view.fontSizes.caption, color: COLORS.textMuted }} numberOfLines={2}>
+                {item.kind === "photo" && item.localPath ? (
+                  <Image source={{ uri: item.localPath }} style={styles.thumbImage} resizeMode="cover" />
+                ) : null}
+                <Text
+                  style={[styles.thumbLabel, { fontSize: view.fontSizes.caption }]}
+                  numberOfLines={1}
+                >
                   {item.fileName}
                 </Text>
               </View>
@@ -125,7 +131,9 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     backgroundColor: COLORS.surface,
     borderRadius: 12,
-    padding: 8,
+    overflow: "hidden",
     justifyContent: "flex-end",
   },
+  thumbImage: { ...StyleSheet.absoluteFillObject, width: "100%", height: "100%" },
+  thumbLabel: { backgroundColor: "rgba(255,255,255,0.88)", color: COLORS.textMuted, padding: 6 },
 });
