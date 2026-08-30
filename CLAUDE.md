@@ -60,7 +60,13 @@ npm run movie -- edl                  # 第0話の編集台本＋字幕(.srt)を
 npm run movie:adopt -- refs           # 生成物から採用画像を選んで登録（対話）
 ```
 
-スマートグラスのコンパニオンアプリは実機なしで通し確認できる:
+スマートグラスの写真を**ブラウザ（Mac / iPhone）で見る**のがWeb版。Macが橋渡しをする:
+```bash
+npm run glasses:web -- --ssid "HeyCyan-XXXXXXXX"   # Mac: localhost:8787 / iPhone: 同じWi-Fiで開く
+npm run test:glasses:web                            # 偽メガネを立てた通しテスト（10件）
+```
+
+スマホアプリ版の中身は実機なしで通し確認できる:
 ```bash
 npm run glasses              # つなぐ→取り込む→ギャラリー→AI を一気に見る
 npm run glasses -- --flaky   # 途中で切れる状況（続きから取り込む確認）
@@ -206,7 +212,8 @@ npm run dev -- line_reply "体験したいのですが初心者でも大丈夫�
 - **エモーショナル・ムービー正本（閉館後のFLATUP・道具視点シリーズ）**: [docs/emotional_movie_ep0.md](docs/emotional_movie_ep0.md)
 - **第0話 編集設計（35秒/15秒のタイムライン・字幕・IGセーフゾーン）**: [docs/emotional_movie_ep0_edit.md](docs/emotional_movie_ep0_edit.md)
 - **第0話 Macワンタップ手順**: [docs/emotional_movie_ep0_mac.md](docs/emotional_movie_ep0_mac.md)
-- **AIスマートグラス コンパニオン（開発の入口）**: [docs/smartglass_app.md](docs/smartglass_app.md)
+- **スマートグラス Webアプリ（ブラウザで見る・正本）**: [docs/smartglass_web.md](docs/smartglass_web.md)
+- **AIスマートグラス コンパニオン（スマホアプリ版の入口）**: [docs/smartglass_app.md](docs/smartglass_app.md)
 - **スマートグラス 既存OSS調査（車輪の再発明を避けるため）**: [docs/smartglass_research.md](docs/smartglass_research.md)
 - **スマートグラス 通信仕様（BLE/Wi-Fi転送の正本）**: [docs/smartglass_protocol.md](docs/smartglass_protocol.md)
 - **スマートグラス UXの決まり（老若男女向け）**: [docs/smartglass_ux.md](docs/smartglass_ux.md)

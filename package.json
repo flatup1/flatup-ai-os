@@ -13,6 +13,7 @@
     "movie": "tsx src/movie/generate.ts",
     "movie:adopt": "tsx src/movie/adopt.ts",
     "glasses": "tsx src/smartglass/demo.ts",
+    "glasses:web": "tsx src/smartglass/web/serve.ts",
     "movie:mac": "bash scripts/movie.command",
     "factory": "tsx src/factory/run.ts",
     "reel:batch": "tsx src/factory/batch.ts",
@@ -32,7 +33,8 @@
     "test:reel": "tsx src/reel/promptBank.test.ts && tsx src/reel/seedance.test.ts && tsx src/reel/animeEp1Video.test.ts && tsx src/reel/characters.test.ts && tsx src/reel/animeEpisodes.test.ts",
     "test:movie": "tsx src/movie/promptBank.test.ts && tsx src/movie/editPlan.test.ts && tsx src/movie/bible.test.ts",
     "test:glasses": "tsx src/smartglass/smartglass.test.ts",
-    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel && npm run test:factory && npm run test:movie && npm run test:glasses"
+    "test:glasses:web": "tsx src/smartglass/web/web.test.ts",
+    "test": "npm run typecheck && npm run test:safety && npm run test:pii && npm run test:routes && npm run test:customers && npm run test:reel && npm run test:factory && npm run test:movie && npm run test:glasses && npm run test:glasses:web"
   },
   "dependencies": {},
   "devDependencies": {

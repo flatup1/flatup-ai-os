@@ -11,11 +11,26 @@
  */
 
 import { SmartGlassError } from "../errors.js";
-import type { ConnectionManager } from "../device/connection.js";
 import type { Platform } from "../platform.js";
 import { MANIFEST_PATHS, mediaFileUrl, parseManifest } from "../protocol/manifest.js";
-import type { MediaItem, TransferProgress } from "../types.js";
+import type { MediaItem, TransferProgress, WifiCredentials } from "../types.js";
 import { TransferQueue } from "./queue.js";
+
+/**
+ * 取り込みに必要な、メガネ側の3つの動きだけを切り出したもの。
+ *
+ * スマホ版は ConnectionManager がそのまま当てはまる（BLE でやる）。
+ * Web版（Mac が橋渡し）は BLE を使わず、覚えておいた SSID を返すだけの
+ * 小さな実装を渡す。TransferManager 本体はどちらか知らなくてよい。
+ */
+export interface TransferSession {
+  /** 転送モードにして、Wi-Fi の情報をもらう。 */
+  openWifiTransfer(): Promise<WifiCredentials>;
+  /** 転送モードを終える。 */
+  closeWifi(): Promise<void>;
+  /** 取り込み中かどうかを画面に伝える。 */
+  setTransferring(active: boolean): void;
+}
 
 /** メガネがよく使うIP。上から順に、同時に叩いて生きているものを採る。 */
 export const CANDIDATE_HOSTS = [
@@ -55,7 +70,7 @@ export class TransferManager {
 
   constructor(
     private readonly platform: Platform,
-    private readonly connection: ConnectionManager,
+    private readonly connection: TransferSession,
     options: TransferOptions = {},
   ) {
     this.discoverTimeoutMs = options.discoverTimeoutMs ?? 10_000;
