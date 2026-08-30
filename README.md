@@ -22,6 +22,19 @@ X 投稿は Typefully と連携して下書き・予約管理します。運用�
 静止画1枚から音つきの縦動画を作りたいときは、Colab + ComfyUI で MiniMax H3 を動かす
 [docs/minimax_h3_colab.md](docs/minimax_h3_colab.md)（ノート: [notebooks/colab_minimax_h3_i2v.ipynb](notebooks/colab_minimax_h3_i2v.ipynb)）を参照してください。
 
+AIスマートグラス（Mingtown / 純正アプリ HeyCyan）で撮った写真は、**ブラウザ（Mac / iPhone）で見られます**。
+Macが橋渡しをして、アプリのインストールもApple登録も無しに、家のWi-Fiの中だけで配ります。
+
+```bash
+npm run glasses:web -- --ssid "HeyCyan-XXXXXXXX"
+# → Mac: http://localhost:8787 ／ iPhone: 同じWi-Fiで http://192.168.x.x:8787
+```
+
+判断の中身は `src/smartglass/`（依存ゼロ・テスト54件）、Web版は `src/smartglass/web/`（通しテスト10件）、
+スマホアプリ版の画面は `smartglass-app/` にあります。
+入口は [docs/smartglass_web.md](docs/smartglass_web.md)（Web版）と
+[docs/smartglass_app.md](docs/smartglass_app.md)（スマホ版）です。
+
 Obsidian Vaultとの統合ルールは [docs/obsidian_vault_integration.md](docs/obsidian_vault_integration.md) を参照してください。
 FLATUPGYM AI全体の正本は `/Users/jin/Documents/Obsidian Vault/00_CORE/FLATUPGYM_AI_HOME.md` です。
 
