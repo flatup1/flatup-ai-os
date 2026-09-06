@@ -246,7 +246,7 @@ FLAT UP GYM
 初回体験 30分・500円
 
 LINEで予約
-https://lin.ee/Y3MbbAe
+https://lin.ee/YWWo4zb
 ```
 
 ### canon照合
@@ -255,11 +255,11 @@ https://lin.ee/Y3MbbAe
 |---|---|---|---|
 | 初回体験の料金 | 500円 | `src/data/pricing.md`「初回体験: 500円」 | ✅ 一致 |
 | 初回体験の所要時間 | **30分** | `src/data/trial_flow.md`「体験30分 / 滞在45〜50分」 | ✅ 一致（2026-07-27 JIN確定） |
-| LINE予約URL | `https://lin.ee/Y3MbbAe` | `src/data/gym_profile.md`「LINE公式アカウント」 | ✅ 一致（2026-07-27 JIN確定） |
+| LINE予約URL | `https://lin.ee/YWWo4zb` | `src/data/gym_profile.md`「LINE公式アカウント」 | ✅ 一致（2026-07-27 JIN確定） |
 
 - **所要時間（確定）**: **体験そのものが30分**、着替え・説明を含めた**滞在は45〜50分**。
   お客様への案内・広告表記は「30分」を使う。`src/data/trial_flow.md` を本決定に合わせて更新済み。
-- **LINE URL（確定）**: `https://lin.ee/Y3MbbAe`。`src/data/gym_profile.md` に登録済みで、
+- **LINE URL（確定）**: `https://lin.ee/YWWo4zb`。`src/data/gym_profile.md` に登録済みで、
   広告・エンドカード・SNSプロフィールの予約導線はこのURLで統一する。変更時はcanonを直し、
   公開済みの掲載物も差し替える。
 - 料金・時間の変更と公開はJIN承認後（`CLAUDE.md` の承認ゲート）。

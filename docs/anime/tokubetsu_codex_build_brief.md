@@ -104,7 +104,7 @@ function parentSilhouette(x, yBottom, s, color) {
     title: '強くなった我が子が、優しくなる場所。',
     subtitle: '見学だけでもOK ／ 初回体験30分・500円',
     button: '見学・体験を申し込む',
-    href: 'https://lin.ee/cTSDajPz' };
+    href: 'https://lin.ee/YWWo4zb' };
 
   const MAIN = [
     { type: 'power',      sec: 4.0, text: 'つよくなった！' },
@@ -125,7 +125,7 @@ function parentSilhouette(x, yBottom, s, color) {
     { type: 'sunrise',    sec: 3.0, text: '' },
     { type: 'cta', sec: 8.0, title: '強くなった我が子が、優しくなる場所。',
       subtitle: '見学だけでもOK ／ 初回体験30分・500円',
-      button: '見学・体験を申し込む', href: 'https://lin.ee/cTSDajPz' },
+      button: '見学・体験を申し込む', href: 'https://lin.ee/YWWo4zb' },
   ]; // 合計 ≒ 60s
 
   const KIDS30 = [ // 練習前キッズ版(1メッセージ完結)
@@ -133,14 +133,14 @@ function parentSilhouette(x, yBottom, s, color) {
     { type: 'shadowturn', sec: 6.0, text: 'つめたい手…', turn: true },
     { type: 'openlight',  sec: 8.0, text: 'まもるために、つかおう！', turn: true },
     { type: 'cta', sec: 6.0, title: 'つよさは、やさしさに。',
-      subtitle: '', button: '', href: 'https://lin.ee/cTSDajPz' },
+      subtitle: '', button: '', href: 'https://lin.ee/YWWo4zb' },
   ]; // 合計 ≒ 25s (30秒枠)
 
   const SNS15 = [ // SNSフック
     { type: 'shadowturn', sec: 5.0, text: '', turn: true },
     { type: 'openlight',  sec: 6.0, text: '', turn: true },
     { type: 'cta', sec: 4.0, title: '強さを、光に変える場所。',
-      subtitle: '', button: '', href: 'https://lin.ee/cTSDajPz' },
+      subtitle: '', button: '', href: 'https://lin.ee/YWWo4zb' },
   ]; // 合計 ≒ 15s
 
   window.STORY = ({ main: MAIN, '60': SNS60, '30': KIDS30, '15': SNS15 })[cut] || MAIN;
@@ -218,7 +218,7 @@ node render.js --story=chikara --cut=15 --vertical
 **クロージング＋CTA**
 FLAT UP GYM は、世界一、初心者に優しい格闘技ジム。怒鳴らない。比べない。置いていかない。
 無理に入会は勧めません。まずは、練習する子の表情と、指導する大人の姿を見に来てください。
-**初回体験30分・500円／見学だけでもOK** → 公式LINE https://lin.ee/cTSDajPz
+**初回体験30分・500円／見学だけでもOK** → 公式LINE https://lin.ee/YWWo4zb
 
 ---
 

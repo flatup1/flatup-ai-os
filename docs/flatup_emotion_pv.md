@@ -71,7 +71,7 @@ FLAT UP GYM
 質問だけでも大歓迎です
 
 初回体験 30分・500円
-lin.ee/Y3MbbAe
+lin.ee/YWWo4zb
 ```
 
 ---
