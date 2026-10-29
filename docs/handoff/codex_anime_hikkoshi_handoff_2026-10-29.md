@@ -32,7 +32,7 @@ PR：#37（ドラフト。mainとの衝突なし。レビュー・CIはまだな
 | `docs/anime/manga_research/homage_guidelines.md` | ✅ ある |
 | `docs/anime/manga_research/research_brief.md` | ✅ ある（DB調査のルール） |
 | `scripts/merge_manga_db.py` | ✅ ある（調査結果のJSONをまとめてCSVとXLSXにする） |
-| `docs/anime/manga_research/works_database.csv` / `.xlsx` | ⏳ Claude が作っている途中。**作業を始める前に、このブランチにあるか確かめること**。あれば作り直さない |
+| `docs/anime/manga_research/works_database.csv` / `.xlsx` | ✅ 129作品。確認済み50、二次情報で確認78、未確認1。調査の制限は `manga_research/README.md` を読むこと。**作り直さない**。足りない作品だけ追加する |
 | 第1話の画像・動画・音声・完成MP4 | ❌ リポジトリにはない（まだ1枚も作っていない） |
 | 前の対話で作ったとされる97作品DB（xlsx・csv・zip）と統合制作バイブル.md | ❌ 4つのリポジトリの全ブランチにも、Googleドライブにもなかった。上の新しいDBで置き換える |
 | 「はじめてでも、だいじょうぶ。」 | ドライブに `I08_はじめてでも大丈夫.mp4` が2つ（2026-10-16）。HTMLとZIPは見つからない |
@@ -54,9 +54,9 @@ PR：#37（ドラフト。mainとの衝突なし。レビュー・CIはまだな
 
 ## 4. 次にやること（上から順に）
 
-1. ブランチに `works_database.csv` があるか確かめる
-   - ない場合：`research_brief.md` の形でJSONを作り、`python3 scripts/merge_manga_db.py <フォルダ> docs/anime/manga_research` でまとめる
-   - 調べる作品は 5章 の分担表のとおり
+1. 作品DBは完成済み。Webページを開ける環境なら、「二次情報で確認」の行を出版社のページで確かめ直す（任意）
+   - 作品を追加するときは、`research_brief.md` の形でJSONを作る
+   - 新しいJSONは `docs/anime/manga_research/raw/` に足す（例：`g7.json`）。そのあと `python3 scripts/merge_manga_db.py docs/anime/manga_research/raw docs/anime/manga_research` を実行する。CSVを直接書き換えると、次にまとめ直したとき消えてしまう
 2. §3 の1が決まったら、`hikkoshi_ep1_narita.md` を正本の脚本に合わせて直す
 3. 栄光くん・ママ・パパのモデルシート用プロンプトを作る（正面・横・後ろ・表情4種）。見た目は `hikkoshi_ep1_narita.md` の「固定ブロック」を使う
 4. 14カットのキーフレーム画像を作る
