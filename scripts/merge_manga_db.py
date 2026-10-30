@@ -16,7 +16,8 @@ COLS = [
     ("run_period", "連載期間"), ("volumes", "巻数"), ("genre_tags", "ジャンル"),
     ("related_works", "関連作品"), ("themes", "主なテーマ"), ("psychology", "心理描写"),
     ("dialogue_style", "セリフの特徴"), ("direction_style", "演出の特徴"),
-    ("gag_style", "ギャグの特徴"), ("flatup_use", "FLATUP活用案"),
+    ("gag_style", "ギャグの特徴"), ("flatup_priority", "FLATUP優先度"),
+    ("homage_mode", "演出モード"), ("flatup_use", "FLATUP活用案"),
     ("copyright_caution", "著作権上の注意"), ("net_reputation", "ネットの評判"),
     ("sources", "情報源"), ("checked_date", "確認日"), ("status", "確認状態"),
 ]
