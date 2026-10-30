@@ -148,4 +148,4 @@
   - 黒田: `big burly man, square crew cut, round sunglasses, all-black outfit, chain on his belt`
   - 黒川: `lanky hunched man, narrow sunglasses, black hoodie, laptop on his back`
   - 黒木: `small skinny young man, oversized sunglasses, baggy black leather jacket`
-- マサキとメルティは、バイブルの英語ブロックと canon 画像を使う
+- マサキとメルティは、バイブルの英語ブロックから **姿の部分だけ**を使う（3Dの指定・背景の文・`vertical 9:16, no text` は外し、上のページ別ブロックを付ける）。canon画像は顔・髪・服・体型の参照にだけ使う
