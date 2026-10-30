@@ -1,0 +1,315 @@
+<title>荷物が、多い。</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Yusei+Magic&family=Zen+Maru+Gothic:wght@500;700&display=swap">
+<style>
+/* Layout: cinema dark chrome around a 9:16 paper stage; player left, shot notes right, stacked on phones.
+   Look: ink-line manga storyboard. One warm accent (the gym's window light) against cool dark chrome. */
+:root{
+  --bg:#12141b; --panel:#1b1e28; --line:#2c3040; --fg:#eceef4; --muted:#9aa0b4;
+  --accent:#ffc861; --accent-ink:#2a1d00; --paper:#f4f3ef; --ink:#17171c; --bad:#ff8f8f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;line-height:1.6;
+  padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));margin:0}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:18px}
+h1{font-size:1.5rem;margin:0;letter-spacing:.02em;text-wrap:balance}
+.lead{margin:0;color:var(--muted);font-size:.92rem;max-width:62ch}
+.notice{background:#2a2216;border:1px solid #5a4620;color:#ffe3a6;border-radius:10px;padding:10px 14px;font-size:.88rem}
+.notice b{color:var(--accent)}
+.main{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:760px){.main{grid-template-columns:minmax(0,1fr)}}
+.player{display:grid;gap:10px;min-width:0}
+.stage{position:relative;aspect-ratio:9/16;width:100%;max-height:78vh;margin:0 auto;background:var(--paper);border-radius:14px;overflow:hidden;border:2px solid #000;box-shadow:0 0 0 1px var(--line),0 18px 40px #0008}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sub{position:absolute;left:6%;right:6%;top:17%;text-align:center;font-weight:700;font-size:clamp(15px,4.4cqw,22px);color:#fff;
+  -webkit-text-stroke:5px #000;paint-order:stroke fill;text-shadow:0 2px 0 #000;line-height:1.35;pointer-events:none}
+.stage{container-type:inline-size}
+.sub .who{display:block;font-size:.62em;-webkit-text-stroke:3px #000;opacity:.95}
+.sub.box{background:#000;color:#fff;-webkit-text-stroke:0;text-shadow:none;padding:.35em .7em;border:3px solid #fff;display:inline-block;left:50%;right:auto;transform:translateX(-50%);font-family:"Dela Gothic One","Zen Maru Gothic",sans-serif;letter-spacing:.08em;white-space:nowrap}
+.card{position:absolute;left:50%;transform:translateX(-50%);top:19%;background:#14161ce6;color:#fff;border:2px solid #fff;padding:.4em 1.1em;border-radius:6px;font-weight:700;font-size:clamp(16px,5.4cqw,26px);letter-spacing:.12em;white-space:nowrap;pointer-events:none}
+.card.small{font-size:clamp(11px,3.4cqw,16px);letter-spacing:.14em}
+.guide{position:absolute;inset:0;pointer-events:none}
+.guide i{position:absolute;left:0;right:0;border-top:1px dashed #ff3b5c}
+.guide .ok{top:11%;height:51%;border-top:1px dashed #1db37a;border-bottom:1px dashed #1db37a;background:#1db37a14}
+.guide .ng{top:65%;bottom:0;background:#ff3b5c26;border-top:1px dashed #ff3b5c}
+.guide span{position:absolute;right:6px;font-size:10px;color:#111;background:#ffffffcc;padding:0 4px;border-radius:3px}
+.hud{position:absolute;left:8px;top:8px;background:#000a;color:#fff;font-size:11px;padding:2px 8px;border-radius:99px;letter-spacing:.04em}
+.ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:40px}
+button:hover{border-color:#566}
+button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700;min-width:96px}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem;margin-left:auto}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.ticks{position:relative;height:16px;margin-top:-6px}
+.ticks i{position:absolute;top:0;width:1px;height:10px;background:#566}
+.toggles{display:flex;gap:14px;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}
+.toggles label{display:flex;gap:6px;align-items:center;cursor:pointer}
+.toggles input{accent-color:var(--accent);width:16px;height:16px}
+.side{display:grid;gap:14px;min-width:0}
+.now{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;gap:8px}
+.now h2{margin:0;font-size:1.15rem}
+.tag{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin-right:6px}
+.tag.gek{background:#000;color:#fff;border-color:#fff}
+dl{margin:0;display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:4px 10px;font-size:.88rem}
+dt{color:var(--muted)} dd{margin:0}
+.list{display:grid;gap:4px;max-height:340px;overflow:auto;padding-right:4px}
+.list button{display:grid;grid-template-columns:2.4em 6.4em minmax(0,1fr);gap:8px;text-align:left;padding:6px 10px;font-size:.84rem;min-height:36px;border-radius:8px}
+.list button[aria-current=true]{border-color:var(--accent);background:#2a2416}
+.list .n{color:var(--accent);font-variant-numeric:tabular-nums}
+.list .tm{color:var(--muted);font-variant-numeric:tabular-nums}
+.todo{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:.88rem}
+.todo h3{margin:0 0 6px;font-size:1rem}
+.todo ul{margin:0;padding-left:1.2em}
+.sfx{font-family:"Dela Gothic One","Zen Maru Gothic",sans-serif}
+.hand{font-family:"Yusei Magic","Zen Maru Gothic",sans-serif}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>荷物が、多い。</h1>
+    <p class="lead">45秒・縦9:16・15カット。台本の秒数どおりに、絵・字幕・効果音の合図が進みます。字幕は声なしで、1秒7字までです。</p>
+  </header>
+  <div class="notice"><b>これは完成品ではありません。</b>動く絵コンテ（仮の絵）です。家族3人の見た目がまだ決まっていないため、人物は記号的な形で描いています。テンポ、間、字幕の読みやすさ、絵の置き場所を確かめるためのものです。</div>
+
+  <div class="main">
+    <section class="player" aria-label="再生">
+      <div class="stage" id="stage">
+        <div id="art"></div>
+        <div class="guide" id="guide" hidden><div class="ok"><span style="top:2px">字幕・大事な絵はここ（上から11〜62%）</span></div><div class="ng"><span style="top:2px">アプリのボタンで隠れる所</span></div></div>
+        <div class="sub" id="sub" hidden></div>
+        <div class="card" id="card" hidden></div>
+        <div class="hud" id="hud">★1 ・ 0.0秒</div>
+      </div>
+      <div class="ctrl">
+        <button class="primary" id="play" type="button">▶ 再生</button>
+        <button id="restart" type="button">はじめから</button>
+        <span class="time" id="time">0.0 / 45.0秒</span>
+      </div>
+      <div>
+        <input id="scrub" type="range" min="0" max="4500" step="1" value="0" aria-label="再生位置">
+        <div class="ticks" id="ticks" aria-hidden="true"></div>
+      </div>
+      <div class="toggles">
+        <label for="tSub"><input id="tSub" type="checkbox" checked>字幕</label>
+        <label for="tSnd"><input id="tSnd" type="checkbox">効果音を鳴らす</label>
+        <label for="tGuide"><input id="tGuide" type="checkbox">安全な範囲を見る</label>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="now" aria-live="polite">
+        <h2 id="nTitle"></h2>
+        <div><span class="tag" id="nStyle"></span><span class="tag" id="nTime"></span></div>
+        <dl>
+          <dt>絵</dt><dd id="nDesc"></dd>
+          <dt>音</dt><dd id="nSound"></dd>
+          <dt>気持ち</dt><dd id="nEmo"></dd>
+        </dl>
+      </div>
+      <div class="list" id="list" role="list"></div>
+      <div class="todo">
+        <h3>完成までに必要なもの</h3>
+        <ul>
+          <li>家族3人（栄光くん・ママ・パパ）の見た目の決定（3案から選ぶ）</li>
+          <li>ジムの入口の実物（くつを脱ぐ場所、扉の形、見学の場所）</li>
+          <li>絵と動きの生成（費用がかかるため、承認が必要）</li>
+          <li>無音とスマホの実寸で、字幕が読めるかの確認</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var INK="#17171c",SKIN="#f7d6bd",HAIR="#2a2430";
+function path(d,f,sw){return '<path d="'+d+'" fill="'+(f||'none')+'" stroke="'+INK+'" stroke-width="'+(sw||3)+'" stroke-linejoin="round" stroke-linecap="round"/>'}
+function circ(x,y,r,f,sw){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+f+'" stroke="'+INK+'" stroke-width="'+(sw||3)+'"/>'}
+function rect(x,y,w,h,rx,f,sw){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+rx+'" fill="'+f+'" stroke="'+INK+'" stroke-width="'+(sw||3)+'" stroke-linejoin="round"/>'}
+function ln(x1,y1,x2,y2,sw,c){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+(c||INK)+'" stroke-width="'+(sw||3)+'" stroke-linecap="round"/>'}
+function sfx(x,y,t,size,rot,fill){return '<text class="sfx" x="'+x+'" y="'+y+'" font-size="'+(size||34)+'" transform="rotate('+(rot||-6)+' '+x+' '+y+')" fill="'+(fill||'#fff')+'" stroke="'+INK+'" stroke-width="7" paint-order="stroke" stroke-linejoin="round">'+t+'</text>'}
+function hand(t,x,y,size,rot,fill){return '<text class="hand" x="'+x+'" y="'+y+'" font-size="'+size+'" transform="rotate('+(rot||0)+' '+x+' '+y+')" fill="'+(fill||INK)+'">'+t+'</text>'}
+var DEFS='<defs><pattern id="hch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(40)"><line x1="0" y1="0" x2="0" y2="7" stroke="#17171c" stroke-width="1.6"/></pattern>'+
+ '<pattern id="dot" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#17171c"/></pattern></defs>';
+function svgUp(dy,g,inner){return svg('<g transform="translate(0 '+(-dy)+')">'+inner+'</g><rect y="'+(640-dy)+'" width="360" height="'+dy+'" fill="'+g+'"/>')}
+function svg(inner){return '<svg viewBox="0 0 360 640" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">'+DEFS+inner+'</svg>'}
+function bg(c){return '<rect width="360" height="640" fill="'+c+'"/>'}
+
+/* people (symbolic placeholders) */
+function boy(x,y,s,o){o=o||{};var tee=o.tee||"#9cc27a",g='<g transform="translate('+x+' '+y+') scale('+s+')">';
+ g+=rect(-18,12,15,36,6,SKIN)+rect(3,12,15,36,6,SKIN)+rect(-30,-82,60,70,14,tee)+rect(-28,-16,56,32,10,"#2f3b66");
+ if(o.towel)g+=rect(-28,-92,56,15,7,"#fff");
+ g+=circ(0,-118,34,SKIN);
+ if(o.back){g+=path('M-34,-118 a34,34 0 0 1 68,0 v8 q-34,24 -68,0z',HAIR)}
+ else{g+=path('M-35,-122 a35,34 0 0 1 70,0 q-18,-12 -36,-4 q-18,-10 -34,4z',HAIR)+path('M0,-152 q8,-14 14,-6','none',3);
+  var e=o.eyes||"norm";
+  if(e==="round"){g+=circ(-12,-114,9,"#fff",2.5)+circ(12,-114,9,"#fff",2.5)+circ(-12,-114,3.5,INK,1)+circ(12,-114,3.5,INK,1)+path('M-5,-96 q5,4 10,0','none',2.5)}
+  else if(e==="sleep"){g+=path('M-18,-114 q6,5 12,0','none',2.5)+path('M6,-114 q6,5 12,0','none',2.5)+'<ellipse cx="0" cy="-97" rx="4" ry="3.5" fill="#fff" stroke="'+INK+'" stroke-width="2.5"/>'}
+  else{g+=circ(-12,-114,3.5,INK,1)+circ(12,-114,3.5,INK,1)+ln(-19,-124,-8,-121,2.5)+ln(19,-124,8,-121,2.5)+path('M-5,-98 q5,4 10,0','none',2.5)}
+  g+=circ(-22,-104,5,"#f2a6a0",0)+circ(22,-104,5,"#f2a6a0",0)}
+ if(o.bottle)g+=rect(-10,-64,20,44,7,"#5aa0d8")+rect(-7,-72,14,10,3,"#fff",2.5)+circ(-26,-46,8,SKIN,2.5)+circ(26,-46,8,SKIN,2.5);
+ return g+'</g>'}
+function mama(x,y,s,o){o=o||{};var g='<g transform="translate('+x+' '+y+') scale('+s+')">';
+ g+=rect(-24,0,20,64,7,"#4f6a96")+rect(4,0,20,64,7,"#4f6a96")+rect(-36,-152,72,156,24,"#d8c3a0");
+ if(!o.back)g+=rect(-14,-152,28,62,10,"#fff");
+ g+=circ(0,-186,36,SKIN);
+ if(o.back){g+=path('M-37,-186 a37,37 0 0 1 74,0 v10 q-37,22 -74,0z','#6b4a3a')+path('M8,-160 q26,6 18,40 q-6,-24 -22,-30','#6b4a3a')}
+ else{g+=path('M-38,-190 a38,36 0 0 1 76,0 q-20,-14 -38,-6 q-18,-8 -38,6z','#6b4a3a');
+  if(o.worry){g+=circ(-13,-184,5,INK,1)+circ(13,-184,5,INK,1)+ln(-22,-198,-6,-203,3)+ln(22,-198,6,-203,3)+path('M-6,-166 q6,-3 12,0','none',2.5)+'<path d="M32,-196 q5,9 0,13 q-5,-4 0,-13z" fill="#bfe4ff" stroke="'+INK+'" stroke-width="2"/>'}
+  else if(o.soft){g+=path('M-20,-184 q7,-6 14,0','none',3)+path('M6,-184 q7,-6 14,0','none',3)+path('M-6,-166 q6,5 12,0','none',2.5)}
+  else{g+=circ(-13,-184,4.5,INK,1)+circ(13,-184,4.5,INK,1)+path('M-6,-166 q6,4 12,0','none',2.5)}}
+ return g+'</g>'}
+function papa(x,y,s,o){o=o||{};var g='<g transform="translate('+x+' '+y+') scale('+s+')">';
+ g+=rect(-24,0,20,66,7,"#6a6f7a")+rect(4,0,20,66,7,"#6a6f7a")+rect(-40,-156,80,160,26,o.jacket?"#3b4258":"#9aa0a8");
+ g+=circ(0,-192,37,SKIN);
+ if(o.back){g+=path('M-38,-192 a38,38 0 0 1 76,0 v8 q-38,20 -76,0z',INK)}
+ else{g+=path('M-39,-196 a39,37 0 0 1 78,0 q-20,-12 -39,-4 q-19,-8 -39,4z',INK)+circ(-14,-190,10,"none",3)+circ(14,-190,10,"none",3)+ln(-4,-190,4,-190,3)+circ(-14,-190,2.8,INK,1)+circ(14,-190,2.8,INK,1)+path('M-7,-172 q7,4 14,0','none',2.5)}
+ return g+'</g>'}
+function pack(x,y,s,bulge){var k=s*(bulge||1);return '<g transform="translate('+x+' '+y+') scale('+k+')">'+rect(-95,-120,190,230,44,"#d9693c")+rect(-62,20,124,62,16,"#ea8a5b")+ln(-40,50,40,50,3)+path('M-40,-120 q40,-34 80,0','none',6)+'</g>'}
+function lampRoom(c){return bg(c)}
+function houses(base,lit){var o='';var xs=[-10,100,210,300];for(var i=0;i<xs.length;i++){o+=rect(xs[i],base-120-(i%2)*20,110,200,4,"#2b3358");for(var j=0;j<4;j++){var on=lit||((i+j)%2===0);o+=rect(xs[i]+14+(j%2)*50,base-100-(i%2)*20+Math.floor(j/2)*50,34,30,3,on?"#ffd98a":"#3c4670",2.5)}}return o}
+function gymBg(){var o=bg("#f2f1ec");o+=rect(0,0,360,330,0,"#7cba52",0);o+=rect(0,330,360,310,0,"#f6f6f4",0);o+=ln(0,330,360,330,3);
+ o+=rect(40,150,70,190,16,"#f06ca5")+ln(75,100,75,150,3)+rect(250,150,70,190,16,"#f4cf3d")+ln(285,100,285,150,3);
+ o+=rect(130,70,100,16,3,"#e9e9e4",2.5);for(var i=0;i<5;i++)o+=circ(142+i*19,66,8,["#e84a4a","#3a6fe0","#222","#f4cf3d","#f06ca5"][i],2);return o}
+function masaki(x,y,s,wave){var g='<g transform="translate('+x+' '+y+') scale('+s+')">';
+ g+=rect(-20,0,15,56,6,SKIN)+rect(5,0,15,56,6,SKIN)+rect(-34,-132,68,134,18,"#1f1f26")+rect(-30,-12,60,34,10,"#3a6fe0");
+ g+=circ(0,-166,32,SKIN)+path('M-34,-170 l6,-26 l12,12 l8,-24 l10,22 l12,-14 l8,22 l-4,10 q-26,-14 -52,0z',INK);
+ g+=circ(-11,-164,4,INK,1)+circ(11,-164,4,INK,1)+path('M-10,-148 q10,12 20,0','#fff',2.5);
+ g+=wave?ln(34,-110,66,-170,12,SKIN)+circ(68,-176,10,SKIN,2.5)+ln(34,-110,66,-170,3):'';
+ return g+'</g>'}
+function kidSil(x,y,s){return '<g transform="translate('+x+' '+y+') scale('+s+')">'+circ(0,-56,18,"#55627a",2.5)+rect(-18,-38,36,40,10,"#55627a",2.5)+'</g>'}
+
+/* shots */
+var HAT='<rect width="360" height="640" fill="#fff"/><rect width="360" height="640" fill="url(#hch)" opacity=".12"/>';
+function f1a(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+pack(180,380,1)+rect(120,205,120,26,6,"#e9eef7")+circ(112,222,18,SKIN)+circ(248,222,18,SKIN)+sfx(40,170,"ギギッ",34,-8))}
+function f1b(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+pack(180,375,1,1.14)+ln(70,250,48,230,4,"#fff")+ln(290,250,312,230,4,"#fff")+ln(70,420,46,436,4,"#fff")+ln(290,420,314,436,4,"#fff")+sfx(110,170,"ギュッ",40,-6,"#ffe08a"))}
+function f1c(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+rect(212,100,100,128,4,"#f4f3ef")+path('M232,140 l14,-8 l14,8 v14 h-28z','#9cc27a',2.5)+rect(236,164,26,12,3,"#fff",2.5)+rect(262,160,14,24,5,"#5aa0d8",2.5)+ln(224,200,300,200,2.5)+boy(150,430,1.7,{towel:true,bottle:true,eyes:"round"}))}
+function dramaBase(inner){return svg(HAT+inner)}
+function f2a(){var o='';o+='<rect x="0" y="420" width="360" height="220" fill="#17171c"/>';for(var i=0;i<5;i++)o+=rect(34+i*60,380,48,34,5,"#fff",3.5)+ln(40+i*60,396,76+i*60,396,2);o+='<g transform="translate(180 330)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+ln(-14,-76,-4,-74,3.5)+ln(14,-76,4,-74,3.5)+'<path d="M40,-86 q5,9 0,13 q-5,-4 0,-13z" fill="#fff" stroke="'+INK+'" stroke-width="2.5"/></g>';o+=sfx(70,200,"ドォン",52,-8);return dramaBase(o)}
+function f2b(){var o='<rect x="0" y="420" width="360" height="220" fill="#17171c"/>';for(var i=0;i<3;i++)o+=path('M'+(50+i*52)+',410 l22,-44 l22,44z',"#fff",3.5);o+=rect(236,372,90,42,6,"#fff",3.5)+ln(246,393,316,393,2.5)+path('M276,386 v14 M269,393 h14','none',3.5)+'<g transform="translate(180 300)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+'</g>'+sfx(90,190,"ドォン",52,6);return dramaBase(o)}
+function f2c(){var o='<rect x="0" y="470" width="360" height="170" fill="#17171c"/>';o+=rect(60,420,90,44,6,"#fff",3.5)+rect(212,424,76,40,6,"#fff",3.5);o+='<g transform="translate(180 330)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+'</g>'+rect(160,190,40,52,10,"#fff",3.5)+path('M170,190 q10,-16 20,0','none',3.5)+ln(180,150,180,120,3)+ln(140,170,120,150,3)+ln(220,170,240,150,3)+sfx(80,160,"ドォン",52,-6);return dramaBase(o)}
+function f3(){return svg(bg("#efe6d6")+rect(0,430,360,210,0,"#c9b896",0)+ln(0,430,360,430,3)+rect(190,90,140,340,6,"#d9cdb4")+papa(260,420,1.1)+rect(238,262,50,10,5,"#fff",2.5)+ln(262,262,262,252,3)+mama(110,540,.62,{back:false,soft:false})+pack(100,500,.75)+'<g opacity=".0"></g>')}
+function f4a(){return svg(bg("#15183a")+rect(0,420,360,220,0,"#222850",0)+rect(40,320,280,120,14,"#2c3566")+'<g transform="translate(120 330)">'+circ(0,0,32,SKIN)+path('M-32,-4 a32,32 0 0 1 64,0 q-16,-10 -32,-3 q-16,-8 -32,3z',HAIR)+path('M-18,2 q6,5 12,0','none',2.5)+path('M6,2 q6,5 12,0','none',2.5)+'</g>'+rect(150,326,80,50,12,"#9cc27a")+rect(206,318,22,44,8,"#5aa0d8")+'<g transform="translate(250 330)">'+circ(0,0,30,SKIN)+path('M-30,-4 a30,30 0 0 1 60,0 q-14,-14 -30,-4 q-16,-10 -30,4z','#6b4a3a')+circ(-11,2,8,"#fff",2.5)+circ(11,2,8,"#fff",2.5)+circ(-11,2,3,INK,1)+circ(11,2,3,INK,1)+'</g>'+hand("z Z",60,260,36,-8,"#9aa6e8"))}
+function f4b(){return svg(bg("#1b2146")+rect(60,120,240,380,10,"#222a58")+pack(180,330,.95)+rect(112,150,136,70,8,"#fff",3.5)+rect(124,134,112,24,4,"#fff",3)+path('M138,134 q42,-26 84,0','#fff',2.5)+hand("ママ用",130,200,40,-3)+rect(54,176,64,44,20,SKIN)+rect(242,176,64,44,20,SKIN)+sfx(236,120,"カサ",26,8))}
+function f5(){return svgUp(170,'#363e66',bg("#2a3768")+rect(0,0,360,200,0,"#4a4f8a",0)+houses(470,false)+rect(0,470,360,170,0,"#363e66",0)+mama(215,610,.9,{back:true})+pack(215,520,.78)+boy(112,610,.95,{back:true,towel:true,bottle:false})+ln(138,520,165,520,5))}
+function f6(){var o=gymBg()+masaki(180,420,.95,true);for(var i=0;i<6;i++)o+=kidSil(60+i*48,520,.8);return svg(o)}
+function f7a(){return svg(bg("#ffe9c9")+'<g transform="translate(110 380)">'+rect(-30,-30,110,60,30,SKIN)+circ(78,0,34,SKIN)+'</g>'+'<g transform="translate(250 360)">'+rect(-130,-34,170,68,34,SKIN)+rect(-40,-38,70,24,12,SKIN,2.5)+ln(-40,-12,30,-12,2.5)+ln(-40,10,30,10,2.5)+'</g>'+ln(180,200,180,170,4)+ln(150,210,130,184,4)+ln(210,210,230,184,4))}
+function f7b(){return svg(bg("#ffe9c9")+'<g transform="translate(110 380)">'+rect(-30,-30,110,60,30,SKIN)+circ(78,0,34,SKIN)+'</g>'+'<g transform="translate(250 360)">'+rect(-130,-34,170,68,34,SKIN)+rect(-40,-38,70,24,12,SKIN,2.5)+'</g>'+'<g transform="translate(130 300)">'+circ(0,0,30,SKIN,3)+ln(-34,24,34,-14,3)+'</g>'+ln(90,200,80,176,4))}
+function mats(){return bg("#f6f6f4")+rect(0,0,360,230,0,"#7cba52",0)+ln(0,230,360,230,3)}
+function f8a(){var o=mats();for(var i=0;i<5;i++)o+=kidSil(40+i*62,440,.9);o+='<g transform="translate(170 500)">'+rect(-30,-14,100,30,15,SKIN)+circ(74,0,18,SKIN)+'</g>'+sfx(40,330,"ぽん",44,-8)+masaki(300,200,.5,false)+'<g transform="translate(300 140)">'+rect(-24,0,48,14,7,SKIN,2.5)+'</g>';return svg(o)}
+function f8b(){return svg(bg("#fbefe0")+'<g transform="translate(180 360)">'+circ(0,0,110,SKIN)+path('M-114,-20 a114,110 0 0 1 228,0 q-60,-50 -114,-30 q-54,-20 -114,30z','#6b4a3a')+circ(-40,10,12,INK,1)+circ(40,10,12,INK,1)+ln(-64,-22,-20,-34,5)+ln(64,-22,20,-34,5)+path('M-18,66 q18,-12 36,0','none',4)+'<path d="M102,-30 q10,18 0,28 q-10,-8 0,-28z" fill="#bfe4ff" stroke="'+INK+'" stroke-width="3"/></g>')}
+function f8c(){return svg(bg("#ffe9c9")+'<g transform="translate(120 360)">'+rect(-50,-34,120,68,34,SKIN)+circ(70,0,36,SKIN)+'</g>'+'<g transform="translate(250 330)">'+rect(-34,-40,150,80,40,SKIN)+ln(-34,-10,-70,-30,10,SKIN)+'</g>'+ln(150,390,196,360,5))}
+function f8d(){return svg(mats()+rect(30,430,300,170,0,"#ffffff",0)+'<g transform="translate(180 420)">'+path('M-30,0 q-4,-40 26,-44 q30,4 24,44 q-2,28 -22,28 q-22,0 -28,-28z',SKIN)+ln(-24,-12,24,-12,2)+'</g>'+sfx(200,300,"ぺた",44,-6)+ln(180,150,180,120,3))}
+function f9(tw){return svg(bg("#f6e7cf")+'<g transform="translate(180 330)">'+rect(-34,-90,68,130,30,SKIN)+path('M-34,-70 q-6,-30 6,-34 M-10,-92 q-6,-30 8,-34 M14,-92 q2,-30 16,-30 M34,-70 q8,-26 20,-20',"none",4)+(tw?ln(20,-100,26,-130,9,SKIN)+ln(20,-100,26,-130,3):'')+'</g>'+'<g opacity=".55">'+circ(300,120,10,"#9cc27a",2.5)+rect(292,128,16,22,6,"#9cc27a",2.5)+'</g>'+'<g transform="translate(180 330)">'+ln(0,40,0,70,3)+'</g>')}
+function f9d(){return svg(bg("#f6e7cf")+'<g transform="translate(180 360)">'+rect(-34,-60,68,100,30,SKIN)+path('M-34,-40 q-6,-24 6,-26 M-10,-62 q-6,-22 8,-26',"none",4)+'</g>')}
+function f10a(){return svgUp(150,'#f6f6f4',bg("#fbefe0")+rect(0,430,360,210,0,"#f6f6f4",0)+ln(0,430,360,430,3)+mama(170,560,1.05,{worry:true})+ln(250,360,270,360,5)+ln(250,380,276,380,5))}
+function f10b(){return svgUp(140,'#e6dcc6',bg("#fbefe0")+rect(0,420,360,220,0,"#e6dcc6",0)+ln(0,420,360,420,3)+mama(180,600,.8,{back:false,soft:false})+pack(180,520,.8)+rect(250,150,70,44,10,"#d9cdb4")+'<g transform="translate(250 160)">'+rect(-30,-12,54,22,11,"#4f6a96",2.5)+'</g>'+rect(290,420,52,34,8,"#8c6ac0"))}
+function f11a(){var o=gymBg();o+=masaki(240,440,.85,false);for(var i=0;i<4;i++)o+='<g transform="translate('+(40+i*30)+' 500) rotate(26)">'+kidSil(0,0,.7)+'</g>';o+='<g transform="translate(150 520) rotate(8)">'+kidSil(0,0,.8)+'</g>';return svg(o)}
+function f11b(){var o=gymBg()+masaki(240,440,.85,false);o+=kidSil(90,520,.8)+kidSil(40,520,.8)+boy(150,520,.8,{back:true,tee:"#9cc27a"});o+='<g transform="translate(30 150)">'+rect(0,0,70,50,8,"#e8dcc2",3)+'</g>';return svg(o)}
+function f11c(){return svg(bg("#d9cdb4")+'<g transform="translate(180 440)">'+pack(0,60,1.15)+'</g>'+'<g transform="translate(180 260)">'+path('M-70,0 q70,-40 140,0 q-70,40 -140,0z',"#fff",3.5)+circ(-26,0,15,INK,1)+circ(26,0,15,INK,1)+path('M-62,-26 q62,-22 124,0','none',4)+'</g>')}
+function f12a(){var o=gymBg();for(var i=0;i<4;i++)o+=kidSil(60+i*66,520,.8);return svg(o)}
+function f12b(){return svgUp(150,'#e6dcc6',bg("#fbefe0")+rect(0,440,360,200,0,"#e6dcc6",0)+ln(0,440,360,440,3)+papa(120,590,1,{jacket:true})+pack(230,540,.78)+'<g transform="translate(210 380)">'+circ(0,0,16,SKIN,2.5)+circ(60,0,16,SKIN,2.5)+rect(-10,-12,80,24,8,"#d9693c",0)+'</g>'+ln(220,300,220,276,4)+ln(250,306,264,286,4)+hand("ぐぐっ",180,270,28,-8,"#17171c"))}
+function f13a(){return svg(bg("#3a3e52")+'<g transform="translate(180 360)">'+rect(-130,-190,260,330,44,"#d9693c")+path('M-100,-190 q100,70 200,0 q-30,-30 -100,-30 q-70,0 -100,30z',"#a8431e",3.5)+rect(-60,-140,70,64,10,"#f4f1e8")+rect(0,-60,80,60,10,"#e9eef7")+'</g>'+ln(150,250,170,250,2.5))}
+function f13b(){return svg(bg("#3a3e52")+'<g transform="translate(180 330)">'+rect(-130,-190,260,330,44,"#d9693c")+rect(-96,-120,192,130,24,"#ea8a5b")+'</g>'+rect(120,215,120,86,8,"#fff",3.5)+rect(136,196,88,28,4,"#fff",3)+path('M150,196 q30,-30 60,0','#fff',2.5)+'<g transform="translate(180 262)">'+rect(-40,-12,80,50,6,"#f4f3ef",2.5)+hand("ママ用",-32,22,22,-3)+'</g>')}
+function f14a(){return svgUp(170,'#363e66',bg("#2a3768")+rect(0,200,360,440,0,"#363e66",0)+houses(440,false)+mama(120,610,.82,{back:true})+boy(250,610,.95,{back:true,towel:true})+ln(118,456,60,420,6,SKIN)+ln(118,456,60,420,3)+rect(40,400,14,40,6,"#5aa0d8")+hand("ぺらぺら",190,330,22,-4,"#fff"))}
+function f14b(){return svgUp(170,'#363e66',bg("#2a3768")+houses(440,false)+rect(0,440,360,200,0,"#363e66",0)+papa(120,610,.9,{back:true,jacket:true})+pack(120,500,.8,1)+mama(270,610,.8,{back:true})+boy(210,620,.65,{back:true}))}
+function f15a(){return svgUp(170,'#2e3560',bg("#222a4a")+houses(450,true)+rect(0,450,360,190,0,"#2e3560",0)+papa(115,610,.95,{back:true,jacket:true})+pack(115,500,1)+boy(215,615,.78,{back:true,towel:true})+ln(190,520,150,566,5,SKIN)+mama(300,612,.8,{back:true}))}
+function f15b(){return svgUp(170,'#2e3560',bg("#222a4a")+houses(450,true)+rect(0,450,360,190,0,"#2e3560",0)+papa(115,610,.95,{back:true,jacket:true})+pack(115,500,1)+boy(215,615,.78,{back:true,towel:true})+mama(300,612,.8,{back:true})+ln(274,470,236,500,5,SKIN))}
+
+var SHOTS=[
+{n:1,a:0,b:3,title:"念のため",st:"2D",desc:"夜の玄関。ママがパンパンのリュックにTシャツをもう1枚押しこむ。手前で栄光くんが、自分で用意したタオルと水筒を抱えている。",snd:"ファスナーの「ギギッ」→「ギュッ」",emo:"？（何の荷物？）→ くすっ",fr:[[.8,f1a],[1.8,f1b],[3,f1c]]},
+{n:2,a:3,b:7,title:"大遠征の、夜",st:"劇画",desc:"白黒の劇画パロディ。はちまきのママが、荷物をよろいの部品のように確かめる。ここだけ劇画（全体の9%）。",snd:"太鼓「ドォン」×3",emo:"大げさ（笑い）",fr:[[1.3,f2a],[2.6,f2b],[4,f2c]]},
+{n:3,a:7,b:9,title:"……遠足？",st:"2D",desc:"カラーに戻る。歯ブラシをくわえたパパが、リュックとママを見くらべる。",snd:"太鼓の余韻が「ぷつっ」と切れる",emo:"格好つけた直後の、生活感の笑い",fr:[[2,f3]]},
+{n:4,a:9,b:12.5,title:"ママ用",st:"2D",desc:"眠れないのはママのほう。月明かりの玄関で、ティッシュ箱をリュックの上のポケットにそっと入れる。箱の紙に「ママ用」。",snd:"時計のコチコチ、寝息、ポケットの小さな「カサ」",emo:"子どもより、親が眠れない（共感）",fr:[[1.5,f4a],[3.5,f4b]]},
+{n:5,a:12.5,b:15,title:"次の日。",st:"2D",desc:"夕方の住宅街。巨大なリュックのママと、手をつなぐ栄光くんを、後ろから。窓には灯り。",snd:"2人の足音、遠くの車の音",emo:"いよいよ",fr:[[2.5,f5]]},
+{n:6,a:15,b:17.5,title:"扉が開く",st:"2D",desc:"ジムの入口。扉の奥から温かい光。マサキが大きく手をふる（しゃがまない、近づかない）。子どもたちは小さく、顔なし。",snd:"扉の音、子どもたちのざわめき",emo:"安心（怒鳴らない、明るい）",fr:[[2.5,f6]]},
+{n:7,a:17.5,b:20,title:"ぎゅっ",st:"2D",desc:"つないだ手のアップ。栄光くんの小さな右手が、ママの左手の指をにぎり直す。ママの親指が、手の甲を1回なでる。",snd:"外の音が少し遠くなる",emo:"緊張（子も親も）",fr:[[1.2,f7a],[2.5,f7b]]},
+{n:8,a:20,b:25,title:"自分で、はなす",st:"2D",desc:"列のはしの子が場所を空ける。見上げるとママの心配そうな目。指が1本ずつ開く（小指だけ一瞬ひっかかる）。裸足が白いマットに1歩のる。手をはなしたのは栄光くんから。",snd:"マットの「ぽん」→ 息をのむ →「ぺた」",emo:"子どもが自分で選ぶ（山場）",fr:[[1.5,f8a],[2.8,f8b],[4.2,f8c],[5,f8d]]},
+{n:9,a:25,b:27.5,title:"宙の手",st:"2D",desc:"ママの左手が、つないだ形のまま空中に2秒残る。奥で栄光くんの背中が小さくなる。指が1本ぴくっと動いて、ゆっくり下りる。",snd:"BGMなし。遠くのざわめきだけ",emo:"手をはなされた（じんわり）",fr:[[2,function(){return f9(false)}],[2.1,function(){return f9(true)}],[2.5,f9d]]},
+{n:10,a:27.5,b:30,title:"見守る",st:"2D",desc:"ママは追いかけない。半歩だけ前に出て、止まる。見学の場所に座ぶとんが置かれ、ママはリュックをひざに抱えて座る。",snd:"リュックを下ろす「どさっ」",emo:"手をはなしても、見守る。迎えてもらえた",fr:[[1.4,f10a],[2.5,f10b]]},
+{n:11,a:30,b:33.5,title:"礼",st:"2D",desc:"クラスのはじめの礼。栄光くんは一拍おくれて、でもちゃんと頭を下げる。頭を上げて、見学の場所を1回だけ見る。リュックの上から、目だけ出したママ。",snd:"みんなの衣ずれ「ざっ」。やさしいBGMが小さく入る",emo:"小さな「できた」→ 親の安心",fr:[[1.5,f11a],[2,f11b],[3.5,f11c]]},
+{n:12,a:33.5,b:36,title:"……おもっ。",st:"2D",desc:"クラスが終わる。仕事帰りのパパが、リュックを片手で持ち上げようとして、持ち上がらない。両手に持ちかえて、腰を入れる。",snd:"子どもたちの足音と衣ずれ →「ずしっ」",emo:"笑い（この話の後半の笑いは、これ1回だけ）",fr:[[.5,f12a],[2.5,f12b]]},
+{n:13,a:36,b:39,title:"1枚だけ",st:"2D",desc:"パパの目線。リュックの口：ラップに包まれたままのおにぎり、たたんだままのTシャツ。上のポケットで、「ママ用」のティッシュ箱だけ、1枚が出ている。",snd:"BGMが止まる。ファスナーの「ジ……」",emo:"気づく（何も使っていない。1枚だけ）",fr:[[1.5,f13a],[3,f13b]]},
+{n:14,a:39,b:41.5,title:"言わない",st:"2D",desc:"少し先で、ママがしゃがんで栄光くんの話を聞いている。ママは見ないまま、片手でお茶をパパに差し出す。パパはファスナーを閉め、リュックを背負って、一瞬よろける。",snd:"ファスナーの「ジーッ」、小さく「よっ」",emo:"パパの気づき（言わない優しさ）",fr:[[1.2,f14a],[2.5,f14b]]},
+{n:15,a:41.5,b:45,title:"帰り道",st:"2D",desc:"夜の帰り道。家々の窓に灯り。パパのリュックの底を、栄光くんが下から支える（つもり）。ママの空いた左手が、栄光くんの頭に一度だけふれる。最後に小さくジム名。",snd:"足音。BGMの最後の1音",emo:"小さな優しさが残る",fr:[[1.5,f15a],[3.5,f15b]]}
+];
+
+var SUBS=[
+{a:.3,b:3,who:"ママ♪",t:"……念のため、もうひとつ。"},
+{a:3.3,b:5.3,t:"大遠征の、夜。",box:true},
+{a:7.2,b:9,who:"パパ",t:"……遠足？"},
+{a:34.3,b:35.8,who:"パパ",t:"……おもっ。"}
+];
+var CARDS=[{a:12.5,b:15,t:"次の日。"},{a:42.5,b:45,t:"FLATUP GYM（成田）",small:true}];
+var CUES=[[0,"zip"],[.9,"zip"],[3,"drum"],[3.8,"drum"],[4.6,"drum"],[7.1,"cut"],[11.7,"kasa"],[12.7,"step"],[13.1,"step"],[15,"door"],[21.2,"pop"],[24.6,"step"],[29.7,"thud"],[31,"rustle"],[34.8,"thud"],[37.9,"zi"],[40.6,"zi"],[43,"note"]];
+var TOTAL=45;
+
+/* audio (synthesized cues) */
+var ac=null;
+function AC(){if(!ac){var C=window.AudioContext||window.webkitAudioContext;if(C){try{ac=new C()}catch(e){ac=null}}}return ac}
+function tone(f,d,type,v,f2){var a=AC();if(!a)return;var o=a.createOscillator(),g=a.createGain();o.type=type||"sine";o.frequency.setValueAtTime(f,a.currentTime);if(f2)o.frequency.exponentialRampToValueAtTime(f2,a.currentTime+d);g.gain.setValueAtTime(v,a.currentTime);g.gain.exponentialRampToValueAtTime(.0008,a.currentTime+d);o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+d)}
+function noise(d,v,fc){var a=AC();if(!a)return;var n=Math.floor(a.sampleRate*d),b=a.createBuffer(1,n,a.sampleRate),x=b.getChannelData(0);for(var i=0;i<n;i++)x[i]=(Math.random()*2-1)*(1-i/n);var s=a.createBufferSource();s.buffer=b;var f=a.createBiquadFilter();f.type="lowpass";f.frequency.value=fc;var g=a.createGain();g.gain.value=v;s.connect(f);f.connect(g);g.connect(a.destination);s.start()}
+var SND={zip:function(){noise(.35,.2,2200)},drum:function(){tone(90,.4,"sine",.7,38)},cut:function(){tone(300,.05,"square",.05)},kasa:function(){noise(.12,.12,5000)},step:function(){noise(.08,.28,600)},door:function(){tone(160,.25,"triangle",.2,90)},pop:function(){tone(560,.09,"sine",.3,320)},thud:function(){tone(70,.3,"sine",.7,34)},rustle:function(){noise(.45,.08,3500)},zi:function(){noise(.55,.12,2800)},note:function(){tone(392,1.4,"triangle",.18)}};
+
+/* ui */
+var $=function(id){return document.getElementById(id)};
+var art=$("art"),subEl=$("sub"),cardEl=$("card"),hud=$("hud"),scrub=$("scrub"),timeEl=$("time"),playBtn=$("play"),list=$("list");
+var t=0,playing=false,last=0,shotI=-1,frI=-1,cueI=0;
+
+function f1(x){return x.toFixed(1)}
+(function build(){
+ var tk=$("ticks"),i,h="";
+ for(i=0;i<SHOTS.length;i++){tk.insertAdjacentHTML("beforeend",'<i style="left:'+(SHOTS[i].a/TOTAL*100)+'%"></i>')}
+ for(i=0;i<SHOTS.length;i++){var s=SHOTS[i];h+='<button type="button" data-i="'+i+'"><span class="n">★'+s.n+'</span><span class="tm">'+f1(s.a)+'–'+f1(s.b)+'秒</span><span>'+s.title+'</span></button>'}
+ list.innerHTML=h;
+ list.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;seek(SHOTS[+b.getAttribute("data-i")].a)});
+})();
+
+function seek(x){t=Math.max(0,Math.min(TOTAL-.001,x));cueI=0;while(cueI<CUES.length&&CUES[cueI][0]<t)cueI++;render(true)}
+function shotAt(x){for(var i=0;i<SHOTS.length;i++){if(x<SHOTS[i].b)return i}return SHOTS.length-1}
+function frameAt(s,x){var lt=x-s.a;for(var i=0;i<s.fr.length;i++){if(lt<s.fr[i][0])return i}return s.fr.length-1}
+
+function render(force){
+ var si=shotAt(t),s=SHOTS[si],fi=frameAt(s,t);
+ if(force||si!==shotI||fi!==frI){art.innerHTML=s.fr[fi][1]();}
+ if(force||si!==shotI){
+  $("nTitle").textContent="★"+s.n+"　"+s.title;
+  var st=$("nStyle");st.textContent=s.st==="劇画"?"白黒の劇画":"2D漫画絵";st.className="tag"+(s.st==="劇画"?" gek":"");
+  $("nTime").textContent=f1(s.a)+"〜"+f1(s.b)+"秒（"+f1(s.b-s.a)+"秒）";
+  $("nDesc").textContent=s.desc;$("nSound").textContent=s.snd;$("nEmo").textContent=s.emo;
+  var bs=list.children;for(var i=0;i<bs.length;i++){bs[i].setAttribute("aria-current",i===si?"true":"false")}
+  var cur=bs[si];if(cur&&cur.scrollIntoView&&playing){try{cur.scrollIntoView({block:"nearest"})}catch(e){}}
+ }
+ shotI=si;frI=fi;
+ var on=$("tSub").checked,sh=null,k;
+ for(k=0;k<SUBS.length;k++){if(t>=SUBS[k].a&&t<SUBS[k].b){sh=SUBS[k]}}
+ if(sh&&on){subEl.hidden=false;subEl.className="sub"+(sh.box?" box":"");subEl.innerHTML=(sh.who?'<span class="who">'+sh.who+'</span>':'')+sh.t}else{subEl.hidden=true}
+ var cd=null;for(k=0;k<CARDS.length;k++){if(t>=CARDS[k].a&&t<CARDS[k].b)cd=CARDS[k]}
+ if(cd){cardEl.hidden=false;cardEl.className="card"+(cd.small?" small":"");cardEl.textContent=cd.t}else{cardEl.hidden=true}
+ hud.textContent="★"+s.n+"　"+f1(t)+"秒";
+ scrub.value=Math.round(t*100);timeEl.textContent=f1(t)+" / "+f1(TOTAL)+"秒";
+}
+function tick(now){
+ if(!playing)return;
+ var dt=(now-last)/1000;last=now;if(dt>.25)dt=.25;
+ t+=dt;
+ if(t>=TOTAL){t=TOTAL-.001;render(false);stop();return}
+ while(cueI<CUES.length&&CUES[cueI][0]<=t){if($("tSnd").checked&&SND[CUES[cueI][1]])SND[CUES[cueI][1]]();cueI++}
+ render(false);requestAnimationFrame(tick)
+}
+function play(){if(t>=TOTAL-.01)seek(0);playing=true;last=performance.now();playBtn.textContent="❚❚ 止める";if($("tSnd").checked){var a=AC();if(a&&a.state==="suspended")a.resume()}requestAnimationFrame(tick)}
+function stop(){playing=false;playBtn.textContent="▶ 再生"}
+playBtn.addEventListener("click",function(){playing?stop():play()});
+$("restart").addEventListener("click",function(){seek(0);if(!playing)play()});
+scrub.addEventListener("input",function(){seek(+scrub.value/100)});
+$("tSub").addEventListener("change",function(){render(false)});
+$("tSnd").addEventListener("change",function(){if(this.checked){var a=AC();if(a&&a.state==="suspended")a.resume();tone(440,.12,"sine",.12)}});
+$("tGuide").addEventListener("change",function(){$("guide").hidden=!this.checked});
+document.addEventListener("keydown",function(e){if(e.code==="Space"&&e.target.tagName!=="BUTTON"&&e.target.tagName!=="INPUT"){e.preventDefault();playing?stop():play()}});
+render(true);
+})();
+</script>
