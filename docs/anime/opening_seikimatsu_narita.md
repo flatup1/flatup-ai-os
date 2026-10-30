@@ -41,3 +41,9 @@
 | 8 | `Exterior of a cozy martial arts gym at sunset, three former thugs in black with sunglasses pushed up, kneeling politely in a row and bowing, holding focus mitts, the smiling instructor bowing back, warm hopeful mood, empty space at top for a title` ＋3D接尾 |
 
 動きをつけるのは Cut 6 と Cut 7 だけで十分。残りは、ゆっくり寄るカメラワークで見せる。
+
+## 体験への案内（オムニバス共通のルール）
+
+- **各話の頭に付けるとき**：Cut 8 で終える（案内は各話の最後に入る）。
+- **オープニングだけを単独で投稿するとき**：Cut 9（6秒・計54秒）として「灯りのエンドカード」を足す。橋渡しのセリフは、三人衆が声をそろえて「オレたちにも、できたんスから。」。
+- エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。

@@ -1,6 +1,6 @@
 # FLATUP アニメ 引っ越しシリーズ 第1話「成田へ、引っ越します。」制作仕様
 
-**結論**: 引っ越し前の家で、保護者が5歳の息子を心配する約84秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルで本編に入る。**14カット×6秒**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
+**結論**: 引っ越し前の家で、保護者が5歳の息子を心配する約90秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルのあと、**体験の案内（灯りのエンドカード）で終わる**。**15カット×6秒**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
 
 > 📖 キャラ・世界観の正本 → [../flatup_animation_bible.md](../flatup_animation_bible.md)
 > 🛠 制作手順・費用の目安 → [../flatup_anime_episode1.md](../flatup_anime_episode1.md)（cheap 方式なら画像14枚で約 $0.5）
@@ -21,7 +21,7 @@
 | 項目 | 値 |
 |---|---|
 | タイトル | 引っ越しシリーズ 第1話「成田へ、引っ越します。」 |
-| 尺 | 約84秒（6秒×14カット） |
+| 尺 | 約90秒（6秒×15カット） |
 | 画面 | 縦 9:16 |
 | 画風 | 現実パート＝温かい3D映画風（EP1と同じ）／妄想パート＝白黒の劇画パロディ（集中線・スクリーントーン） |
 | 切り替え | 妄想に入るとき「ガガーン」の効果音＋白フラッシュ。戻るときはママの「……」で色が戻る |
@@ -41,7 +41,7 @@
 
 ---
 
-## 絵コンテ（14カット）
+## 絵コンテ（15カット）
 
 | # | 尺 | パート | 画（何が見えるか） | 動き | セリフ・字幕（15字以内） |
 |---|---|---|---|---|---|
@@ -59,6 +59,9 @@
 | 12 | 6s | 現実 | 栄光くんがスマホをのぞきこみ、目がキラッと光る。画面にはメルティの笑顔 | 目が輝く | ……ぼく、これ、やってみたい。 |
 | 13 | 6s | 現実 | ママとパパが顔を見合わせて、少し笑う。スマホからアイカの声 | 見合わせる→ほほえむ | 強くなる前に、優しくなろう。 |
 | 14 | 6s | タイトル | 黒い画面にタイトル→夜明けの成田の空に飛行機 | ロゴがドンッと出る | 世界一、初心者に優しい格闘技ジム |
+| 15 | 6s | 灯りのエンドカード | 夕焼けのFLATUP GYMの窓に、温かい灯り。手前に、ミットを抱えた栄光くんの後ろ姿 | 灯りがふわっと強くなる。文字は後から重ねる | （マサキの声）こわかったら、まずは見るだけでいいよ。→ エンドカード（下のメモ） |
+
+> エンドカード（Cut 15）：「まずは、見るだけでも。」「初回体験 500円（30分）／見学OK」「キッズクラス：火・木 18:00〜19:00／土 13:00〜」「ご予約・ご相談は 公式LINE から」＋QRコード。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
 
 > 字幕メモ: Cut 11「一歩ずつ、一緒にできるようになろう！」とCut 14のタイトルは15字を超えるので、2行に分ける（「一歩ずつ、／一緒にできるようになろう！」「世界一、初心者に優しい／格闘技ジム」）。
 
@@ -81,6 +84,8 @@ Cut11 マサキ 一歩ずつ、一緒にできるようになろう！
 Cut12 栄光   ……ぼく、これ、やってみたい。
 Cut13 アイカ 強くなる前に、優しくなろう。
 Cut14 ナレ   世界一、初心者に優しい格闘技ジム。FLATUP GYM。
+Cut15 マサキ こわかったら、まずは見るだけでいいよ。
+      ナレ   初回体験、500円。見学だけでも大丈夫です。ご予約は、公式LINEから。
 ```
 
 ---
@@ -156,6 +161,11 @@ The gentle 5-year-old chibi boy with a soft black bowl cut and light-green dinos
 The Japanese mother and father sitting on the living room floor among moving boxes, looking at each other and starting to smile softly, the 5-year-old chibi boy in light-green dinosaur pajamas between them holding the smartphone with both hands, warm hopeful lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
+**Cut 15 — 灯りのエンドカード**
+```
+Exterior of a cozy martial arts gym at sunset with warm light glowing from the windows, a small 5-year-old chibi boy with a soft black bowl cut seen from behind hugging a focus mitt and looking at the gym, large empty space in the upper half for text and a QR code, gentle hopeful mood, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, vertical 9:16, no text, no tattoos, no brand logos
+```
+
 **Cut 14 — 夜明けとタイトル**
 ```
 Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof silhouette and fields, an airplane rising into the pink and gold sunrise, hopeful new-beginning mood, empty space at the center for a title logo, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
@@ -181,6 +191,7 @@ Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof sil
 - **Cut 12**: `The boy's eyes widen and sparkle, a small smile spreads across his face.`
 - **Cut 13**: `The parents turn to look at each other and smile softly, the boy hugs the phone.`
 - **Cut 14**: `The airplane rises slowly into the sunrise, the light brightens, the title space glows gently.`
+- **Cut 15**: `The window light of the gym slowly grows warmer and brighter, the boy hugs the mitt a little tighter, fixed camera.`（動かさず静止画でもよい）
 
 ---
 
@@ -189,5 +200,6 @@ Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof sil
 - **BGM**: Cut 1〜2 と 5〜7 は静かなピアノ。妄想カット（3・4・8・9）は90年代ロック風のギターを一瞬だけ入れ、戻ったら止める（落差で笑わせる）。Cut 11 から明るい曲に切り替え、Cut 14 で盛り上げる。
 - **効果音**: 妄想に入るとき「ガガーン」、Cut 3「ブォンッ」、Cut 8「ドンッ」、Cut 12「キラッ」。
 - **ルビ**: 「玄関口（ゲートウェイ）」「地元民（ジモティ）」は字幕でもルビ風に（小さい文字を上に重ねる）。
-- **ロゴ**: Cut 14 の最後の2秒だけ。
+- **ロゴ**: Cut 14 の最後の2秒と、Cut 15 のエンドカード。
+- **エンドカード**: 文字・QRコードは CapCut で重ねる（画像AIに描かせない）。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
 - **次回予告（任意・+3秒）**: 「第2話　はじめての、FLATUP。」
