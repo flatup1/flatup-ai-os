@@ -10,7 +10,7 @@
     "publisher": "集英社",
     "magazine": "週刊少年ジャンプ",
     "run_period": "1988–1997（1988年25号〜1997年10号とする二次情報あり）",
-    "volumes": "全42巻（ジャンプコミックス）。文庫版など他の版の巻数は未確認",
+    "volumes": "全42巻（ジャンプコミックス）、文庫版全25巻（2002年12月〜2003年12月発売。古書店の書誌による）",
     "genre_tags": "不良／学園／ボクシング／喧嘩／青春",
     "related_works": "ROOKIES、べしゃり暮らし（同じ作者）",
     "themes": "仲間への義理、弱い者いじめへの怒り、夢（ボクシング）と喧嘩の両立、地元への愛着",
@@ -21,9 +21,16 @@
     "flatup_use": "技法：激しい場面の直後に日常の小ネタを置く緩急、敵役にも背景を与えて和解させる構成。アイデア：ジムに来た元ケンカ自慢の高校生が、ミット打ちで初めて『誰も傷つけない強さ』を知る回。オリジナルの一言案「殴る相手はミットだけでいい」",
     "copyright_caution": "主人公の髪型・学ラン姿・帝拳高校などの校名、四天王という構図、ボクシングジムの名前や固有キャラの関係性をそのまま使わない。作品ロゴの書体も真似しない",
     "net_reputation": "[事実] ジャンプ黄金期の代表的な不良漫画として、ランキング・まとめサイトで頻繁に取り上げられている。[感想] 喧嘩だけでなく友情や恋愛の青春ものとして好きだという声が多い。[推測] 1990年代に読んだ世代の懐かし需要が今も強い。X直接検索なし",
-    "sources": ["https://renote.net/reviews/7277", "https://ranking.net/items/82e959", "https://www.toy-people.com/jp/?p=106622"],
+    "sources": [
+      "https://renote.net/reviews/7277",
+      "https://ranking.net/items/82e959",
+      "https://www.toy-people.com/jp/?p=106622",
+      "https://shopping.bookoff.co.jp/s/8800007740"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：見た目は怖い主人公が仲間思いで、ボクシングの描写と不良の群像を一緒に学べる",
+    "homage_mode": "群像・矜持／武道・格闘技"
   },
   {
     "title": "ROOKIES",
@@ -47,9 +54,15 @@
     "flatup_use": "技法：一人ずつ過去を掘り下げて仲間に加わる『一話一人』構成、指導者の熱さで場の空気が変わる演出。アイデア：やる気のない中学生グループに、トレーナーが本気でミットを持ち続ける話。オリジナルの一言案「夢は、汗をかいた分だけ近くなる」",
     "copyright_caution": "ニコガク（二子玉川学園）などの校名、教師・部員の外見や名前、ユニフォームのデザイン、象徴的な決め台詞、ロゴを使わない",
     "net_reputation": "[事実] TVドラマ・映画が作られ、原作も含めて広く知られている。[感想] 不良が夢に向かう王道の熱さが泣けるという声が多い。[推測] ドラマから入った層も原作に流れている。X直接検索なし",
-    "sources": ["https://dic.nicovideo.jp/a/rookies", "https://ranking.net/items/b61011", "https://www.netoff.co.jp/detail/0001269654/"],
+    "sources": [
+      "https://dic.nicovideo.jp/a/rookies",
+      "https://ranking.net/items/b61011",
+      "https://www.netoff.co.jp/detail/0001269654/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：不良を見捨てず話を聞く先生の描き方が、FLATUPの優しい指導者像に使える",
+    "homage_mode": "強面の先生／群像・矜持"
   },
   {
     "title": "べしゃり暮らし",
@@ -61,7 +74,7 @@
     "author_art": "森田まさのり",
     "publisher": "集英社",
     "magazine": "週刊少年ジャンプ → 週刊ヤングジャンプ（掲載誌を移った）",
-    "run_period": "2005年開始（終了年は未確認）",
+    "run_period": "2005年開始（2019年のドラマ化に合わせて連載再開とする資料あり。終了年は未確認）",
     "volumes": "全20巻",
     "genre_tags": "学園／お笑い／青春（不良色は薄め）",
     "related_works": "ろくでなしBLUES、ROOKIES（同じ作者）。2019年にTVドラマ化",
@@ -73,9 +86,16 @@
     "flatup_use": "技法：笑いの『間』をコマの余白で作る、ボケとツッコミの役割を固定してテンポを出す。アイデア：初心者会員とトレーナーのコンビによる、ゆるい掛け合いの4コマ。オリジナルの一言案「息切れも、立派なリアクションです」",
     "copyright_caution": "コンビ名・キャラの外見・ネタの内容そのものを使わない。作中の漫才台本を再現しない",
     "net_reputation": "[事実] 2019年にドラマ化され、ニュース記事で取り上げられた。[感想] お笑い芸人の苦しさがリアルだという声がある。[推測] ろくでなしBLUESやROOKIESの読者が作者つながりで読んでいる。X直接検索なし",
-    "sources": ["https://realsound.jp/movie/2019/04/post-353756.html", "https://honcierge.jp/articles/shelf_story/7835", "https://bookwalker.jp/series/480759/"],
+    "sources": [
+      "https://realsound.jp/movie/2019/04/post-353756.html",
+      "https://honcierge.jp/articles/shelf_story/7835",
+      "https://bookwalker.jp/series/480759/",
+      "https://comic.k-manga.jp/title/100220"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：漫才のボケとツッコミのテンポが、ギャグの間の取り方の参考になる",
+    "homage_mode": "青春不良コメディ"
   },
   {
     "title": "今日から俺は!!",
@@ -90,7 +110,7 @@
     "run_period": "1988–1997（増刊1988年9月号〜1990年8月号、週刊1990年40号〜1997年47号）",
     "volumes": "全38巻（少年サンデーコミックス）、ワイド版全19巻、文庫版全18巻、My First WIDE版全14巻",
     "genre_tags": "不良／学園／ギャグ／喧嘩",
-    "related_works": "天使な小生意気、道士郎でござる、カナカナ（同じ作者）。2018年にTVドラマ化、2020年に劇場版。2018年に週刊少年サンデーSで続編が掲載されたとする記事あり（正式タイトル・詳細は未確認）",
+    "related_works": "天使な小生意気、道士郎でござる、カナカナ（同じ作者）。2018年にTVドラマ化、2020年に劇場版。2018年に週刊少年サンデーSで続編の連載を開始したとする資料あり（正式タイトルは未確認）",
     "themes": "ずる賢さと男気の両立、相棒との信頼、見栄と本音、筋を通すこと",
     "psychology": "主人公の卑怯さや小心さを隠さず描きつつ、いざという時は仲間のために体を張る。強さの裏の臆病さや計算をコミカルに見せる",
     "dialogue_style": "短いツッコミと開き直りの連続でテンポが速い。凄む場面とボケの場面の語調の切り替えが急",
@@ -99,9 +119,17 @@
     "flatup_use": "技法：シリアスとギャグの顔を同じページで切り替える落差、ずるいけど憎めない主人公像。アイデア：口だけは強気な新入会員が、スパーで逃げ回りながらも最後に一歩前に出る話。オリジナルの一言案「逃げ足も、フットワークのうちだろ？」",
     "copyright_caution": "金髪パーマ・ツンツン頭の二人組の外見、軟高・開久など校名、主人公の決めポーズや有名な口ぐせ、作品ロゴを使わない。ドラマ版の衣装や演出も参照しない",
     "net_reputation": "[事実] 2018年のドラマ化、2020年の映画化で再ブームになったと報じられている。[事実] 累計発行部数4000万部超とする記事あり。[感想] 笑えるヤンキー漫画の代表として推す声が多い。[推測] ドラマ世代の若年層にも認知が広がった。X直接検索なし",
-    "sources": ["https://realsound.jp/book/2020/07/post-593760.html", "https://natalie.mu/eiga/news/275565", "https://kai-you.net/article/51920", "https://ranking.net/items/337fd6"],
+    "sources": [
+      "https://realsound.jp/book/2020/07/post-593760.html",
+      "https://natalie.mu/eiga/news/275565",
+      "https://kai-you.net/article/51920",
+      "https://ranking.net/items/337fd6",
+      "https://rank-king.jp/article/24605"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：シリアスに始めて脱力でオトす落差のギャグが、そのまま手本になる",
+    "homage_mode": "青春不良コメディ"
   },
   {
     "title": "天使な小生意気",
@@ -125,9 +153,16 @@
     "flatup_use": "技法：見た目と中身のギャップをキャラの核にする、表情の振り幅で笑いと迫力を両立。アイデア：小柄で控えめな女性会員が、ミット打ちで驚くほどいい音を鳴らし周りがざわつく回。オリジナルの一言案「小さいって、懐に入りやすいってことよ」",
     "copyright_caution": "主人公の髪型・セーラー服姿・魔法で姿が変わったという設定、取り巻きの名前やリーゼントの見た目、作品ロゴを使わない",
     "net_reputation": "[事実] 小学館漫画賞受賞、TVアニメ化されている。[感想] ギャップのある女子主人公がかっこいいという声がある。[推測] 今日から俺は!!のファンが作者つながりで読む流れがある。X直接検索なし",
-    "sources": ["https://www.kinokuniya.co.jp/f/dsg-08-9975735622", "https://mangapedia.com/西森博之-kuh704g21", "https://anime.eiga.com/program/101293/", "https://ja.wikid.org/%E5%A4%A9%E4%BD%BF%E3%81%AA%E5%B0%8F%E7%94%9F%E6%84%8F%E6%B0%97"],
+    "sources": [
+      "https://www.kinokuniya.co.jp/f/dsg-08-9975735622",
+      "https://mangapedia.com/西森博之-kuh704g21",
+      "https://anime.eiga.com/program/101293/",
+      "https://ja.wikid.org/%E5%A4%A9%E4%BD%BF%E3%81%AA%E5%B0%8F%E7%94%9F%E6%84%8F%E6%B0%97"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：強がる主人公の不器用な優しさと、コメディとシリアスの切り替えが学べる",
+    "homage_mode": "青春不良コメディ"
   },
   {
     "title": "喧嘩商売",
@@ -151,9 +186,15 @@
     "flatup_use": "技法：技の理屈を図解で見せて読者に『なるほど』と思わせる解説コマ、試合前の作戦会議で緊張を高める構成。アイデア：トレーナーが初心者に、ジャブがなぜ大事かを図解で説明する学習まんが風の回。オリジナルの一言案「勝ち方より、ケガしない負け方から覚えよう」",
     "copyright_caution": "主人公・師匠の外見、作中の流派名や秘技名、トーナメント名、実在人物いじりの手法を使わない。過激な下ネタや他者を傷つけるギャグはブランド方針に反する",
     "net_reputation": "[事実] 第一部24巻で完結し、第二部の喧嘩稼業へ続いた。[感想] 格闘の読み合いが面白いという声と、ギャグの過激さが好みを分けるという声がある。[推測] 格闘ファンの間でカルト的人気。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000011088", "https://comic.k-manga.jp/title/103703/pv", "https://dic.nicovideo.jp/a/%E6%9C%A8%E5%A4%9A%E5%BA%B7%E6%98%AD"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000011088",
+      "https://comic.k-manga.jp/title/103703/pv",
+      "https://dic.nicovideo.jp/a/%E6%9C%A8%E5%A4%9A%E5%BA%B7%E6%98%AD"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：格闘技の理屈を説明する演出は使えるが、暴力と下品な笑いは避ける",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "喧嘩稼業",
@@ -166,7 +207,7 @@
     "publisher": "講談社",
     "magazine": "週刊ヤングマガジン",
     "run_period": "2013年12月発売号（2014年2・3合併号）〜。長期休載があり現在の状況は未確認",
-    "volumes": "未確認（講談社ページで5巻・7巻の刊行を確認。7巻は2016年6月発売）",
+    "volumes": "13巻まで（電子書店の配信巻数。2026-10時点で確認。紙の最新巻は講談社ページで要確認）",
     "genre_tags": "格闘技／トーナメント／心理戦／ギャグ",
     "related_works": "喧嘩商売（第一部）",
     "themes": "最強を決めるトーナメント、勝利への執念、師弟、因縁",
@@ -177,9 +218,18 @@
     "flatup_use": "技法：試合前に選手の背景回を入れて応援したくなる構造、細かいコマで時間を引き延ばしてから大ゴマで決める。アイデア：ジム内の初心者マス大会で、出場者それぞれの『始めた理由』を一話ずつ描く。オリジナルの一言案「ここに立った時点で、もう昨日の自分には勝ってる」",
     "copyright_caution": "トーナメント名・出場者の外見や実在格闘家を思わせる造形、技名、試合カードの組み方を使わない",
     "net_reputation": "[事実] 長期休載が多い作品として記事で触れられている。[感想] 続きを待ち続けているという声が多い。[推測] 再開のたびに話題になる。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000016270", "https://www.kodansha.co.jp/comic/products/0000014954", "https://kai-you.net/article/29479", "https://mangapedia.com/%E6%9C%A8%E5%A4%9A%E5%BA%B7%E6%98%AD-ebbhlv10q"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000016270",
+      "https://www.kodansha.co.jp/comic/products/0000014954",
+      "https://kai-you.net/article/29479",
+      "https://mangapedia.com/%E6%9C%A8%E5%A4%9A%E5%BA%B7%E6%98%AD-ebbhlv10q",
+      "https://www.cmoa.jp/title/75163",
+      "https://honto.jp/ebook/pd_28789081_094.html"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：トーナメントの駆け引きの見せ方は参考になるが、暴力描写が強い",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "ヤンキー烈風隊",
@@ -203,9 +253,16 @@
     "flatup_use": "技法：集団の対峙を見開きで見せて緊張を作る、仲間の結束を象徴する小道具の使い方。アイデア：ジムの仲間でおそろいのタオルを作り、それが絆のしるしになる話。オリジナルの一言案「走る場所は道路じゃなくて、ロードワークのコースな」",
     "copyright_caution": "チーム名・特攻服の刺繍デザイン・バイクの改造スタイル・キャラの外見を使わない。暴走行為を肯定的に描かない（ブランド方針）",
     "net_reputation": "[事実] OVA化・実写映画化されている。[事実] 累計650万部超とする資料あり。[推測] 80年代の月刊少年マガジンの代表的な暴走族漫画として世代人気が高い。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/labels/gmaga?page=108", "https://www.allcinema.net/cinema/pdf/88636", "https://pedia.3rd-in.co.jp/wiki/%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E7%83%88%E9%A2%A8%E9%9A%8A", "https://eiga.com/movie/39865/"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/labels/gmaga?page=108",
+      "https://www.allcinema.net/cinema/pdf/88636",
+      "https://pedia.3rd-in.co.jp/wiki/%E3%83%A4%E3%83%B3%E3%82%AD%E3%83%BC%E7%83%88%E9%A2%A8%E9%9A%8A",
+      "https://eiga.com/movie/39865/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：大げさな劇画の雰囲気づくりの参考程度",
+    "homage_mode": "劇画ヤンキー／群像・矜持"
   },
   {
     "title": "爆音列島",
@@ -217,7 +274,7 @@
     "author_art": "高橋ツトム",
     "publisher": "講談社",
     "magazine": "アフタヌーン",
-    "run_period": "2002年12月号〜（終了時期は未確認）",
+    "run_period": "2002年12月号〜（第17巻に2012年4月号掲載分までを確認。終了号は未確認）",
     "volumes": "全18巻（電子書店で18巻完結表示。講談社ページで17巻まで確認）",
     "genre_tags": "不良／暴走族／青春群像／時代もの（1980年の東京）",
     "related_works": "同じ作者にスカイハイ、地雷震、鉄腕ガール",
@@ -229,9 +286,16 @@
     "flatup_use": "技法：セリフのないコマで空気や心情を語らせる、時代の小物で世界観を作る。アイデア：閉館後のジムで、昔ヤンチャだったトレーナーが若い会員に昔話をする静かな回。オリジナルの一言案「あの頃は居場所がなかった。だから、ここを作った」",
     "copyright_caution": "作中のチーム名・特攻服やバイクの具体的デザイン・主人公の外見を使わない。暴走行為を美化しない",
     "net_reputation": "[事実] 講談社アフタヌーン掲載作品として全巻が電子配信されている。[推測] 作者の画風と80年代描写を評価する大人の読者が中心。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000029856", "https://www.kodansha.co.jp/comic/products/0000029772", "https://www.cmoa.jp/title/71369", "https://booklive.jp/focus/author/a_id/3534"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000029856",
+      "https://www.kodansha.co.jp/comic/products/0000029772",
+      "https://www.cmoa.jp/title/71369",
+      "https://booklive.jp/focus/author/a_id/3534"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：時代の空気を描く群像劇として参考程度で、暴走族への憧れは描かない",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "Let'sダチ公",
@@ -255,9 +319,14 @@
     "flatup_use": "技法：二人組の主人公でボケとツッコミ、熱さと冷静さを分担させる。アイデア：性格が真逆の二人のトレーナーが、それぞれのやり方で初心者を支える話。オリジナルの一言案「教え方は違っても、守りたいものは同じ」",
     "copyright_caution": "主人公二人の名前・外見・学校名、地域対立の設定をそのまま使わない",
     "net_reputation": "[推測] 80年代少年チャンピオンの不良漫画として一部で根強い人気。評判の具体的な情報は確認できず。X直接検索なし",
-    "sources": ["https://comic.k-manga.jp/title/113460/pv", "https://comic.k-manga.jp/title/113460/vol/16"],
+    "sources": [
+      "https://comic.k-manga.jp/title/113460/pv",
+      "https://comic.k-manga.jp/title/113460/vol/16"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：昔ながらのタイマンの友情ものとして参考程度",
+    "homage_mode": "劇画ヤンキー"
   },
   {
     "title": "エアマスター",
@@ -281,9 +350,16 @@
     "flatup_use": "技法：動きの頂点を見開きで止める『決め』、勢いで押し切るテンションの作り方。アイデア：体操経験のある会員が、前転やブリッジの動きを格闘技のウォームアップに活かす回。オリジナルの一言案「体がやわらかいと、ケガもしにくいんだよ」",
     "copyright_caution": "主人公の長身女子高生の外見・新体操技を使った格闘スタイルという設定・ランキングバトルの仕組み・キャラ名を使わない",
     "net_reputation": "[事実] 2003年にTVアニメ化。アニメは原作に追いつきオリジナルの結末になったとされる。[感想] 主人公がかっこいい、勢いがすごいという声がある一方、画力やストーリーより熱量で読む作品という評もある。X直接検索なし",
-    "sources": ["https://www.weblio.jp/content/Air+Master", "https://renote.net/articles/6670", "https://www.animenewsnetwork.com/encyclopedia/manga.php?id=5090", "https://mangapedia.com/%E3%82%A8%E3%82%A2%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC-4cujdz939"],
+    "sources": [
+      "https://www.weblio.jp/content/Air+Master",
+      "https://renote.net/articles/6670",
+      "https://www.animenewsnetwork.com/encyclopedia/manga.php?id=5090",
+      "https://mangapedia.com/%E3%82%A8%E3%82%A2%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC-4cujdz939"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：ギャグとアクロバットな格闘を混ぜるテンポが部分的に使える",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "男一匹ガキ大将",
@@ -307,9 +383,15 @@
     "flatup_use": "技法：主人公の器の大きさに敵が惚れて仲間になる構図、ジャンプ王道の原点として学ぶ。アイデア：ライバルジムの選手と試合後に握手し、合同練習を始める回。オリジナルの一言案「勝ったら、次は一緒に練習しよう」",
     "copyright_caution": "主人公の名前・学ラン姿・作中の対決の舞台設定を使わない",
     "net_reputation": "[事実] 初期のジャンプを支えた作品として紹介され、2026年に全集刊行が発表されている。[推測] 若い世代の認知は低く、漫画史の文脈で語られることが多い。X直接検索なし",
-    "sources": ["https://mangapedia.com/%E7%94%B7%E4%B8%80%E5%8C%B9%E3%82%AC%E3%82%AD%E5%A4%A7%E5%B0%86-cg488ve8f", "https://koubo.jp/press-release/prtimes/c11454_r871", "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=2377"],
+    "sources": [
+      "https://mangapedia.com/%E7%94%B7%E4%B8%80%E5%8C%B9%E3%82%AC%E3%82%AD%E5%A4%A7%E5%B0%86-cg488ve8f",
+      "https://koubo.jp/press-release/prtimes/c11454_r871",
+      "https://www.animenewsnetwork.com/encyclopedia/anime.php?id=2377"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：番長ものの原点として、仲間が集まる構図の参考程度",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "嗚呼!!花の応援団",
@@ -328,14 +410,21 @@
     "themes": "上下関係の理不尽さと笑い、硬派ぶることのおかしさ",
     "psychology": "未確認（本文を確認できていないため）",
     "dialogue_style": "関西弁の硬派言葉を大げさに使う（詳細は未確認）",
-    "direction_style": "未確認",
-    "gag_style": "硬派な上下関係を誇張して笑いにする（詳細は未確認）",
+    "direction_style": "稚拙だが力強いと評される絵柄で、勢いのある作画をナンセンスな展開に合わせる（紹介記事による）",
+    "gag_style": "下ネタを含むドタバタ劇と、流行語になった奇声などの勢いで笑わせる。硬派な上下関係を誇張して笑いにする（紹介記事による。FLATUPでは下ネタは使わない）",
     "flatup_use": "技法：怖そうな集団の内側の間抜けさを見せて親しみを作る落差。アイデア：見た目が怖い上級者たちが、実は初心者の名前を全員覚えている回。オリジナルの一言案「声がでかいのは、応援のためです」",
     "copyright_caution": "主人公の名前・外見・応援団の団名・有名な決め台詞を使わない。先輩による理不尽な体罰的上下関係をそのまま肯定しない",
     "net_reputation": "[事実] 1976年から実写映画化されている。[推測] 70年代の硬派ギャグ漫画の代表として世代人気が高い。X直接検索なし",
-    "sources": ["https://mangapedia.com/%E3%81%A9%E3%81%8A%E3%81%8F%E3%81%BE%E3%82%93-3dsaouojx", "https://www.cmoa.jp/title/87416/", "https://renote.net/reviews/1463"],
+    "sources": [
+      "https://mangapedia.com/%E3%81%A9%E3%81%8A%E3%81%8F%E3%81%BE%E3%82%93-3dsaouojx",
+      "https://www.cmoa.jp/title/87416/",
+      "https://renote.net/reviews/1463",
+      "https://mangapedia.com/%E5%97%9A%E5%91%BC%21%21%E8%8A%B1%E3%81%AE%E5%BF%9C%E6%8F%B4%E5%9B%A3-ht4vx2b0j"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：硬派ぶる人物を誇張して笑いにする手法は使えるが、下ネタは使わない",
+    "homage_mode": "劇画ヤンキー／青春不良コメディ"
   },
   {
     "title": "ホットロード",
@@ -359,9 +448,15 @@
     "flatup_use": "技法：モノローグと余白で寂しさを表す、不良ものを女性視点で描く。アイデア：家に居場所がない女子中学生が、ジムの受付スタッフとの会話で少し笑えるようになる話。オリジナルの一言案「ここでは、がんばらなくてもいいよ」",
     "copyright_caution": "主人公たちの名前・外見・暴走族チーム名・作中の象徴的なモノローグを使わない",
     "net_reputation": "[事実] 2014年に実写映画化。[感想] 少女漫画に新しい世界を開いた名作という紹介がある。[推測] 80年代の女性読者に強く支持された。X直接検索なし",
-    "sources": ["https://www.ehonnavi.net/author.asp?n=32363", "https://renote.net/articles/143290", "https://mangapedia.com/%E7%B4%A1%E6%9C%A8%E3%81%9F%E3%81%8F-9c3plhzcp"],
+    "sources": [
+      "https://www.ehonnavi.net/author.asp?n=32363",
+      "https://renote.net/articles/143290",
+      "https://mangapedia.com/%E7%B4%A1%E6%9C%A8%E3%81%9F%E3%81%8F-9c3plhzcp"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：思春期の孤独の描き方の参考程度",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "ごくせん",
@@ -385,9 +480,15 @@
     "flatup_use": "技法：先生が生徒を守るためだけに本気を出すという、強さの使い方の描き方。アイデア：ふだんは穏やかな女性トレーナーが、会員がからまれた時だけ毅然と立ちはだかる回（暴力は使わずに場を収める）。オリジナルの一言案「この子は、うちの大事な会員です」",
     "copyright_caution": "主人公のジャージ・眼鏡・おさげの外見、ヤンクミなどの呼び名、学校名、家業の組名、ドラマ版の演出を使わない",
     "net_reputation": "[事実] TVドラマ化されシリーズ化した。[感想] ドラマの印象が強いという声が多い。[推測] 不良と教師ものの組み合わせを広く一般層に広めた。X直接検索なし",
-    "sources": ["https://mangapedia.com/%E6%A3%AE%E6%9C%AC%E6%A2%A2%E5%AD%90-68ix0qcya", "https://bookmeter.com/books/302871", "https://www.cmoa.jp/title/65170"],
+    "sources": [
+      "https://mangapedia.com/%E6%A3%AE%E6%9C%AC%E6%A2%A2%E5%AD%90-68ix0qcya",
+      "https://bookmeter.com/books/302871",
+      "https://www.cmoa.jp/title/65170"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：強面に見える先生が生徒を守る落差が、FLATUPの指導者像に使える",
+    "homage_mode": "強面の先生"
   },
   {
     "title": "荒くれKNIGHT",
@@ -411,9 +512,16 @@
     "flatup_use": "技法：弱小グループが仲間を集めて強くなる成長ものの型。アイデア：会員が少ない平日の朝クラスに、少しずつ常連が増えていく話。オリジナルの一言案「最初は三人。でも、三人いれば始められる」",
     "copyright_caution": "チーム名（虎武羅、輪蛇など）・特攻服のデザイン・キャラの外見を使わない。暴走行為を美化しない",
     "net_reputation": "[推測] 湘南爆走族の作者による暴走族漫画として根強いファンがいる。具体的な評判は確認できず。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000013978", "https://www.cmoa.jp/title/55531"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000013978",
+      "https://www.cmoa.jp/title/55531",
+      "https://www.kodansha.co.jp/comic/products/0000013924",
+      "https://movie.jorudan.co.jp/film/38436/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "未確認"
+    "status": "確認済み",
+    "flatup_priority": "C：チームの誇りを描く群像として参考程度で、暴走族への憧れは描かない",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "荒くれKNIGHT 黒い残響完結編",
@@ -437,9 +545,14 @@
     "flatup_use": "技法：長い抗争の決着をつける完結編の構成（伏線の回収）。アイデア：シリーズの最終回で、初回に登場した初心者が今度は新人を迎える側になる。オリジナルの一言案「次は、お前が背中を見せる番だ」",
     "copyright_caution": "チーム名（虎武羅、輪蛇）・主人公の名前と外見・湘南の具体的なたまり場設定を使わない",
     "net_reputation": "[推測] 本編の読者向けの完結編として読まれている。具体的な評判は確認できず。X直接検索なし",
-    "sources": ["https://www.cmoa.jp/title/55531", "https://mangapedia.com/%E8%8D%92%E3%81%8F%E3%82%8CKNIGHT%E9%BB%92%E3%81%84%E6%AE%8B%E9%9F%BF%E5%AE%8C%E7%B5%90%E7%B7%A8-3wub7jslw"],
+    "sources": [
+      "https://www.cmoa.jp/title/55531",
+      "https://mangapedia.com/%E8%8D%92%E3%81%8F%E3%82%8CKNIGHT%E9%BB%92%E3%81%84%E6%AE%8B%E9%9F%BF%E5%AE%8C%E7%B5%90%E7%B7%A8-3wub7jslw"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：抗争中心の続編で、参考程度",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "サムライソルジャー",
@@ -454,18 +567,26 @@
     "run_period": "2008–2014（2008年13号〜2014年17号）",
     "volumes": "全27巻（ヤングジャンプコミックス。27巻は2014年5月発売）",
     "genre_tags": "不良／喧嘩／渋谷／抗争",
-    "related_works": "未確認",
+    "related_works": "同じ作者に『ランブルフィッシュ』『GOLD』『半グレ―六本木 摩天楼のレクイエム―』（紹介記事・電子書店による）",
     "themes": "過去の自分との決別、街を守る責任、仲間への義理",
     "psychology": "伝説的な不良だった主人公が過去の行いと向き合う葛藤を描く（詳細は未確認）",
     "dialogue_style": "未確認",
-    "direction_style": "未確認",
+    "direction_style": "舞台を学校ではなく渋谷の街に置き、一匹狼の主人公が勢力抗争に抗う、抗争色の強い群像劇の構成（紹介記事による）",
     "gag_style": "未確認",
     "flatup_use": "技法：元・強者が自分の過去と向き合う『贖罪』の物語の型。アイデア：昔ケンカで人を傷つけたことを後悔している大人が、ジムで子どもたちに護身と礼儀を教える回。オリジナルの一言案「強さは、昔の自分を許すためにも使える」",
     "copyright_caution": "主人公の名前・外見・渋谷の具体的なチーム名や勢力図を使わない",
     "net_reputation": "[推測] 2000年代後半のヤングジャンプの不良漫画として一定の人気。具体的な評判は確認できず。X直接検索なし",
-    "sources": ["https://mangapedia.com/%E5%B1%B1%E6%9C%AC%E9%9A%86%E4%B8%80%E9%83%8E-pnt045wzo", "https://dengekionline.com/article/202606/77670", "https://www.maruzenjunkudo.co.jp/products/9784088798219"],
+    "sources": [
+      "https://mangapedia.com/%E5%B1%B1%E6%9C%AC%E9%9A%86%E4%B8%80%E9%83%8E-pnt045wzo",
+      "https://dengekionline.com/article/202606/77670",
+      "https://www.maruzenjunkudo.co.jp/products/9784088798219",
+      "https://weekly.ascii.jp/elem/000/004/408/4408909/",
+      "https://booklive.jp/focus/author/a_id/148"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：抗争色が強く、元不良が過去と向き合う葛藤の参考程度",
+    "homage_mode": "群像・矜持"
   },
   {
     "title": "工業哀歌バレーボーイズ",
@@ -477,10 +598,10 @@
     "author_art": "村田ひろゆき",
     "publisher": "講談社",
     "magazine": "週刊ヤングマガジン",
-    "run_period": "未確認（講談社の単行本情報で少なくとも1997年〜2002年以降の掲載分を確認）",
-    "volumes": "未確認（電子書店で第50巻まで完結作品として並ぶ。ほかに別巻『工業哀歌バレーボーイズ 虎子』あり）",
+    "run_period": "未確認（講談社の単行本情報で少なくとも1997年〜2004年の掲載分を確認）",
+    "volumes": "全50巻（電子書店で完結表示。2026-10時点で確認）＋別巻『工業哀歌バレーボーイズ 虎子』（2018年12月配信開始）",
     "genre_tags": "不良／工業高校／バレーボール／ギャグ／下ネタ",
-    "related_works": "別巻『工業哀歌バレーボーイズ 虎子』",
+    "related_works": "後日譚『好色哀歌 元バレーボーイズ』全17巻（講談社。最終巻は2011年7月発売）、別巻『工業哀歌バレーボーイズ 虎子』",
     "themes": "男子校のバカさと青春、部活の仲間",
     "psychology": "未確認（本文を確認できていないため）",
     "dialogue_style": "未確認",
@@ -489,8 +610,16 @@
     "flatup_use": "技法：部活ものと不良ギャグの組み合わせで日常回を量産する型。アイデア：男子会員だけのクラス後の、プロテインの味をめぐるくだらない議論の4コマ。オリジナルの一言案「チョコ味かバニラ味か、それが問題だ」",
     "copyright_caution": "学校名・キャラの外見・作中の下ネタ表現をそのまま使わない",
     "net_reputation": "[事実] 50巻前後に及ぶ長期連載。[推測] ヤンマガ系のバカ系ヤンキーギャグとして男性読者に人気。X直接検索なし",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000008434", "https://www.kodansha.co.jp/comic/products/0000008662", "https://bookwalker.jp/series/4353/list/"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000008434",
+      "https://www.kodansha.co.jp/comic/products/0000008662",
+      "https://bookwalker.jp/series/4353/list/",
+      "https://www.kodansha.co.jp/comic/products/0000016308",
+      "https://www.kodansha.co.jp/comic/products/0000010603"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：男子校ノリの笑いは下ネタが中心で、参考程度",
+    "homage_mode": "青春不良コメディ"
   }
 ]

@@ -10,7 +10,7 @@
     "publisher": "講談社",
     "magazine": "週刊少年マガジン",
     "run_period": "1989–連載中（1989年43号開始）",
-    "volumes": "既刊145巻以上（145巻は2026年1月16日発売。以降の巻数は未確認）",
+    "volumes": "既刊145巻以上（145巻は2026年1月16日発売。146巻以降は2026-10時点で確認できず）",
     "genre_tags": "ボクシング／スポーツ／成長／ジム群像／ギャグ",
     "related_works": "TVアニメ（複数シリーズ）、作中キャラの外伝的エピソード（鷹村・間柴など）は本編内。同作者の別作品は未確認",
     "themes": "いじめられっ子が強さの意味を問い続ける成長、努力の積み重ね、師弟の信頼、ジム仲間の家族的な絆、強さとは何かという問い",
@@ -21,9 +21,16 @@
     "flatup_use": "技法：初心者の『怖さ』をモノローグで正直に描き、小さな一歩を大きく演出する。練習→試合の緩急、ジム仲間のいじり合いで温かさを出す。オリジナル案：初めてミットを打った会員が『音が鳴った』だけで目を輝かせる回。セリフ案『上手くなくていい。今日来たのがもう勝ち』。",
     "copyright_caution": "主人公や鷹村・宮田など主要キャラの外見・髪型、鴨川ジムの名称やロゴ、デンプシーロールなど作中固有の必殺技名と象徴的な動き、釣り船屋という主人公の家業設定をそのまま使わない。",
     "net_reputation": "[事実] 1989年から30年以上続く長期連載で、ボクシング漫画の代表作として紹介されることが多い。[感想] 序盤〜中盤の試合描写や脇役の名勝負を高く評価する声が多い。[推測] 近年は展開の遅さや主人公の引退〜復帰の流れに賛否があるとみられる。X直接検索なし。",
-    "sources": ["https://bunshun.jp/articles/-/88272", "https://game.watch.impress.co.jp/docs/news/1333266.html", "https://www.kodansha.co.jp/comic/products/0000422841", "https://dengekionline.com/articles/208950/"],
+    "sources": [
+      "https://bunshun.jp/articles/-/88272",
+      "https://game.watch.impress.co.jp/docs/news/1333266.html",
+      "https://www.kodansha.co.jp/comic/products/0000422841",
+      "https://dengekionline.com/articles/208950/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：気弱な初心者がジムの仲間に支えられて強くなる流れと、試合後の脱力ギャグがFLATUPにすぐ使える",
+    "homage_mode": "武道・格闘技／青春不良コメディ"
   },
   {
     "title": "あしたのジョー",
@@ -47,9 +54,15 @@
     "flatup_use": "技法：セリフなしのコマを続けて『言えない気持ち』を表現する。荒れた少年が人に必要とされて変わる流れ。オリジナル案：成田の商店街の子どもたちが、ぶっきらぼうな新人インストラクターを少しずつ慕っていく話。セリフ案『強いのは、誰かのために立てるやつだ』。",
     "copyright_caution": "主人公の帽子とマフラー姿などの外見、クロスカウンターなど作中を象徴する技の演出、丹下ジムの名称、眼帯のトレーナー像、最終回の象徴的なラストシーンを再現しない。",
     "net_reputation": "[事実] 単行本累計2000万部超とされ、アニメ・実写映画化された。[感想] ボクシング漫画の原点・金字塔として世代を超えて名前が挙がる。[推測] 若い読者には絵柄や時代背景の古さで手に取りにくい面があるとみられる。X直接検索なし。",
-    "sources": ["https://ranking.net/items/e9817e", "https://bunshun.jp/articles/-/52672", "https://www.kodansha.co.jp/comic/products/0000185790"],
+    "sources": [
+      "https://ranking.net/items/e9817e",
+      "https://bunshun.jp/articles/-/52672",
+      "https://www.kodansha.co.jp/comic/products/0000185790"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：トレーナーと選手の掛け合いや下町の人情は使えるが、悲劇的な結末の重さは避ける",
+    "homage_mode": "武道・格闘技／劇画ヤンキー"
   },
   {
     "title": "がんばれ元気",
@@ -73,9 +86,15 @@
     "flatup_use": "技法：子ども時代から段階的に成長を見せる長期構成。柔らかい絵柄で格闘技の怖さを下げる。オリジナル案：キッズクラスの子が卒業までに少しずつ変わっていく年代記。セリフ案『昨日より一回多く、前に出られたね』。",
     "copyright_caution": "主人公の名前や外見、父がボクサーで亡くなる設定の流用、作品タイトルのもじりを避ける。",
     "net_reputation": "[事実] 女子ボクシングの金メダリストが競技を始めるきっかけに挙げたと報じられた。[感想] 優しい絵柄と家族ドラマで泣ける作品として語られる。[推測] 知名度は世代差が大きいとみられる。X直接検索なし。",
-    "sources": ["https://number.bunshun.jp/articles/-/849242", "https://www.cmoa.jp/title/528/", "https://mechacomic.jp/books/45940"],
+    "sources": [
+      "https://number.bunshun.jp/articles/-/849242",
+      "https://www.cmoa.jp/title/528/",
+      "https://mechacomic.jp/books/45940"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：子どもが父の背中を追って努力するほのぼのした成長物語が、キッズ向けにすぐ使える",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "リングにかけろ",
@@ -90,7 +109,7 @@
     "run_period": "1977–1981（開始年を1976年とする資料もあり）",
     "volumes": "全25巻（ジャンプ・コミックス）",
     "genre_tags": "ボクシング／必殺技／少年／バトル",
-    "related_works": "続編『リングにかけろ2』（スーパージャンプ、2000年または2001年開始・巻数は未確認）、TVアニメ（2004年〜）。同作者の『聖闘士星矢』『風魔の小次郎』『男坂』",
+    "related_works": "続編『リングにかけろ2』（スーパージャンプ、2001年開始。巻数は未確認）、TVアニメ（2004年〜）。同作者の『聖闘士星矢』『風魔の小次郎』『男坂』",
     "themes": "亡き父の夢、姉弟の絆、仲間との友情、ライバルとの決戦",
     "psychology": "内面描写は少なめで、気合と決意を大きな叫びと構図で表現する。迷いより『覚悟』を前面に出す。",
     "dialogue_style": "決めの場面で大仰な名乗りや宣言が入り、文字自体を大きく描く。短く断定的な言い切りが多い。",
@@ -99,9 +118,16 @@
     "flatup_use": "技法：一つの技を『名前＋ポーズ＋背景』でブランド化する見せ方。オリジナル案：FLATUPの基本コンビネーションを、子どもたちが自分で名前をつけて覚える回（安全な基本技のみ）。",
     "copyright_caution": "作中の必殺技名（ブーメランなど）とその背景演出、黄金のジュニアなどチーム名、主人公と姉のキャラ造形を使わない。",
     "net_reputation": "[事実] 大ヒットし集英社の社屋建て替えに貢献したと語られる。[感想] リアルなボクシングから必殺技バトルへ転じた作品として語り草。[推測] 後のジャンプ式トーナメントバトルの原型と見る声が多い。X直接検索なし。",
-    "sources": ["https://dic.nicovideo.jp/a/%E8%BB%8A%E7%94%B0%E6%AD%A3%E7%BE%8E", "https://gendai.media/articles/-/99299", "https://bunshun.jp/articles/-/44683", "https://nlab.itmedia.co.jp/research/articles/190504/"],
+    "sources": [
+      "https://dic.nicovideo.jp/a/%E8%BB%8A%E7%94%B0%E6%AD%A3%E7%BE%8E",
+      "https://gendai.media/articles/-/99299",
+      "https://bunshun.jp/articles/-/44683",
+      "https://nlab.itmedia.co.jp/research/articles/190504/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：必殺技の大げさな見せ方は誇張ギャグに使えるが、現実の技術描写には使えない",
+    "homage_mode": "奇妙な冒険／武道・格闘技"
   },
   {
     "title": "B・B",
@@ -125,9 +151,15 @@
     "flatup_use": "技法：音楽やリズムとボクシングのステップを重ねる演出。オリジナル案：会員がBGMに合わせてシャドーをするとステップが自然に良くなる回。セリフ案『リズムに乗れたら、体は勝手に動く』。",
     "copyright_caution": "主人公の外見、ボクサーが傭兵になる大筋、作中のサックス奏者設定をそのまま使わない。",
     "net_reputation": "[事実] 作者インタビューで主人公が傭兵になる展開の誕生秘話が語られている。[感想] 前半のボクシングと後半の戦場編の落差が強く印象に残るという声。[推測] 現在の知名度は同時代のボクシング漫画より低めとみられる。X直接検索なし。",
-    "sources": ["https://gendai.media/articles/-/100861", "https://mangapedia.com/gd/B%E3%83%BBB-9tbu6j1t4/", "https://ranking.net/rankings/best-shonensunday-comics/b6c541bd"],
+    "sources": [
+      "https://gendai.media/articles/-/100861",
+      "https://mangapedia.com/gd/B%E3%83%BBB-9tbu6j1t4/",
+      "https://ranking.net/rankings/best-shonensunday-comics/b6c541bd"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：軽口の青春ドタバタと格闘描写の切り替えは使えるが、後半の重さは参考程度",
+    "homage_mode": "青春不良コメディ／武道・格闘技"
   },
   {
     "title": "SUGAR（シュガー）",
@@ -151,9 +183,15 @@
     "flatup_use": "技法：生々しい会話で人物をリアルに立たせる。オリジナル案：自信満々で入会した若者が、基礎の大切さに気づき、礼儀を覚えて化けていく話。セリフ案『才能はスタート地点。続ける人がゴールに行く』。",
     "copyright_caution": "主人公の名前・外見・板前志望からボクサーへの経歴、ライバル王者の造形を流用しない。",
     "net_reputation": "[事実] 掲載誌の休刊で終了し続編へ移ったとされる。[感想] 作家性の強いボクシング漫画として評価する声。[推測] 一般知名度は高くないがマニア人気が高いとみられる。X直接検索なし。",
-    "sources": ["https://dic.nicovideo.jp/t/a/sugar%28%E6%96%B0%E4%BA%95%E8%8B%B1%E6%A8%B9%29", "https://mangapedia.com/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC-0du0d3nk0", "https://booklive.jp/focus/author/a_id/3681"],
+    "sources": [
+      "https://dic.nicovideo.jp/t/a/sugar%28%E6%96%B0%E4%BA%95%E8%8B%B1%E6%A8%B9%29",
+      "https://mangapedia.com/%E3%82%B7%E3%83%A5%E3%82%AC%E3%83%BC-0du0d3nk0",
+      "https://booklive.jp/focus/author/a_id/3681"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：非常識な天才の描き方は参考になるが、ブラックな作風はFLATUPと合わない",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "RIN",
@@ -163,10 +201,10 @@
     "relation": "続編",
     "author_story": "新井英樹",
     "author_art": "新井英樹",
-    "publisher": "講談社",
-    "magazine": "未確認",
+    "publisher": "講談社（ヤンマガKCスペシャル）／電子版はSMART COMICS（版により異なる）",
+    "magazine": "未確認（ヤングマガジンアッパーズ休刊後に再開とされる）",
     "run_period": "未確認（SUGAR終了後に再開）",
-    "volumes": "全4巻（電子書籍版の表記）",
+    "volumes": "全4巻（完結）／『シュガー&RIN』合本版 全5巻（電子）",
     "genre_tags": "ボクシング／青年／世界戦",
     "related_works": "前作『SUGAR』",
     "themes": "世界王者への挑戦、因縁の相手との対決、天才の行き着く先",
@@ -177,9 +215,16 @@
     "flatup_use": "技法：大舞台の前の静けさを余白で表す。オリジナル案：初めての大会前夜、眠れない会員にコーチが電話で話す短編。",
     "copyright_caution": "主人公・王者の名前と外見、世界ライト級戦という具体的な構図の流用を避ける。",
     "net_reputation": "[事実] 全4巻完結とされる。[感想] 前作ファンが続きを追う作品として語られる。[推測] 前作以上にマニア向けとみられる。X直接検索なし。",
-    "sources": ["https://bookwalker.jp/series/443916/list/", "https://www.cmoa.jp/title/280426/", "https://mangapedia.com/%E6%96%B0%E4%BA%95%E8%8B%B1%E6%A8%B9-o4gp3a9ch"],
+    "sources": [
+      "https://bookwalker.jp/series/443916/list/",
+      "https://www.cmoa.jp/title/280426/",
+      "https://mangapedia.com/%E6%96%B0%E4%BA%95%E8%8B%B1%E6%A8%B9-o4gp3a9ch",
+      "https://www.cmoa.jp/title/109755"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：前作の続きで作風が重く、参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "ホーリーランド",
@@ -203,9 +248,15 @@
     "flatup_use": "技法：『基本の繰り返しが強さになる』ことを図解的に描く。不安な心をモノローグで正直に。オリジナル案：路上ではなく『ジム』が居場所になる物語として反転させる。暴力ではなく練習で自信を得る主人公。セリフ案『ここでは殴り合いじゃなく、教え合いをするんだ』。",
     "copyright_caution": "主人公の外見（細身・パーカー姿など）、『ヤンキー狩り』という異名設定、作中の具体的な街の勢力構図を使わない。",
     "net_reputation": "[事実] ドラマ化・韓国ドラマ化された。[感想] 格闘技の基本や心理描写がリアルで、実際に格闘技を始めるきっかけになったという声がある。[推測] いじめ経験者の共感を集めやすい作品とみられる。X直接検索なし。",
-    "sources": ["https://en.wikipedia.org/wiki/Holyland_(manga)", "https://ranking.net/items/5ef283", "https://www.cmoa.jp/title/9432/"],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Holyland_(manga)",
+      "https://ranking.net/items/5ef283",
+      "https://www.cmoa.jp/title/9432/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：いじめられっ子が基本の練習を積み重ねて自信をつける心理描写が、初心者の物語にすぐ使える",
+    "homage_mode": "武道・格闘技／群像・矜持"
   },
   {
     "title": "オールラウンダー廻",
@@ -229,9 +280,15 @@
     "flatup_use": "技法：MMAのルールや技を初心者にも分かるよう噛み砕いて描く。地味な練習の積み重ねをドラマにする。オリジナル案：寝技の初体験で『怖い』が『おもしろい』に変わる瞬間を描く回。セリフ案『タップは負けじゃない。また練習できる合図だよ』。",
     "copyright_caution": "主人公と幼なじみのキャラ造形、作中ジム名、実在団体（修斗）のロゴや公式表記の無断使用を避ける。",
     "net_reputation": "[事実] 修斗を題材にした作品として格闘技ファンに紹介される。[感想] 格闘技経験者から描写のリアルさを評価する声。[推測] MMA漫画の入門として勧められやすいとみられる。X直接検索なし。",
-    "sources": ["https://dic.nicovideo.jp/a/%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%80%E3%83%BC%E5%BB%BB", "https://www.kodansha.co.jp/comic/products/0000038657", "https://bookwalker.jp/de77e612eb-ae5e-4edd-acd0-e2eb92f4eff0/"],
+    "sources": [
+      "https://dic.nicovideo.jp/a/%E3%82%AA%E3%83%BC%E3%83%AB%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%80%E3%83%BC%E5%BB%BB",
+      "https://www.kodansha.co.jp/comic/products/0000038657",
+      "https://bookwalker.jp/de77e612eb-ae5e-4edd-acd0-e2eb92f4eff0/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：普通の高校生がMMAジムで基礎から学ぶ描写と、ジム仲間とのゆるい日常がFLATUPに直結する",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "空手小公子 小日向海流",
@@ -255,9 +312,15 @@
     "flatup_use": "技法：ヘタレ主人公が笑いを取りながら少しずつ強くなる構成。空手からキックへの転向で技術の違いを描く。オリジナル案：別競技経験者がFLATUPのキックで『足の使い方が違う！』と驚く回。",
     "copyright_caution": "主人公の名前・外見、作中の空手部や道場名、お色気シーンの演出をそのまま使わない（FLATUPのブランド方針とも合わない）。",
     "net_reputation": "[事実] 12年続き全50巻の長期連載。[感想] 後半はキック漫画として楽しめるという紹介がある。[推測] お色気要素の評価は分かれるとみられる。X直接検索なし。",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000381750", "https://www.kodansha.co.jp/comic/products/0000016049", "https://kick-times.com/archives/1363"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000381750",
+      "https://www.kodansha.co.jp/comic/products/0000016049",
+      "https://kick-times.com/archives/1363"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：ヘタレな主人公と強面の先輩の意外な一面という落差ギャグが、優しい強面キャラ作りに使える",
+    "homage_mode": "青春不良コメディ／強面の先生"
   },
   {
     "title": "史上最強の弟子ケンイチ",
@@ -281,9 +344,15 @@
     "flatup_use": "技法：『怖い修行』を笑いで包んで読者の心理的ハードルを下げる。多様な格闘技を師匠ごとに担当させる構成。オリジナル案：FLATUPの各クラス担当コーチが、それぞれのやり方で初心者を見守る群像。セリフ案『強くなるのは、守りたいものができたときだ』。※実際の練習は安全第一で、無茶な修行は描写上の誇張に留める。",
     "copyright_caution": "梁山泊という道場名と達人6人の構成・外見、作中の流派名や必殺技名、ヒロインの外見を使わない。",
     "net_reputation": "[事実] TVアニメ化され、2026年に続編連載が発表された。[感想] 武術の解説と熱いバトル、ギャグのバランスが好評。[推測] 終盤の駆け足展開に不満を持つ読者もいるとみられる。X直接検索なし。",
-    "sources": ["https://dic.nicovideo.jp/a/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%B7%E3%81%AE%E5%BC%9F%E5%AD%90%E3%82%B1%E3%83%B3%E3%82%A4%E3%83%81", "https://news.denfaminicogamer.jp/news/260129c", "https://dengekionline.com/article/202601/64507"],
+    "sources": [
+      "https://dic.nicovideo.jp/a/%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%B7%E3%81%AE%E5%BC%9F%E5%AD%90%E3%82%B1%E3%83%B3%E3%82%A4%E3%83%81",
+      "https://news.denfaminicogamer.jp/news/260129c",
+      "https://dengekionline.com/article/202601/64507"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：弱い少年が個性的な師匠たちのもとで修行し、守るために強くなる流れがFLATUPの思想に近い",
+    "homage_mode": "武術の修行"
   },
   {
     "title": "軍鶏",
@@ -307,9 +376,15 @@
     "flatup_use": "技法：反面教師として、暴力だけの強さがいかに人を孤独にするかを示す作品。FLATUPの『強さ＝優しさ』の対比として、悪役側の心理の深さを学ぶ程度に留める。",
     "copyright_caution": "主人公の外見、少年院から格闘家になる設定、過激な暴力・性暴力描写は絶対に真似しない（ブランドと完全に逆方向）。",
     "net_reputation": "[事実] 原作者と作画者の間で著作権をめぐる裁判があったとされる。[感想] 迫力は高いが重く暗いという声。[推測] 一般向け・子ども向けには勧めにくい作品とみられる。X直接検索なし。",
-    "sources": ["https://www.kodansha.co.jp/comic/products/0000038793", "https://renote.net/reviews/5254", "https://www.cmoa.jp/title/87790"],
+    "sources": [
+      "https://www.kodansha.co.jp/comic/products/0000038793",
+      "https://renote.net/reviews/5254",
+      "https://www.cmoa.jp/title/87790"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：暴力と転落の物語で、FLATUPの方向性とは逆。心理描写の参考程度",
+    "homage_mode": "劇画ヤンキー"
   },
   {
     "title": "高校鉄拳伝タフ",
@@ -333,9 +408,15 @@
     "flatup_use": "技法：キャラの口癖や言い回しでキャラを強く立たせる。オリジナル案：FLATUP独自の『あいさつの口癖』を持つキャラを作り、会員がまねしたくなる言葉にする。",
     "copyright_caution": "灘神影流という流派名と技名、主人公・父の外見、作中の独特な言い回し（ネットで『語録』化しているもの）を使わない。",
     "net_reputation": "[事実] シリーズ累計1600万部超とされる。[感想] ネットで作中の言い回しが『語録』としてネタ化され、新しい読者層を得ている。[推測] 本気の格闘漫画とネタ漫画の両面で楽しまれているとみられる。X直接検索なし。",
-    "sources": ["https://ranking.net/items/48e26a", "https://dic.pixiv.net/a/タフ語録", "https://news.denfaminicogamer.jp/news/231225v"],
+    "sources": [
+      "https://ranking.net/items/48e26a",
+      "https://dic.pixiv.net/a/タフ語録",
+      "https://news.denfaminicogamer.jp/news/231225v"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：顔芸や独特の擬音など大真面目な誇張は劇画パロディに使えるが、暴力描写は避ける",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   },
   {
     "title": "TOUGH",
@@ -359,9 +440,15 @@
     "flatup_use": "技法：家族の因縁を軸にした長期ドラマ構成。オリジナル案：親子で入会した家族が、互いの頑張りを見て関係が変わる短編。",
     "copyright_caution": "流派名・技名・キャラの外見・語録化した言い回しを使わない。",
     "net_reputation": "[事実] 『高校鉄拳伝タフ』の続編。[感想] 衝撃的な展開がネットでネタにされることが多い。[推測] シリーズ全体で熱心なファンが多いとみられる。X直接検索なし。",
-    "sources": ["https://ranking.net/items/48e26a", "https://bookwalker.jp/de0a604124-940e-46f8-9adc-bc6deee96a2a/", "https://www.goodreads.com/series/364786"],
+    "sources": [
+      "https://ranking.net/items/48e26a",
+      "https://bookwalker.jp/de0a604124-940e-46f8-9adc-bc6deee96a2a/",
+      "https://www.goodreads.com/series/364786"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：前作と同じ誇張の参考程度で、内容は過激",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   },
   {
     "title": "TOUGH 龍を継ぐ男",
@@ -385,9 +472,15 @@
     "flatup_use": "技法：前作主人公を『先輩・師』として新主人公を導かせる世代交代の構成。オリジナル案：古参会員が新しい会員を自然と面倒見る『バトン』の物語。",
     "copyright_caution": "主人公たちの外見、流派名、出生の秘密などの設定、語録化した言い回しを使わない。",
     "net_reputation": "[事実] 2025年9月に完結し、『TOUGH 第二章』へ続いた。[感想] シリーズ恒例の展開をネタ込みで楽しむ読者が多い。[推測] 新規読者より既存ファン中心とみられる。X直接検索なし。",
-    "sources": ["https://booklive.jp/bkmr/comic_m_completed_202509", "https://natalie.mu/comic/news/672517", "https://bookwalker.jp/series/513852/"],
+    "sources": [
+      "https://booklive.jp/bkmr/comic_m_completed_202509",
+      "https://natalie.mu/comic/news/672517",
+      "https://bookwalker.jp/series/513852/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：誇張表現の参考程度",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   },
   {
     "title": "ケンガンアシュラ",
@@ -411,9 +504,15 @@
     "flatup_use": "技法：『普通の大人の目線』を狂言回しにして格闘技の世界を見せる。オリジナル案：会社帰りのサラリーマン会員が、自分の中の強さに気づく話。セリフ案『肩書きを脱いだら、ここではただの一年生』。",
     "copyright_caution": "主人公の外見、拳願仕合という制度名、作中の企業名・技名・流派名を使わない。",
     "net_reputation": "[事実] Netflixでアニメ化された。[感想] 多彩なキャラと試合のテンポが好評。[推測] 海外ファンも多いとみられる。X直接検索なし。",
-    "sources": ["https://renote.net/reviews/7866", "https://eiga.com/news/20180408/8/", "https://en.wikipedia.org/wiki/Kengan_Ashura"],
+    "sources": [
+      "https://renote.net/reviews/7866",
+      "https://eiga.com/news/20180408/8/",
+      "https://en.wikipedia.org/wiki/Kengan_Ashura"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：小市民の主人公が強面たちに振り回されるリアクション芸は使えるが、試合描写は過激",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "ケンガンオメガ",
@@ -426,7 +525,7 @@
     "publisher": "小学館",
     "magazine": "裏サンデー／マンガワン",
     "run_period": "2019–連載中（2019年1月開始）",
-    "volumes": "既刊33巻以上（33巻は2026年6月配信。34巻は未確認）",
+    "volumes": "既刊34巻（2026年9月時点。英語版Wikipediaと電子書店による。2026-10時点で確認）",
     "genre_tags": "格闘技／異種格闘技／企業／バトル",
     "related_works": "前作『ケンガンアシュラ』",
     "themes": "新世代の闘技者、前作キャラとの世代交代、組織どうしの対抗戦",
@@ -437,9 +536,16 @@
     "flatup_use": "技法：前作ファンと新規読者の両方に向けた世代交代の作り方。オリジナル案：初代会員と新入会員がペアを組んで練習する回。",
     "copyright_caution": "キャラの外見、作中組織名・技名を使わない。",
     "net_reputation": "[事実] 2019年から連載が続いている。[感想] 前作キャラの再登場を喜ぶ声。[推測] 前作ほどの勢いではないとの評価もあるとみられる。X直接検索なし。",
-    "sources": ["https://en.wikipedia.org/wiki/Kengan_Ashura", "https://dengekionline.com/articles/109227", "https://bookwalker.jp/de33e41bcf-5f0f-4e5d-975d-38fe97798f21/"],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kengan_Ashura",
+      "https://dengekionline.com/articles/109227",
+      "https://bookwalker.jp/de33e41bcf-5f0f-4e5d-975d-38fe97798f21/",
+      "https://bookwalker.jp/series/192695/list/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：強面キャラのギャップ以外は参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "キックの鬼",
@@ -449,7 +555,7 @@
     "relation": "本編",
     "author_story": "梶原一騎",
     "author_art": "中城健（中城けんたろう）",
-    "publisher": "未確認",
+    "publisher": "少年画報社（掲載誌の発行元。英語版Wikipediaによる）",
     "magazine": "週刊少年キング または 少年画報（資料により食い違い）",
     "run_period": "1969–1971（開始時期は資料により異なる）",
     "volumes": "全6巻（英語版Wikipedia）。他に3巻とする記述もあり未確定",
@@ -463,9 +569,15 @@
     "flatup_use": "技法：実在の歴史を背景にした『物語として語る格闘技史』。オリジナル案：日本のキックボクシングの歴史を、会員向けにやさしく紹介する短編漫画（実在人物の扱いは要注意）。",
     "copyright_caution": "実在人物（沢村忠）の肖像やエピソードの流用、作中の技名、タイトルのもじりを避ける。",
     "net_reputation": "[事実] 沢村忠をモデルにした作品で、1970年にアニメ化された。[感想] 昭和のキックボクシングブームを伝える作品として語られる。[推測] 現在の読者は少ないとみられる。X直接検索なし。",
-    "sources": ["https://en.wikipedia.org/wiki/Kick_no_Oni", "https://mangapedia.com/%E3%82%AD%E3%83%83%E3%82%AF%E3%81%AE%E9%AC%BC-6rimm0fjt", "https://comic.k-manga.jp/title/165/pv"],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Kick_no_Oni",
+      "https://mangapedia.com/%E3%82%AD%E3%83%83%E3%82%AF%E3%81%AE%E9%AC%BC-6rimm0fjt",
+      "https://comic.k-manga.jp/title/165/pv"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：キックボクシングを題材にした昭和劇画の空気は、劇画パロディの参考になる",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   },
   {
     "title": "破壊王ノリタカ!",
@@ -489,9 +601,16 @@
     "flatup_use": "技法：不良ギャグとムエタイを組み合わせ、怖い格闘技をノリで親しみやすくする。オリジナル案：ケンカで有名な少年がジムで『首相撲』を教わり、ケンカより練習のほうが面白いと気づく話。セリフ案『肘と膝は、ルールの中で使うからかっこいいんだ』。",
     "copyright_caution": "主人公の名前・外見・髪型、タイトルの『破壊王』フレーズ、作中の技名を使わない。",
     "net_reputation": "[事実] 1990年代の週刊少年マガジンで約3年連載された。[感想] ムエタイを扱った不良格闘漫画として懐かしむ声。[推測] 当時の読者中心の知名度とみられる。X直接検索なし。",
-    "sources": ["https://id.ndl.go.jp/auth/ndlna/00408410", "https://mangapedia.com/%E5%88%83%E6%A3%AE%E5%B0%8A-aiqyh1iy5", "https://www.cmoa.jp/title/142327/", "https://www.kodansha.co.jp/comic/products/0000011066"],
+    "sources": [
+      "https://id.ndl.go.jp/auth/ndlna/00408410",
+      "https://mangapedia.com/%E5%88%83%E6%A3%AE%E5%B0%8A-aiqyh1iy5",
+      "https://www.cmoa.jp/title/142327/",
+      "https://www.kodansha.co.jp/comic/products/0000011066"
+    ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：不良同士のバカなやりとりと勘違いギャグが、ヤンキー妄想ネタにすぐ使える",
+    "homage_mode": "青春不良コメディ／劇画ヤンキー"
   },
   {
     "title": "モングレル",
@@ -515,9 +634,16 @@
     "flatup_use": "技法：『ジムに入会する』ところから始めるリアルな導入。FLATUPの体験入会の流れとほぼ同じ構造なので、最も参考になる型。オリジナル案：体験レッスン当日の緊張→受付→初ミット→帰り道の高揚までを1話で描く。セリフ案『初日は誰でも初心者。それでいい』。",
     "copyright_caution": "主人公の外見や体操経験者という設定、作中ジム名を使わない。",
     "net_reputation": "[事実] 全4巻で終了。作者はキック王者との対談でリアルなキックを描きたかったと語った。[感想] もっと読みたかったという声がある。[推測] 短期終了のため知名度は低めとみられる。X直接検索なし。",
-    "sources": ["https://comic.k-manga.jp/title/100297/pv", "https://mangapedia.com/%E3%83%A2%E3%83%B3%E3%82%B0%E3%83%AC%E3%83%AB-e3btri2tc", "https://sportiva.shueisha.co.jp/clm/othersports/fight/2013/12/19/___split_35/", "https://www.hatehate.jp/entry/mongrel"],
+    "sources": [
+      "https://comic.k-manga.jp/title/100297/pv",
+      "https://mangapedia.com/%E3%83%A2%E3%83%B3%E3%82%B0%E3%83%AC%E3%83%AB-e3btri2tc",
+      "https://sportiva.shueisha.co.jp/clm/othersports/fight/2013/12/19/___split_35/",
+      "https://www.hatehate.jp/entry/mongrel"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：格闘技の現場をリアルに描く点は使えるが、ギャグは控えめ",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "レッドブルー",
@@ -529,8 +655,8 @@
     "author_art": "波切敦",
     "publisher": "小学館",
     "magazine": "週刊少年サンデー",
-    "run_period": "2022–（2022年7号開始。現在の連載状況は未確認）",
-    "volumes": "未確認（2023年11月時点で7巻）",
+    "run_period": "2022（週刊少年サンデー2022年7号開始）–連載中（2026年6月時点で第197話掲載を確認）",
+    "volumes": "既刊18巻以上（電子書店の一覧による。2026-10時点で確認）",
     "genre_tags": "MMA／総合格闘技／学園／成長",
     "related_works": "実写ドラマ（2024年12月）",
     "themes": "根暗で病弱な少年が天才への反発からMMAを始める、劣等感と向き合う成長",
@@ -541,9 +667,17 @@
     "flatup_use": "技法：『かっこ悪い動機』から始めても成長できると示す。分析タイプの主人公で戦術を読者に解説。オリジナル案：運動が苦手な学生が、頭で考えるタイプとしてMMAで自分の勝ち方を見つける話。セリフ案『体力がないなら、考える力で一歩先に行こう』。",
     "copyright_caution": "主人公とライバルの名前・外見、作中ジム名、赤と青の対比を軸にしたタイトル演出をそのまま使わない。",
     "net_reputation": "[事実] 2024年12月に実写ドラマ化された。[感想] 陰キャ主人公の成長がMMA初心者にも読みやすいという紹介がある。[推測] 近年の少年誌MMA漫画として注目度が高いとみられる。X直接検索なし。",
-    "sources": ["https://mangapedia.com/波切敦-fjl2kkodq", "https://oceans.tokyo.jp/article/detail/44582", "https://renote.net/tags/22986"],
+    "sources": [
+      "https://mangapedia.com/波切敦-fjl2kkodq",
+      "https://oceans.tokyo.jp/article/detail/44582",
+      "https://renote.net/tags/22986",
+      "https://www.maruzenjunkudo.co.jp/products/4912206610760",
+      "https://www.cmoa.jp/title/242392/vol/17/"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：ひねくれた陰キャがMMAで自分を変えていく流れが、自信をなくした人の入門物語にすぐ使える",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "紅の挑戦者",
@@ -554,7 +688,7 @@
     "author_story": "梶原一騎（高森朝雄名義とする資料もあるが未確認）",
     "author_art": "中城健",
     "publisher": "未確認（電子版の発行元はグループ・ゼロ）",
-    "magazine": "週刊少年マガジン（まとめサイトの記載。未確認）",
+    "magazine": "週刊少年マガジン（まとめサイトの記載。未確認）／電子版の掲載誌表記は「マンガの金字塔」（資料により異なる）",
     "run_period": "1973–1975（まとめサイトの記載。未確認）",
     "volumes": "全10巻（電子版）",
     "genre_tags": "キックボクシング／ムエタイ／スポ根",
@@ -567,8 +701,15 @@
     "flatup_use": "技法：別競技からの転向者を主人公にすると、技術の違いを読者に説明しやすい。オリジナル案：サッカー経験者の会員が『蹴り』の感覚の違いに戸惑い、やがて武器にする話。",
     "copyright_caution": "主人公の名前・外見、サッカーからキックへの転向をバンコクで宣言する導入をそのまま使わない。",
     "net_reputation": "[事実] 電子版で全10巻が配信されている。[感想] 梶原一騎のキックボクシング作品として紹介される。[推測] 現在の知名度は低いとみられる。X直接検索なし。",
-    "sources": ["https://comic.k-manga.jp/title/16591/vol/1", "https://bookwalker.jp/de876054f1-f012-487c-b751-1e338df64937/", "https://kopenguin.com/post-78916/"],
+    "sources": [
+      "https://comic.k-manga.jp/title/16591/vol/1",
+      "https://bookwalker.jp/de876054f1-f012-487c-b751-1e338df64937/",
+      "https://kopenguin.com/post-78916/",
+      "https://comic.k-manga.jp/title/16591/pv"
+    ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：キックボクシング題材の昭和劇画として参考程度",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   }
 ]

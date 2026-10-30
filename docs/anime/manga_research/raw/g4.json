@@ -27,7 +27,9 @@
       "https://en.wikipedia.org/wiki/Baki_the_Grappler"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：誇張した肉体表現と解説役のリアクションは使えるが、暴力描写が強く部分的な参考にとどまる",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキ",
@@ -40,7 +42,7 @@
     "publisher": "秋田書店",
     "magazine": "週刊少年チャンピオン",
     "run_period": "1999–2005",
-    "volumes": "全31巻（少年チャンピオン・コミックス）／完全版 全17巻（バキ完全版）／新装版あり（巻数未確認）",
+    "volumes": "全31巻（少年チャンピオン・コミックス）／完全版 全17巻（バキ完全版）／新装版 全18巻（電子書店の表記。2018年頃刊行）",
     "genre_tags": "格闘技／バトル／死刑囚編／中国拳法",
     "related_works": "前作：グラップラー刃牙。次作：範馬刃牙。外伝：バキ特別編SAGA[性]",
     "themes": "敗北を知らない者が敗北を知ること、勝ち負けの定義、恋愛と強さ",
@@ -54,10 +56,14 @@
     "sources": [
       "https://www.akitashoten.co.jp/series/8817",
       "https://www.akitashoten.co.jp/comics/4253218881",
-      "https://en.wikipedia.org/wiki/Baki_the_Grappler"
+      "https://en.wikipedia.org/wiki/Baki_the_Grappler",
+      "https://www.maruzenjunkudo.co.jp/products/9784253253246",
+      "https://comic.k-manga.jp/title/154612/pv"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：強者同士の妙に礼儀正しいやり取りや日常とのずれは使えるが、流血描写は避ける必要がある",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "範馬刃牙",
@@ -70,7 +76,7 @@
     "publisher": "秋田書店",
     "magazine": "週刊少年チャンピオン",
     "run_period": "2006–2012",
-    "volumes": "全37巻（少年チャンピオン・コミックス）／新装版あり（巻数未確認）",
+    "volumes": "全37巻（少年チャンピオン・コミックス）／新装版 全21巻（電子書店の表記）",
     "genre_tags": "格闘技／親子／原始人",
     "related_works": "前作：バキ。次作：刃牙道",
     "themes": "父と子の決着、強さの頂点、家族とは何か",
@@ -84,10 +90,13 @@
     "sources": [
       "https://www.akitashoten.co.jp/series/1976",
       "https://www.akitashoten.co.jp/comics/4253211178",
-      "https://championcross.jp/series/83c15f6be5628"
+      "https://championcross.jp/series/83c15f6be5628",
+      "https://comic.k-manga.jp/title/154612/pv"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：親子の対立という骨格は参考になるが、描写が過激でFLATUPには直接使いにくい",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "刃牙道",
@@ -116,7 +125,9 @@
       "https://www.akitashoten.co.jp/comics/4253223621"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：時代ギャップの笑いは参考になるが、本筋は命のやり取りで方向性が違う",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキ道",
@@ -145,7 +156,9 @@
       "https://www.akitashoten.co.jp/comics/4253281273"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：真顔の格闘論が飛躍する誇張は参考程度で、題材の相撲もFLATUPから遠い",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "刃牙らへん",
@@ -157,7 +170,7 @@
     "author_art": "板垣恵介",
     "publisher": "秋田書店",
     "magazine": "週刊少年チャンピオン",
-    "run_period": "2023年頃開始（開始号は未確認）–連載中",
+    "run_period": "2023（週刊少年チャンピオン2023年39号・8月24日発売号開始）–連載中",
     "volumes": "既刊7巻（第7巻 2026年7月刊行、少年チャンピオン・コミックス）",
     "genre_tags": "格闘技／群像",
     "related_works": "前作：バキ道",
@@ -172,10 +185,13 @@
     "sources": [
       "https://www.akitashoten.co.jp/series/12823",
       "https://www.akitashoten.co.jp/comics/4253284213",
-      "https://www.akitashoten.co.jp/comics/4253011373"
+      "https://www.akitashoten.co.jp/comics/4253011373",
+      "https://news.denfaminicogamer.jp/news/230824r"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：脱力タイトルと本編の重さの落差は参考になるが、内容は直接使いにくい",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "グラップラー刃牙外伝",
@@ -204,7 +220,9 @@
       "https://mangapedia.com/gd/%E3%82%B0%E3%83%A9%E3%83%83%E3%83%97%E3%83%A9%E3%83%BC%E5%88%83%E7%89%99%E5%A4%96%E4%BC%9D-dc4q37bo9/1"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：短編で人物を立てる構成は参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキ特別編SAGA[性]",
@@ -233,7 +251,9 @@
       "https://ciatr.jp/topics/326476"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：格闘の文法を別ジャンルに転用する発想のみ参考で、内容は対象外",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキ外伝 疵面 -スカーフェイス-",
@@ -263,7 +283,9 @@
       "https://www.cmoa.jp/title/41006/"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：無口な強面の背中で語る演出は使えるが、喧嘩の美学はFLATUPの思想と逆なので技法だけ借りる",
+    "homage_mode": "劇画ヤンキー／群像・矜持"
   },
   {
     "title": "バキ外伝 創面",
@@ -293,7 +315,9 @@
       "https://mangapedia.com/%E3%83%90%E3%82%AD%E5%A4%96%E4%BC%9D%E5%89%B5%E9%9D%A2-652afhpws"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：怖そうな人物を学園コメディに置く落差は、強面だけど優しいコーチ像にそのまま使える",
+    "homage_mode": "青春不良コメディ／強面の先生"
   },
   {
     "title": "バキ外伝 拳刃",
@@ -323,7 +347,9 @@
       "https://mangapedia.com/%E3%83%90%E3%82%AD%E5%A4%96%E4%BC%9D%E6%8B%B3%E5%88%83-r2t7o70mk"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：空手家の若き日の回想構成のみ参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキどもえ",
@@ -334,7 +360,7 @@
     "author_story": "さいとうなおき（板垣恵介公認とされる）",
     "author_art": "さいとうなおき",
     "publisher": "秋田書店",
-    "magazine": "週刊少年チャンピオン（電子書店の分類による。未確認）",
+    "magazine": "別冊少年チャンピオン（MyAnimeList系データによる）／週刊少年チャンピオン（電子書店の分類による）（資料により異なる）",
     "run_period": "未確認",
     "volumes": "全3巻（少年チャンピオン・コミックス）",
     "genre_tags": "ギャグ／パロディ／4コマ風ショート",
@@ -349,10 +375,13 @@
     "net_reputation": "X直接検索なし。[感想]原作ファン向けのパロディとして楽しまれているという声がある。[推測]原作を知らない読者には伝わりにくい。",
     "sources": [
       "https://mangapedia.com/%E3%83%90%E3%82%AD%E3%81%A9%E3%82%82%E3%81%88-b9klm5pzx",
-      "https://mechacomic.jp/books/147011/reviews?score=1&submitted=1"
+      "https://mechacomic.jp/books/147011/reviews?score=1&submitted=1",
+      "https://myanimepulse.com/manga/100784/baki-domoe"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "A：格闘漫画の大げさな表現を日常の小さな出来事に当てる落差ギャグが、ジムの日常コメディに使える",
+    "homage_mode": "青春不良コメディ"
   },
   {
     "title": "バキ外伝 烈海王は異世界転生しても一向にかまわんッッ",
@@ -363,8 +392,8 @@
     "author_story": "板垣恵介（原案）、猪原賽（原作）",
     "author_art": "陸井栄史",
     "publisher": "秋田書店",
-    "magazine": "月刊少年チャンピオン（開始時の掲載媒体は未確認）",
-    "run_period": "2020年代前半開始（開始時期の詳細は未確認）–連載中",
+    "magazine": "月刊少年チャンピオン",
+    "run_period": "2020（月刊少年チャンピオン2020年12月号・11月6日発売号開始）–連載中（2026年8月にTVアニメ化発表）",
     "volumes": "既刊16巻（第16巻 2026年3月刊行、少年チャンピオン・コミックス）",
     "genre_tags": "異世界／格闘技／ファンタジー／ギャグ",
     "related_works": "本編：刃牙道（本作の前提となる出来事を含む）",
@@ -379,10 +408,14 @@
     "sources": [
       "https://www.akitashoten.co.jp/comics/4253012191",
       "https://landing.akitashoten.co.jp/isekairetsu/",
-      "https://dengekionline.com/article/202405/5717"
+      "https://dengekionline.com/article/202405/5717",
+      "https://nlab.itmedia.co.jp/nl/articles/2011/06/news012.html",
+      "https://dengekionline.com/article/202608/86053"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：武術の理屈を場違いな場面に真顔で持ち込むジャンル混合ギャグは使えるが、戦闘は過激",
+    "homage_mode": "武道・格闘技／奇妙な冒険"
   },
   {
     "title": "漫画 ゆうえんち -バキ外伝-",
@@ -394,8 +427,8 @@
     "author_art": "藤田勇利亜",
     "publisher": "秋田書店",
     "magazine": "週刊少年チャンピオン（月1回ペースの連載とされる）",
-    "run_period": "2022（2022年16号開始）–（現在の連載状況は未確認）",
-    "volumes": "既刊10巻（少年チャンピオン・コミックス）",
+    "run_period": "2022（週刊少年チャンピオン2022年16号開始）–連載中とみられる（2026年5月に第10巻刊行。完結の発表は見当たらない。2026-10時点で確認）",
+    "volumes": "既刊10巻（2026年5月時点。2026-10時点で確認）",
     "genre_tags": "格闘技／異種格闘技／小説コミカライズ",
     "related_works": "原作：小説 ゆうえんち -バキ外伝-（夢枕獏）",
     "themes": "さまざまな格闘家が集う闘い、強さの比較",
@@ -409,10 +442,13 @@
     "sources": [
       "https://www.akitashoten.co.jp/series/11820",
       "https://www.akitashoten.co.jp/comics/4253015913",
-      "https://championcross.jp/series/8a3b23bd8c6ce"
+      "https://championcross.jp/series/8a3b23bd8c6ce",
+      "https://dengekionline.com/article/202605/75980"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：本格的な格闘描写の参考にはなるが、暗い作風でFLATUPには直接使いにくい",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "小説 ゆうえんち -バキ外伝-",
@@ -421,11 +457,11 @@
     "series_group": "刃牙シリーズ",
     "relation": "外伝",
     "author_story": "夢枕獏",
-    "author_art": "未確認（小説のため作画なし。挿絵の有無は未確認）",
+    "author_art": "作画なし（小説）。挿絵：藤田勇利亜（紹介記事による）",
     "publisher": "秋田書店",
-    "magazine": "少年チャンピオン・ノベルズ（初出媒体は未確認）",
-    "run_period": "未確認",
-    "volumes": "少なくとも2巻を確認（総巻数は未確認、新書判）",
+    "magazine": "週刊少年チャンピオン（電子書店の分類による）／単行本は少年チャンピオン・ノベルズ",
+    "run_period": "2020年11月開始とされる（電子書店の掲載情報による）–完結（終了時期は未確認）",
+    "volumes": "全5巻（完結。紹介記事による。新書判）",
     "genre_tags": "格闘小説／異種格闘技",
     "related_works": "コミカライズ：漫画 ゆうえんち -バキ外伝-",
     "themes": "格闘家同士の闘いと強さの探求",
@@ -438,10 +474,14 @@
     "net_reputation": "X直接検索なし。[推測]漫画版の原作として知られる。評判の詳細は未確認。",
     "sources": [
       "https://www.kinokuniya.co.jp/f/dsg-01-9784253107617",
-      "https://www.kinokuniya.co.jp/f/dsg-01-9784253107624"
+      "https://www.kinokuniya.co.jp/f/dsg-01-9784253107624",
+      "https://bookwalker.jp/series/276238/",
+      "https://dengekionline.com/article/202605/75980"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：小説のため絵の演出は学べず、格闘の言葉での描写を知る参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "バキ外伝 ガイアとシコルスキー ～ときどきノムラ 二人だけど三人暮らし～",
@@ -454,7 +494,7 @@
     "publisher": "秋田書店",
     "magazine": "月刊少年チャンピオン",
     "run_period": "2020年代前半開始（第1巻 2023年3月刊行）–連載中",
-    "volumes": "既刊巻数は未確認（第1巻 2023年3月刊行。二次情報では5巻以上）",
+    "volumes": "既刊12巻（第12巻 2026年10月7日発売とする書店ページあり。第10巻は2026年3月刊行。2026-10時点で確認）",
     "genre_tags": "ギャグ／日常／同居もの",
     "related_works": "本編：バキ（両キャラの初出）",
     "themes": "かつての敵同士の同居生活、奇妙な友情",
@@ -468,10 +508,14 @@
     "sources": [
       "https://www.akitashoten.co.jp/comics/4253294162",
       "https://arc.akitashoten.co.jp/comics/gaishiko/1",
-      "https://championcross.jp/series/e76cd5db52ef2"
+      "https://championcross.jp/series/e76cd5db52ef2",
+      "https://dengekionline.com/article/202603/66770",
+      "https://www.maruzenjunkudo.co.jp/products/9784253020152"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：強面の格闘家が家事や近所付き合いをするギャップ笑いが、FLATUPキャラの日常回にすぐ使える",
+    "homage_mode": "青春不良コメディ／強面の先生"
   },
   {
     "title": "バキ外伝 花のチハル",
@@ -482,7 +526,7 @@
     "author_story": "板垣恵介（監修）",
     "author_art": "尾松知和",
     "publisher": "秋田書店",
-    "magazine": "未確認（レーベルはチャンピオンREDコミックス）",
+    "magazine": "チャンピオンRED（紹介記事・電子書店の掲載情報による。レーベルはチャンピオンREDコミックス）",
     "run_period": "第1巻 2023年11月刊行（連載期間は未確認）",
     "volumes": "全3巻（第3巻 2024年11月刊行）",
     "genre_tags": "不良／暴走族／格闘技",
@@ -498,10 +542,14 @@
     "sources": [
       "https://www.akitashoten.co.jp/series/12494",
       "https://www.akitashoten.co.jp/comics/4253322611",
-      "https://www.akitashoten.co.jp/comics/4253322638"
+      "https://www.akitashoten.co.jp/comics/4253322638",
+      "https://koubo.jp/article/80136",
+      "https://ndlsearch.ndl.go.jp/books/R100000002-I033430881"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：根性で理屈を超える誇張と暴走族キャラの空気は劇画パロディに使えるが、暴走族への憧れは描かない",
+    "homage_mode": "劇画ヤンキー"
   },
   {
     "title": "バキ外伝 真・チハル",
@@ -518,7 +566,7 @@
     "genre_tags": "不良／格闘技",
     "related_works": "前作：バキ外伝 花のチハル",
     "themes": "伝説の特攻隊長を第三者の取材で振り返る構成とされる",
-    "psychology": "未確認（取材者の視点で主人公像を描く構成とされる）",
+    "psychology": "（紹介記事による）フリーライターが主人公の伝説を本にするため取材する構成で、本人ではなく周囲の人物の証言から主人公像を浮かび上がらせる。",
     "dialogue_style": "未確認",
     "direction_style": "未確認",
     "gag_style": "未確認",
@@ -526,10 +574,13 @@
     "copyright_caution": "柴千春・花山薫ら固有キャラ、特攻服などの衣装を流用しない。範馬勇次郎・刃牙ら固有キャラの外見（鬼の顔に見える背筋など）、キャラ名、地下闘技場という固有設定名、促音記号を重ねる特徴的な表記をそのまま流用しない。決めゼリフや名場面の構図の再現も不可。",
     "net_reputation": "X直接検索なし。[推測]2026年開始の新作で評判は未確認。",
     "sources": [
-      "https://www.cmoa.jp/title/111502/"
+      "https://www.cmoa.jp/title/111502/",
+      "https://koubo.jp/article/80136"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：取材者の証言で人物の伝説を浮かび上がらせる構成は使えるが、内容の詳細が未確認",
+    "homage_mode": "劇画ヤンキー／群像・矜持"
   },
   {
     "title": "バキ外伝 独歩 -独り飲み喰い歩き-",
@@ -546,20 +597,24 @@
     "genre_tags": "グルメ／日常／格闘技",
     "related_works": "同じ人物の外伝：バキ外伝 拳刃。作画者の他作：バキ外伝 ガイアとシコルスキー",
     "themes": "武人の一人飲み・食べ歩き、日常の楽しみ",
-    "psychology": "強者が一人で食事を味わう静かな時間を描くとされる（詳細未確認）。",
+    "psychology": "（紹介記事による）達人が一人で酒と食事を味わう、戦いのない静かな時間を描くグルメ漫画。",
     "dialogue_style": "未確認",
     "direction_style": "未確認",
-    "gag_style": "武の達人が食事に武道の理屈を持ち込むずれと推測される（未確認）。",
+    "gag_style": "（紹介記事による）本編で知られる素手の技を居酒屋の食事場面で使うなど、本編へのオマージュを日常に持ち込む落差。",
     "flatup_use": "技法：格闘キャラのグルメ・日常スピンオフ。FLATUP案：練習後にコーチが『減量中でも食べていいもの』を紹介する食レポ風SNS漫画。",
     "copyright_caution": "愚地独歩の外見、神心会の名称、グルメ漫画のパロディ構図を流用しない。範馬勇次郎・刃牙ら固有キャラの外見（鬼の顔に見える背筋など）、キャラ名、地下闘技場という固有設定名、促音記号を重ねる特徴的な表記をそのまま流用しない。決めゼリフや名場面の構図の再現も不可。",
     "net_reputation": "X直接検索なし。[事実]2026年5月に連載開始が発表され、初回は表紙・巻頭カラー・3話掲載。[推測]評判はまだ未確認。",
     "sources": [
       "https://prtimes.jp/main/html/rd/p/000000854.000040601.html",
       "https://dengekionline.com/article/202604/72212",
-      "https://x.com/teambaki/status/2056570540148588645"
+      "https://x.com/teambaki/status/2056570540148588645",
+      "https://news.denfaminicogamer.jp/news/260617m",
+      "https://natalie.mu/comic/news/672601"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：強い人が静かにご飯を味わう落差は、優しく穏やかなコーチの日常回にすぐ使える",
+    "homage_mode": "強面の先生"
   },
   {
     "title": "修羅の門",
@@ -572,7 +627,7 @@
     "publisher": "講談社",
     "magazine": "月刊少年マガジン",
     "run_period": "1987–1996（1987年5月号–1996年12月号）",
-    "volumes": "全31巻（講談社コミックス）／文庫版・超合本版あり（巻数未確認）",
+    "volumes": "全31巻（講談社コミックス）／超合本版 全7巻（電子のみ、2020年配信）／文庫版あり（巻数未確認）",
     "genre_tags": "格闘技／古流武術／異種格闘技／ボクシング",
     "related_works": "続編：修羅の門 第弐門。外伝：修羅の刻。同作者：海皇紀、龍帥の翼",
     "themes": "千年不敗の流派の継承者が世界の強者と戦う、強さの証明、敗北の意味",
@@ -586,10 +641,13 @@
     "sources": [
       "https://www.kodansha.co.jp/comic/products/0000033723",
       "https://www.kodansha.co.jp/comic/products/0000346993",
-      "https://dic.nicovideo.jp/a/%E4%BF%AE%E7%BE%85%E3%81%AE%E9%96%80"
+      "https://dic.nicovideo.jp/a/%E4%BF%AE%E7%BE%85%E3%81%AE%E9%96%80",
+      "https://www.kodansha.co.jp/comic/products/0000346949"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "B：のんきな日常と戦いの鬼気迫る姿の落差、技の説明の演出は使える",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "修羅の門 第弐門",
@@ -618,7 +676,9 @@
       "https://dic.nicovideo.jp/a/%E4%BF%AE%E7%BE%85%E3%81%AE%E9%96%80"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：前作の続きとして読む参考程度",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "陸奥圓明流外伝 修羅の刻",
@@ -631,7 +691,7 @@
     "publisher": "講談社",
     "magazine": "月刊少年マガジン",
     "run_period": "1989–（1989年7月号以降、断続的に発表）",
-    "volumes": "既刊は資料により25〜27巻程度（正確な既刊数は未確認）／新装版（編ごと）あり",
+    "volumes": "既刊26巻（月刊少年マガジンKC。第26巻 電子版 2025年10月配信。2026-10時点で確認）／新装版（講談社プラチナコミックス、編ごと）あり",
     "genre_tags": "格闘技／時代劇／歴史",
     "related_works": "本編：修羅の門、修羅の門 第弐門",
     "themes": "歴史の陰に名もなき強者がいた、という想像。歴史上の人物との出会いと別れ",
@@ -645,10 +705,13 @@
     "sources": [
       "https://www.kodansha.co.jp/comic/products/0000319630",
       "https://www.kodansha.co.jp/comic/products/0000325453",
-      "https://www.hulu.jp/comic/series/103896"
+      "https://www.hulu.jp/comic/series/103896",
+      "https://bookwalker.jp/de0fbe921f-03e9-4e4b-a40e-e34d66d922ea/"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "C：時代ごとに主人公が替わる構成は参考になるが、内容は直接使いにくい",
+    "homage_mode": "武道・格闘技"
   },
   {
     "title": "鉄拳チンミ",
@@ -677,7 +740,9 @@
       "https://www.cmoa.jp/title/5029"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：小さな子が師匠のもとで課題を一つずつクリアして成長する流れが、キッズクラスの物語にすぐ使える",
+    "homage_mode": "武術の修行"
   },
   {
     "title": "新・鉄拳チンミ",
@@ -689,8 +754,8 @@
     "author_art": "前川たけし",
     "publisher": "講談社",
     "magazine": "月刊少年マガジン",
-    "run_period": "1990年代後半–2004年頃（第20巻の初出が2004年7月号–11月号。開始年は未確認）",
-    "volumes": "全20巻（講談社コミックス。第20巻 2005年2月刊行）",
+    "run_period": "1997–2004（月刊少年マガジン1997年3月号–2004年11月号）",
+    "volumes": "全20巻（講談社コミックス。第20巻 2005年2月刊行）／全14巻とする資料もあり（資料により異なる）／超合本版あり（電子）",
     "genre_tags": "カンフー／冒険／少年",
     "related_works": "前作：鉄拳チンミ。次作：鉄拳チンミLegends",
     "themes": "成長した主人公の旅、守るための強さ",
@@ -704,10 +769,14 @@
     "sources": [
       "https://www.kodansha.co.jp/comic/products/0000045830",
       "https://www.kodansha.co.jp/comic/products/0000319966",
-      "https://www.cmoa.jp/title/45809"
+      "https://www.cmoa.jp/title/45809",
+      "https://mangapedia.com/%E6%96%B0%E9%89%84%E6%8B%B3%E3%83%81%E3%83%B3%E3%83%9F-uxn54ysyu",
+      "https://www.kodansha.co.jp/comic/products/0000319897"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：旅と仲間の掛け合いの中で礼や優しさを学ぶ描写が、初心者の成長物語に使える",
+    "homage_mode": "武術の修行"
   },
   {
     "title": "鉄拳チンミLegends",
@@ -737,7 +806,9 @@
       "https://www.kodansha.co.jp/comic/products/0000041420"
     ],
     "checked_date": "2026-10-29",
-    "status": "確認済み"
+    "status": "確認済み",
+    "flatup_priority": "A：やさしい絵柄と分かりやすい武術描写で、子ども向けの修行回の参考になる",
+    "homage_mode": "武術の修行"
   },
   {
     "title": "拳児",
@@ -752,7 +823,7 @@
     "run_period": "1988–1992（終了年は二次情報による）",
     "volumes": "全21巻（少年サンデーコミックス）／ワイド版・文庫版あり（巻数未確認）",
     "genre_tags": "中国武術／八極拳／修行／旅",
-    "related_works": "未確認",
+    "related_works": "作画者の他作：『ジーザス』『闇のイージス』（いずれも原作 七月鏡一）。続編『拳児2』があるとする資料あり（詳細は未確認）",
     "themes": "武術の本質の探求、師との出会い、礼節と修行",
     "psychology": "元気な少年が各地の師に出会うたびに自分の未熟さを知り、謙虚さを学んでいく過程。",
     "dialogue_style": "師匠たちが武術の理（り）を説明する教養的な台詞が多い。",
@@ -764,10 +835,13 @@
     "sources": [
       "https://www.cmoa.jp/title/5905",
       "https://mangapedia.com/拳児-1453jqb69",
-      "https://comic.k-manga.jp/title/13898/pv"
+      "https://comic.k-manga.jp/title/13898/pv",
+      "https://mangapedia.com/%E8%97%A4%E5%8E%9F%E8%8A%B3%E7%A7%80-o98eim6id"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "B：祖父と孫の関係や、武術の体の使い方を丁寧に描く点は使える",
+    "homage_mode": "武術の修行／武道・格闘技"
   },
   {
     "title": "空手バカ一代",
@@ -797,6 +871,8 @@
       "https://mangapedia.com/%E3%81%A4%E3%81%AE%E3%81%A0%E3%81%98%E3%82%8D%E3%81%86-3h7myqn64"
     ],
     "checked_date": "2026-10-29",
-    "status": "二次情報で確認"
+    "status": "二次情報で確認",
+    "flatup_priority": "C：劇画調の誇張と昭和の空気は参考になるが、内容は過激で直接使えない",
+    "homage_mode": "劇画ヤンキー／武道・格闘技"
   }
 ]
