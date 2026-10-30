@@ -36,7 +36,7 @@
   ],
   "avoid_specifics": "九頭神竜男の名前・異名・外見、作品名にあるクズという呼び方、作品ロゴ。『クローズ』シリーズの校名・チーム名・地名。圧倒的な暴力で強さを示す見せ方そのもの。青年誌の作品なので、暴力の描写の強さをFLATUPの作品に持ち込まない。",
   "fact_corrections": [],
-  "evidence_basis": "作者名・掲載誌・連載開始号・ジャンルは、Wikipediaを引用した紹介ページ（ランキングネット）と電子書店（ブックライブ）の作者ページによる。作品の主題と完結の扱い、読者レビューは電子書店（めちゃコミック）による。いずれもWebSearchの検索結果を通して確認した。第1巻と第23巻の刊行日は、メインDBに記載された秋田書店の書誌（https://www.akitashoten.co.jp/comics/4253151019 と https://www.akitashoten.co.jp/comics/4253302149）による（今回はネットワーク設定で開けず未再確認）。分析の項目は、情報源も確かなAIの知識もないため、ほとんどを未確認とした。",
+  "evidence_basis": "作者名・掲載誌・連載開始号・ジャンルは、Wikipediaを引用した紹介ページ（ランキングネット）と電子書店（ブックライブ）の作者ページによる。作品の主題と完結の扱い、読者レビューは電子書店（めちゃコミック）による。いずれもWebSearchの検索結果を通して確認した。第1巻と第23巻の刊行日は、メインDBに記載された秋田書店の書誌（https://www.akitashoten.co.jp/comics/4253151019 と https://www.akitashoten.co.jp/comics/4253302149）による（今回はネットワーク設定で開けず未再確認。メインDBからの引き継ぎとしてsourcesにも載せた）。分析の項目は、情報源も確かなAIの知識もないため、ほとんどを未確認とした。",
   "unverified": [
     "九頭神竜男が『クローズ』本編のどの場面に、どんな立場で登場する人物か",
     "本作の舞台（地域・学校）と年代",
@@ -52,6 +52,8 @@
   "sources": [
     "https://mechacomic.jp/books/137082",
     "https://ranking.net/items/470fcc",
-    "https://booklive.jp/focus/author/a_id/19009"
+    "https://booklive.jp/focus/author/a_id/19009",
+    "https://www.akitashoten.co.jp/comics/4253151019",
+    "https://www.akitashoten.co.jp/comics/4253302149"
   ]
 }
