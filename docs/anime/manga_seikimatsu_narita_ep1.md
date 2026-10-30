@@ -1,6 +1,6 @@
 # Web漫画『世紀末ナリタ伝説』第1話「ヒャッハー、体験に来る」ネーム
 
-**結論**：オープニング「世紀末ナリタ」の構成を、スマホの縦読みWeb漫画にふくらませたもの。全8ページ・35コマ。最後のコマは体験の案内（灯りのエンドカード）。前半は世紀末の劇画、後半は明るいFLATUPの絵柄。ヒャッハー三人衆が「ジム破り」に来て、なぜか体験レッスンを受けて帰っていく。テーマは「殴られるより、優しくされるほうが効く」。
+**結論**：オープニング「世紀末ナリタ」の構成を、スマホの縦読みWeb漫画にふくらませたもの。全8ページ・35コマ。最後のコマはジム名で閉じる（予約の案内は体験回だけ）。前半は世紀末の劇画、後半は明るいFLATUPの絵柄。ヒャッハー三人衆が「ジム破り」に来て、なぜか体験レッスンを受けて帰っていく。テーマは「殴られるより、優しくされるほうが効く」。
 
 - オープニングの映像版 → [opening_seikimatsu_narita.md](opening_seikimatsu_narita.md)
 - キャラの正本 → [../flatup_animation_bible.md](../flatup_animation_bible.md)
@@ -109,9 +109,9 @@
 |---|---|---|
 | 33 | 夕方の駐車場。黒田がミニバンの前でふり返る。後部座席から子どもが手をふっている。黒田はサングラスを頭の上にのせている | 〇 （黒田）……来週も、来ていいスか 〇 （マサキ）もちろん！ 待ってるね。 |
 | 34 | 引きの大ゴマ。夕焼けの荒野にぽつんと光るFLATUP GYM。ミニバンが去っていく | □ 世紀末ナリタ。この荒野で、いちばん強い男たちは—— □ いちばん、やさしかった。 □ **世界一、初心者に優しい格闘技ジム ── FLATUP GYM** |
-| 35 | 縦長の最後のコマ。ジムの入り口の灯り。黒田がサングラスを頭にのせて、読者のほうへ親指を立てる。下半分は案内のための余白 | 〇 （黒田）オレにもできたんスから。 □ まずは、見るだけでも。初回体験 500円（30分）／見学OK □ 男性の体験：火・木・土、または平日19:00以降 □ ご予約・ご相談は 公式LINE から（QRコード） |
+| 35 | 縦長の最後のコマ。ジムの入り口の灯り。黒田がサングラスを頭にのせて、読者のほうへ親指を立てる | 〇 （黒田）オレにもできたんスから。 □ （小さく）FLATUP GYM（成田） |
 
-> コマ35の案内文は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型。公開前に `openqlow/src/shared/canon.ts` と照合する。
+> 2026-10-30 の新方針（マスタープロンプト・[omnibus_series_bible.md](omnibus_series_bible.md) v2）では、体験の予約の案内は体験回だけ。この話は三人衆の主役回（認知・愛着）なので、予約の文字は入れず、ジム名で閉じる。
 
 ---
 
@@ -142,8 +142,9 @@
 
 ## 画像プロンプトの共通ブロック（英語）
 
-- **劇画ページ（1–5ページ）**: `black and white 1980s Japanese post-apocalyptic action manga parody, heavy black ink, dramatic hatching, harsh backlight, speed lines, comedic exaggeration, empty speech balloons, no blood, no violence, no scary faces, no spiked shoulder pads, no tattoos, no brand logos, no readable text, vertical webtoon panel`
+- **劇画ページ（1–5ページ）＝町の比喩**：手引き §7 の「リアル劇画」（ヤンキー文化が根付いた町・成田の比喩）を使う。`gritty Japanese delinquent manga style, realistic adult proportions with broad shoulders and thick neck, bold brush-ink outlines, heavy black shadows, dense crosshatching, post-apocalyptic wasteland with sand storm and ruined office buildings, harsh backlight, original character design, empty speech balloons, no team names, no embroidered text, no logos, no brand marks, no tattoos, no blood, no violence, no spiked shoulder pads, no readable text, vertical webtoon panel`。三人衆が叫ぶコマは `comedic exaggerated shouting face, sweat drops, sunglasses slipping, silly rather than scary` を足す（バイブルの「怖い顔を描かない」）
 - **FLATUPページ（6–8ページ）**: `warm full-color Japanese anime manga style, clean lines, soft warm gym lighting, bright clean gym with white floor and green wall mats, empty speech balloons, no tattoos, no brand logos, no readable text, vertical webtoon panel`
+- **絵柄の切り替え**：ジムの扉が開く6ページ目から、三人衆も温かい絵柄に変わる（町＝リアル劇画、ジム＝温かい絵柄）。ただし三人衆の心の中の劇画モノローグ（コマ27・32の▮）は、白黒の劇画パロディのまま
 - **三人衆の固定ブロック**:
   - 黒田: `big burly man, square crew cut, round sunglasses, all-black outfit, chain on his belt`
   - 黒川: `lanky hunched man, narrow sunglasses, black hoodie, laptop on his back`
