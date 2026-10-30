@@ -1,9 +1,9 @@
 # FLATUP アニメ オムニバス第2話「成田へ、引っ越します。」制作仕様
 
-**結論**: 引っ越し前の家で、保護者が6歳の息子を心配する約90秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルのあと、**体験の案内（灯りのエンドカード）で終わる**。**15カット×6秒**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
+**結論**: 引っ越し前の家で、保護者が6歳の息子を心配する約93秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルのあと、**体験の案内（灯りのエンドカード）で終わる**。**15カット（Cut 1〜14 は6秒、Cut 15 のエンドカードは9秒）**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
 
 > 📖 キャラ・世界観の正本 → [../flatup_animation_bible.md](../flatup_animation_bible.md)
-> 🛠 制作手順・費用の目安 → [../flatup_anime_episode1.md](../flatup_anime_episode1.md)（cheap 方式なら画像14枚で約 $0.5）
+> 🛠 制作手順・費用の目安 → [../flatup_anime_episode1.md](../flatup_anime_episode1.md)（cheap 方式なら画像15枚で約 $0.6）
 
 ---
 
@@ -21,7 +21,7 @@
 | 項目 | 値 |
 |---|---|
 | タイトル | オムニバス第2話「成田へ、引っ越します。」 |
-| 尺 | 約90秒（6秒×15カット） |
+| 尺 | 約93秒（6秒×14カット＋Cut 15 は9秒） |
 | 画面 | 縦 9:16 |
 | 画風 | 現実パート＝温かい3D映画風（EP1と同じ）／妄想パート＝白黒の劇画パロディ（集中線・スクリーントーン） |
 | 切り替え | 妄想に入るとき「ガガーン」の効果音＋白フラッシュ。戻るときはママの「……」で色が戻る |
@@ -59,15 +59,15 @@
 | 12 | 6s | 現実 | 栄光くんがスマホをのぞきこみ、目がキラッと光る。画面にはメルティの笑顔 | 目が輝く | ……ぼく、これ、やってみたい。 |
 | 13 | 6s | 現実 | ママとパパが顔を見合わせて、少し笑う。スマホからアイカの声 | 見合わせる→ほほえむ | 強くなる前に、優しくなろう。 |
 | 14 | 6s | タイトル | 黒い画面にタイトル→夜明けの成田の空に飛行機 | ロゴがドンッと出る | 世界一、初心者に優しい格闘技ジム |
-| 15 | 6s | 灯りのエンドカード | 夕焼けのFLATUP GYMの窓に、温かい灯り。手前に、ミットを抱えた栄光くんの後ろ姿 | 灯りがふわっと強くなる。文字は後から重ねる | （マサキの声）こわかったら、まずは見るだけでいいよ。→ エンドカード（下のメモ） |
+| 15 | 9s | 灯りのエンドカード | 夕焼けのFLATUP GYMの窓に、温かい灯り。手前に、ミットを抱えた栄光くんの後ろ姿 | 灯りがふわっと強くなる。文字は後から重ねる | （マサキの声）こわかったら、まずは見るだけでいいよ。→ エンドカード（下のメモ） |
 
-> エンドカード（Cut 15）：「まずは、見るだけでも。」「初回体験 500円（30分）／見学OK」「キッズクラス：火・木 18:00〜19:00／土 13:00〜」「ご予約・ご相談は 公式LINE から」＋QRコード。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
+> エンドカード（Cut 15・9秒）：マサキの橋渡しのセリフ（約3秒）のあと、エンドカードを6秒止めて見せる（ブランドの行は Cut 14 のタイトルで出ているので省く）。「まずは、見るだけでも。」「初回体験 500円（30分）／見学OK」「キッズクラス：火・木 18:00〜19:00／土 13:00〜」「ご予約・ご相談は 公式LINE から」＋QRコード。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
 
-> 字幕メモ: Cut 11「一歩ずつ、一緒にできるようになろう！」とCut 14のタイトルは15字を超えるので、2行に分ける（「一歩ずつ、／一緒にできるようになろう！」「世界一、初心者に優しい／格闘技ジム」）。
+> 字幕メモ: Cut 11「一歩ずつ、一緒にできるようになろう！」、Cut 14のタイトル、Cut 15「こわかったら、まずは見るだけでいいよ。」は15字を超えるので、2行に分ける（「一歩ずつ、／一緒にできるようになろう！」「世界一、初心者に優しい／格闘技ジム」「こわかったら、／まずは見るだけでいいよ。」）。
 
 ### ナレーション・セリフ台本（声録り用）
 
-> ⚠️ セリフの正本は [manga_ep02_hikkoshi.md](manga_ep02_hikkoshi.md)（Web漫画版）。下の台本は漫画版より前のもので、Cut2（漫画のコマ2〜3）、Cut5（コマ8・11）、Cut8〜9（不安の順番。漫画はケガ→乱暴→先生→6歳）、Cut14（漫画は夜明け→タイトル「成田へ、引っ越します。」の順）が漫画とちがう。漫画にしかないセリフ：コマ9・21・23・27・29・33。**声録りの前に、漫画版に合わせて直す**。
+> ⚠️ セリフの正本は [manga_ep02_hikkoshi.md](manga_ep02_hikkoshi.md)（Web漫画版。脚本A/Bの正本はJINの決定待ち）。下の台本は漫画版より前のもので、Cut2（漫画のコマ2〜3）、Cut5（コマ8・11）、Cut8〜9（不安の順番。漫画はケガ→乱暴→先生→6歳）、Cut14（漫画は夜明け→タイトル「成田へ、引っ越します。」の順）が漫画とちがう。漫画にしかないセリフ：コマ9・17・18・21・23・29・33（コマ17・18の「なんだコラ」「声が小せェ！」は、脚本の決定待ちの印つきで、ママの妄想の中だけ）。コマ27のパパのセリフは Cut13 に入れた。**声録りの前に、漫画版に合わせて直す**。
 
 ```
 Cut1  ナレ   引っ越しまで、あと7日。
@@ -84,10 +84,11 @@ Cut10 ママ   やっぱり無理！
       栄光   ……ママ、なに見てるの？
 Cut11 マサキ 一歩ずつ、一緒にできるようになろう！
 Cut12 栄光   ……ぼく、これ、やってみたい。
-Cut13 アイカ 強くなる前に、優しくなろう。
+Cut13 パパ   ……見に行くだけ、行ってみる？
+      アイカ 強くなる前に、優しくなろう。
 Cut14 ナレ   世界一、初心者に優しい格闘技ジム。FLATUP GYM。
 Cut15 マサキ こわかったら、まずは見るだけでいいよ。
-      ナレ   初回体験、500円。見学だけでも大丈夫です。ご予約は、公式LINEから。
+      ナレ   初回体験、500円。ご予約は、公式LINEから。（エンドカードを止めている6秒の間に読む）
 ```
 
 ---
@@ -163,14 +164,14 @@ The gentle 6-year-old chibi boy with a soft black bowl cut and light-green dinos
 The Japanese mother and father sitting on the living room floor among moving boxes, looking at each other and starting to smile softly, the 6-year-old chibi boy in light-green dinosaur pajamas between them holding the smartphone with both hands, warm hopeful lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
-**Cut 15 — 灯りのエンドカード**
-```
-Exterior of a cozy martial arts gym at sunset with warm light glowing from the windows, a small 6-year-old chibi boy with a soft black bowl cut seen from behind hugging a focus mitt and looking at the gym, large empty space in the upper half for text and a QR code, gentle hopeful mood, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, vertical 9:16, no text, no tattoos, no brand logos
-```
-
 **Cut 14 — 夜明けとタイトル**
 ```
 Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof silhouette and fields, an airplane rising into the pink and gold sunrise, hopeful new-beginning mood, empty space at the center for a title logo, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+```
+
+**Cut 15 — 灯りのエンドカード**
+```
+Exterior of a cozy martial arts gym at sunset with warm light glowing from the windows, a small 6-year-old chibi boy with a soft black bowl cut seen from behind hugging a focus mitt and looking at the gym, large empty space in the upper half for text and a QR code, gentle hopeful mood, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 ---
@@ -193,7 +194,7 @@ Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof sil
 - **Cut 12**: `The boy's eyes widen and sparkle, a small smile spreads across his face.`
 - **Cut 13**: `The parents turn to look at each other and smile softly, the boy hugs the phone.`
 - **Cut 14**: `The airplane rises slowly into the sunrise, the light brightens, the title space glows gently.`
-- **Cut 15**: `The window light of the gym slowly grows warmer and brighter, the boy hugs the mitt a little tighter, fixed camera.`（動かさず静止画でもよい）
+- **Cut 15**: `The window light of the gym slowly grows warmer and brighter, the boy hugs the mitt a little tighter, fixed camera.`（Cut 15 は9秒。動かさず静止画でもよい）
 
 ---
 
@@ -204,4 +205,4 @@ Dawn sky over a quiet Japanese suburban town with a pagoda-style temple roof sil
 - **ルビ**: 「玄関口（ゲートウェイ）」「地元民（ジモティ）」は字幕でもルビ風に（小さい文字を上に重ねる）。
 - **ロゴ**: Cut 14 の最後の2秒と、Cut 15 のエンドカード。
 - **エンドカード**: 文字・QRコードは CapCut で重ねる（画像AIに描かせない）。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
-- **次回予告（任意・+3秒）**: 「次回　『かえして』が言えた日」（オムニバス第3話・[manga_ep03_kaeshite.md](manga_ep03_kaeshite.md)）
+- **次回予告**: 入れない（オムニバスの帰着点は体験の案内なので、動画の最後は Cut 15 のエンドカードで終える）。次の話（例：第3話「『かえして』が言えた日」・[manga_ep03_kaeshite.md](manga_ep03_kaeshite.md)）を知らせたいときは、投稿文に書く。

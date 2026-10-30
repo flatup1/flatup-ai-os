@@ -11,7 +11,7 @@ PR：#37（ドラフト。mainとの衝突なし。レビュー・CIはまだな
 
 1. `CLAUDE.md`（このリポジトリの運用ルール。送信・投稿・課金は人間がやる）
 2. `docs/flatup_animation_bible.md`（**キャラ・世界観の正本**。ほかの資料と食い違ったら、これが勝つ）
-3. `docs/anime/hikkoshi_ep1_narita.md`（第1話の制作仕様。絵コンテ、台本、画像・動画プロンプト）
+3. `docs/anime/hikkoshi_ep1_narita.md`（オムニバス第2話「成田へ、引っ越します。」の動画版の制作仕様。絵コンテ、台本、画像・動画プロンプト。セリフの正は漫画版 `docs/anime/manga_ep02_hikkoshi.md`）
 4. `docs/anime/manga_research/homage_guidelines.md`（オマージュの手引き。真似してよい範囲）
 5. `docs/anime/manga_research/research_brief.md`（作品DBの調査ルールとJSONの形）
 
@@ -28,31 +28,31 @@ PR：#37（ドラフト。mainとの衝突なし。レビュー・CIはまだな
 
 - シリーズは**オムニバス**（1話ごとに主人公が替わる）。設計書は `docs/anime/omnibus_series_bible.md`
 - **すべての話の帰着点は体験の誘導**。毎話「体験30分の流れ」の1場面を見せ、最後は「灯りのエンドカード」で体験へ案内する
-- エンドカードの料金・時間・URLは `openqlow/src/shared/canon.ts` から写し、公開前に照合する
+- エンドカードの料金・クラス時間は `openqlow/src/shared/canon.ts`、体験の長さ（30分）は `src/data/trial_flow.md`、公式LINEのURL（`https://lin.ee/Y3MbbAe`）は `src/data/gym_profile.md` から写し、公開前に照合する（canon.ts にはURLの項目がない）
 - 以前の「第1話はタイトルで終わる」方針は、この決定で置き換え
 
 ## 2. 今の状況（2026-10-29 に Claude が実物で確認したもの）
 
 | もの | 状態 |
 |---|---|
-| `docs/anime/hikkoshi_ep1_narita.md` | ✅ ある。14カット×6秒で約84秒 |
+| `docs/anime/hikkoshi_ep1_narita.md` | ✅ ある。15カットで約93秒（2026-10-30 に Cut 15 のエンドカード（9秒）を追加。オムニバスでは第2話の動画版） |
 | `docs/anime/manga_research/homage_guidelines.md` | ✅ ある |
 | `docs/anime/manga_research/research_brief.md` | ✅ ある（DB調査のルール） |
 | `scripts/merge_manga_db.py` | ✅ ある（調査結果のJSONをまとめてCSVとXLSXにする） |
 | `docs/anime/manga_research/works_database.csv` / `.xlsx` | ✅ 129作品。確認済み50、二次情報で確認78、未確認1。調査の制限は `manga_research/README.md` を読むこと。**作り直さない**。足りない作品だけ追加する |
-| 第1話の画像・動画・音声・完成MP4 | ❌ リポジトリにはない（まだ1枚も作っていない） |
+| この話（オムニバス第2話）の画像・動画・音声・完成MP4 | ❌ リポジトリにはない（まだ1枚も作っていない） |
 | 前の対話で作ったとされる97作品DB（xlsx・csv・zip）と統合制作バイブル.md | ❌ 4つのリポジトリの全ブランチにも、Googleドライブにもなかった。上の新しいDBで置き換える |
 | 「はじめてでも、だいじょうぶ。」 | ドライブに `I08_はじめてでも大丈夫.mp4` が2つ（2026-10-16）。HTMLとZIPは見つからない |
 | Higgsfield（残高、ジョブID） | ❌ Claude の環境からは確認できなかった。前の対話の値（Starter、残り201クレジット）は古い値として扱う |
 | 毎朝8:30のHiggsfield確認タスク | ❌ このアカウントの予約タスクにはなかった |
-| アイカの外見 | ❌ バイブルに外見の正本画像がない。第1話では声だけの登場にしている |
+| アイカの外見 | ❌ バイブルに外見の正本画像がない。この話では声だけの登場にしている |
 | マサキ・メルティの外見 | ✅ バイブルと `assets/canon/` で確定 |
 
 ## 3. ユーザーに決めてもらうこと（まだ返事がない）
 
 1. **脚本の正本**
    - A：ユーザーが別のAIと作った指示書の版。約90秒。「なんだコラ」「声が小せェ！」のセリフあり。アイカが画面に出る。前半は2D
-   - B：リポジトリの版（`hikkoshi_ep1_narita.md`）。約84秒。怖そうなコーチはシルエットでセリフなし。アイカは声だけ
+   - B：リポジトリの版（`hikkoshi_ep1_narita.md`）。約84秒（2026-10-30 にエンドカードを足して、いまは約93秒）。怖そうなコーチはシルエットでセリフなし。アイカは声だけ
    - Claude のおすすめ：Bを土台にして、2つのセリフを戻す（リーゼントはちびキャラ、コーチはシルエットのまま）
 2. **画像と動画をどこで作るか**
    - fal.ai：リポジトリに仕組みがあり、約$5
@@ -66,7 +66,7 @@ PR：#37（ドラフト。mainとの衝突なし。レビュー・CIはまだな
    - 新しいJSONは `docs/anime/manga_research/raw/` に足す（例：`g7.json`）。そのあと `python3 scripts/merge_manga_db.py docs/anime/manga_research/raw docs/anime/manga_research` を実行する。CSVを直接書き換えると、次にまとめ直したとき消えてしまう
 2. §3 の1が決まったら、`hikkoshi_ep1_narita.md` を正本の脚本に合わせて直す
 3. 栄光くん・ママ・パパのモデルシート用プロンプトを作る（正面・横・後ろ・表情4種）。見た目は `hikkoshi_ep1_narita.md` の「固定ブロック」を使う
-4. 14カットのキーフレーム画像を作る
+4. 15カットのキーフレーム画像を作る（Cut 15 のエンドカードも忘れない）
    - お金がかかるので、JINの承認を取ってから
    - 手順は `docs/flatup_anime_episode1.md` と同じ cheap 方式
 5. 動かすのは Cut 3・9・12 だけにする
