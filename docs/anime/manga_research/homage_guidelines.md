@@ -162,3 +162,9 @@ each child with a distinct hairstyle and outfit, big joyful expressions, barefoo
 original character design, not based on any real person,
 no logos, no brand marks, no readable text on clothing, no tattoos, no blood
 ```
+
+### JINの返事（2026-10-30）
+
+- **1・2枚目はママとアイカの参考**：ママ＝1枚目の「心配する親の顔（目を見開く、汗のしずく）と無邪気な子の顔の落差」。アイカ＝2枚目の「下から見上げる、細い線の静かにかっこいい立ち姿」。ただし顔・髪型・服は写さない。**アイカの姿の正本はまだない**（参照待ちのまま。ここに書いたのは、ポーズ・線・雰囲気の方向だけ）。
+- **8枚目の方向でジムの中を描く**（ペンのインク線＋彩色の2D）。設計書 #14 は「ジムの中は2D」で決定。
+- **8枚目の子どもの顔は、同意ずみ**（JIN確認）。同意の記録（だれの・いつ）は、公開前に残しておく。
