@@ -1,6 +1,6 @@
 # FLATUP アニメ オムニバス第2話「成田へ、引っ越します。」制作仕様
 
-**結論**: 引っ越し前の家で、保護者が5歳の息子を心配する約90秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルのあと、**体験の案内（灯りのエンドカード）で終わる**。**15カット×6秒**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
+**結論**: 引っ越し前の家で、保護者が6歳の息子を心配する約90秒の導入回。前半は親の不安（成田という街・格闘技）を劇画パロディで笑いに変え、後半で明るい3Dに戻り「世界一、初心者に優しい格闘技ジム」のタイトルのあと、**体験の案内（灯りのエンドカード）で終わる**。**15カット×6秒**。作り方は EP1 と同じ（FLUX で画像 → 必要なカットだけ動画化 → CapCut でつなぐ）。
 
 > 📖 キャラ・世界観の正本 → [../flatup_animation_bible.md](../flatup_animation_bible.md)
 > 🛠 制作手順・費用の目安 → [../flatup_anime_episode1.md](../flatup_anime_episode1.md)（cheap 方式なら画像14枚で約 $0.5）
@@ -31,13 +31,13 @@
 
 | 名前 | 役どころ | 画像生成用の固定ブロック（毎カットに入れる） |
 |---|---|---|
-| 西村 栄光（えいこう）くん・5歳 | やさしいけど泣き虫の保育園児。おもちゃを取られても言い返せない | `a gentle 5-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, big round brown eyes, rosy cheeks, light-green dinosaur pajamas` |
+| 西村 栄光（えいこう）くん・6歳（保育園の年長さん） | やさしいけど泣き虫の保育園児。おもちゃを取られても言い返せない | `a gentle 6-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, big round brown eyes, rosy cheeks, light-green dinosaur pajamas` |
 | ママ | 心配性。夜中にスマホで調べて不安をふくらませる | `a Japanese mother in her early thirties, shoulder-length brown hair in a loose low ponytail, oversized beige cardigan, kind but worried eyes` |
 | パパ | のんきに見えて、実は一番心配している | `a Japanese father in his mid thirties, short black hair, round glasses, gray hoodie, soft friendly face` |
 | マサキ・メルティ | Cut 11〜12 のスマホ動画の中だけに登場 | バイブルの英語ブロックをそのまま使う。**canon画像を必ず添付** |
 | アイカ | Cut 13 の声だけ（姿の正本画像がまだ無いため顔は出さない） | — |
 
-> 主人公ツム（バイブルの主人公）とは別のゲストキャラ。第2話以降、ジムでツムと出会う流れにつなげられる。
+> バイブルの主人公ツム（5歳）とは別のゲストキャラ。キッズクラスは6歳から（2026-10-30 JIN決定）なので、5歳のツムとキッズクラスで共演させるかは、バイブル側の年齢の扱いが決まってから。
 
 ---
 
@@ -67,7 +67,7 @@
 
 ### ナレーション・セリフ台本（声録り用）
 
-> ⚠️ セリフの正本は [manga_ep02_hikkoshi.md](manga_ep02_hikkoshi.md)（Web漫画版）。下の台本は漫画版より前のもので、Cut2（漫画のコマ2〜3）、Cut5（コマ8・11）、Cut8〜9（不安の順番。漫画はケガ→乱暴→先生→5歳）、Cut14（漫画は夜明け→タイトル「成田へ、引っ越します。」の順）が漫画とちがう。漫画にしかないセリフ：コマ9・21・23・27・29・33。**声録りの前に、漫画版に合わせて直す**。
+> ⚠️ セリフの正本は [manga_ep02_hikkoshi.md](manga_ep02_hikkoshi.md)（Web漫画版）。下の台本は漫画版より前のもので、Cut2（漫画のコマ2〜3）、Cut5（コマ8・11）、Cut8〜9（不安の順番。漫画はケガ→乱暴→先生→6歳）、Cut14（漫画は夜明け→タイトル「成田へ、引っ越します。」の順）が漫画とちがう。漫画にしかないセリフ：コマ9・21・23・27・29・33。**声録りの前に、漫画版に合わせて直す**。
 
 ```
 Cut1  ナレ   引っ越しまで、あと7日。
@@ -79,7 +79,7 @@ Cut5  ママ   でも、この子は大丈夫かな。
 Cut6  ナレ   「かえして」が、言えない子だった。
 Cut7  パパ   心も体も強くなるように、何か習わせてみる？ 格闘技とか。
 Cut8  ママ   ケガしない？ 先生、怖くない？
-Cut9  ママ   乱暴な子に、ならない？ 5歳で、できるの？
+Cut9  ママ   乱暴な子に、ならない？ 6歳で、できるの？
 Cut10 ママ   やっぱり無理！
       栄光   ……ママ、なに見てるの？
 Cut11 マサキ 一歩ずつ、一緒にできるようになろう！
@@ -105,7 +105,7 @@ A small cozy Japanese apartment living room at night, stacks of cardboard moving
 
 **Cut 2 — 夜中の検索**
 ```
-A Japanese mother in her early thirties, shoulder-length brown hair in a loose low ponytail, oversized beige cardigan, kind but worried eyes, sitting on a futon at night looking at her smartphone with a frowning face, the phone screen lighting her face, a gentle 5-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, rosy cheeks, light-green dinosaur pajamas, sleeping peacefully next to her, moving boxes in the background, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+A Japanese mother in her early thirties, shoulder-length brown hair in a loose low ponytail, oversized beige cardigan, kind but worried eyes, sitting on a futon at night looking at her smartphone with a frowning face, the phone screen lighting her face, a gentle 6-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, rosy cheeks, light-green dinosaur pajamas, sleeping peacefully next to her, moving boxes in the background, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 3 — 劇画・ミニバンの列（妄想）**
@@ -120,12 +120,12 @@ Inside a large minivan, the back seat with a cute child safety seat and a fluffy
 
 **Cut 5 — 寝顔をなでる**
 ```
-The Japanese mother with shoulder-length brown hair in a loose low ponytail and an oversized beige cardigan, gently stroking the hair of the sleeping 5-year-old chibi boy with a soft black bowl cut and light-green dinosaur pajamas, her expression tender but anxious, dim warm night light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+The Japanese mother with shoulder-length brown hair in a loose low ponytail and an oversized beige cardigan, gently stroking the hair of the sleeping 6-year-old chibi boy with a soft black bowl cut and light-green dinosaur pajamas, her expression tender but anxious, dim warm night light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 6 — 保育園の回想**
 ```
-A bright Japanese nursery school playroom in soft hazy flashback tones, a gentle 5-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, big round brown eyes, wearing a yellow nursery smock, looking down silently with teary eyes while another child walks away holding his toy blocks, soft pastel light, slightly blurred dreamy edges, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+A bright Japanese nursery school playroom in soft hazy flashback tones, a gentle 6-year-old chibi boy, 2.5-head-tall, soft black bowl-cut hair, big round brown eyes, wearing a yellow nursery smock, looking down silently with teary eyes while another child walks away holding his toy blocks, soft pastel light, slightly blurred dreamy edges, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 7 — パパの提案**
@@ -140,12 +140,12 @@ A huge silhouetted martial arts coach seen from behind in a dramatic backlit old
 
 **Cut 9 — 劇画・リーゼントのちび栄光くん（妄想）**
 ```
-A tiny 2.5-head-tall chibi 5-year-old boy with a huge exaggerated pompadour hairstyle, wearing a long delinquent school coat that is far too big for him, arms crossed trying to look tough but looking adorable, sparkle and speed lines behind him, black and white 1990s Japanese delinquent manga parody style, bold ink lines, speed lines, screentone shading, comedic and exaggerated, no blood, no violence, no scary faces, vertical 9:16, no readable text, no tattoos, no brand logos
+A tiny 2.5-head-tall chibi 6-year-old boy with a huge exaggerated pompadour hairstyle, wearing a long delinquent school coat that is far too big for him, arms crossed trying to look tough but looking adorable, sparkle and speed lines behind him, black and white 1990s Japanese delinquent manga parody style, bold ink lines, speed lines, screentone shading, comedic and exaggerated, no blood, no violence, no scary faces, vertical 9:16, no readable text, no tattoos, no brand logos
 ```
 
 **Cut 10 — 「やっぱり無理！」**
 ```
-The Japanese mother holding her head in both hands in a comedic panic on the living room floor, the father beside her with an awkward smile, in the background the 5-year-old chibi boy in light-green dinosaur pajamas sitting up on the futon and rubbing his sleepy eyes, warm lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+The Japanese mother holding her head in both hands in a comedic panic on the living room floor, the father beside her with an awkward smile, in the background the 6-year-old chibi boy in light-green dinosaur pajamas sitting up on the futon and rubbing his sleepy eyes, warm lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 11 — スマホの中のFLATUP**（マサキの canon 画像を添付）
@@ -155,17 +155,17 @@ Close-up of a smartphone screen held in a mother's hands, on the screen a bright
 
 **Cut 12 — 目がキラッ**（メルティの canon 画像を添付）
 ```
-The gentle 5-year-old chibi boy with a soft black bowl cut and light-green dinosaur pajamas peeking at his mother's smartphone, his big round brown eyes sparkling with excitement, the phone screen showing a friendly female kickboxing instructor with short wavy light-blonde hair, a soft red headband, and a warm smile, glow from the screen lighting his face, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+The gentle 6-year-old chibi boy with a soft black bowl cut and light-green dinosaur pajamas peeking at his mother's smartphone, his big round brown eyes sparkling with excitement, the phone screen showing a friendly female kickboxing instructor with short wavy light-blonde hair, a soft red headband, and a warm smile, glow from the screen lighting his face, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 13 — 両親が見合わせる**
 ```
-The Japanese mother and father sitting on the living room floor among moving boxes, looking at each other and starting to smile softly, the 5-year-old chibi boy in light-green dinosaur pajamas between them holding the smartphone with both hands, warm hopeful lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
+The Japanese mother and father sitting on the living room floor among moving boxes, looking at each other and starting to smile softly, the 6-year-old chibi boy in light-green dinosaur pajamas between them holding the smartphone with both hands, warm hopeful lamp light, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, cinematic depth of field, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 15 — 灯りのエンドカード**
 ```
-Exterior of a cozy martial arts gym at sunset with warm light glowing from the windows, a small 5-year-old chibi boy with a soft black bowl cut seen from behind hugging a focus mitt and looking at the gym, large empty space in the upper half for text and a QR code, gentle hopeful mood, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, vertical 9:16, no text, no tattoos, no brand logos
+Exterior of a cozy martial arts gym at sunset with warm light glowing from the windows, a small 6-year-old chibi boy with a soft black bowl cut seen from behind hugging a focus mitt and looking at the gym, large empty space in the upper half for text and a QR code, gentle hopeful mood, warm 3D animation movie style, Pixar/Illumination quality, soft warm lighting, vertical 9:16, no text, no tattoos, no brand logos
 ```
 
 **Cut 14 — 夜明けとタイトル**
