@@ -203,6 +203,6 @@ Exterior of a cozy martial arts gym at sunset with warm light glowing from the w
 - **BGM**: Cut 1〜2 と 5〜7 は静かなピアノ。妄想カット（3・4・8・9）は90年代ロック風のギターを一瞬だけ入れ、戻ったら止める（落差で笑わせる）。Cut 11 から明るい曲に切り替え、Cut 14 で盛り上げる。
 - **効果音**: 妄想に入るとき「ガガーン」、Cut 3「ブォンッ」、Cut 8「ドンッ」、Cut 12「キラッ」。
 - **ルビ**: 「玄関口（ゲートウェイ）」「地元民（ジモティ）」は字幕でもルビ風に（小さい文字を上に重ねる）。
-- **ロゴ**: Cut 14 の最後の2秒と、Cut 15 のエンドカード。
+- **ロゴ**: Cut 14 の最後の2秒と、Cut 15 のエンドカード（Cut 15 では、ブランドの2行の文字は省き、ロゴだけ置く）。
 - **エンドカード**: 文字・QRコードは CapCut で重ねる（画像AIに描かせない）。エンドカードの文面と数字は [omnibus_series_bible.md](omnibus_series_bible.md) §4 の型を使い、公開前に `openqlow/src/shared/canon.ts` と照合する。
 - **次回予告**: 入れない（オムニバスの帰着点は体験の案内なので、動画の最後は Cut 15 のエンドカードで終える）。次の話（例：第3話「『かえして』が言えた日」・[manga_ep03_kaeshite.md](manga_ep03_kaeshite.md)）を知らせたいときは、投稿文に書く。
