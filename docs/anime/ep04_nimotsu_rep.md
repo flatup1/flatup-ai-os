@@ -2,14 +2,15 @@
 
 > ⚠️ **2026-10-30 JIN決定（設計書 #14）**：ジムの中は**2Dの漫画絵**（ペンのインク線＋彩色）で描く。**声は入れない**（字幕と効果音だけ）。**本文も2Dに直した（2026-10-30）**。声の記述も「声なし（字幕と効果音だけ）」に直した（2026-10-30）。参考：[manga_research/homage_guidelines.md](manga_research/homage_guidelines.md) §8。
 
-**結論**：はじめての習い事の前の晩、ママがリュックをパンパンに詰める（白黒の劇画パロディ「大遠征の、夜。」）。眠れないママは、夜中にそっと「ママ用」のティッシュ箱を、リュックの上のポケットに入れる。次の日、ジムの入口で、6歳の栄光くんは、列のはしの子が空けてくれた場所を見て、**自分から**ママの手をはなす（小指が一瞬だけひっかかる）。ママの手だけが、つないだ形のまま宙に残る。帰りぎわ、迎えに来たパパがリュックを持ち上げて「……おもっ。」。中身はほとんど使われていない。上のポケットの「ママ用」のティッシュ箱だけ、封が開いて1枚出ている。パパは何も言わずに背負う。帰り道、栄光くんはパパのリュックの底を片手でささえる（つもり）。ママの空いた手が、栄光くんの頭に一度だけふれる。**45秒・15カット（★1〜★15）**。予約の案内はしない（体験回ではない）。最後は小さな「FLATUP GYM（成田）」で閉じる。
+**結論**：はじめての習い事の前の晩、ママがリュックをパンパンに詰める（白黒の劇画パロディ「大遠征の、夜。」）。眠れないママは、夜中にそっと「ママ用」のティッシュ箱を、リュックの上のポケットに入れる。カード「はじめての日。」。ジムの入口で、6歳の栄光くんは、列のはしの子が空けてくれた場所を見て、**自分から**ママの手をはなす（小指が一瞬だけひっかかる）。ママの手だけが、つないだ形のまま宙に残る。ママは見学の場所で見守り、礼のあとに、ポケットの箱からティッシュを1枚だけ使う。帰りぎわ、迎えに来たパパ（**提案**。正本にない）がリュックを持ち上げて「……おもっ。」。中身はほとんど使われていない。上のポケットの「ママ用」の箱のそばに、使った1枚が残っている。パパは何も言わずに背負う。帰り道、栄光くんはパパのリュックの底を片手でささえ、パパの歩幅がゆるむ。ママの空いた手が、栄光くんの頭に一度だけふれる。**45秒・15カット（★1〜★15）**。予約の案内はしない（体験回ではない）。最後は小さな「FLATUP GYM（成田）」で閉じる。
 
 - これは**提案**。話数・題名・人物の服・パパが迎えに来ることなどは、JINが採用するまで設定台帳に入れない（マスタープロンプト §8、設計書 §5-3）
+- **パパが仕事帰りに迎えに来る（★12〜★15）は、正本にもどの設定にもない、この台本の提案**。パパの出番は家（★3）とクラスのあとだけ。採らない場合の代替：★12〜★14 を「クラスのあと、ママが1人でリュックを持ち上げて『重い』と目で言う」形に直す（字幕の「……おもっ。」は外す。笑いは★3の「……遠足？」だけになる）。ティッシュに気づくのは、ママ自身が帰り支度でポケットを見る形にする。採るかどうかは【JIN確認】
 - 正本の順番：いちばん上 → [master_prompt_2026-10-30.md](master_prompt_2026-10-30.md)／設計 → [omnibus_series_bible.md](omnibus_series_bible.md) v2／企画表 → [series_12_plan.md](series_12_plan.md)（第4話・§6）／姿 → [../flatup_animation_bible.md](../flatup_animation_bible.md)・`assets/canon/`／線引き → [manga_research/homage_guidelines.md](manga_research/homage_guidelines.md)
-- **公開できる映像は、まだ作れない**：栄光くん（6歳版）・ママ・パパの姿の正本がない（A版 §5）。いま作れるのは、台本・ネーム・生成指示の形と、**顔を出さない「仮版」**（設計書 §1-3。手元・後ろ姿・影と、字幕・効果音で、テンポと工数を測るためのもの。⑥）。**台本ができただけで、アニメ完成とは言わない**（マスタープロンプト §10）
+- **公開できる映像は、まだ作れない**：栄光くん（6歳版）・ママ・パパの見た目は**決定ずみ**（2026-11-02 JIN。[character_reference_prompts.md](character_reference_prompts.md)）だが、**基準画像がまだない**（生成は費用の承認待ち）。いま作れるのは、台本・ネーム・生成指示の形と、**顔を出さない「仮版」**（設計書 §1-3。手元・後ろ姿・影と、字幕・効果音で、テンポと工数を測るためのもの。⑥）。**台本ができただけで、アニメ完成とは言わない**（マスタープロンプト §10）
 - 前の話との関係（企画表の案）：3話で6歳になり、タオルと水筒を持ってパパの枕元に立った栄光くんの、はじめてのクラスの日。この話だけ見ても分かるように作ってある（オムニバス）
 - 画面では「体験」とも「入会」とも言葉にしない（企画表 §2-2 第4話。キッズの体験の形が未決定のため）。年齢の決まり・クラスの曜日と時間・料金も出さない
-- **r1 の直し**（2人の審査員の指摘）を反映した版。直した中身と、意見が割れたときの選び方は ⑨
+- **r1・r2 の直し**（審査員の指摘。r2 は81点）を反映した版。直した中身と、意見が割れたときの選び方は ⑨
 
 ---
 
@@ -22,12 +23,12 @@
 | 1 | 第1話の味が、新しい出来事で続く | ママの大げさな想像（★2 劇画「大遠征の、夜。」）→ パパの「……遠足？」（★3）で、すぐ生活感に落ちる。第1話の「妄想 → 現実」の型を、町ではなく荷物で使うので、同じ話にならない |
 | 2 | 理念がセリフなしで伝わる | 見せ場の★8〜★9（5.0＋2.5秒）は字幕ゼロ。一歩のきっかけは、列のはしの子が場所を空ける**仲間の振る舞い**（マスタープロンプト §6）。「自分から一歩を出す」（栄光くん）と「手をはなしても目を離さない（放っておくのとは違う）」（ママ。★10〜★11）を、先生の説明なしで見せる。**マサキはこの話でセリフなし**（大きく手をふる・手のひらで空いた場所を示す、だけ） |
 | 3 | 親のあるあるが、世代を問わない | 前の晩の詰めすぎ／子どもより眠れない親／子どものほうから手をはなされる。笑う相手はママの「念のため」の飛躍とパパの一言だけ。ママの心配の中身（ティッシュ）は、笑いの流れから外して、静かな★4に置いた。子どもの失敗は1つも描かない |
-| 4 | 基準画像をいちばん先に固められる | 出るのは家族3人と、正本のあるマサキだけ。ほかの子は名前なし・顔なし。アイカは★10の**袖と手元だけ**（参照待ちのまま描ける。企画表 §3-4）。ユイ・ソウタ・メルティ・三人衆は出ない |
+| 4 | 基準画像をいちばん先に固められる | 出るのは家族3人と、正本のあるマサキだけ。ほかの子は名前なし・顔なし。アイカは★10の**袖と手元だけ**（紺のジャケットのまくった袖。基準画像のプロンプト待ちでも描ける。企画表 §3-4）。ユイ・ソウタ・メルティ・三人衆は出ない |
 | 5 | 1本で見た目とテンポを試せる | 本線は2D漫画絵（ペンのインク線＋彩色。家・道・ジムの中。#14 は決定ずみ）と、白黒の劇画パロディ（★2）の2種類。「宙に残る手の2秒」が縦動画で持つかも、仮版で測れる |
 | 6 | 工数の見積もりの基準になる | 場面は家（玄関・寝室）・道・入口・ジムの4つ。格闘の動きはゼロ（礼だけ）。**動画生成は★8③aの1か所だけ**。ほかは静止画にゆっくりした動きと差し替え |
 | 7 | 公開の条件を待たない | 料金・時間・年齢・持ち物の文字を出さない。持ち物は、栄光くんが自分で持つタオルと水筒の絵と、ママの手描きの絵だけのメモ（文字なし）だけ |
 
-**採らなかった案**：第5話（かえして回）は台本がそろっていて安いが、参照待ちの人物（ユイ・メルティ）と新しい脇役が多い。第11話（スーパー）は #14 を待たずに作れるが、ジムの中の絵と指導の空気を試せない（企画表 §6 予備）。
+**採らなかった案**：第5話（かえして回）は台本がそろっていて安いが、基準画像のプロンプトがまだ決まっていない人物（ユイ・メルティ）と新しい脇役が多い。第11話（スーパー）は #14 を待たずに作れるが、ジムの中の絵と指導の空気を試せない（企画表 §6 予備）。
 
 ---
 
@@ -35,12 +36,12 @@
 
 | 案 | 映像（0〜3秒） | 短い字幕 | 音 | 本編のどこで回収するか |
 |---|---|---|---|---|
-| **A（親子のあるある・本編で使う）** | 夜の玄関。静止画3枚の差し替え：① ママの両手が、栄光くんの背より大きいリュックに、たたんだTシャツをもう1枚押しこむ（0.0–0.8）② リュックが「ギュッ」とさらにふくらむ（0.8–1.8）③ 手前に、首にタオル・水筒を両手で抱えた栄光くん（自分で用意した）。目が丸くなる。奥の壁に、ママの手描きの、絵が3つだけのメモ（1.8–3.0） | ママ♪「……念のため、もうひとつ。」（0.3–3.0・13字） | 0.0秒で、ファスナーを無理に閉める「ギギッ」→「ギュッ」 | ★12〜★14（33.5〜41.5秒）：パパ「……おもっ。」→ 中身はほとんど使われていない。使ったのは、栄光くんが自分で持ったタオルと水筒だけ（★14で、タオルで汗をふき、ふたの開いた水筒を持っている） |
+| **A（親子のあるある・本編で使う）** | 夜の玄関。静止画3枚の差し替え：① ママの両手が、栄光くんの背より大きいリュックに、たたんだTシャツをもう1枚押しこむ（0.0–0.8）② リュックが「ギュッ」とさらにふくらむ（0.8–1.8）③ 手前に、首にタオル・水筒を両手で抱えた栄光くん（自分で用意した）。目が丸くなる。奥の壁に、ママの手描きの、絵が3つだけのメモ。その上に、扉から光がこぼれる小さな絵（行き先。文字なし）（1.8–3.0） | ママ♪「……念のため、もうひとつ。」（0.3–3.0・13字） | 0.0秒で、ファスナーを無理に閉める「ギギッ」→「ギュッ」 | ★12〜★14（33.5〜41.5秒）：パパ「……おもっ。」→ 中身はほとんど使われていない。使ったのは、栄光くんが自分で持ったタオルと水筒だけ（★14で、タオルで汗をふき、ふたの開いた水筒を持っている） |
 | B（意外性と笑い） | 白黒の劇画。逆光の中、はちまきの背中（顔はちびのまま、汗）。床に、おにぎり3個・お守り・ばんそうこうの箱が、よろいのように並ぶ | ▮「大遠征の、夜。」（7字） | 太鼓の「ドォン」 | 直後の★3（7.0〜9.0秒）：歯ブラシをくわえたパパ「……遠足？」（遠征 → 遠足の落差） |
 | C（意味を知りたくなる行動） | ジムの入口の、温かい光の中。だれかと手をつないだ形のまま、空中で止まっている大人の手。指が1本だけ、ぴくっと動く | なし | 遠くの子どもたちのざわめき（効果音）と、小さなミットの音だけ。BGMなし | ★8（20.0〜25.0秒）：手をはなしたのは栄光くんのほうから |
 
 - **本編はA**。Bで始めると、4話と5話（劇画の「伝説の、赤……」で始まる）が2話続けて劇画始まりになる（企画表 §3-2「劇画で始まる話は5・8だけ。続けない」）。Bは本編には使わない（予告や単独の投稿で使うときは、★3の「……遠足？」まで必ず入れる）
-- Aの「状況」（はじめての習い事の前の晩）は、栄光くんが自分で持つタオルと水筒、絵だけのメモ、夜の玄関で見せる。言葉では表紙の見出し「はじめての習い事、」で補う（⑦）
+- Aの「状況」（はじめての習い事の前の晩）は、栄光くんが自分で持つタオルと水筒、絵だけのメモ、夜の玄関で見せる。動画の中では、★1③の行き先の絵（扉から光）と、★5のカード「はじめての日。」（12.5秒）で示す。表紙の見出し「はじめての習い事、」は動画の外でシェアすると消えるので、それに頼らない（⑦）
 - Cを使うとき：★9の前半（25.0〜26.5秒）の絵を0〜1.5秒に置き、置く文字「その、前の晩。」（7字・1.5秒）で★1につなぐ。全体は46.5秒。宙の手の見せ場を2回見せることになるので、本命にはしない
 - Aの字幕は、企画表の案「持ち物は、3つだけ。」から変えた。理由：ジムの公式の持ち物案内のように読めるが、キッズクラスの持ち物は確かめていない（`canon.ts` の bring は体験の持ち物）。企画表 §6 の条件7「持ち物は字幕に書かず、絵で見せる」とも合わせた
 
@@ -50,7 +51,7 @@
 
 縦9:16・45.0秒・15カット（★1〜★15、1カット2.0〜5.0秒）。
 
-**字幕の決まり**：流れる字幕は**1秒7字まで**（設計書 §1-7。依頼の「1秒12字まで」より厳しいので、両方を満たす）。置く文字・カード（「ママ用」の紙、「次の日。」、最後のジム名）は1秒12字まで、カードは2.5秒以上置く（`../emotional_movie_ep0_edit.md`）。字数は句読点・かっこ・「……」（2字）もふくめる。字幕は画面の上から11〜62%の間（Instagramの実機の数。Xは未計測）。カードは上から15〜25%の帯。
+**字幕の決まり**：流れる字幕は**1秒7字まで**（設計書 §1-7。依頼の「1秒12字まで」より厳しいので、両方を満たす）。置く文字・カード（「ママ用」の紙、「はじめての日。」、最後のジム名）は1秒12字まで、カードは2.5秒以上置く（`../emotional_movie_ep0_edit.md`）。字数は句読点・かっこ・「……」（2字）もふくめる。字幕は画面の上から11〜62%の間（Instagramの実機の数。Xは未計測）。カードは上から15〜25%の帯。
 
 **大事な絵の置き場所**：話が分かるのに必要な絵（★1③のタオルと水筒、★4②の「ママ用」の紙、★8③の手と足、★9の手、★13のティッシュ、★15の手）は、**画面の上から20〜60%の間**に置く。下から35%（上から65%より下）には、大事なものを置かない（リールのボタンと説明文に隠れる）。
 
@@ -60,32 +61,43 @@
 
 | ★ | 秒 | 絵柄 | 映像 | 表情と動作 | セリフ・字幕（表示の秒・字数） | 音 | 感情の変化 |
 |---|---|---|---|---|---|---|---|
-| 1 | 0.0–3.0 | 2D | 夜の玄関。静止画3枚の差し替え。①（0.0–0.8）ママの両手が、栄光くんの背より大きいパンパンのリュックに、たたんだTシャツをもう1枚押しこむ ②（0.8–1.8）リュックが「ギュッ」とふくらむ ③（1.8–3.0）手前に大きく、若草色のTシャツの栄光くん。首にタオル、両手で水筒を抱えている（自分で用意した）。奥の壁に、ママが描いた絵だけのメモ（Tシャツ・タオル・水筒の3つ） | 栄光くんの目が丸くなる。字幕はリュックを押すママの手の近くに出し、ママのセリフだと分かるようにする（ママの顔は映らない） | ママ♪「……念のため、もうひとつ。」（0.3–3.0・13字＝1秒4.8字） | 0.0秒でファスナーの「ギギッ」→「ギュッ」 | ？（何の荷物？）→ くすっ |
+| 1 | 0.0–3.0 | 2D | 夜の玄関。静止画3枚の差し替え。①（0.0–0.8）ママの両手が、栄光くんの背より大きいパンパンのリュックに、たたんだTシャツをもう1枚押しこむ ②（0.8–1.8）リュックが「ギュッ」とふくらむ ③（1.8–3.0）手前に大きく、灰色のTシャツと黒のショーツの栄光くん（ジムの服。待ちきれなくて着ている）。首にタオル、両手で水筒を抱えている（自分で用意した）。奥の壁に、ママが描いた絵だけのメモ（Tシャツ・タオル・水筒の3つ）。その上に、扉から光がこぼれる小さな絵（行き先。文字なし。持ち物ではない）。上から20〜60%に置く | 栄光くんの目が丸くなる。字幕はリュックを押すママの手の近くに出し、ママのセリフだと分かるようにする（ママの顔は映らない） | ママ♪「……念のため、もうひとつ。」（0.3–3.0・13字＝1秒4.8字） | 0.0秒でファスナーの「ギギッ」→「ギュッ」 | ？（何の荷物？）→ くすっ |
 | 2 | 3.0–7.0 | 劇 | 白黒の劇画パロディ「大遠征の、夜。」。逆光。はちまきをしめたママ（顔はちびのまま、汗が一滴）が正座して、床に並べた荷物を、よろいの部品のように確かめる。カメラが荷物の列を、太鼓に合わせて3回で横に区切ってすべる：たたんだTシャツ5枚 → おにぎり3個・ばんそうこうの箱 → 冷却シート・お守り | 1つ確かめるたびに、うなずく。最後のお守りだけ、両手でうやうやしく持ち上げる | ▮「大遠征の、夜。」（3.3–5.3・7字＝1秒3.5字） | 太鼓「ドォン」×3 → 低い笛の音 | 大げさ（笑い） |
 | 3 | 7.0–9.0 | 2D | カラーに戻る。引きの絵。部屋の入口に、パジャマで歯ブラシをくわえたパパ。手前に、正座のママとパンパンのリュック | パパが、リュックとママを見くらべて、歯ブラシが止まる | パパ「……遠足？」（7.2–9.0・5字＝1秒2.8字） | 「ドォン」の余韻が「ぷつっ」と切れる → 歯ブラシの「シャカ」が止まる | 格好つけた直後の、生活感の笑い |
-| 4 | 9.0–12.5 | 2D | ①（9.0–10.5）夜の寝室。暗い。若草色のTシャツのまま、水筒を抱いてぐっすり眠る栄光くん（口が少し開いている。パジャマのママとの差で「待ちきれない子」）。となりで、ママだけ目がぱっちり開いている ②（10.5–12.5）月明かりの玄関。パジャマの袖のママの手が、新品のビニールに包まれたティッシュ箱を、リュックの**上のポケット**にそっと差しこむ。箱に貼った紙に、手書きの文字 | ① ママのまばたき1回 ② 手がポケットのふたを、音を立てないように閉める | 置く文字（紙）「ママ用」（10.7–12.5・3字＝1秒1.7字。ママの手書き風。画面の幅の4分の1以上の大きさ。上から30〜55%） | 時計のコチコチ、寝息。ポケットの小さな「カサ」 | 子どもより、親が眠れない（共感）。笑いの音は付けない |
-| 5 | 12.5–15.0 | 2D | 次の日の夕方（空は夕方の紺色、家々の窓に灯り）。住宅街の道を、後ろから低い位置で。巨大なリュックで少し前かがみのママと、その左側に、首にタオル・肩から水筒の栄光くん。手をつないでいる | 栄光くんの歩幅が少し速い。ママが半歩おくれる | カード「次の日。」（12.5–15.0・4字。上から15〜25%） | 2人の足音。遠くの車の音 | いよいよ |
+| 4 | 9.0–12.5 | 2D | ①（9.0–10.0）夜の寝室。暗い。灰色のTシャツのまま、水筒を抱いてぐっすり眠る栄光くん（口が少し開いている。パジャマのママとの差で「待ちきれない子」）。となりで、ママだけ目がぱっちり開いている ②（10.0–12.5）月明かりの玄関。パジャマの袖のママの手が、新品のビニールに包まれたティッシュ箱を、リュックの**上のポケット**にそっと差しこむ。箱に貼った紙に、手書きの文字 | ① ママのまばたき1回 ② 手がポケットのふたを、音を立てないように閉める | 置く文字（紙）「ママ用」（10.0–12.5の2.5秒・3字＝1秒1.2字。カードの最短2.5秒を満たす。ママの手書き風。画面の幅の4分の1以上の大きさ。上から30〜55%） | 時計のコチコチ、寝息。ポケットの小さな「カサ」 | 子どもより、親が眠れない（共感）。笑いの音は付けない |
+| 5 | 12.5–15.0 | 2D | 次の日の夕方（空は夕方の紺色、家々の窓に灯り）。住宅街の道を、後ろから低い位置で。巨大なリュックで少し前かがみのママと、その左側に、首にタオル・肩から水筒の栄光くん。手をつないでいる | 栄光くんの歩幅が少し速い。ママが半歩おくれる | カード「はじめての日。」（12.5–15.0・7字＝1秒2.8字。上から15〜25%。動画の中で「ジムに行く日」だと示す。「体験」「入会」の語は使わない） | 2人の足音。遠くの車の音 | いよいよ |
 | 6 | 15.0–17.5 | 2D | ジムの入口。扉が内側から開き、温かい光がこぼれる。奥のマットの上で、マサキが大きく手をふる。そのうしろに、ならんでいる子どもたち（小さく・名前なし・顔は描きこまない） | マサキは満面の笑顔で、大きく手をふる（しゃがまない・近づかない） | なし（マサキはセリフなし） | 扉の音 → 子どもたちのざわめき（字幕なし） | 安心（怒鳴らない、明るい） |
 | 7 | 17.5–20.0 | 2D | つないだ手のアップ。栄光くんの小さな右手が、ママの左手の指をぎゅっとにぎり直す。ママの親指が、栄光くんの手の甲を1回なでる | にぎる力が強くなる → ママの親指 | なし | 外の音が少し遠くなる | 緊張（子も親も） |
 | 8 | 20.0–25.0 | 2D | ①（20.0–21.5）栄光くんの目線：白いマット、ならぶ子どもたち。列のはしの子（後ろ姿・顔なし）が、ひざ立ちのまま横にずれて、マットを手で1回「ぽん」とたたき、場所を空ける。奥でマサキが、手のひらを上に向けて、その場所をそっと示す ②（21.5–22.8）見上げると、ママの顔（心配そうな目。下から見上げる角度）③a（22.8–24.2）つないだ手のアップ。栄光くんの指が1本ずつ開く。小指だけ、ママの指に一瞬ひっかかって（0.3秒）、それからはなれる ③b（24.2–25.0）裸足の小さな足が、白いマットに1歩のる | 栄光くんは、ママの顔を見てから、空いた場所を見て、前を向く。手をはなしたのは栄光くんから | なし | マットの「ぽん」→ 小さく息をのむ音 →「ぺた」（裸足の足音） | 子どもが自分で選ぶ（山場）。むずかしさは小指で見せる |
 | 9 | 25.0–27.5 | 2D | ママの左手のアップ。つないだ形のまま、空中に残っている。奥（ピントの外）を、栄光くんの背中が小さくなっていく | 手は2秒動かない（25.0–27.0）。指が1本、ぴくっと動く（27.0）。手がゆっくり下りはじめる（27.1–27.5） | なし | BGMなし。遠くの子どもたちのざわめき（効果音）だけ | 手をはなされた（じんわり） |
-| 10 | 27.5–30.0 | 2D | ①（27.5–28.9）ママの全身（横から）。半歩だけ前に出て、止まる（ゆっくり寄る）②（28.9–30.0）見学の場所。フレームの外から、袖と手（アイカ。顔は映さない）が、座ぶとん（またはいす。実物を見てから）をすっと置いて引っこむ。ママはそこに座り、巨大なリュックをひざに抱える（リュックで下半身が隠れる切り方） | 追いかけない。でも、目は栄光くんから離さない | なし | リュックを下ろす「どさっ」 | 手をはなしても、見守る。迎えてもらえた |
-| 11 | 30.0–33.5 | 2D | ①（30.0–31.5）クラスのはじめの礼。子どもたちとマサキが向かい合って頭を下げる。栄光くんは、みんなより一拍おくれて、でも、ちゃんと頭を下げる（あいさつの字幕は出ない）①'（31.5–32.0）頭を上げた栄光くんが、見学の場所のほうを1回だけ見る ②（32.0–33.5）リュックの上から、目だけ出したママ。目元がゆるむ | 栄光くんの礼は、小さくてていねい。ママの目がやわらかくなる | なし | みんなが頭を下げる衣ずれの「ざっ」（字幕なし）。やさしいBGMが小さく入る | 小さな「できた」→ 見守るのは両方向 → 親の安心 |
-| 12 | 33.5–36.0 | 2D | ①（33.5–34.0）奥で、子どもたちが礼をして帰っていく（クラスが終わった）②（34.0–36.0）入口。仕事帰りの上着のパパ（少し息が上がっている。いま着いた）が、ママの横のリュックを片手で持ち上げようとして、持ち上がらない。両手に持ちかえて、腰を入れる | 片手 → 両手（持ち上がらない一拍の間のあとに、字幕を出す） | パパ「……おもっ。」（34.3–35.8・5字＝1秒3.3字） | 子どもたちが礼をして帰る足音と衣ずれ（字幕なし）→「ずしっ」 | 笑い（この話の後半の笑いは、これ1回だけ） |
-| 13 | 36.0–39.0 | 2D | パパの目線。①（36.0–37.5）少し開いたリュックの口：ラップに包まれたままのおにぎりと、たたんだままのTシャツ ②（37.5–39.0）上のポケットに寄る。「ママ用」のティッシュ箱だけ、ビニールが開いて、1枚が上に出ている（紙の「ママ用」は★4②と同じ書き文字を、同じ位置に重ねる。ティッシュは上から30〜55%） | ゆっくり寄る（動かすのはカメラだけ） | なし（「ママ用」は紙の文字。★4で読ませてあるので、字幕にしない） | BGMが止まる。ファスナーの「ジ……」 | 気づく（何も使っていない。1枚だけ） |
+| 10 | 27.5–30.0 | 2D | ①（27.5–28.9）ママの全身（横から）。半歩だけ前に出て、止まる（ゆっくり寄る）②（28.9–30.0）見学の場所。フレームの外から、袖と手（アイカ。紺のジャケットのまくった袖。顔は映さない）が、座ぶとん（またはいす。実物を見てから）をすっと置いて引っこむ。ママはそこに座り、巨大なリュックをひざに抱える（リュックで下半身が隠れる切り方） | 追いかけない。でも、目は栄光くんから離さない | なし | リュックを下ろす「どさっ」 | 手をはなしても、見守る。迎えてもらえた |
+| 11 | 30.0–33.5 | 2D | ①（30.0–31.5）クラスのはじめの礼。子どもたちとマサキが向かい合って頭を下げる。栄光くんも、みんなと**同時に**頭を下げる（あいさつの字幕は出ない）。下げたまま、体の横の手がぎゅっとにぎられ、ゆっくりひらく（迷いは手元で見せる） ①'（31.5–32.0）頭を上げた栄光くんが、見学の場所のほうを1回だけ見る ②a（32.0–32.5）見学の場所。ひざのリュックの上のポケットから、ママの手が箱のティッシュを**1枚**ぬく（手元だけ） ②b（32.5–33.5）リュックの上から、目だけ出したママ。目元がゆるむ（ぬいた1枚はリュックのかげ。泣き顔は描かない） | 栄光くんの礼は、小さくてていねい。ママの目がやわらかくなる | なし | みんなが頭を下げる衣ずれの「ざっ」（字幕なし）。ポケットの小さな「カサ」。**30.0にやさしいBGMが小さく入る** | 小さな「できた」→ 見守るのは両方向 → 親の安心 |
+| 12 | 33.5–36.0 | 2D | ①（33.5–34.0）奥で、子どもたちが礼をして帰っていく（クラスが終わった）②（34.0–36.0）入口。仕事帰りのパパ（**提案**。寝ぐせ、ネイビーのシャツとゆるいジャージ。少し息が上がっている。いま着いた）が、ママの横のリュックを片手で持ち上げようとして、持ち上がらない。両手に持ちかえて、腰を入れる | 片手 → 両手（持ち上がらない一拍の間のあとに、字幕を出す） | パパ「……おもっ。」（34.3–35.8・6字＝1秒4.0字。「……」は2字） | 子どもたちが礼をして帰る足音と衣ずれ（字幕なし）→「ずしっ」。BGMは小さく続く（上げない） | 笑い（この話の後半の笑いは、これ1回だけ） |
+| 13 | 36.0–39.0 | 2D | パパの目線。①（36.0–37.5）少し開いたリュックの口：ラップに包まれたままのおにぎりと、たたんだままのTシャツ ②（37.5–39.0）上のポケットに寄る。「ママ用」のティッシュ箱の口の横に、**使った小さな1枚**（軽くたたんだもの）がはさまっている。箱の残りは新品のまま（紙の「ママ用」は★4②と同じ書き文字を、同じ位置に重ねる。ティッシュは上から30〜55%） | ゆっくり寄る（動かすのはカメラだけ） | なし（「ママ用」は紙の文字。★4で読ませてあるので、字幕にしない） | **36.0にBGMが切れる**。ファスナーの「ジ……」 | 気づく（何も使っていない。ママが1枚だけ使った） |
 | 14 | 39.0–41.5 | 2D | ①（39.0–40.2）パパが顔を上げる。少し先で、ママがしゃがんで、栄光くんの話を聞いている（2人とも後ろ姿）。栄光くんは、首のタオルで汗をふきながら、ふたの開いた水筒を持って、身ぶり手ぶりで話している。ママは、ふり向かずに、片手をうしろにのばして、小さなお茶のボトル（ラベルなし）をパパのほうへ差し出す（走ってきたのを、見ないで分かっている）②（40.2–41.5）パパは、お茶を受け取り、ファスナーをそっと閉めて、リュックを背負う。重さで一瞬よろけて、立て直す | パパは何も言わない。ママも何も言わない | なし | ファスナーの「ジーッ」、小さく「よっ」 | パパの気づき（言わない優しさ）。ママも見ている |
-| 15 | 41.5–45.0 | 2D | 夜の帰り道。家々の窓に灯りがたくさん。3人の後ろ姿（左から）：巨大なリュックのパパ、栄光くん、ママ。①（41.5–43.0）栄光くんが、左手でパパのリュックの底を下からささえる（つもり。実際には持ち上がっていない）。パパの足どりが、ほんの少しゆっくりになる ②（43.0–45.0）ママの空いた左手（★9の手）が、栄光くんの頭に一度だけふれて、下りる | 栄光くんは「手伝っている」顔（後ろ姿なので、背すじで見せる）。3人はそのまま歩いていく | カード「FLATUP GYM（成田）」（42.5–45.0・14字＝1秒5.6字。上から15〜22%の帯に小さく。3人と手は上から35〜60%） | 足音。BGMの最後の1音 | 小さな優しさが残る |
+| 15 | 41.5–45.0 | 2D | 夜の帰り道。家々の窓に灯りがたくさん。3人の後ろ姿（左から）：巨大なリュックのパパ、栄光くん、ママ。①（41.5–43.0）栄光くんが、左手でパパのリュックの底を下からささえる。パパが気づいて、足どりをほんの少しゆるめる（歩幅が短くなり、肩が少し下がる） ②（43.0–45.0）ママの空いた左手（★9の手）が、栄光くんの頭に一度だけふれて、下りる | 栄光くんは前を向いて、まっすぐ歩く（後ろ姿なので、背すじで見せる）。パパは少し楽になった背中。3人はそのまま歩いていく | カード「FLATUP GYM（成田）」（42.5–45.0・14字＝1秒5.6字。上から15〜22%の帯に小さく。3人と手は上から35〜60%） | 足音。**43.0にピアノの単音を1つ**（BGMは戻さない） | 小さな優しさが残る |
 
 **台本の点検メモ**
 
-- 合計45.0秒（★のすきまなし）。**字幕4本**（ママ♪・▮劇画の1本・「……遠足？」・「……おもっ。」）＋**置く文字1本**（「ママ用」。★13は重ねるだけ）＋**カード2枚**（「次の日。」・ジム名）。いちばん速い字幕は★1の1秒4.8字（7字の上限の中）
-- **無音でも分かるか**：字幕を消しても、リュックが大きい → 劇画の大げさ → パパがあきれる → 眠れないママがティッシュを入れる → 空けてもらった場所 → 手をはなす → 宙の手 → 迎えてもらって座る → 礼のあと子がふり向く → 重いリュック → 1枚だけのティッシュ → 黙って背負う → 子どもがささえる・ママの手が頭に、で筋が通る。読まないと困る文字は「ママ用」（3字）だけ
+- 合計45.0秒（★のすきまなし）。**字幕4本**（ママ♪・▮劇画の1本・「……遠足？」・「……おもっ。」）＋**置く文字1本**（「ママ用」。★13は重ねるだけ）＋**カード2枚**（「はじめての日。」・ジム名）。いちばん速い字幕は★1の1秒4.8字（7字の上限の中）
+- **無音でも分かるか**：字幕を消しても、リュックが大きい → 劇画の大げさ → パパがあきれる → 眠れないママがティッシュを入れる → 「はじめての日。」 → 空けてもらった場所 → 手をはなす → 宙の手 → 迎えてもらって座る → 礼のあと子がふり向く → ママがティッシュを1枚ぬく → 重いリュック → 使った1枚だけが残るティッシュ → 黙って背負う → 子どもがささえ、パパの歩幅がゆるむ・ママの手が頭に、で筋が通る。読まないと困る文字は「ママ用」（3字）とカード「はじめての日。」だけ
 - **最後に教訓を読み上げない**：ナレーションなし。最後のセリフは★12の「……おもっ。」
 - **先生の説教で解決しない**：マサキはセリフなし（手をふる・手のひらで示す、だけ）。話を動かすのは、列のはしの子が場所を空ける振る舞い（★8①）、栄光くんが手をはなす選択（★8）、ママが追いかけない選択（★10）、パパが言わない選択（★14）
 - **はじめての家族を放っておかない**：マサキの手ふりと手のひら（★6・★8①）、座ぶとんを置く手（★10）。どれも説明のセリフにしない
 - **予約を迫らない**：料金・時間・年齢・「体験」「入会」の言葉なし。ジム名は最後のカードだけ。次の話への期待は、投稿文に次の題名を書く（設計書 §4）
-- **泣く顔・抱きしめる・感動的な音楽に頼らない**：ママの顔は★8②（心配の目）と★11②（目元だけ）。ティッシュは静かな★4で入れ、★13で「1枚出ている」だけ。泣く場面は描かない。★9〜★10はBGMなし
+- **泣く顔・抱きしめる・感動的な音楽に頼らない**：ママの顔は★8②（心配の目）と★11②（目元だけ）。ティッシュは静かな★4で入れ、★11②aで1枚だけ使い（手元だけ）、★13で「使った1枚」が残るだけ。泣く場面は描かない。★9〜★10はBGMなし
 - **12話の結末と分ける**：手をつなぎ直して終わる絵は使わない（12話の「だまってママのところに戻り、手をにぎる」のためにとっておく）
+
+**BGMと効果音の出入り**（BGMは1つだけ。やさしくて、ゆっくりで、小さい。★2の太鼓・笛は効果音であってBGMではない）
+
+| 秒 | BGM | 理由 |
+|---|---|---|
+| 0.0–30.0 | なし（効果音だけ） | ★9〜★10は特に静かに。宙の手に音楽を重ねない |
+| 30.0 | 小さく入る | ★11の礼のあと。ママの安心に合わせる |
+| 30.0–36.0 | 小さく続く（★12の笑いでも上げない） | — |
+| 36.0 | 切れる | ★13でパパが気づく間を、音なしにする |
+| 36.0–43.0 | なし | — |
+| 43.0 | ピアノの単音を1つ（BGMは戻さない） | 最後の優しさ。音楽で泣かせない |
 
 ---
 
@@ -101,8 +113,8 @@
 
 | コマ | 絵柄 | 画 | 文字 |
 |---|---|---|---|
-| 1（★1） | 2D | 縦長の大ゴマ。夜の玄関。栄光くんの背より大きいパンパンのリュック。ママの両手が、Tシャツをもう1枚押しこむ。手前に、首にタオル・水筒を抱えた栄光くん（若草色のTシャツ・紺のショーツ） | ギュッ（描き文字） ♪ （ママ・画面の外）……念のため、もうひとつ。 |
-| 2（★1③の奥） | 2D | 横長の小さいコマ。玄関の壁に貼った、ママの手描きのメモ。絵が3つだけ（Tシャツ・タオル・水筒）。文字は書かない | （文字なし） |
+| 1（★1） | 2D | 縦長の大ゴマ。夜の玄関。栄光くんの背より大きいパンパンのリュック。ママの両手が、Tシャツをもう1枚押しこむ。手前に、首にタオル・水筒を抱えた栄光くん（灰色のTシャツ・黒のショーツ） | ギュッ（描き文字） ♪ （ママ・画面の外）……念のため、もうひとつ。 |
+| 2（★1③の奥） | 2D | 横長の小さいコマ。玄関の壁に貼った、ママの手描きのメモ。絵が3つだけ（Tシャツ・タオル・水筒）。その上に、扉から光がこぼれる小さな絵（行き先）。文字は書かない | （文字なし） |
 | 3 | 2D | 栄光くんが、メモとリュックを見くらべる。首をかしげる | ☁ （栄光）……みっつ？ |
 
 > コマ2〜3：「持ち物は3つでいいと分かっているのに、詰めてしまう」親の気持ちを、ママ自身が描いたメモで見せる（ママは分かっている人。ジムの公式の案内としては描かない。⑧未確認 #4）。
@@ -123,10 +135,10 @@
 
 | コマ | 絵柄 | 画 | 文字 |
 |---|---|---|---|
-| 9（★4①） | 2D | 暗い寝室。若草色のTシャツのまま、水筒を抱いて眠る栄光くん。となりで、目がぱっちり開いているママ | コチ……コチ……（描き文字・小さく） |
+| 9（★4①） | 2D | 暗い寝室。灰色のTシャツのまま、水筒を抱いて眠る栄光くん。となりで、目がぱっちり開いているママ | コチ……コチ……（描き文字・小さく） |
 | 10 | 2D | ママの顔の上半分だけ。天井を見ている。スマホは持っていない（枕元に伏せてある） | ☁ （ママ）……ねむれない。 |
 | 11（★4②） | 2D | 月明かりの玄関。パジャマの袖の手が、ビニールに包まれた新品のティッシュ箱を、リュックの上のポケットにそっと差しこむ。箱に貼った紙 | （紙の文字）ママ用 |
-| 12（★5） | 2D | 次の日の夕方。住宅街の道。紺色の空、家々の窓に灯り。後ろ姿：巨大なリュックで前かがみのママと、その左側に、首にタオル・肩から水筒の栄光くん。手をつないでいる | □ 次の日。 |
+| 12（★5） | 2D | 次の日の夕方。住宅街の道。紺色の空、家々の窓に灯り。後ろ姿：巨大なリュックで前かがみのママと、その左側に、首にタオル・肩から水筒の栄光くん。手をつないでいる | □ はじめての日。 |
 
 > コマ10：夜の検索は1・6・8話だけ（企画表 §5）。この話ではスマホを使わない（伏せて置くだけ）。
 
@@ -147,7 +159,7 @@
 |---|---|---|---|
 | 17（★9） | 2D | **このページでいちばん大きいコマ**。ママの左手だけ。つないだ形のまま、空中に残っている。奥（ぼけている）を、栄光くんの背中が小さくなる。余白を大きくとる | （文字なし） |
 | 18（★10） | 2D | 半歩だけ前に出て、止まるママ。次のコマの小さな絵：見学の場所に、フレームの外の袖と手が座ぶとんを置き、ママがリュックを抱えて座る | （文字なし） |
-| 19（★11） | 2D | 上：子どもたちの礼。栄光くんが一拍おくれて、ちゃんと頭を下げる。中：頭を上げた栄光くんが、見学の場所のほうを1回だけ見る。下：ひざのリュックの上から、目だけ出したママ。目元がゆるむ | 〇 （子どもたち）おねがいします！ |
+| 19（★11） | 2D | 上：子どもたちの礼。栄光くんも、みんなと同時に頭を下げる（体の横の手だけ、ぎゅっとにぎる）。中：頭を上げた栄光くんが、見学の場所のほうを1回だけ見る。下：ひざのリュックの上のポケットから、ママの手が1枚ぬく。その上から、目だけ出したママ。目元がゆるむ | 〇 （子どもたち）おねがいします！ |
 
 > コマ17は、セリフも描き文字も入れない。読む人がスクロールを止める「間」のコマ。
 
@@ -156,8 +168,8 @@
 | コマ | 絵柄 | 画 | 文字 |
 |---|---|---|---|
 | 20（★12） | 2D | クラスのあと。奥で子どもたちが礼をして帰っていく。手前で、仕事帰りのパパが、リュックを両手で持ち上げて、腰を入れる | ずしっ（描き文字） 〇 （パパ）……おもっ。 |
-| 21（★13・★14） | 2D | 上：パパの目線のリュック。使っていないおにぎりとTシャツ。上のポケットの「ママ用」の箱だけ、ビニールが開いて1枚出ている。下：顔を上げたパパの視線の先に、しゃがんで栄光くんの話を聞くママ（2人とも後ろ姿。栄光くんはタオルで汗をふき、水筒を持っている）。ママは、ふり向かずに、お茶のボトルをうしろのパパに差し出している | （紙の文字）ママ用 ジーッ（描き文字・小さく） |
-| 22（★15） | 2D | 縦長の最後のコマ。夜の帰り道。家々の窓に、灯りがたくさん。巨大なリュックのパパ、そのリュックの底を片手でささえる（つもりの）栄光くん、ママ。ママの左手が、栄光くんの頭にのっている。セリフなし。ジムの建物は描かない | □ （小さく）FLATUP GYM（成田） |
+| 21（★13・★14） | 2D | 上：パパの目線のリュック。使っていないおにぎりとTシャツ。上のポケットの「ママ用」の箱の口の横に、使った小さな1枚がはさまっている。下：顔を上げたパパの視線の先に、しゃがんで栄光くんの話を聞くママ（2人とも後ろ姿。栄光くんはタオルで汗をふき、水筒を持っている）。ママは、ふり向かずに、お茶のボトルをうしろのパパに差し出している | （紙の文字）ママ用 ジーッ（描き文字・小さく） |
+| 22（★15） | 2D | 縦長の最後のコマ。夜の帰り道。家々の窓に、灯りがたくさん。巨大なリュックのパパ、そのリュックの底を片手でささえる栄光くん、ママ。パパの歩幅が少しゆるむ。ママの左手が、栄光くんの頭にのっている。セリフなし。ジムの建物は描かない | □ （小さく）FLATUP GYM（成田） |
 
 **閉じ方**：予約のエンドカードは付けない。宙で空いていたママの手が、帰り道で栄光くんの頭にふれる絵と、小さなジム名で閉じる。手をつなぎ直す絵は使わない（12話のため）。
 
@@ -167,12 +179,12 @@
 
 ### 先に決めること（この順番で作る）
 
-1. **家族3人の基準画像（栄光6歳版・ママ・パパ）をJINが決める**。この話が、全話で使う家族の基準画像を最初に作る話（企画表 §1-3 #1）。姿の中身（髪・顔・体型）は正本がないので、**この文書では書かない**（捏造しない。B系の固定ブロック `hikkoshi_ep1_narita.md`・`manga_ep02_hikkoshi.md` は使わない。設計書 §5-1）
+1. **家族3人の基準画像（栄光6歳版・ママ・パパ）のプロンプトは決定ずみ**（2026-11-02 JIN。[character_reference_prompts.md](character_reference_prompts.md)。栄光くん＝前髪で半分かくれた目、ママ＝低い一つ結び＋スマホ、パパ＝寝ぐせ＋ゆるいジャージ）。**画像はまだ生成していない（費用の承認待ち）**。この話が、全話で使う家族の基準画像を最初に作る話（企画表 §1-3 #1）。B系の固定ブロック `hikkoshi_ep1_narita.md`・`manga_ep02_hikkoshi.md` は使わない（設計書 §5-1）
 2. **ジムの入口の写真**（扉の形・くつの場所・見学の場所がいすか床か。企画表 #6）
 
 （声は入れない＝字幕と効果音だけ、ジムの中の絵柄は2D漫画絵、は決定ずみなので、ここでは決めない）
 
-**公開用の家族のカットは、JINが姿を決めるまで作らない**（A版 §5）。決まるまでは、下の「仮版」でテンポと工数を先に測る。
+**公開用の家族のカットは、基準画像ができるまで作らない**（A版 §5）。できるまでは、下の「仮版」でテンポと工数を先に測る。
 
 ### 仮版の作り方（設計書 §1-3。公開しない前提で作る。公開するかはJINが決める）
 
@@ -195,8 +207,8 @@
 - **劇画パロディ（★2だけ）**：`black and white Japanese action manga parody, heavy black ink, dramatic hatching, speed lines, strong backlight, comedic exaggeration, characters keep soft chibi faces, sweat drop, empty speech balloons, no blood, no violence, no scary faces, no tattoos, no brand logos, no readable text, vertical 9:16`
 - **ジムAの背景**（`assets/canon/README.md`）：`gym class room with a seamless off-white floor, pale green padded walls, a tropical plant mural with a white tiger, hanging ivy and potted plants, a mirrored wall, ceiling line lights, dusty pink curtains, a red LED wall timer, bright even indoor light`。canon画像 `masaki_class_lineup.jpg` を添付（写っている子どもの顔は参照に使わない。子どもの部分は切り抜くか塗りつぶす。A版 §5）。部屋の作りと色は、canon画像と同じにする
 - **マサキ**（バイブルの英語ブロックから姿の部分だけ。生成の段階ではロゴ文字を入れない）：`a cheerful young male kickboxing instructor, spiky black hair swept upward, big brown eyes, bold eyebrows, bright confident smile, black sleeveless tank top with a plain light-blue chest panel (no lettering), blue and white muay thai shorts with a flame pattern, a black wristwatch on the left wrist, barefoot, slim athletic build`。canon画像 `masaki_face_closeup.jpg`・`masaki_class_lineup.jpg` を顔・髪・服の参照に。「FLAT UP GYM」の文字は、ほかの文字と同じく編集で重ねる
-- **家族のブロック（参照待ち）**：`[EIKO_6_REF]`・`[MAMA_REF]`・`[PAPA_REF]` の欄だけ置く。中身はJINが決めた基準画像の言葉を入れる。この話の服だけ**提案**：栄光くん `a light green t-shirt and navy shorts`（ジムでは `barefoot`。5話の下書きと同じ）／ママ `a beige cardigan`（5話の下書きと同じ）・`pajamas`（★4）／パパ `pajamas`（★3）・`a plain gray work jacket`（★12〜★15）
-- **アイカ（★10②の袖と手だけ）**：`[AIKA_SLEEVE_REF]`。顔・髪・体は映さない（姿の正本がない。A版 §2・設計書 §2）
+- **家族のブロック（基準画像待ち）**：`[EIKO_6_REF]`・`[MAMA_REF]`・`[PAPA_REF]` の欄に、基準画像（`character_reference_prompts.md` のプロンプトから生成して、JINが選んだ1枚）の言葉を入れる。見た目は決定ずみ。この話の服：栄光くん＝ジムの服 `a gray t-shirt and black shorts, barefoot`（決定ずみ。★1・★4の夜も、待ちきれなくて同じ服で寝る＝この話の提案）／ママ＝低い一つ結び・`a beige cardigan`（決定ずみ）、★4は `pajamas`（提案）。ママはスマホをいつも持つ設定だが、この話は夜の検索をしない回なので、スマホは伏せて置く（★4①）か、持たない／パパ＝寝ぐせ・`a navy shirt and loose track pants`（決定ずみ。★12〜★15は仕事帰りでもこの服）、★3は `pajamas`（提案）
+- **アイカ（★10②の袖と手だけ）**：`[AIKA_SLEEVE_REF]`＝`a navy zip jacket with sleeves rolled up, a hand with a white t-shirt cuff`（決定ずみの見た目の袖。耳にかけた髪は映さない）。顔・髪・体は映さない（この場面の演出。見た目は決定ずみ。A版 §2・設計書 §2）
 - **ほかの子ども（★6・★8①・★11・★12①の奥）**：`several unnamed children about 3-head-tall, all different hairstyles, barefoot, small in the background, faces not detailed`。バイブルのツム・ココ・ユイ・ソウタの姿にしない。実在の会員の顔に寄せない
 - **大事な絵のカット**（★1③・★4②・★8③a・★8③b・★9・★13・★15）に足す：`subject placed in the middle of the frame, nothing important in the bottom 35%`
 - **全ショットのネガティブ**：`no tattoos, no brand logos, no readable text, no blood, no crying face, no scary face, no shop signs, no building signage`
@@ -205,24 +217,24 @@
 
 | ★ | 状態 | 画像の指示（英語） | 動き・動画の指示 |
 |---|---|---|---|
-| 1 | 【家族・保留】仮版：①②は手と小物、③は絵コンテ | 2D ＋ ① `a Japanese house entrance (genkan) at night, a huge overstuffed child's backpack, two adult hands pushing one more folded t-shirt into it` ② 同じ構図でリュックだけ大きくふくらんだ絵 ③ `[EIKO_6_REF] in a light green t-shirt in the foreground, a small towel around his neck, hugging a kid's water bottle with both hands, round surprised eyes, the huge backpack behind him, a hand-drawn note with only three small pictures (t-shirt, towel, water bottle) taped on the wall, subject placed in the middle of the frame, nothing important in the bottom 35%` | 静止画3枚の差し替え（0.8秒・1.0秒・1.2秒）。②で「ギュッ」に合わせてリュックを編集で少しふくらませる。動画生成は使わない |
-| 2 | 【家族・保留】仮版：逆光のシルエット | 劇画パロディ ＋ `low angle, [MAMA_REF] as a tiny chibi figure wearing a headband, kneeling formally, solemnly inspecting a row of items laid out like pieces of armor: five folded t-shirts, three rice balls, a box of bandages, cooling gel sheets, a small charm; sweat drop, comedic` | 荷物の列を横長の1枚で作り、編集で太鼓に合わせて3回区切って横にパンする（4.0秒）。最後にお守りを持ち上げる手だけ別の1枚 |
-| 3 | 【家族・保留】仮版：絵コンテ | 2D ＋ `[PAPA_REF] in pajamas standing in the doorway with a toothbrush in his mouth, frozen mid-brush, looking at the huge backpack and a woman kneeling beside it, deadpan` | 静止画1枚。歯ブラシの手だけ止まる（動きなしで可） |
-| 4 | 【家族・保留】仮版：①は顔を影に、②は手と小物 | 2D ＋ ① `a dark Japanese bedroom at night, soft moonlight, [EIKO_6_REF] sound asleep in a light green t-shirt hugging a water bottle, mouth slightly open, beside him [MAMA_REF] in pajamas lying awake with eyes wide open staring at the ceiling, a smartphone face-down by the pillow` ② `a moonlit genkan at night, close-up of an adult hand in a pajama sleeve quietly slipping a brand-new plastic-wrapped tissue box into the top lid pocket of the huge backpack, a blank paper note taped on the box, the note large and clearly lit by moonlight, subject placed in the middle of the frame, nothing important in the bottom 35%` | ① 静止画。ママのまばたき1回だけ編集で（目の部分の差し替え1枚）② 静止画にゆっくり寄る。紙は白紙で生成し、「ママ用」は編集で手書き風に重ねる（画面の幅の4分の1以上） |
-| 5 | 【家族・保留】仮版：後ろ姿 | 2D ＋ `a quiet Japanese residential street at dusk, deep navy evening sky, many house windows glowing warm, street lights, seen from behind at a low angle: [MAMA_REF] leaning forward under a huge backpack, holding hands with [EIKO_6_REF] who walks on his mother's left side, a towel around his neck and a water bottle across his shoulder, no shop signs, no readable text` | 静止画にゆっくり前へ寄る。カード「次の日。」は編集で重ねる。ジムの建物・看板・階段は描かない（未確認） |
+| 1 | 【家族・基準画像待ち】仮版：①②は手と小物、③は絵コンテ | 2D ＋ ① `a Japanese house entrance (genkan) at night, a huge overstuffed child's backpack, two adult hands pushing one more folded t-shirt into it` ② 同じ構図でリュックだけ大きくふくらんだ絵 ③ `[EIKO_6_REF] in a gray t-shirt and black shorts in the foreground, a small towel around his neck, hugging a kid's water bottle with both hands, round surprised eyes, the huge backpack behind him, a hand-drawn note with only three small pictures (t-shirt, towel, water bottle) taped on the wall, with a tiny drawing of a door spilling warm light above the note (the destination, separate from the three items), subject placed in the middle of the frame, nothing important in the bottom 35%` | 静止画3枚の差し替え（0.8秒・1.0秒・1.2秒）。②で「ギュッ」に合わせてリュックを編集で少しふくらませる。動画生成は使わない |
+| 2 | 【家族・基準画像待ち】仮版：逆光のシルエット | 劇画パロディ ＋ `low angle, [MAMA_REF] as a tiny chibi figure wearing a headband, kneeling formally, solemnly inspecting a row of items laid out like pieces of armor: five folded t-shirts, three rice balls, a box of bandages, cooling gel sheets, a small charm; sweat drop, comedic` | 荷物の列を横長の1枚で作り、編集で太鼓に合わせて3回区切って横にパンする（4.0秒）。最後にお守りを持ち上げる手だけ別の1枚 |
+| 3 | 【家族・基準画像待ち】仮版：絵コンテ | 2D ＋ `[PAPA_REF] in pajamas standing in the doorway with a toothbrush in his mouth, frozen mid-brush, looking at the huge backpack and a woman kneeling beside it, deadpan` | 静止画1枚。歯ブラシの手だけ止まる（動きなしで可） |
+| 4 | 【家族・基準画像待ち】仮版：①は顔を影に、②は手と小物 | 2D ＋ ① `a dark Japanese bedroom at night, soft moonlight, [EIKO_6_REF] sound asleep in a gray t-shirt and black shorts hugging a water bottle, mouth slightly open, beside him [MAMA_REF] in pajamas lying awake with eyes wide open staring at the ceiling, a smartphone face-down by the pillow` ② `a moonlit genkan at night, close-up of an adult hand in a pajama sleeve quietly slipping a brand-new plastic-wrapped tissue box into the top lid pocket of the huge backpack, a blank paper note taped on the box, the note large and clearly lit by moonlight, subject placed in the middle of the frame, nothing important in the bottom 35%` | ① 静止画。ママのまばたき1回だけ編集で（目の部分の差し替え1枚）② 静止画にゆっくり寄る。紙は白紙で生成し、「ママ用」は編集で手書き風に重ねる（画面の幅の4分の1以上） |
+| 5 | 【家族・基準画像待ち】仮版：後ろ姿 | 2D ＋ `a quiet Japanese residential street at dusk, deep navy evening sky, many house windows glowing warm, street lights, seen from behind at a low angle: [MAMA_REF] leaning forward under a huge backpack, holding hands with [EIKO_6_REF] who walks on his mother's left side, a towel around his neck and a water bottle across his shoulder, no shop signs, no readable text` | 静止画にゆっくり前へ寄る。カード「はじめての日。」は編集で重ねる。ジムの建物・看板・階段は描かない（未確認） |
 | 6 | **今すぐ作れる**（家族は入れない） | 2D ＋ ドアの外：`a door opening from the inside, warm golden light spilling out into the evening`（扉の形は写真を見てから）／中：ジムAの背景 ＋ マサキ ＋ `waving big with both arms and a bright smile, standing on the white mat in the distance, unnamed children lined up behind him, small in frame` | 光の中でディゾルブ。マサキの手ふりは2枚の差し替え |
-| 7 | 【家族・保留】仮版：手だけ | 2D ＋ `extreme close-up of a small child's right hand tightly gripping the mother's left hand fingers, the woman's thumb gently stroking the back of the child's hand, beige cardigan sleeve, warm gym light from the side` | 2枚の差し替え（にぎり直す → 親指が1回なでる） |
-| 8 | 【家族・保留】**動画生成を使う（この話で1か所だけ）** | ① ジムAの背景 ＋ `child's eye-level view of the white mat, children kneeling in a line seen from behind, the child at the end of the line shuffling sideways on his knees and patting the mat once to make space, the instructor in the distance gently gesturing to the open space with his palm up, faces not shown` ② `low angle looking up at [MAMA_REF], worried but gentle eyes` ③a `close-up of a small child's right hand letting go of the mother's left hand, beige cardigan sleeve, subject placed in the middle of the frame, nothing important in the bottom 35%` ③b `small bare feet stepping onto a white mat, close-up, subject placed in the middle of the frame, nothing important in the bottom 35%` | ③aだけ動画生成（1.4秒）：`the child's fingers open slowly one by one, the little finger catches on the mother's finger for a moment, then lets go; fixed camera; no other motion`。指の数がくずれないかを必ず見る。①は「ぽん」に合わせて手だけ2枚の差し替え。②③bは静止画 |
-| 9 | 【家族・保留】仮版：手だけ。**動画生成は使わない** | 層A：`close-up of the mother's left hand left in mid-air in the shape of holding a child's hand, beige cardigan sleeve, shallow depth of field, bright gym light, subject placed in the middle of the frame, nothing important in the bottom 35%`／層B（別の画像）：`a small child's back walking away, out of focus` | 層Aは静止画を2.0秒止める。指を1本だけ差しかえた絵を2コマ入れて「ぴくっ」。最後の0.4秒は、手を少し下げた絵に差しかえる。層Bは編集で小さくしながら奥へ動かす |
-| 10 | 【家族・保留】仮版：シルエットと袖・手 | 2D ＋ ① `side view of [MAMA_REF] taking a half step forward and stopping, hand lowered` ② `the viewing area at the side of the gym, from the edge of the frame a sleeve and a hand ([AIKA_SLEEVE_REF], face not shown) placing a floor cushion, [MAMA_REF] sitting on it hugging the huge backpack on her lap, the backpack covering her lower body` | 静止画2枚（①1.4秒、ゆっくり寄る／②1.1秒）。座る場所は写真を見てから（いすか床か） |
-| 11 | 【家族・保留】仮版：絵コンテ | ① 2D ＋ ジムAの背景 ＋ マサキ ＋ `children and the instructor bowing to each other in a line at the start of class, [EIKO_6_REF] bowing one beat later than the others but carefully` ①' `[EIKO_6_REF] lifting his head and glancing once toward the viewing area at the side` ② `[MAMA_REF]'s eyes peeking over the top of the huge backpack on her lap, eyes softening` | ①は礼の2枚の差し替え（頭を下げる前・後）。栄光くんだけ1枚おくらせる。①'は0.5秒 |
-| 12 | 【家族・保留】仮版：絵コンテ | 2D ＋ ① `unnamed children bowing and leaving in the background, small` ② `the gym entrance after class, [PAPA_REF] in a plain gray work jacket, slightly out of breath, trying to lift the huge backpack with one hand and failing, then bracing with both hands` | ①0.5秒。②は静止画2枚（片手 → 両手で腰を入れる） |
-| 13 | **小物だけ。今すぐ作れる** | 2D ＋ ① `view into the open top of a huge backpack: rice balls still in plastic wrap and neatly folded unused t-shirts` ② `close-up of the top lid pocket of the backpack: the same tissue box with its plastic wrap opened and a single tissue sticking up, a blank paper note taped on the box, subject placed in the middle of the frame, nothing important in the bottom 35%` | ①1.5秒 → ②1.5秒、ゆっくり寄る。紙の文字「ママ用」は★4②と同じ書体・同じ位置で重ねる（寄りに合わせて追従させる）。ティッシュは上から30〜55% |
-| 14 | 【家族・保留】仮版：後ろ姿 | 2D ＋ ① `[PAPA_REF] looking up; in front of him [MAMA_REF] crouching and listening to [EIKO_6_REF], both seen from behind, the boy wiping sweat with the towel around his neck, holding his open water bottle, gesturing excitedly; the mother reaching one hand back without turning around, holding out a small unlabeled bottle of tea toward the father` ② `[PAPA_REF] holding the tea, wearing the huge backpack, wobbling slightly under the weight` | 静止画2枚（1.2秒 → 1.3秒） |
-| 15 | 【家族・保留】仮版：後ろ姿 | 2D ＋ `a quiet Japanese residential street at night, many house windows glowing warm, three figures seen from behind walking away, from left to right: [PAPA_REF] with a huge backpack, [EIKO_6_REF], [MAMA_REF]; ① the boy's left hand supporting the bottom of his father's backpack from below ② the mother's left hand resting gently on the boy's head; figures placed between 35% and 60% from the top, empty sky in the top band, no shop signs, no gym building, no readable text` | 2枚の差し替え（①1.5秒 → ②2.0秒）。カード「FLATUP GYM（成田）」は編集で、上から15〜22%の帯に重ねる |
+| 7 | 【家族・基準画像待ち】仮版：手だけ | 2D ＋ `extreme close-up of a small child's right hand tightly gripping the mother's left hand fingers, the woman's thumb gently stroking the back of the child's hand, beige cardigan sleeve, warm gym light from the side` | 2枚の差し替え（にぎり直す → 親指が1回なでる） |
+| 8 | 【家族・基準画像待ち】**動画生成を使う（この話で1か所だけ）** | ① ジムAの背景 ＋ `child's eye-level view of the white mat, children kneeling in a line seen from behind, the child at the end of the line shuffling sideways on his knees and patting the mat once to make space, the instructor in the distance gently gesturing to the open space with his palm up, faces not shown` ② `low angle looking up at [MAMA_REF], worried but gentle eyes` ③a `close-up of a small child's right hand letting go of the mother's left hand, beige cardigan sleeve, subject placed in the middle of the frame, nothing important in the bottom 35%` ③b `small bare feet stepping onto a white mat, close-up, subject placed in the middle of the frame, nothing important in the bottom 35%` | ③aだけ動画生成（1.4秒）：`the child's fingers open slowly one by one, the little finger catches on the mother's finger for a moment, then lets go; fixed camera; no other motion`。指の数がくずれないかを必ず見る。①は「ぽん」に合わせて手だけ2枚の差し替え。②③bは静止画 |
+| 9 | 【家族・基準画像待ち】仮版：手だけ。**動画生成は使わない** | 層A：`close-up of the mother's left hand left in mid-air in the shape of holding a child's hand, beige cardigan sleeve, shallow depth of field, bright gym light, subject placed in the middle of the frame, nothing important in the bottom 35%`／層B（別の画像）：`a small child's back walking away, out of focus` | 層Aは静止画を2.0秒止める。指を1本だけ差しかえた絵を2コマ入れて「ぴくっ」。最後の0.4秒は、手を少し下げた絵に差しかえる。層Bは編集で小さくしながら奥へ動かす |
+| 10 | 【家族・基準画像待ち】仮版：シルエットと袖・手 | 2D ＋ ① `side view of [MAMA_REF] taking a half step forward and stopping, hand lowered` ② `the viewing area at the side of the gym, from the edge of the frame a sleeve and a hand ([AIKA_SLEEVE_REF], face not shown) placing a floor cushion, [MAMA_REF] sitting on it hugging the huge backpack on her lap, the backpack covering her lower body` | 静止画2枚（①1.4秒、ゆっくり寄る／②1.1秒）。座る場所は写真を見てから（いすか床か） |
+| 11 | 【家族・基準画像待ち】仮版：絵コンテ | ① 2D ＋ ジムAの背景 ＋ マサキ ＋ `children and the instructor bowing to each other in a line at the start of class, [EIKO_6_REF] bowing at the same time as the others, his hands tightly clenched at his sides` ①' `[EIKO_6_REF] lifting his head and glancing once toward the viewing area at the side` ②a `close-up of the mother's hand pulling one tissue out of the tissue box in the top lid pocket of the huge backpack on her lap, no face` ②b `[MAMA_REF]'s eyes peeking over the top of the huge backpack on her lap, eyes softening, no tears` | ①は礼の2枚の差し替え（頭を下げる前・後。全員同時）。①'は0.5秒。②aは0.5秒の静止画（手元）。②bは1.0秒 |
+| 12 | 【家族・基準画像待ち】仮版：絵コンテ | 2D ＋ ① `unnamed children bowing and leaving in the background, small` ② `the gym entrance after class, [PAPA_REF] in a navy shirt and loose track pants with a slight bed-head, slightly out of breath, trying to lift the huge backpack with one hand and failing, then bracing with both hands` | ①0.5秒。②は静止画2枚（片手 → 両手で腰を入れる） |
+| 13 | **小物だけ。今すぐ作れる** | 2D ＋ ① `view into the open top of a huge backpack: rice balls still in plastic wrap and neatly folded unused t-shirts` ② `close-up of the top lid pocket of the backpack: the same tissue box with its plastic wrap opened, and beside the opening one small used tissue lightly folded and tucked at the edge of the pocket, no crying, a blank paper note taped on the box, subject placed in the middle of the frame, nothing important in the bottom 35%` | ①1.5秒 → ②1.5秒、ゆっくり寄る。紙の文字「ママ用」は★4②と同じ書体・同じ位置で重ねる（寄りに合わせて追従させる）。ティッシュは上から30〜55% |
+| 14 | 【家族・基準画像待ち】仮版：後ろ姿 | 2D ＋ ① `[PAPA_REF] looking up; in front of him [MAMA_REF] crouching and listening to [EIKO_6_REF], both seen from behind, the boy wiping sweat with the towel around his neck, holding his open water bottle, gesturing excitedly; the mother reaching one hand back without turning around, holding out a small unlabeled bottle of tea toward the father` ② `[PAPA_REF] holding the tea, wearing the huge backpack, wobbling slightly under the weight` | 静止画2枚（1.2秒 → 1.3秒） |
+| 15 | 【家族・基準画像待ち】仮版：後ろ姿 | 2D ＋ `a quiet Japanese residential street at night, many house windows glowing warm, three figures seen from behind walking away, from left to right: [PAPA_REF] with a huge backpack, [EIKO_6_REF], [MAMA_REF]; ① the boy's left hand supporting the bottom of his father's backpack from below ② the mother's left hand resting gently on the boy's head; figures placed between 35% and 60% from the top, empty sky in the top band, no shop signs, no gym building, no readable text` | 2枚の差し替え（①1.5秒：パパの歩幅が短くなり、肩が少し下がる → ②2.0秒）。カード「FLATUP GYM（成田）」は編集で、上から15〜22%の帯に重ねる |
 
 - **動画生成は★8③aの1か所だけ**。★9は静止画と差し替えにした（「2秒まったく動かない」は動画生成が苦手で、手がゆれたり指の数が変わったりしやすい）。くずれの点検も1か所ですむ（工数を感情の見せ場に集める。マスタープロンプト §10）
-- 文字（字幕・「ママ用」・「次の日。」・ジム名・マサキの服の「FLAT UP GYM」）は、すべて画像と別工程
+- 文字（字幕・「ママ用」・「はじめての日。」・ジム名・マサキの服の「FLAT UP GYM」）は、すべて画像と別工程
 - 公開前に人間が全カットを見る：他社ロゴの写り込み、タトゥー、怖い顔・泣き顔、実在の会員に似ていないか、指の数、左右の手（ママの左手）がそろっているか
 
 ---
@@ -289,10 +301,10 @@ FLATUP GYM（成田）
 |---|---|
 | マサキの姿 | バイブル・`assets/canon/masaki_*.jpg`（確定） |
 | ジムAの背景 | `assets/canon/masaki_class_lineup.jpg`・`masaki_mitt_kneeling.jpg`（子どもの部分は参照に使わない） |
-| 栄光くんの服（若草色のTシャツ・紺のショーツ）、ママのベージュのカーディガン | 5話の下書きの**提案**と同じ（JIN未採用。採用されたら全話で固定） |
+| 栄光くん・ママ・パパの見た目 | `character_reference_prompts.md`（2026-11-02 決定。基準画像は未生成）。**5話の下書き（`manga_ep03_kaeshite.md`）の服の提案（若草色のTシャツ・紺のショーツ）は、決定した服（灰色のTシャツ・黒のショーツ）と食い違う**。この台本は決定した服に合わせた |
 | 2D・劇画パロディの共通ブロック | `manga_ep03_kaeshite.md` |
 | 字幕の速さ・置き場所の決まり | 設計書 §1-7・`../emotional_movie_ep0_edit.md` |
-| 同じ話の中の使い回し | ★4②の箱 → ★13②（同じ箱、封だけ開ける）／★5の住宅街 → ★15（同じ背景・夕方と夜で色だけ変える）／リュックの小物は1回作って★1・★2・★10・★12〜★15で使い回す／★7・★8③a・★9のママの左手は同じ袖 |
+| 同じ話の中の使い回し | ★4②の箱 → ★11②a・★13②（同じ箱。封を開けて1枚使った形）／★5の住宅街 → ★15（同じ背景・夕方と夜で色だけ変える）／リュックの小物は1回作って★1・★2・★10・★12〜★15で使い回す／★7・★8③a・★9のママの左手は同じ袖 |
 
 ### 新しく作る素材（この話のあとも使う）
 
@@ -304,7 +316,7 @@ FLATUP GYM（成田）
 | 夜・夕方の住宅街（家々の灯り） | 2話（夕方版）・12話 |
 | ジムの入口（写真を見てから）・見学の場所・座ぶとん（またはいす） | 6・7・10話 |
 | 見学の場所に座るママの絵 | 7話 |
-| アイカの袖と手（参照待ちのまま描ける形） | 7・8・10話 |
+| アイカの袖と手（紺のジャケットのまくった袖。基準画像のプロンプト待ちでも描ける形） | 7・8・10話 |
 
 ### この話だけの素材
 
@@ -314,39 +326,66 @@ FLATUP GYM（成田）
 
 | # | 未確認のこと | 影響 |
 |---|---|---|
-| 1 | 栄光（6歳版）・ママ・パパの姿の正本がない | 公開用には、★6・★13を除く13カットが作れない。仮版なら15カットすべて並べて測れる（⑥）。顔の要る5カットは絵コンテ |
+| 1 | 栄光（6歳版）・ママ・パパの基準画像がない（見た目は2026-11-02に決定ずみ。生成は費用の承認待ち） | 公開用には、★6・★13を除く13カットが作れない。仮版なら15カットすべて並べて測れる（⑥）。顔の要る5カットは絵コンテ |
 | 2 | 声：決定ずみ（声なし。字幕と効果音だけ。2026-10-30 JIN決定） | 効果音は試作から入れる。字幕の速さと間を仮版で測る |
 | 3 | ジムの入口の実物（扉の形・くつを脱ぐ場所・見学の場所がいすか床か・座ぶとんがあるか） | ★6・★10。写真を見てから描く。それまでは光と手元・ひざの上のリュックで切る |
 | 4 | キッズクラスの持ち物（`canon.ts` の bring は体験の持ち物）。絵だけのメモ（★1③・漫画のコマ2）は「ママが描いたメモ」とし、ジムの案内としては描かない | ★1③・漫画のコマ2〜3 |
 | 5 | キッズクラスのはじめに、全員で礼をするか（バイブルの共通ルールに「礼」あり。実際のクラスの進め方は未確認）。列で、子どもが場所を空け合うことがあるか | ★8①・★11 |
 | 6 | 保護者がクラスのあいだ見学の場所にいてよいか（`canon_2026.md` PROMISE 05「見学・付き添いいつでもOK」から、いてよいと読んだ） | ★10〜★11 |
-| 7 | パパがクラスのあとに迎えに来る（仕事帰りの上着）は、この話の**提案** | ★12〜★15 |
+| 7 | パパがクラスのあとに迎えに来る（仕事帰り）は、正本にもどの設定にもない、この話の**提案**。採らない場合の代替は冒頭に書いた | ★12〜★15 |
 | 8 | #14：決定ずみ（2026-10-30）。ジムの中は2D漫画絵（ペンのインク線＋彩色）。3Dは使わない | ★6〜★14 |
 | 9 | 宙の手の2秒（★9）が、縦動画・スマホの実寸で長すぎないか、短すぎないか | 仮版で測る |
-| 10 | 「ママ用」の紙の文字（3字）が、★4②の月明かり・1.8秒・スマホの実寸で読めるか。★13②で同じ紙だと分かるか | 仮版で測る。読めなければ、★4①を短くして★4②を長くする |
-| 11 | 「大遠征」「はちまき」「太鼓」は一般的な型で、特定の作品の場面ではない（手引き §2）。公開前に、似た有名な構図がないか確かめる | ★2 |
+| 10 | 「ママ用」の紙の文字（3字）が、★4②の月明かり・2.5秒（★4①を1.0秒に縮めて確保）・スマホの実寸で読めるか。★13②で同じ紙だと分かるか | 仮版で測る |
+| 11 | 「大遠征」「はちまき」「太鼓」は一般的な型で、特定の作品の場面ではない（手引き §2）。**照合の結果（2026-11-02、`manga_research/` の `homage_guidelines.md`・`works_database.csv`・`research_brief.md` を検索）**：「大遠征」はどこにも出ない。「はちまき」は W043『嗚呼!!花の応援団』の行の翻案メモに、「太鼓」は FLATUP のミットの太鼓の案（W111 の行）に出るが、どちらも特定の場面・構図の再現ではなく、一般的な小道具。ここまで。**手元の資料に載っていない作品との照合は、公開前に人が見る** | ★2 |
 | 12 | 実在のご家庭がモデルなら、出演の同意（設計書 §10 #6） | 全話 |
 | 13 | 話数「第4話」・題名・次回の題名 | 投稿文。JINが企画表を採用してから |
 | 14 | Instagram・Xのプロフィールのリンク先が https://lin.ee/Y3MbbAe と同じLINEに着くか（#12）。この話の投稿文にはリンクを書かないが、プロフィールで受けるため | 公開前に実機で確かめる |
 | 15 | Xの字幕の置き場所（未計測）、Xの動画の長さ・AI表示のしくみ。X版39.5秒が見せ場版として長すぎないか | X版 |
 | 16 | ★8③a（手・1.4秒）→ ③b（足・0.8秒）の2つに分けた山場が、一続きの一歩に見えるか。小指の0.3秒が見えるか | 仮版で測る |
-| 17 | ★11①'（0.5秒のふり向き）と★15①（リュックをささえる「つもり」）が、無音・小さな画面で伝わるか | 仮版で測る。伝わらなければ、①'を0.8秒にして①を詰める |
+| 17 | ★11①'（0.5秒のふり向き）と★15①（リュックをささえ、パパの歩幅がゆるむ）が、無音・小さな画面で伝わるか | 仮版で測る。伝わらなければ、①'を0.8秒にして①を詰める |
+| 18 | ★1③の「行き先の絵」（扉から光）と★5のカード「はじめての日。」で、動画だけで「ジムに行く日」と分かるか | 元ネタを知らない保護者2〜3人に、無音で見てもらう（未実施）。絵が読めなければ、絵を大きくする |
+| 19 | ★11②a（0.5秒）でママが1枚ぬくこと、★13②の「使った1枚」が、無音で結びつくか。泣いたママを笑う材料に見えないか | 仮版で測る。0.5秒で読めなければ、★11②を②a 0.8秒・②b 0.7秒にする |
 
 ---
 
 ## ⑨ 採点、修正内容、検証結果（マスタープロンプト §12。甘くしない）
 
-### 点数（r1 の直しのあと）
+### 点数（r1 の直しのあとの自己採点。参考。r2 審査員の採点は81点＝一貫性18・共感17・フック11・笑い16・独自性11・制作8。r2 の直しのあとの点は審査員がつける）
 
 | 項目 | 配点 | 点 | 理由（残る問題） |
 |---|---|---|---|
-| 原作と人物の一貫性 | 20 | 17 | 栄光くん（泣き虫・言い返せない）は、手をはなす前に、仲間が場所を空けてくれるきっかけ（★8①）、小指がひっかかるためらい（★8③a）、礼のあとのふり向き（★11①'）を置き、あいさつもまだ出ない形（字幕もなし）にした。ママ（心配性・大げさ・大切に思う）は、絵だけのメモ（3つで足りると分かっている）とお茶（★14）で「分かっている人・備えた人」の顔も持つ。パパ（のんきに見えて、実は見ている）、マサキ（怒鳴らない・明るい）は正本どおり。**減点**：①家族の姿の正本がなく、見た目の一貫性はまだ確かめられない（-2）②パパが「仕事帰りに迎えに来る」、ママ・栄光くんの服は提案で、正本にない（-1） |
-| 親子への共感と尊厳 | 20 | 18 | 詰めすぎ・眠れない・手をはなされる、は世代を問わない。ティッシュは笑いの流れ（★2〜★3）から外し、静かな★4に置いた。はじめての家族を迎える手（マサキの手のひら・座ぶとんの手）を足した。手をはなすのは「空けてもらった場所」があってからで、入口で手をはなせない子の親を責める絵にしない。**減点**：①ママの劇画（はちまき・正座）で、ママが大げさという型は第1話から続く（-1。この話の劇画は4.0秒・1場面で、企画表のとおり回を追うごとに短くする）②★13の「1枚」が、泣いたママを笑う材料に見えないかは、元ネタを知らない保護者で確かめていない（-1） |
+| 原作と人物の一貫性 | 20 | 17 | 栄光くん（泣き虫・言い返せない）は、手をはなす前に、仲間が場所を空けてくれるきっかけ（★8①）、小指がひっかかるためらい（★8③a）、礼のあとのふり向き（★11①'）を置き、あいさつもまだ出ない形（字幕もなし）にした。ママ（心配性・大げさ・大切に思う）は、絵だけのメモ（3つで足りると分かっている）とお茶（★14）で「分かっている人・備えた人」の顔も持つ。パパ（のんきに見えて、実は見ている）、マサキ（怒鳴らない・明るい）は正本どおり。**減点**：①見た目は決まったが、基準画像がまだなく、絵での一貫性は確かめられない（-2）②パパが「仕事帰りに迎えに来る」は正本にない提案（-1。r2 で「提案」と明記し、採らない場合の代替を書いた）。服は決定した見た目に合わせた |
+| 親子への共感と尊厳 | 20 | 18 | 詰めすぎ・眠れない・手をはなされる、は世代を問わない。ティッシュは笑いの流れ（★2〜★3）から外し、静かな★4に置いた。はじめての家族を迎える手（マサキの手のひら・座ぶとんの手）を足した。手をはなすのは「空けてもらった場所」があってからで、入口で手をはなせない子の親を責める絵にしない。**減点**：①ママの劇画（はちまき・正座）で、ママが大げさという型は第1話から続く（-1。この話の劇画は4.0秒・1場面で、企画表のとおり回を追うごとに短くする）②★11②aと★13の「使った1枚」が、泣いたママを笑う材料に見えないかは、元ネタを知らない保護者で確かめていない（-1。笑いの音は付けず、★11は手元だけにした） |
 | フックと視聴継続 | 15 | 12 | 0.0秒から「ギギッ」と差し替え3枚で動き、0.3秒からママの字幕。タオルと水筒・絵だけのメモで「はじめての日の前の晩」が分かる。フックAは★12〜★14で回収。**減点**：①回収が33.5〜41.5秒と遅く、途中は宙の手と見守りで引っぱる作り（-2）②「荷物を詰めすぎる親」は、ほかの広告や漫画でもよくあるネタで、冒頭だけでは新しさが弱い（-1） |
-| 笑いと行動で伝わる優しさ | 20 | 17 | 笑いは「大遠征の、夜。」「……遠足？」「……おもっ。」の3つで、すべて大人の考えすぎと生活感。主なエンジン：**5（ママの妄想）**。補助：**3（大人の考えすぎ）**。優しさは、場所を空ける子／手をはなす／追いかけない／座ぶとんを置く手／ふり向く／お茶を差し出す／何も言わずに背負う／リュックをささえる（つもり）／頭にふれる手、の行動だけ。先生は何も解決しない。**減点**：①小さな優しさが9つあり、45秒の中で1つ1つが軽くなるおそれ（-1。どれもセリフなし・1カット以内にした）②★11の「一拍おくれ」と「ふり向き」、★15の「つもり」が、無音・小さな画面で伝わるか未確認（-1）③★15で「手伝っているつもり」の小さな笑いが、結末の「じんわり」を弱めないか（-1） |
+| 笑いと行動で伝わる優しさ | 20 | 17 | 笑いは「大遠征の、夜。」「……遠足？」「……おもっ。」の3つで、すべて大人の考えすぎと生活感。主なエンジン：**5（ママの妄想）**。補助：**3（大人の考えすぎ）**。優しさは、場所を空ける子／手をはなす／追いかけない／座ぶとんを置く手／ふり向く／お茶を差し出す／何も言わずに背負う／リュックをささえる／頭にふれる手、の行動だけ。先生は何も解決しない。**減点**：①小さな優しさが9つあり、45秒の中で1つ1つが軽くなるおそれ（-1。どれもセリフなし・1カット以内にした）②★11の「ふり向き」と「手元のにぎり」、★15の「ささえる」とパパの歩幅が、無音・小さな画面で伝わるか未確認（-1）③（r2 で解消：★15の「つもり」の笑いをやめた。点は上げず、審査員がつける） |
 | 各話の独自性とシリーズへの貢献 | 15 | 12 | 3話（カレンダー・6歳）の続き、5話（ガード・かえして）の前の「はじめての日」として、成長の縦の線を進めた。結末を「手をつなぎ直す」から外し、12話の「手をにぎる」と重ならないようにした。「こんばんは」のやり取りを5話にとっておき、5話で小さい文字の字幕のあいさつが出ることを成長として見せられる。**減点**：①「はじめての日に、子どもが手をはなす」は、習い事・入園の話でよくある型（-2。荷物とティッシュとパパの沈黙で、この家族だけの形にした）②ジムの中の絵が礼だけで、ジムの魅力の見せ方は少ない（-1。指導への信頼は5・8・9話に任せた） |
 | 制作可能性と媒体展開 | 10 | 6 | 動画生成は1か所・場面4つ・格闘の動きなし。仮版で15カットすべてを並べてテンポと工数を測れる。Instagram版とX版の切り方と投稿文が合っている。**減点**：①家族の姿・入口の実物が未決定で、公開用には13カットが作れない（-2）②字幕の読みやすさ・2秒の間・山場の分け方は、まだ仮版で測っていない（-1）③X版が39.5秒で、見せ場版としては長め（-1） |
 | **合計** | **100** | **82** | r0 の自己採点（78）は、話の芯に関わる指摘（手をはなすきっかけがない、迎える人がいない、12話と同じ結末、X版の投稿文と動画のずれ、時間の順番と絵の作りの食い違い）を見落としていた。直したあとの残りは、素材の未確定と、仮版で測っていないこと。未確認が残るので満点にしない |
+
+### r2 の審査（81点）で直したこと（同じ問題は1回だけ直した）
+
+| # | 指摘（審査員） | 直したこと |
+|---|---|---|
+| 1 | ★15で子の手伝いを「つもり」と笑っている（マスタープロンプト §6：子どもの行動を笑わない）。点検表の「笑うのは大人だけ」と食い違う | 「つもり」「実際には持ち上がっていない」を、台本・ネーム・生成指示・⑧⑨⑩・animatic から外した。栄光くんは本気でささえ、パパが気づいて歩幅をゆるめる（受け止めるのは大人。子の行動は笑わない） |
+| 2 | ★13のティッシュは、無音では「使った」と読めない。★9〜★11にママがティッシュに触れる絵がない | ★11②を②a（0.5秒：ママの手が上のポケットから1枚ぬく）と②b（1.0秒）に分けた（合計1.5秒のまま）。★13②は「箱の口の横に、使った小さな1枚がはさまっている」に変えた。泣き顔は描かない。企画表の「1枚減る」と向きがそろった |
+| 3 | 動画だけでは、15.0秒（★6）まで「ジムに行く日」だと分からない。表紙はシェアで消える | ★5のカードを「次の日。」から「はじめての日。」（7字・2.5秒）に。★1③の壁に、扉から光がこぼれる行き先の絵（文字なし）を足した。「体験」「入会」の語は使っていない。④の「表紙の見出しで補う」を、動画の中で示す形に書き換えた |
+| 4 | ★11「一拍おくれ」が、5話下書きの★9と同じ動きで、重複防止の表にない | 4話の礼は周りと同時にして、迷いは手元（体の横の手をにぎる）とふり向きで見せる。⑩の表に行を足し、「一拍おくれ」は5話の成長として残すと書いた |
+| 5 | 字数の数え間違い | ★12「……おもっ。」は「……」を2字と数えて6字＝1秒4.0字（5字・3.3字は誤り） |
+| 6 | BGMの記述の食い違い（なし／小さく入る／止まる／最後の1音） | ⑤にBGMの出入りの表を足した（0〜30秒なし、30.0入る、36.0切る、43.0はピアノの単音1つ。BGMは戻さない）。★11・★12・★13・★15の「音」の列をそろえた |
+| 7 | 唯一読ませたい「ママ用」が1.8秒。カードの最短2.5秒に当たるかの記述もない | ★4①を1.5→1.0秒、②を2.0→2.5秒にした。「ママ用」は10.0–12.5の2.5秒（1秒1.2字）で、カードの最短を満たす。★4の合計3.5秒は変わらない |
+| 8 | 「パパの迎え」が正本にない提案のまま | 結論・冒頭の注・★12の欄に**提案**と明記。採らない場合の代替を冒頭に書いた。採るかはJIN |
+| 9 | 「大遠征／はちまき／太鼓」の類似構図が、公開前に先送り | ⑧#11に、手元の資料での照合結果を書いた（載っていない作品との照合は、公開前に人が見る） |
+| 10 | （見た目の決定 2026-11-02）参照待ちの記述 | 「参照待ち」を「基準画像待ち（プロンプト決定ずみ）」に更新。服を決定に合わせた：栄光くん＝灰色のTシャツ・黒のショーツ、パパ＝ネイビーのシャツ・ゆるいジャージ・寝ぐせ、アイカ＝紺のジャケットのまくった袖 |
+
+**r2 でも直さなかったこと（理由）**
+- 「一番心配している」パパの面が、この話では出ない（-2）：パパの心配は夜の検索がある8話の見せ場（重複防止の表）。この話のパパは「言わない優しさ」に絞る
+- 「詰めすぎる親」「はじめての日に子が手をはなす」は、よくある型（独自性）：荷物・ティッシュ・パパの沈黙で、この家族だけの形にしてある。型そのものは変えない
+- 小さな優しさが9つある・ジムの魅力が礼だけ：どれもセリフなし・1カット以内にした。指導への信頼は5・8・9話に任せる
+- 数字の確認：45.0秒、15カット、劇画4.0秒（9%）、X版39.5秒（3.0＋2.0＋21.0＋2.0＋11.5）を、割り算・足し算でやり直して合っていることを確かめた
+
+**JINに決めてほしいこと（r2）**
+1. パパの迎え（★12〜★15）を採るか。採らない場合の代替は冒頭
+2. 5話下書きの栄光くんの服の提案（若草色）を、決定した服に直すか（この台本は直した）
 
 ### r1 の審査で直したこと（同じ指摘は1回だけ直した）
 
@@ -354,17 +393,17 @@ FLATUP GYM（成田）
 |---|---|---|
 | 1 | 内気な栄光くんが、きっかけなく手をはなし、ふり返らない（1） | ★8①に、列のはしの子が場所を空けてマットをたたく動き（仲間の振る舞い。顔なし）を足した。★8③aで小指が一瞬ひっかかる。「ふり返らない」をやめ、★11①'で礼のあとに1回だけ見学の場所を見る |
 | 2 | はじめての家族を、だれも迎えない（1） | ★8①の奥で、マサキが手のひらで空いた場所を示す（しゃがまない・説明しない）。★10②で、アイカの袖と手が座ぶとんを置く（手元だけ。参照待ちのまま描ける） |
-| 3 | 結末が12話の「手をにぎる」と同じ絵（1）／★15の手の左右が書いていない（2） | ★15を、栄光くんがパパのリュックの底をささえる（つもり）＋ママの空いた左手が頭に一度ふれる、に変えた。手をにぎる絵は12話にとっておく。左右は「栄光くんはママの左側、ママの左手」と、⑤の頭と★5・★7・★8・★9・★15に書いた |
+| 3 | 結末が12話の「手をにぎる」と同じ絵（1）／★15の手の左右が書いていない（2） | ★15を、栄光くんがパパのリュックの底をささえる（r2 で「つもり」をやめた）＋ママの空いた左手が頭に一度ふれる、に変えた。手をにぎる絵は12話にとっておく。左右は「栄光くんはママの左側、ママの左手」と、⑤の頭と★5・★7・★8・★9・★15に書いた |
 | 4 | 「ママ用」が笑いの★3にあり、ママの涙をネタにする前ふりに見える（1）／詰まったリュックの底に箱は入らない・上から見えない（2） | ティッシュ箱を、静かな★4②に移した（眠れないママが、夜中にそっと入れる）。置き場所は「いちばん下」をやめ、リュックの**上のポケット**にした（入れられる・★13で見える）。劇画からもティッシュを外した |
 | 5 | X版の投稿文の場面（眠れない夜）が動画にない。安心の理由（★11）も外れている（1・2）／X版でパパが分からない（2） | X版に★3（「……遠足？」）・★4・★11①'②を入れ、39.5秒にした。外すのは劇画と礼だけ |
 | 6 | 「こんばんは」の入口が5話と同じ流れ（1） | マサキはセリフなしで手をふるだけ。子どもたちはざわめき（効果音）。栄光くんは、まだあいさつが出ない（漫画の「……おねがいします。」も外した）。5話の小さい文字の「……こんばんは。」が成長として立つ |
 | 7 | 感情的なママ／無口なパパの型（1） | ★1③の奥に、ママが描いた絵だけのメモ（3つで足りると分かっている）。★14で、ママがふり向かずにパパへお茶を差し出す（走ってきたのを見ないで分かっている＝備えた側） |
 | 8 | 「出陣」がUIZIN（初陣）を連想させ、理念ともぶつかる（1） | 「大遠征の、夜。」にした（遠征 → 遠足で落差もはっきりする）。企画表も同じに直した |
-| 9 | 前の晩にジムの服を着ている理由がない（1） | ★4①で、若草色のTシャツのまま水筒を抱いて寝ている（ママのパジャマとの差で「待ちきれない子」） |
+| 9 | 前の晩にジムの服を着ている理由がない（1） | ★4①で、灰色のTシャツのまま水筒を抱いて寝ている（ママのパジャマとの差で「待ちきれない子」） |
 | 10 | 仮版を作れない書き方が、設計書 §1-3 と食い違う（2） | ⑥に「仮版の作り方」を足した（手・小物／後ろ姿・シルエット／影／絵コンテ）。公開しない前提で作り、公開するかはJINが決める |
 | 11 | 山場の★8③が1.2秒で、手と足を1つの絵に入れている（2） | ★8を5.0秒にし、③a（手・1.4秒・動画生成）と③b（足・0.8秒・静止画）に分けた。★2を5.5秒から4.0秒にちぢめて作った |
 | 12 | 「ママ用」の前ふりが1.0秒で、★13の情報が多い（2） | 「ママ用」は★4②で1.8秒・画面の幅の4分の1以上。★13は使っていない物を2つにしぼり、最後の1.5秒はティッシュだけに寄る（上から30〜55%） |
-| 13 | ★4 → ★5、★11 → ★12 の時間の飛びが分からない（2） | ★5にカード「次の日。」と夕方の紺色の空。★12①で子どもたちが礼をして帰る絵を0.5秒 |
+| 13 | ★4 → ★5、★11 → ★12 の時間の飛びが分からない（2） | ★5にカード（r2 で「はじめての日。」に変更）と夕方の紺色の空。★12①で子どもたちが礼をして帰る絵を0.5秒 |
 | 14 | ジムの中を3Dにしていて、設計書 §1 の仮の基準（新しく描くジムは2D）と逆（2） | ジムの中も2Dを本線にした。（その後、2026-10-30 の JIN決定 #14 でジムの中は2D漫画絵に決定。★11の3D比較版は不要になり、やめた） |
 | 15 | マサキの服のロゴ文字と「no readable text」が矛盾（2） | 生成では無地の水色のパネル（文字なし）。「FLAT UP GYM」は編集で重ねる |
 | 16 | ★9の「2秒まったく動かない」を動画生成でやる（2） | 静止画を2.0秒止め、指だけ差しかえた絵を2コマ。奥の栄光くんは別の層。動画生成は★8③aの1か所だけ |
@@ -416,7 +455,7 @@ FLATUP GYM（成田）
 | 元ネタを知らない保護者にも伝わるか | 劇画は「大遠征」の一般的な型だけで、元ネタを知らなくても笑える作り | 元ネタを知らない保護者2〜3人に、無音で見てもらう（未実施） |
 | その子の失敗を笑いものにしていないか | していない。礼のおくれ・小指のためらいに笑いの音を付けない。笑うのは大人だけ | 台本の「音」の列で確認ずみ |
 | 先生の説明を削っても理念が伝わるか | 伝わる。マサキはもともとセリフなし。手のひらで示す動きを消しても、列の子の「ぽん」で筋は通る | 台本で確認ずみ |
-| 前の話と同じオチになっていないか | 3話＝笑い（朝の6時）、5話＝静かな仕草（手のひらと影）。この話＝親の気づき（ティッシュ）＋ささえる（つもり）・頭にふれる手。型は企画表 §3-2 のとおり「気」 | 企画表 §3-2 の表で確認ずみ |
+| 前の話と同じオチになっていないか | 3話＝笑い（朝の6時）、5話＝静かな仕草（手のひらと影）。この話＝親の気づき（ティッシュ）＋ささえる・頭にふれる手。型は企画表 §3-2 のとおり「気」 | 企画表 §3-2 の表で確認ずみ |
 | **12話の結末と重ならないか** | 重ならない。手をにぎる絵は12話だけ。4話は「頭にふれる手」 | 企画表 第12話の結末と、⑩の重複防止の表で確認ずみ |
 | 冒頭の期待を本編が回収しているか | フックA → ★12〜★14、B → ★3、C → ★8 | 上の④の表 |
 | 無音・スマホの実寸でも分かるか | 筋は絵で通る（読まないと困る文字は「ママ用」3字だけ。大事な絵は上から20〜60%）。実寸での読みやすさは未確認 | 仮版をスマホで無音再生する（未実施） |
@@ -434,13 +473,13 @@ FLATUP GYM（成田）
 
 ### 成長（企画表 §4-1 の第4話）
 
-- **栄光くん**：6歳。はじめてのクラスの日に、列の子が空けてくれた場所を見て、**自分からママの手をはなした**（小指が一瞬ひっかかった）。礼は一拍おくれても、ちゃんとした。礼のあと、一度だけママを見た。タオルと水筒は自分で用意して、自分で持ち、自分で使った。帰り道、パパのリュックをささえた（つもり）
+- **栄光くん**：6歳。はじめてのクラスの日に、列の子が空けてくれた場所を見て、**自分からママの手をはなした**（小指が一瞬ひっかかった）。礼はみんなと同時に、ちゃんとした（手元はぎゅっとにぎった）。礼のあと、一度だけママを見た。タオルと水筒は自分で用意して、自分で持ち、自分で使った。帰り道、パパのリュックをささえた
   - 変えていないもの：セリフはふだん小さめ（字幕も小さい文字）。**あいさつは、まだ出ない（礼だけ。字幕もなし）**。泣き虫・言い返せないは、まだそのまま（5話で「いやだ」と、小さな「……こんばんは。」が言えるまで、急に変えない）
   - 次の話で、理由なく「入口で固まる子」に戻さない。戻すなら理由をつける（8話の揺り戻しは別の形：ミットの列に並べない）
 - **ママ**：持ち物は3つで足りると分かっていて（絵だけのメモ）、それでも詰めた。手をはなされても追いかけなかった。目は離さなかった（放っておくのとは違う）。走ってきたパパに、ふり向かずにお茶を渡した。5話の「わたしがとりかえしても、いみない」（代わりに解決しない）につながる。ママの劇画はこの話で1場面。**7話では1カット、8話以降はなし**（企画表 §3-2）
 - **パパ**：「……遠足？」とあきれても、最後は何も言わずに重いリュックを背負う人。ティッシュに気づいても言わない。この「言わない優しさ」は、5話の「ほんとは、どうしたかった？」（答えを言わずに聞く）につながる
 - **マサキ**：この話ではセリフなし（大きく手をふる・手のひらで空いた場所を示す）。あいさつのやり取り・しゃがむ・具体的にほめるは、5話から
-- **アイカ**：袖と手だけ（座ぶとんを置く）。姿の正本が決まるまで、この形を7・8・10話でも使う
+- **アイカ**：袖と手だけ（座ぶとんを置く）。見た目は決定ずみ（耳にかけた髪＋まくった袖。シリーズの正本）。この話は演出として袖と手だけにした。顔を出す回は別に決める
 
 ### 次に作るときの約束
 
@@ -454,10 +493,11 @@ FLATUP GYM（成田）
 | 仕掛け | 使った話 | ほかの話では |
 |---|---|---|
 | 宙に残るママの手 → 帰り道、その手が子どもの頭にふれる | 4 | 使わない。**手をつなぎ直す・にぎる結末は12話だけ**（4話では使わない） |
-| 「ママ用」のティッシュ箱が1枚だけ減る | 4 | 使わない |
+| 「ママ用」のティッシュ箱（使った1枚が箱のそばに残る） | 4 | 使わない |
+| クラスのはじめの礼で、栄光くんだけ一拍おくれる | 5（`manga_ep03_kaeshite.md` ★9） | **4話では使わない**（4話の礼は周りと同時。迷いは手元とふり向きで見せる）。「一拍おくれ」は5話の成長として残し、回数は5話の1回だけ |
 | 劇画「大遠征の、夜。」・はちまき・太鼓 | 4 | 使わない。荷物を並べる劇画も使わない |
 | 「……遠足？」（パパのあきれ） | 4 | パパのあきれの一言は、同じ言い回しを使わない |
-| パパが重いものを黙って背負う／子どもが親の荷物をささえる（つもり） | 4 | 使わない（10話のパパは、背負う側ではなく初心者になる側） |
+| パパが重いものを黙って背負う／子どもが親の荷物をささえる | 4 | 使わない（10話のパパは、背負う側ではなく初心者になる側） |
 | 子どもより親が眠れない夜（★4） | 4 | 夜の場面は8話（パパの検索）だけ。眠れない親の絵は使わない |
 | 絵だけのメモ | 4 | 3話の〇のカレンダーと混ぜない。メモの絵は使い回さない |
 | 列のはしの子が、場所を空けてマットをたたく | 4 | 使わない（9話の礼の列のはしに並ぶソウタと、形を変える） |

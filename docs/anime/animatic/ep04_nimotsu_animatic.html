@@ -72,7 +72,7 @@ dt{color:var(--muted)} dd{margin:0}
     <h1>荷物が、多い。</h1>
     <p class="lead">45秒・縦9:16・15カット。台本の秒数どおりに、絵・字幕・効果音の合図が進みます。字幕は声なしで、1秒7字までです。</p>
   </header>
-  <div class="notice"><b>これは完成品ではありません。</b>動く絵コンテ（仮の絵）です。家族3人の見た目がまだ決まっていないため、人物は記号的な形で描いています。テンポ、間、字幕の読みやすさ、絵の置き場所を確かめるためのものです。</div>
+  <div class="notice"><b>これは完成品ではありません。</b>動く絵コンテ（仮の絵）です。家族3人の見た目は決まりました（2026-11-02）が、基準画像がまだないため、人物は記号的な形で描いています。テンポ、間、字幕の読みやすさ、絵の置き場所を確かめるためのものです。</div>
 
   <div class="main">
     <section class="player" aria-label="再生">
@@ -113,9 +113,9 @@ dt{color:var(--muted)} dd{margin:0}
       <div class="todo">
         <h3>完成までに必要なもの</h3>
         <ul>
-          <li>家族3人（栄光くん・ママ・パパ）の見た目の決定（3案から選ぶ）</li>
+          <li>家族3人（栄光くん・ママ・パパ）の基準画像の生成（見た目は決定ずみ。生成は費用がかかるため、承認が必要）</li>
           <li>ジムの入口の実物（くつを脱ぐ場所、扉の形、見学の場所）</li>
-          <li>絵と動きの生成（費用がかかるため、承認が必要）</li>
+          <li>各カットの絵と動きの生成（費用がかかるため、承認が必要）</li>
           <li>無音とスマホの実寸で、字幕が読めるかの確認</li>
         </ul>
       </div>
@@ -140,8 +140,8 @@ function svg(inner){return '<svg viewBox="0 0 360 640" preserveAspectRatio="xMid
 function bg(c){return '<rect width="360" height="640" fill="'+c+'"/>'}
 
 /* people (symbolic placeholders) */
-function boy(x,y,s,o){o=o||{};var tee=o.tee||"#9cc27a",g='<g transform="translate('+x+' '+y+') scale('+s+')">';
- g+=rect(-18,12,15,36,6,SKIN)+rect(3,12,15,36,6,SKIN)+rect(-30,-82,60,70,14,tee)+rect(-28,-16,56,32,10,"#2f3b66");
+function boy(x,y,s,o){o=o||{};var tee=o.tee||"#9aa0aa",g='<g transform="translate('+x+' '+y+') scale('+s+')">';
+ g+=rect(-18,12,15,36,6,SKIN)+rect(3,12,15,36,6,SKIN)+rect(-30,-82,60,70,14,tee)+rect(-28,-16,56,32,10,"#1d1d22");
  if(o.towel)g+=rect(-28,-92,56,15,7,"#fff");
  g+=circ(0,-118,34,SKIN);
  if(o.back){g+=path('M-34,-118 a34,34 0 0 1 68,0 v8 q-34,24 -68,0z',HAIR)}
@@ -187,13 +187,13 @@ function kidSil(x,y,s){return '<g transform="translate('+x+' '+y+') scale('+s+')
 var HAT='<rect width="360" height="640" fill="#fff"/><rect width="360" height="640" fill="url(#hch)" opacity=".12"/>';
 function f1a(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+pack(180,380,1)+rect(120,205,120,26,6,"#e9eef7")+circ(112,222,18,SKIN)+circ(248,222,18,SKIN)+sfx(40,170,"ギギッ",34,-8))}
 function f1b(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+pack(180,375,1,1.14)+ln(70,250,48,230,4,"#fff")+ln(290,250,312,230,4,"#fff")+ln(70,420,46,436,4,"#fff")+ln(290,420,314,436,4,"#fff")+sfx(110,170,"ギュッ",40,-6,"#ffe08a"))}
-function f1c(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+rect(212,100,100,128,4,"#f4f3ef")+path('M232,140 l14,-8 l14,8 v14 h-28z','#9cc27a',2.5)+rect(236,164,26,12,3,"#fff",2.5)+rect(262,160,14,24,5,"#5aa0d8",2.5)+ln(224,200,300,200,2.5)+boy(150,430,1.7,{towel:true,bottle:true,eyes:"round"}))}
+function f1c(){return svg(bg("#232b4d")+rect(30,60,300,520,6,"#2e3764")+rect(212,100,100,128,4,"#f4f3ef")+path('M232,140 l14,-8 l14,8 v14 h-28z','#9cc27a',2.5)+rect(236,164,26,12,3,"#fff",2.5)+rect(262,160,14,24,5,"#5aa0d8",2.5)+rect(280,104,22,28,3,"#ffe08a",2.5)+ln(224,200,300,200,2.5)+boy(150,430,1.7,{towel:true,bottle:true,eyes:"round"}))}
 function dramaBase(inner){return svg(HAT+inner)}
 function f2a(){var o='';o+='<rect x="0" y="420" width="360" height="220" fill="#17171c"/>';for(var i=0;i<5;i++)o+=rect(34+i*60,380,48,34,5,"#fff",3.5)+ln(40+i*60,396,76+i*60,396,2);o+='<g transform="translate(180 330)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+ln(-14,-76,-4,-74,3.5)+ln(14,-76,4,-74,3.5)+'<path d="M40,-86 q5,9 0,13 q-5,-4 0,-13z" fill="#fff" stroke="'+INK+'" stroke-width="2.5"/></g>';o+=sfx(70,200,"ドォン",52,-8);return dramaBase(o)}
 function f2b(){var o='<rect x="0" y="420" width="360" height="220" fill="#17171c"/>';for(var i=0;i<3;i++)o+=path('M'+(50+i*52)+',410 l22,-44 l22,44z',"#fff",3.5);o+=rect(236,372,90,42,6,"#fff",3.5)+ln(246,393,316,393,2.5)+path('M276,386 v14 M269,393 h14','none',3.5)+'<g transform="translate(180 300)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+'</g>'+sfx(90,190,"ドォン",52,6);return dramaBase(o)}
 function f2c(){var o='<rect x="0" y="470" width="360" height="170" fill="#17171c"/>';o+=rect(60,420,90,44,6,"#fff",3.5)+rect(212,424,76,40,6,"#fff",3.5);o+='<g transform="translate(180 330)">'+circ(0,-74,36,"#fff",3.5)+rect(-52,-40,104,64,14,"#fff",3.5)+rect(-40,-100,80,14,6,"#fff",3.5)+'</g>'+rect(160,190,40,52,10,"#fff",3.5)+path('M170,190 q10,-16 20,0','none',3.5)+ln(180,150,180,120,3)+ln(140,170,120,150,3)+ln(220,170,240,150,3)+sfx(80,160,"ドォン",52,-6);return dramaBase(o)}
 function f3(){return svg(bg("#efe6d6")+rect(0,430,360,210,0,"#c9b896",0)+ln(0,430,360,430,3)+rect(190,90,140,340,6,"#d9cdb4")+papa(260,420,1.1)+rect(238,262,50,10,5,"#fff",2.5)+ln(262,262,262,252,3)+mama(110,540,.62,{back:false,soft:false})+pack(100,500,.75)+'<g opacity=".0"></g>')}
-function f4a(){return svg(bg("#15183a")+rect(0,420,360,220,0,"#222850",0)+rect(40,320,280,120,14,"#2c3566")+'<g transform="translate(120 330)">'+circ(0,0,32,SKIN)+path('M-32,-4 a32,32 0 0 1 64,0 q-16,-10 -32,-3 q-16,-8 -32,3z',HAIR)+path('M-18,2 q6,5 12,0','none',2.5)+path('M6,2 q6,5 12,0','none',2.5)+'</g>'+rect(150,326,80,50,12,"#9cc27a")+rect(206,318,22,44,8,"#5aa0d8")+'<g transform="translate(250 330)">'+circ(0,0,30,SKIN)+path('M-30,-4 a30,30 0 0 1 60,0 q-14,-14 -30,-4 q-16,-10 -30,4z','#6b4a3a')+circ(-11,2,8,"#fff",2.5)+circ(11,2,8,"#fff",2.5)+circ(-11,2,3,INK,1)+circ(11,2,3,INK,1)+'</g>'+hand("z Z",60,260,36,-8,"#9aa6e8"))}
+function f4a(){return svg(bg("#15183a")+rect(0,420,360,220,0,"#222850",0)+rect(40,320,280,120,14,"#2c3566")+'<g transform="translate(120 330)">'+circ(0,0,32,SKIN)+path('M-32,-4 a32,32 0 0 1 64,0 q-16,-10 -32,-3 q-16,-8 -32,3z',HAIR)+path('M-18,2 q6,5 12,0','none',2.5)+path('M6,2 q6,5 12,0','none',2.5)+'</g>'+rect(150,326,80,50,12,"#9aa0aa")+rect(206,318,22,44,8,"#5aa0d8")+'<g transform="translate(250 330)">'+circ(0,0,30,SKIN)+path('M-30,-4 a30,30 0 0 1 60,0 q-14,-14 -30,-4 q-16,-10 -30,4z','#6b4a3a')+circ(-11,2,8,"#fff",2.5)+circ(11,2,8,"#fff",2.5)+circ(-11,2,3,INK,1)+circ(11,2,3,INK,1)+'</g>'+hand("z Z",60,260,36,-8,"#9aa6e8"))}
 function f4b(){return svg(bg("#1b2146")+rect(60,120,240,380,10,"#222a58")+pack(180,330,.95)+rect(112,150,136,70,8,"#fff",3.5)+rect(124,134,112,24,4,"#fff",3)+path('M138,134 q42,-26 84,0','#fff',2.5)+hand("ママ用",130,200,40,-3)+rect(54,176,64,44,20,SKIN)+rect(242,176,64,44,20,SKIN)+sfx(236,120,"カサ",26,8))}
 function f5(){return svgUp(170,'#363e66',bg("#2a3768")+rect(0,0,360,200,0,"#4a4f8a",0)+houses(470,false)+rect(0,470,360,170,0,"#363e66",0)+mama(215,610,.9,{back:true})+pack(215,520,.78)+boy(112,610,.95,{back:true,towel:true,bottle:false})+ln(138,520,165,520,5))}
 function f6(){var o=gymBg()+masaki(180,420,.95,true);for(var i=0;i<6;i++)o+=kidSil(60+i*48,520,.8);return svg(o)}
@@ -204,38 +204,39 @@ function f8a(){var o=mats();for(var i=0;i<5;i++)o+=kidSil(40+i*62,440,.9);o+='<g
 function f8b(){return svg(bg("#fbefe0")+'<g transform="translate(180 360)">'+circ(0,0,110,SKIN)+path('M-114,-20 a114,110 0 0 1 228,0 q-60,-50 -114,-30 q-54,-20 -114,30z','#6b4a3a')+circ(-40,10,12,INK,1)+circ(40,10,12,INK,1)+ln(-64,-22,-20,-34,5)+ln(64,-22,20,-34,5)+path('M-18,66 q18,-12 36,0','none',4)+'<path d="M102,-30 q10,18 0,28 q-10,-8 0,-28z" fill="#bfe4ff" stroke="'+INK+'" stroke-width="3"/></g>')}
 function f8c(){return svg(bg("#ffe9c9")+'<g transform="translate(120 360)">'+rect(-50,-34,120,68,34,SKIN)+circ(70,0,36,SKIN)+'</g>'+'<g transform="translate(250 330)">'+rect(-34,-40,150,80,40,SKIN)+ln(-34,-10,-70,-30,10,SKIN)+'</g>'+ln(150,390,196,360,5))}
 function f8d(){return svg(mats()+rect(30,430,300,170,0,"#ffffff",0)+'<g transform="translate(180 420)">'+path('M-30,0 q-4,-40 26,-44 q30,4 24,44 q-2,28 -22,28 q-22,0 -28,-28z',SKIN)+ln(-24,-12,24,-12,2)+'</g>'+sfx(200,300,"ぺた",44,-6)+ln(180,150,180,120,3))}
-function f9(tw){return svg(bg("#f6e7cf")+'<g transform="translate(180 330)">'+rect(-34,-90,68,130,30,SKIN)+path('M-34,-70 q-6,-30 6,-34 M-10,-92 q-6,-30 8,-34 M14,-92 q2,-30 16,-30 M34,-70 q8,-26 20,-20',"none",4)+(tw?ln(20,-100,26,-130,9,SKIN)+ln(20,-100,26,-130,3):'')+'</g>'+'<g opacity=".55">'+circ(300,120,10,"#9cc27a",2.5)+rect(292,128,16,22,6,"#9cc27a",2.5)+'</g>'+'<g transform="translate(180 330)">'+ln(0,40,0,70,3)+'</g>')}
+function f9(tw){return svg(bg("#f6e7cf")+'<g transform="translate(180 330)">'+rect(-34,-90,68,130,30,SKIN)+path('M-34,-70 q-6,-30 6,-34 M-10,-92 q-6,-30 8,-34 M14,-92 q2,-30 16,-30 M34,-70 q8,-26 20,-20',"none",4)+(tw?ln(20,-100,26,-130,9,SKIN)+ln(20,-100,26,-130,3):'')+'</g>'+'<g opacity=".55">'+circ(300,120,10,"#9aa0aa",2.5)+rect(292,128,16,22,6,"#9aa0aa",2.5)+'</g>'+'<g transform="translate(180 330)">'+ln(0,40,0,70,3)+'</g>')}
 function f9d(){return svg(bg("#f6e7cf")+'<g transform="translate(180 360)">'+rect(-34,-60,68,100,30,SKIN)+path('M-34,-40 q-6,-24 6,-26 M-10,-62 q-6,-22 8,-26',"none",4)+'</g>')}
 function f10a(){return svgUp(150,'#f6f6f4',bg("#fbefe0")+rect(0,430,360,210,0,"#f6f6f4",0)+ln(0,430,360,430,3)+mama(170,560,1.05,{worry:true})+ln(250,360,270,360,5)+ln(250,380,276,380,5))}
 function f10b(){return svgUp(140,'#e6dcc6',bg("#fbefe0")+rect(0,420,360,220,0,"#e6dcc6",0)+ln(0,420,360,420,3)+mama(180,600,.8,{back:false,soft:false})+pack(180,520,.8)+rect(250,150,70,44,10,"#d9cdb4")+'<g transform="translate(250 160)">'+rect(-30,-12,54,22,11,"#4f6a96",2.5)+'</g>'+rect(290,420,52,34,8,"#8c6ac0"))}
-function f11a(){var o=gymBg();o+=masaki(240,440,.85,false);for(var i=0;i<4;i++)o+='<g transform="translate('+(40+i*30)+' 500) rotate(26)">'+kidSil(0,0,.7)+'</g>';o+='<g transform="translate(150 520) rotate(8)">'+kidSil(0,0,.8)+'</g>';return svg(o)}
-function f11b(){var o=gymBg()+masaki(240,440,.85,false);o+=kidSil(90,520,.8)+kidSil(40,520,.8)+boy(150,520,.8,{back:true,tee:"#9cc27a"});o+='<g transform="translate(30 150)">'+rect(0,0,70,50,8,"#e8dcc2",3)+'</g>';return svg(o)}
+function f11a(){var o=gymBg();o+=masaki(240,440,.85,false);for(var i=0;i<4;i++)o+='<g transform="translate('+(40+i*30)+' 500) rotate(26)">'+kidSil(0,0,.7)+'</g>';o+='<g transform="translate(150 520) rotate(26)">'+kidSil(0,0,.8)+'</g>';return svg(o)}
+function f11b(){var o=gymBg()+masaki(240,440,.85,false);o+=kidSil(90,520,.8)+kidSil(40,520,.8)+boy(150,520,.8,{back:true,tee:"#9aa0aa"});o+='<g transform="translate(30 150)">'+rect(0,0,70,50,8,"#e8dcc2",3)+'</g>';return svg(o)}
+function f11t(){return svg(bg("#d9cdb4")+'<g transform="translate(180 440)">'+pack(0,60,1.15)+'</g>'+rect(130,300,100,62,8,"#fff",3.5)+path('M168,300 q10,-34 22,-8 q8,-24 18,8z','#fff',2.5)+rect(206,330,56,34,16,SKIN))}
 function f11c(){return svg(bg("#d9cdb4")+'<g transform="translate(180 440)">'+pack(0,60,1.15)+'</g>'+'<g transform="translate(180 260)">'+path('M-70,0 q70,-40 140,0 q-70,40 -140,0z',"#fff",3.5)+circ(-26,0,15,INK,1)+circ(26,0,15,INK,1)+path('M-62,-26 q62,-22 124,0','none',4)+'</g>')}
 function f12a(){var o=gymBg();for(var i=0;i<4;i++)o+=kidSil(60+i*66,520,.8);return svg(o)}
 function f12b(){return svgUp(150,'#e6dcc6',bg("#fbefe0")+rect(0,440,360,200,0,"#e6dcc6",0)+ln(0,440,360,440,3)+papa(120,590,1,{jacket:true})+pack(230,540,.78)+'<g transform="translate(210 380)">'+circ(0,0,16,SKIN,2.5)+circ(60,0,16,SKIN,2.5)+rect(-10,-12,80,24,8,"#d9693c",0)+'</g>'+ln(220,300,220,276,4)+ln(250,306,264,286,4)+hand("ぐぐっ",180,270,28,-8,"#17171c"))}
 function f13a(){return svg(bg("#3a3e52")+'<g transform="translate(180 360)">'+rect(-130,-190,260,330,44,"#d9693c")+path('M-100,-190 q100,70 200,0 q-30,-30 -100,-30 q-70,0 -100,30z',"#a8431e",3.5)+rect(-60,-140,70,64,10,"#f4f1e8")+rect(0,-60,80,60,10,"#e9eef7")+'</g>'+ln(150,250,170,250,2.5))}
-function f13b(){return svg(bg("#3a3e52")+'<g transform="translate(180 330)">'+rect(-130,-190,260,330,44,"#d9693c")+rect(-96,-120,192,130,24,"#ea8a5b")+'</g>'+rect(120,215,120,86,8,"#fff",3.5)+rect(136,196,88,28,4,"#fff",3)+path('M150,196 q30,-30 60,0','#fff',2.5)+'<g transform="translate(180 262)">'+rect(-40,-12,80,50,6,"#f4f3ef",2.5)+hand("ママ用",-32,22,22,-3)+'</g>')}
+function f13b(){return svg(bg("#3a3e52")+'<g transform="translate(180 330)">'+rect(-130,-190,260,330,44,"#d9693c")+rect(-96,-120,192,130,24,"#ea8a5b")+'</g>'+rect(120,215,120,86,8,"#fff",3.5)+rect(136,196,88,28,4,"#fff",3)+circ(236,212,9,"#fff",2.5)+path('M231,209 q5,-5 10,0','none',2)+'<g transform="translate(180 262)">'+rect(-40,-12,80,50,6,"#f4f3ef",2.5)+hand("ママ用",-32,22,22,-3)+'</g>')}
 function f14a(){return svgUp(170,'#363e66',bg("#2a3768")+rect(0,200,360,440,0,"#363e66",0)+houses(440,false)+mama(120,610,.82,{back:true})+boy(250,610,.95,{back:true,towel:true})+ln(118,456,60,420,6,SKIN)+ln(118,456,60,420,3)+rect(40,400,14,40,6,"#5aa0d8")+hand("ぺらぺら",190,330,22,-4,"#fff"))}
 function f14b(){return svgUp(170,'#363e66',bg("#2a3768")+houses(440,false)+rect(0,440,360,200,0,"#363e66",0)+papa(120,610,.9,{back:true,jacket:true})+pack(120,500,.8,1)+mama(270,610,.8,{back:true})+boy(210,620,.65,{back:true}))}
 function f15a(){return svgUp(170,'#2e3560',bg("#222a4a")+houses(450,true)+rect(0,450,360,190,0,"#2e3560",0)+papa(115,610,.95,{back:true,jacket:true})+pack(115,500,1)+boy(215,615,.78,{back:true,towel:true})+ln(190,520,150,566,5,SKIN)+mama(300,612,.8,{back:true}))}
 function f15b(){return svgUp(170,'#2e3560',bg("#222a4a")+houses(450,true)+rect(0,450,360,190,0,"#2e3560",0)+papa(115,610,.95,{back:true,jacket:true})+pack(115,500,1)+boy(215,615,.78,{back:true,towel:true})+mama(300,612,.8,{back:true})+ln(274,470,236,500,5,SKIN))}
 
 var SHOTS=[
-{n:1,a:0,b:3,title:"念のため",st:"2D",desc:"夜の玄関。ママがパンパンのリュックにTシャツをもう1枚押しこむ。手前で栄光くんが、自分で用意したタオルと水筒を抱えている。",snd:"ファスナーの「ギギッ」→「ギュッ」",emo:"？（何の荷物？）→ くすっ",fr:[[.8,f1a],[1.8,f1b],[3,f1c]]},
+{n:1,a:0,b:3,title:"念のため",st:"2D",desc:"夜の玄関。ママがパンパンのリュックにTシャツをもう1枚押しこむ。手前で栄光くんが、自分で用意したタオルと水筒を抱えている。奥のメモの上に、扉から光がこぼれる行き先の絵。",snd:"ファスナーの「ギギッ」→「ギュッ」",emo:"？（何の荷物？）→ くすっ",fr:[[.8,f1a],[1.8,f1b],[3,f1c]]},
 {n:2,a:3,b:7,title:"大遠征の、夜",st:"劇画",desc:"白黒の劇画パロディ。はちまきのママが、荷物をよろいの部品のように確かめる。ここだけ劇画（全体の9%）。",snd:"太鼓「ドォン」×3",emo:"大げさ（笑い）",fr:[[1.3,f2a],[2.6,f2b],[4,f2c]]},
 {n:3,a:7,b:9,title:"……遠足？",st:"2D",desc:"カラーに戻る。歯ブラシをくわえたパパが、リュックとママを見くらべる。",snd:"太鼓の余韻が「ぷつっ」と切れる",emo:"格好つけた直後の、生活感の笑い",fr:[[2,f3]]},
-{n:4,a:9,b:12.5,title:"ママ用",st:"2D",desc:"眠れないのはママのほう。月明かりの玄関で、ティッシュ箱をリュックの上のポケットにそっと入れる。箱の紙に「ママ用」。",snd:"時計のコチコチ、寝息、ポケットの小さな「カサ」",emo:"子どもより、親が眠れない（共感）",fr:[[1.5,f4a],[3.5,f4b]]},
-{n:5,a:12.5,b:15,title:"次の日。",st:"2D",desc:"夕方の住宅街。巨大なリュックのママと、手をつなぐ栄光くんを、後ろから。窓には灯り。",snd:"2人の足音、遠くの車の音",emo:"いよいよ",fr:[[2.5,f5]]},
+{n:4,a:9,b:12.5,title:"ママ用",st:"2D",desc:"眠れないのはママのほう。月明かりの玄関で、ティッシュ箱をリュックの上のポケットにそっと入れる。箱の紙に「ママ用」。",snd:"時計のコチコチ、寝息、ポケットの小さな「カサ」",emo:"子どもより、親が眠れない（共感）",fr:[[1,f4a],[3.5,f4b]]},
+{n:5,a:12.5,b:15,title:"はじめての日。",st:"2D",desc:"夕方の住宅街。巨大なリュックのママと、手をつなぐ栄光くんを、後ろから。窓には灯り。カード「はじめての日。」で、ジムに行く日だと分かる。",snd:"2人の足音、遠くの車の音",emo:"いよいよ",fr:[[2.5,f5]]},
 {n:6,a:15,b:17.5,title:"扉が開く",st:"2D",desc:"ジムの入口。扉の奥から温かい光。マサキが大きく手をふる（しゃがまない、近づかない）。子どもたちは小さく、顔なし。",snd:"扉の音、子どもたちのざわめき",emo:"安心（怒鳴らない、明るい）",fr:[[2.5,f6]]},
 {n:7,a:17.5,b:20,title:"ぎゅっ",st:"2D",desc:"つないだ手のアップ。栄光くんの小さな右手が、ママの左手の指をにぎり直す。ママの親指が、手の甲を1回なでる。",snd:"外の音が少し遠くなる",emo:"緊張（子も親も）",fr:[[1.2,f7a],[2.5,f7b]]},
 {n:8,a:20,b:25,title:"自分で、はなす",st:"2D",desc:"列のはしの子が場所を空ける。見上げるとママの心配そうな目。指が1本ずつ開く（小指だけ一瞬ひっかかる）。裸足が白いマットに1歩のる。手をはなしたのは栄光くんから。",snd:"マットの「ぽん」→ 息をのむ →「ぺた」",emo:"子どもが自分で選ぶ（山場）",fr:[[1.5,f8a],[2.8,f8b],[4.2,f8c],[5,f8d]]},
 {n:9,a:25,b:27.5,title:"宙の手",st:"2D",desc:"ママの左手が、つないだ形のまま空中に2秒残る。奥で栄光くんの背中が小さくなる。指が1本ぴくっと動いて、ゆっくり下りる。",snd:"BGMなし。遠くのざわめきだけ",emo:"手をはなされた（じんわり）",fr:[[2,function(){return f9(false)}],[2.1,function(){return f9(true)}],[2.5,f9d]]},
 {n:10,a:27.5,b:30,title:"見守る",st:"2D",desc:"ママは追いかけない。半歩だけ前に出て、止まる。見学の場所に座ぶとんが置かれ、ママはリュックをひざに抱えて座る。",snd:"リュックを下ろす「どさっ」",emo:"手をはなしても、見守る。迎えてもらえた",fr:[[1.4,f10a],[2.5,f10b]]},
-{n:11,a:30,b:33.5,title:"礼",st:"2D",desc:"クラスのはじめの礼。栄光くんは一拍おくれて、でもちゃんと頭を下げる。頭を上げて、見学の場所を1回だけ見る。リュックの上から、目だけ出したママ。",snd:"みんなの衣ずれ「ざっ」。やさしいBGMが小さく入る",emo:"小さな「できた」→ 親の安心",fr:[[1.5,f11a],[2,f11b],[3.5,f11c]]},
-{n:12,a:33.5,b:36,title:"……おもっ。",st:"2D",desc:"クラスが終わる。仕事帰りのパパが、リュックを片手で持ち上げようとして、持ち上がらない。両手に持ちかえて、腰を入れる。",snd:"子どもたちの足音と衣ずれ →「ずしっ」",emo:"笑い（この話の後半の笑いは、これ1回だけ）",fr:[[.5,f12a],[2.5,f12b]]},
-{n:13,a:36,b:39,title:"1枚だけ",st:"2D",desc:"パパの目線。リュックの口：ラップに包まれたままのおにぎり、たたんだままのTシャツ。上のポケットで、「ママ用」のティッシュ箱だけ、1枚が出ている。",snd:"BGMが止まる。ファスナーの「ジ……」",emo:"気づく（何も使っていない。1枚だけ）",fr:[[1.5,f13a],[3,f13b]]},
+{n:11,a:30,b:33.5,title:"礼",st:"2D",desc:"クラスのはじめの礼。栄光くんもみんなと同時に頭を下げる（手元をぎゅっとにぎる）。頭を上げて、見学の場所を1回だけ見る。ママの手が、ポケットの箱からティッシュを1枚ぬく。リュックの上から、目だけ出したママ。",snd:"みんなの衣ずれ「ざっ」、ポケットの「カサ」。30.0にやさしいBGMが小さく入る",emo:"小さな「できた」→ 親の安心",fr:[[1.5,f11a],[2,f11b],[2.5,f11t],[3.5,f11c]]},
+{n:12,a:33.5,b:36,title:"……おもっ。",st:"2D",desc:"クラスが終わる。仕事帰りのパパが、リュックを片手で持ち上げようとして、持ち上がらない。両手に持ちかえて、腰を入れる。",snd:"子どもたちの足音と衣ずれ →「ずしっ」。BGMは小さく続く",emo:"笑い（この話の後半の笑いは、これ1回だけ）",fr:[[.5,f12a],[2.5,f12b]]},
+{n:13,a:36,b:39,title:"1枚だけ",st:"2D",desc:"パパの目線。リュックの口：ラップに包まれたままのおにぎり、たたんだままのTシャツ。上のポケットで、「ママ用」のティッシュ箱の口の横に、使った小さな1枚がはさまっている。",snd:"36.0にBGMが切れる。ファスナーの「ジ……」",emo:"気づく（何も使っていない。ママが1枚だけ使った）",fr:[[1.5,f13a],[3,f13b]]},
 {n:14,a:39,b:41.5,title:"言わない",st:"2D",desc:"少し先で、ママがしゃがんで栄光くんの話を聞いている。ママは見ないまま、片手でお茶をパパに差し出す。パパはファスナーを閉め、リュックを背負って、一瞬よろける。",snd:"ファスナーの「ジーッ」、小さく「よっ」",emo:"パパの気づき（言わない優しさ）",fr:[[1.2,f14a],[2.5,f14b]]},
-{n:15,a:41.5,b:45,title:"帰り道",st:"2D",desc:"夜の帰り道。家々の窓に灯り。パパのリュックの底を、栄光くんが下から支える（つもり）。ママの空いた左手が、栄光くんの頭に一度だけふれる。最後に小さくジム名。",snd:"足音。BGMの最後の1音",emo:"小さな優しさが残る",fr:[[1.5,f15a],[3.5,f15b]]}
+{n:15,a:41.5,b:45,title:"帰り道",st:"2D",desc:"夜の帰り道。家々の窓に灯り。パパのリュックの底を、栄光くんが下から支える。パパの歩幅がゆるむ。ママの空いた左手が、栄光くんの頭に一度だけふれる。最後に小さくジム名。",snd:"足音。43.0にピアノの単音を1つ（BGMは戻さない）",emo:"小さな優しさが残る",fr:[[1.5,f15a],[3.5,f15b]]}
 ];
 
 var SUBS=[
@@ -244,8 +245,8 @@ var SUBS=[
 {a:7.2,b:9,who:"パパ",t:"……遠足？"},
 {a:34.3,b:35.8,who:"パパ",t:"……おもっ。"}
 ];
-var CARDS=[{a:12.5,b:15,t:"次の日。"},{a:42.5,b:45,t:"FLATUP GYM（成田）",small:true}];
-var CUES=[[0,"zip"],[.9,"zip"],[3,"drum"],[3.8,"drum"],[4.6,"drum"],[7.1,"cut"],[11.7,"kasa"],[12.7,"step"],[13.1,"step"],[15,"door"],[21.2,"pop"],[24.6,"step"],[29.7,"thud"],[31,"rustle"],[34.8,"thud"],[37.9,"zi"],[40.6,"zi"],[43,"note"]];
+var CARDS=[{a:12.5,b:15,t:"はじめての日。"},{a:42.5,b:45,t:"FLATUP GYM（成田）",small:true}];
+var CUES=[[0,"zip"],[.9,"zip"],[3,"drum"],[3.8,"drum"],[4.6,"drum"],[7.1,"cut"],[11.7,"kasa"],[12.7,"step"],[13.1,"step"],[15,"door"],[21.2,"pop"],[24.6,"step"],[29.7,"thud"],[31,"rustle"],[32,"kasa"],[34.8,"thud"],[37.9,"zi"],[40.6,"zi"],[43,"note"]];
 var TOTAL=45;
 
 /* audio (synthesized cues) */
