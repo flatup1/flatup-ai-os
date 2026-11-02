@@ -4,7 +4,8 @@
 
 - 絵柄：ペンのインク線＋彩色の2D漫画絵（#14）。参考は [manga_research/homage_guidelines.md](manga_research/homage_guidelines.md) §8（8枚目の方向）。
 - 実在の人に似せない。参考画像（他作品のキャラ）は生成に渡さない。
-- 文字・ロゴ・タトゥーは入れない。服に読める文字を入れない。
+- 文字・ロゴ・タトゥーは入れない。服に読める文字を入れない（ジムのジャケットも、胸の小さなロゴ位置を空けた無地）。
+- **仮の前提（JINの返事待ち）**：①家族（栄光・ママ・パパ）の絵柄は、ジムの中と同じペン線の2D漫画絵にそろえる ②栄光くんの6歳の誕生日は、引っ越し（第1話）の約3か月後 ③画像の生成は費用の承認待ち（まだ生成していない）
 
 ## 共通ブロック（英語）
 ```
@@ -53,13 +54,13 @@ relaxed half-open mouth and sleepy kind eyes, holding a glass of barley tea
 
 ## 4. アイカ（採用：A 耳にかけた髪＋まくった袖。**シリーズの正本になる**）
 - 7頭身、背が高く姿勢がよい。肩までの濃い茶色の髪、ゆるいウェーブ、片側を耳にかける
-- 服：紺のFLAT UP GYMのジップジャケット（袖をまくる。胸の文字は入れない／小さなロゴ位置は空ける）、白いTシャツ、黒いパンツ、裸足
+- 服：紺の無地のジップジャケット（袖をまくる。胸に小さなロゴ位置を空けるだけで、文字は入れない）、白いTシャツ、黒いパンツ、裸足
 - 目は静かで、口元だけ少しほほえむ。**怒らない。下から見上げる構図が似合う**（手引き §8 の2枚目の方向）
 - シルエットの目印：耳にかけた髪と、まくった袖
 - 表情5種：①静かなほほえみ ②聞いている（まゆが少し下がる）③おどろき（小さく）④やさしい笑い ⑤きびしいのではなく、まっすぐ（怒りなし）
 ```
 [共通ブロック], a calm trustworthy Japanese woman in her mid thirties who owns a martial arts gym, about 7 heads tall,
-shoulder-length dark brown wavy hair tucked behind one ear, navy zip jacket with sleeves rolled up over a white t-shirt,
+shoulder-length dark brown wavy hair tucked behind one ear, navy plain zip jacket with sleeves rolled up (blank chest, no lettering) over a white t-shirt,
 black pants, barefoot, quiet kind eyes with a slight smile, upright posture
 ```
 
@@ -68,3 +69,8 @@ black pants, barefoot, quiet kind eyes with a slight smile, upright posture
 2. 生成した絵に、他の作品のキャラに似た特徴（髪型・服の組み合わせ）がないか、人が見る
 3. 採用した1枚は、全話で参照する（文章だけで毎回作り直さない）
 4. 実在の人に似ていないか、人が見る
+
+## 直しの記録（2026-11-02・採点 r2 の指摘から）
+
+1. **アイカの服から「FLAT UP GYM」の文字を外した**（日本語の説明を「紺の無地のジップジャケット」に、英語プロンプトに "blank chest, no lettering" を足した）。胸の小さなロゴ位置を空けた無地にする決まりを、冒頭の注意にも足した
+2. **仮の前提3つを冒頭に「仮」と書いた**（家族の絵柄はペン線の2D／6歳の誕生日は約3か月後／画像生成は費用の承認待ちで、まだ生成していない）
