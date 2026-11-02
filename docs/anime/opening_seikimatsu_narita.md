@@ -1,8 +1,8 @@
 # FLATUPアニメ オープニング「世紀末ナリタ」制作仕様（下書き）
 
-**結論**：シリーズの予告（単独で投稿する。本編とは別）。41秒・縦9:16。夜の車内で、AIのニュースを読みすぎた黒川（三人衆）が「202X年、人間は座りっぱなしになった」と空想する → PCのAIが「1時間、座っています。少し、立ちませんか？」と通知して、シートベルトの黒川が「……今は、むりです。」で崩れる → 現実の夜の成田（家々の灯り）→ 三人衆はジムの扉の前で、小声で「……ひゃっはー……」→ 扉が開いて、温かい FLATUP GYM（そろえたくつ・礼・子どものミット）→ 夜の段ボールの部屋で、小さな指がスマホの温かい光にふれる → 題名「第1話『成田へ、引っ越します。』」。**世紀末は黒川の空想だけ**（本編の三人衆回と同じ持ち主）。劇画は13.5秒（約33%）。**声は入れない**（字幕と効果音だけ）。ジムの中は2D漫画絵。誰も殴られない・飛びかからない・つまずかない。予約の案内はしない。
+**結論**：シリーズの予告（単独で投稿する。本編とは別）。41秒・縦9:16。夜の車内で、AIのニュースを読みすぎた黒川（三人衆）が「202X年、人間は座りっぱなしになった」と空想する → PCのAIが「1時間、座っています。少し、立ちませんか？」と通知して、シートベルトの黒川が「……今は、むりです。」で崩れる → 現実の夜の成田（家々の灯り）→ 三人衆はジムの扉の前で、小声で「……ひゃっはー……」→ 扉が開いて、温かい FLATUP GYM（マサキの裸足とミット・礼・子どものミット）→ 夜の段ボールの部屋で、小さな指がスマホの温かい光にふれる → 題名「第1話『成田へ、引っ越します。』」。**世紀末は黒川の空想だけ**（本編の三人衆回と同じ持ち主）。劇画は13.5秒（約33%）。**声は入れない**（字幕と効果音だけ）。ジムの中は2D漫画絵。誰も殴られない・飛びかからない・つまずかない。予約の案内はしない。
 
-- 本編（三人衆の主役回）→ [manga_seikimatsu_narita_ep1.md](manga_seikimatsu_narita_ep1.md)（車内の背景・黒川の空想の荒野・扉が開く・礼の素材を共有する。**チェーン・半歩・謝る場面は、本編ではじめて見せるので、OPでは使わない**）
+- 本編（三人衆の主役回）→ [manga_seikimatsu_narita_ep1.md](manga_seikimatsu_narita_ep1.md)（車内の背景・黒川の空想の荒野・扉が開く・礼の素材を共有する。**チェーン・半歩・謝る場面と、くつをそろえる絵は、本編ではじめて見せるので、OPでは使わない**）
 - 第1話の正本 → [ep01_hikkoshi_canon_A.md](ep01_hikkoshi_canon_A.md)（Scene 5 の「スマホの中のFLATUP」と、ミット打ちの素材を使い回す。ママの夜の検索と「ネットの成田」の笑いは、第1話の本編に任せて、OPでは先に使わない）
 - 設計の正本 → [omnibus_series_bible.md](omnibus_series_bible.md) v2／いちばん上の正本 → [master_prompt_2026-10-30.md](master_prompt_2026-10-30.md)
 - 線引き → [manga_research/homage_guidelines.md](manga_research/homage_guidelines.md)（世紀末モードは §1。リアル劇画は §7）
@@ -30,11 +30,11 @@
 | 4 | 9.0–11.0 | リアル劇画（町） | 夜の成田。国道の街灯、遠くに寺の屋根のシルエット、家々の窓にたくさんの灯り。黒いミニバンが、ウインカーを出して、白線の内側にきっちり止まる。人の顔・道路の番号・お店の看板は描かない | なし | 「カチ、カチ」 |
 | 5 | 11.0–13.5 | リアル劇画（町） | 2階の扉の前を、3人の**後ろから**見た引きの絵（顔は見えない）。両手を上げているのに、肩は小さくすくめている。汗 | 三人「……ひゃっはー……」（9字） | 低い「ゴゴゴ」が、ささやき声でしぼむ |
 | 6 | 13.5–16.5 | 温かい2D（漫画絵） | 扉が開く。温かい光の中に、マサキの笑顔（本編のコマ10の下半分と同じ素材） | マサキ「いらっしゃい！」 | 「ゴゴゴ」がピタッと止まる → 明るい音 |
-| 7 | 16.5–19.5 | 温かい2D（漫画絵） | 足元のアップ。入口に、大きな黒いくつが3足、かかとまでぴたっとそろって並ぶ。その横に、マサキの裸足 | なし | 「そろっ」 |
-| 8 | 19.5–24.0 | 温かい2D（漫画絵） | ジムの中。サングラスを外した3人（おだやかな目。体つきは3人ちがう）が、貸し出しのグローブをつけて、立って礼。ミットを持ったマサキが礼を返す（本編のコマ20と同じ素材） | 三人「よろしくお願いします」（12字） | 静かな間 |
+| 7 | 16.5–19.5 | 温かい2D（漫画絵） | 足元のアップ。入口の白いマットの上に、マサキの裸足だけが立つ。下げた手には、ミット（顔は出ない）。くつは出さない（くつをそろえるのは第6話だけ。本編のフックCと重ねない） | なし | 裸足の小さな「ぺた」、ミットの「ポン」 |
+| 8 | 19.5–24.0 | 温かい2D（漫画絵） | ジムの中。サングラスを外した3人（おだやかな目。体つきは3人ちがう）が、貸し出しのグローブをつけて、立って礼。ミットを持ったマサキが礼を返す（本編のコマ20と同じ素材） | 三人「よろしくお願いします」（10字） | 静かな間 |
 | 9 | 24.0–28.5 | 温かい2D（漫画絵） | 子どもたちのミット打ち（第1話 Scene 5 の素材を使い回す。6歳以上に見える、名前のない子）。まっすぐのパンチが、ミットのまん中に | なし | 「パスン」、子どもたちの足音と息の音（声は入れない） |
 | 10 | 28.5–34.5 | 温かい2D | 夜。段ボールの積まれた部屋。ママの手にあるスマホに、FLATUPの温かいオレンジの光（Cut 9 と同じ画面）。そこへ、小さな指がそっと近づいて、画面にふれる（手元とスマホだけ。顔は描かない。第1話 Scene 5「起きてきた栄光くんが、スマホをのぞき込む」の手前） | なし | スマホから小さく「パスン」、時計の「コチコチ」 |
-| 11 | 34.5–41.0 | 黒 → 文字 | スマホの光が画面いっぱいに広がる → 黒 → 題名 | 置く文字「世界一、初心者に優しい格闘技ジム」→「FLATUP GYM（成田）」→「第1話『成田へ、引っ越します。』」（約45字） | 温かい曲 → 題名で「ドンッ」 |
+| 11 | 34.5–41.0 | 黒 → 文字 | スマホの光が画面いっぱいに広がる → 黒 → 題名 | 置く文字「世界一、初心者に優しい格闘技ジム」→「FLATUP GYM（成田）」→「第1話『成田へ、引っ越します。』」（46字） | 温かい曲 → 題名で「ドンッ」 |
 
 - 劇画は Cut 1〜5 の13.5秒（41秒の約33%）。手引き §4 の「3分の1まで」にぎりぎり収まる。Cut 1〜5 を、これより長くしない
 - Cut 3 の文字：置く文字21字（1.8秒）＋字幕10字（1.7秒）で3.5秒ちょうど。置く文字は11.7字/秒（上限12）、字幕は5.9字/秒（上限7）
@@ -82,7 +82,7 @@
 | 4 | `Ordinary Japanese town at night seen along a main road, warm street lights, many lit windows of houses, a distant silhouette of a traditional temple roof, a big black minivan with no logos, no emblems and no recognizable model design, parked neatly inside white lines with its turn signal blinking, no people's faces` ＋リアル劇画接尾 |
 | 5 | `Wide shot from behind, faces not visible: three men in all-black outfits in front of a plain second-floor door (one big burly man with a square crew cut and a wallet chain, one lanky slightly hunched man in a black hoodie, one small skinny young man in a baggy black leather jacket), raising both arms but with shoulders shrugged nervously, sweat drops, no facial close-up, no signs` ＋リアル劇画接尾 |
 | 6 | マサキの canon 画像を添付。`A door swinging open with warm light pouring out, the cheerful young kickboxing instructor smiling and welcoming, spiky black hair, black sleeveless FLAT UP GYM tank top, blue and white muay thai shorts, black wristwatch on left wrist, barefoot` ＋2D接尾 |
-| 7 | `Close-up of the floor at a gym entrance: three pairs of big black shoes lined up perfectly with heels aligned, next to them the bare feet of the instructor standing on a white mat, no faces` ＋2D接尾 |
+| 7 | `Close-up of the floor at a gym entrance: only the bare feet of the instructor standing on a white mat, one lowered hand wearing a focus mitt at the edge of the frame, no shoes in the shot, no faces` ＋2D接尾 |
 | 8 | マサキの canon 画像を添付。`Inside a bright clean gym with off-white floor and pale green padded walls, three men in black with their sunglasses taken off and gentle calm eyes (one big burly man with a square crew cut, one lanky slightly hunched man in a black hoodie, one small skinny young man in a baggy black leather jacket), wearing rental boxing gloves, bowing politely in a row while standing, the smiling instructor holding focus mitts and bowing back, warm hopeful mood` ＋2D接尾。三人衆の基準画像ができるまで参照待ち |
 | 9 | 第1話 Scene 5 の素材（マサキと子どもたちのミット打ち）を使い回す |
 | 10 | 家族の手の扱いが決まってから：`Night, a room with stacked cardboard moving boxes, an adult's hand holding a smartphone whose screen glows with warm orange light, a small child's finger gently reaching to touch the screen, hands and phone only, no faces, no readable text` ＋温かい2D（家族の絵柄が決まってから） |
@@ -133,6 +133,7 @@ FLATUPアニメ、はじまります。
 ## 未確認（公開前に確かめる）
 
 - 三人衆の基準画像がない（参照待ち）。家族の姿は参照待ち。Cut 10 の手だけのカットを先に作ってよいか（JIN）
+- OPの Cut 5「……ひゃっはー……」と Cut 6（扉が開く）は、本編のコマ8・10と同じ場面のまま。OPで先に見せてよいか（JIN確認）。
 - 「ひゃっはー」と「202X年」の書き出しを公開版に使ってよいか（JIN確認）。「202X年。人間は、座りっぱなしになった。」が原作のナレーションと似すぎていないか（手引き §3。Web検索で確かめる。まだ確かめていない）
 - 2階の扉の前の様子（実物の写真を見てから描く）。入口でくつをそろえる場所があるか
 - 無音・スマホの実寸で文字が読めるか（試作で確かめる）。Instagram・X の仕様は公開時に確かめる
@@ -200,3 +201,11 @@ FLATUPアニメ、はじまります。
 3. **文字の速さを計算し直した**。Cut 3 は、置く文字が21字（20字と書いていた）で、字幕10字と続けると3.5秒ぎりぎり。置く文字を5.5–7.3（11.7字/秒）、字幕を7.3–9.0（5.9字/秒）と秒で指定した。「いちばん多いところで約4.3字」は誤りで、Cut 3 の5.9字が最大（Cut 2 は4.3字）。Cut 8 の「よろしくお願いします」は12字ではなく10字、Cut 11 は約45字ではなく46字。仮版の置く文字「1時間、座っています。立ちませんか？」は17字ではなく18字（1.5秒で12.0字/秒）
 4. **家族の見た目の決定（2026-11-02）を反映した**。「参照待ち」を「見た目は決定ずみ・基準画像は未生成」に直した。Cut 10 の手だけのカットを先に作ってよいかは、JINが決めたまま
 5. **三人衆の基準画像待ちの仮版（記号版）を足した**。本編の「仮版の案」と同じ方法。作るのは別の作業
+
+## 直しの記録（2026-11-02・独立審査 r3 の指摘から）
+
+本編（`manga_seikimatsu_narita_ep1.md`）と同じ問題は、同じ直し方にそろえた。
+
+1. **表の数字を、直したはずの記録にそろえた**。Cut 8「よろしくお願いします」を12字から**10字**に、Cut 11 を「約45字」から**46字**に直した（上の「直しの記録 r2-3」と、Cut 11 の注の46字に合わせた）。字数は、よ・ろ・し・く・お・願・い・し・ま・す＝10
+2. **Cut 7 が第6話の見せ場（くつをそろえる）を先に使っていた件を直した**。Cut 7 を、くつを出さず、マサキの裸足と、下げた手のミットだけの足元にした（音は裸足の「ぺた」とミットの「ポン」）。プロンプトも `no shoes in the shot` にした。くつをそろえる絵は、設計書 §5-4 のとおり第6話だけになった。Cut 7 は3.0秒のまま、劇画の秒（13.5秒）も変わらない
+3. **Cut 5・Cut 6 は変えていない**。「……ひゃっはー……」と扉が開く場面は、本編のコマ8・10と同じ素材のまま（共有のため）。OPで先に見せてよいかは、未確認に足してJINに回した
