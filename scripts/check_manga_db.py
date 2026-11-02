@@ -26,7 +26,9 @@ PRIMARY = re.compile(r"(shueisha|s-manga|shonenjump|kodansha|akitashoten|shogaku
                      r"magazinepocket|comic-days|championcross|shonenmagazine|yanmaga|ynjn|tonarinoyj|younganimal|ultrajump)")
 
 def missing(v):
-    return (not v.strip()) or "未確認" in v
+    """空、または「未確認」で始まる／ほぼ「未確認」だけの値。本文の途中の注記としての「未確認」は、欠けていないとみなす。"""
+    s = v.strip()
+    return (not s) or s.startswith("未確認") or ("未確認" in s and len(s) <= 20)
 
 def ratio(cols):
     cells = [r.get(c, "") for r in rows for c in cols]
