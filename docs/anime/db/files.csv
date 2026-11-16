@@ -1,0 +1,29 @@
+﻿パス,役割,状態
+00_PROJECT_INTRO_yasashii_ban.md,,
+animatic/README.md,動く絵コンテ/説明,仮の絵
+animatic/ep01_hikkoshi_animatic.html,動く絵コンテ/説明,仮の絵
+animatic/ep04_nimotsu_animatic.html,動く絵コンテ/説明,仮の絵
+character_design_proposals.md,見た目の案(決定ずみ),確定
+character_reference_prompts.md,基準画像のプロンプト,未生成(費用承認待ち)
+ep01_hikkoshi_betsuko_v2.md,第1話の改善別稿,下書き(採点r4=85)
+ep01_hikkoshi_canon_A.md,第1話 正本A版(§1-4原文),確定
+ep04_nimotsu_rep.md,代表作 第4話 台本・制作パック,採点r4=81
+hikkoshi_ep1_narita.md,第1話 B系別稿,別稿(参考)
+kids_yasashii_tsuyosa_bible.md,,
+manga_ep02_hikkoshi.md,第1話 B系別稿,別稿(参考)
+manga_ep03_kaeshite.md,第5話「かえして」,下書き(採点r4=88・直し後は未採点)
+manga_research/README.md,ヤンキー・格闘技漫画DB資料,DB
+manga_research/homage_guidelines.md,ヤンキー・格闘技漫画DB資料,DB
+manga_research/research_brief.md,ヤンキー・格闘技漫画DB資料,DB
+manga_research/works_database.csv,ヤンキー・格闘技漫画DB資料,DB
+manga_research/works_database.xlsx,ヤンキー・格闘技漫画DB資料,DB
+manga_seikimatsu_narita_ep1.md,第6話 世紀末ナリタ伝説,下書き(採点r4=81・直し後は未採点)
+master_prompt_2026-10-30.md,最上位の正本,確定
+master_prompt_reconciliation.md,マスタープロンプトと既存資料の対応表,更新中
+omnibus_series_bible.md,シリーズ設計書 v2,採点r4=83
+opening_seikimatsu_narita.md,世紀末のオープニング,下書き
+series_12_plan.md,12話の企画表,提案(JIN採用待ち)
+series_yasashii_tsuyosa_kikaku.md,,
+tokubetsu_chikara_to_sekinin_shijisho.md,GYMSTORYs別シリーズ,触らない(cTSDajPz注意)
+tokubetsu_codex_build_brief.md,GYMSTORYs別シリーズ,触らない(cTSDajPz注意)
+tokubetsu_codex_paste_prompt.md,GYMSTORYs別シリーズ,触らない(cTSDajPz注意)
